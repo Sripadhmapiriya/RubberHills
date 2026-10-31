@@ -1,0 +1,473 @@
+@import './variables.css';
+@import './animations.css';
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, var(--sky), var(--bg) 520px) no-repeat var(--bg);
+  color: var(--ink);
+  font: 400 1.05rem/1.65 'Nunito', system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Fredoka', "Trebuchet MS", sans-serif;
+  line-height: 1.1;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--berry);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  flex-wrap: wrap;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  max-width: 1040px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.logo {
+  font: 700 1.4rem 'Fredoka', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.logo img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+}
+
+.flogo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 0.6rem;
+}
+
+nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav a:hover {
+  color: var(--sun);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+  min-height: 100svh;
+  padding: 7rem max(1.25rem, calc(50vw - 520px + 1.25rem)) 6rem;
+  margin-bottom: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  color: #fff;
+  border-radius: 0;
+  background: linear-gradient(90deg, rgba(8, 34, 18, 0.86) 0%, rgba(8, 34, 18, 0.62) 55%, rgba(8, 34, 18, 0.3) 100%),
+              url('/assets/hero-bg.jpg') center 30% / cover #1D3F29;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  font-weight: 700;
+}
+
+.hero h1 span {
+  display: inline-block;
+  padding: 0 0.2em;
+  border-radius: 0.3em;
+  transform: rotate(-2deg);
+}
+
+.hero h1 .a {
+  background: var(--sun);
+  color: #1F3A4D;
+}
+
+.hero h1 .b {
+  background: var(--bark);
+  color: #fff;
+  transform: rotate(1.5deg);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #EEF6E8;
+  max-width: 34ch;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--leaf);
+  color: var(--btnink);
+  font: 600 1.1rem 'Fredoka', sans-serif;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--sun);
+  color: #2A2A12;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin-bottom: 0.6rem;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 56ch;
+  margin: 0 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  padding: 1.4rem;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.c1 {
+  border-radius: 2rem 2rem 0.6rem 2rem;
+  border-top: 8px solid var(--sun);
+}
+
+.c2 {
+  border-radius: 0.6rem 2rem 2rem 2rem;
+  border-top: 8px solid var(--bark);
+}
+
+.c3 {
+  border-radius: 2rem 0.6rem 2rem 2rem;
+  border-top: 8px solid var(--leaf);
+}
+
+.c4 {
+  border-radius: 2rem 2rem 2rem 0.6rem;
+  border-top: 8px solid #9BBF4A;
+}
+
+.day {
+  background: var(--surface);
+  border-radius: 2rem;
+  padding: 1.5rem;
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 2px dashed var(--line);
+}
+
+.slot:last-child {
+  border: 0;
+}
+
+.slot b {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--berry);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.facts div {
+  background: var(--sky);
+  border-radius: 1.5rem;
+  padding: 1.2rem;
+}
+
+.facts strong {
+  display: block;
+  font: 700 1.6rem 'Fredoka', sans-serif;
+}
+
+.enrol {
+  background: var(--sky);
+  border-radius: 2rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+input, select {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: 0.9rem;
+  font: inherit;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+#msg {
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+footer {
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 7rem 1rem 7rem 1rem;
+  display: block;
+  border: 6px solid var(--sun);
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about p {
+  margin: 0 0 1rem;
+  max-width: 62ch;
+}
+
+.people {
+  display: grid;
+  gap: 1rem;
+}
+
+.person {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-left: 8px solid var(--sun);
+  border-radius: 1rem 2rem 2rem 1rem;
+  padding: 1.1rem 1.3rem;
+}
+
+.person h3 {
+  font-size: 1.25rem;
+}
+
+.person p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 3rem 0.8rem 3rem 0.8rem;
+  display: block;
+}
+
+.hills {
+  display: block;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 80px;
+  margin-top: -79px;
+  margin-bottom: -1px;
+  position: relative;
+}
+
+.trees {
+  display: block;
+  width: 100%;
+  height: 90px;
+  margin-top: 2rem;
+}
+
+.tr {
+  fill: var(--leaf);
+}
+
+.tk {
+  fill: var(--bark);
+}
+
+.wed {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem 2rem 2rem 1rem;
+  background: var(--sky);
+  border-left: 8px solid var(--sun);
+}
+
+.wed b {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+}
+
+.creche {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-top: 8px solid #9BBF4A;
+  border-radius: 2rem;
+  padding: 1.6rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.creche h2 {
+  margin-bottom: 0.4rem;
+}
+
+.creche p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cfacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+
+.cfacts div {
+  background: var(--sky);
+  border-radius: 1.2rem;
+  padding: 0.8rem 1.1rem;
+}
+
+.cfacts strong {
+  display: block;
+  font: 700 1.4rem 'Fredoka', sans-serif;
+}
+
+.card a {
+  overflow-wrap: anywhere;
+  font-weight: 700;
+  color: var(--leaf);
+}
+
+.gallery figcaption {
+  padding: 0.5rem 0.3rem 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 760px) {
+  .hero,
+  .enrol {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 6rem 1.25rem 5rem;
+    background-image: linear-gradient(180deg, rgba(8, 34, 18, 0.72), rgba(8, 34, 18, 0.55)),
+                      url('/assets/hero-bg-mobile.jpg');
+    background-position: center top;
+  }
+
+  .slot {
+    grid-template-columns: 8rem 1fr;
+  }
+
+  .creche {
+    grid-template-columns: 1fr;
+    padding: 1.4rem;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+

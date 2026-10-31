@@ -1,0 +1,129 @@
+/* Subtle, professional animations */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base transitions */
+a, button, .btn, .card, .person, .gallery img, .facts div, .cfacts div {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1),
+              box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1),
+              color 0.2s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+/* Gentle hover effects on interactive elements */
+nav a {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--sun);
+  transition: width 0.25s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(47, 125, 79, 0.25);
+}
+
+.card:hover, .person:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(30, 58, 43, 0.08);
+}
+
+.gallery figure img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 28px rgba(30, 58, 43, 0.12);
+}
+
+.facts div:hover, .cfacts div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(47, 125, 79, 0.12);
+}
+
+/* Subtle fade-in animation for sections */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(16px);
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Hero elements initial gentle entrance */
+.hero h1 {
+  animation: heroTextFade 0.8s ease-out forwards;
+}
+
+.hero p {
+  animation: heroTextFade 0.9s ease-out forwards;
+}
+
+.hero .photo {
+  animation: heroPhotoFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroTextFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroPhotoFade {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Accessibility: respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-in-section,
+  .hero h1,
+  .hero p,
+  .hero .photo {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+  .card:hover, .person:hover, .btn:hover, .gallery figure img:hover, .facts div:hover, .cfacts div:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+

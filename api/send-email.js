@@ -8,6 +8,16 @@ export default async function handler(req, res) {
     return;
   }
 
+  // Ensure environment variables are loaded in local environments
+  if (!process.env.SMTP_USER) {
+    try {
+      const dotenv = await import('dotenv');
+      dotenv.config();
+    } catch (e) {
+      // Ignore if dotenv is not present
+    }
+  }
+
   try {
     let body = req.body;
     if (typeof body === 'string') {

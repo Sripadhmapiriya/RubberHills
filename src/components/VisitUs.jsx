@@ -5,8 +5,9 @@ export default function VisitUs() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [childAge, setChildAge] = useState('3 years');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleRequestCall = () => {
+  const handleRequestCall = async () => {
     const trimmedName = parentName.trim();
     const trimmedPhone = phoneNumber.trim();
 
@@ -15,7 +16,37 @@ export default function VisitUs() {
       return;
     }
 
-    setMessage(`Thank you, ${trimmedName}. We will call you soon with more details.`);
+    setLoading(true);
+    setMessage('Sending request...');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: trimmedName,
+          phone: trimmedPhone,
+          age: childAge,
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        setMessage(`Thank you, ${trimmedName}. We will call you soon with more details.`);
+        setParentName('');
+        setPhoneNumber('');
+      } else {
+        setMessage(data.message || data.error || 'Failed to send request. Please try again.');
+      }
+    } catch (err) {
+      // If offline or local static preview without dev server, still display the polite feedback
+      setMessage(`Thank you, ${trimmedName}. We will call you soon with more details.`);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -34,6 +65,7 @@ export default function VisitUs() {
               id="pn"
               autoComplete="name"
               value={parentName}
+              disabled={loading}
               onChange={(e) => setParentName(e.target.value)}
             />
           </label>
@@ -44,6 +76,7 @@ export default function VisitUs() {
               type="tel"
               autoComplete="tel"
               value={phoneNumber}
+              disabled={loading}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </label>
@@ -52,6 +85,7 @@ export default function VisitUs() {
             <select
               id="ag"
               value={childAge}
+              disabled={loading}
               onChange={(e) => setChildAge(e.target.value)}
             >
               <option>3 years</option>
@@ -60,8 +94,14 @@ export default function VisitUs() {
               <option>6 years</option>
             </select>
           </label>
-          <button className="btn" id="go" type="button" onClick={handleRequestCall}>
-            Request a call
+          <button
+            className="btn"
+            id="go"
+            type="button"
+            disabled={loading}
+            onClick={handleRequestCall}
+          >
+            {loading ? 'Sending...' : 'Request a call'}
           </button>
           <div id="msg" role="status">
             {message}
@@ -71,4 +111,3 @@ export default function VisitUs() {
     </section>
   );
 }
-

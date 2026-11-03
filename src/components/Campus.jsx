@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const campusItems = [
   {
@@ -59,37 +59,57 @@ const campusItems = [
 
 export default function Campus() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 760 : false
+  );
   const touchStartX = useRef(null);
+  const timerRef = useRef(null);
   const total = campusItems.length;
 
-  // Auto-advance every 3 seconds (3000ms)
   useEffect(() => {
-    if (isPaused) return;
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 760);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    const timer = setInterval(() => {
+  // Unstoppable auto-advance every 3 seconds
+  const startAutoPlay = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % total);
     }, 3000);
+  }, [total]);
 
-    return () => clearInterval(timer);
-  }, [isPaused, currentIndex, total]);
+  useEffect(() => {
+    startAutoPlay();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [startAutoPlay]);
+
+  // Bring any clicked card directly to the front
+  const handleCardClick = (index) => {
+    setCurrentIndex(index);
+    startAutoPlay(); // Reset timer so the user gets a full 3 seconds on the chosen image before auto-moving continues
+  };
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + total) % total);
+    startAutoPlay();
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
+    startAutoPlay();
   };
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
-  };
-
-  const handleCardClick = (diff, index) => {
-    if (diff !== 0) {
-      setCurrentIndex(index);
-    }
+    startAutoPlay();
   };
 
   const handleTouchStart = (e) => {
@@ -116,6 +136,64 @@ export default function Campus() {
     return diff;
   };
 
+  // 3D positioning styles for smooth transition
+  const getCardStyle = (diff) => {
+    const stepX = isMobile ? 54 : 60; // percentage offset
+
+    if (diff === 0) {
+      return {
+        transform: 'translate(-50%, -50%) scale(1) translateZ(0)',
+        zIndex: 20,
+        opacity: 1,
+        filter: 'none',
+        visibility: 'visible',
+      };
+    }
+
+    if (Math.abs(diff) === 1) {
+      const dir = diff > 0 ? 1 : -1;
+      return {
+        transform: `translate(calc(-50% + ${dir * stepX}%), -50%) scale(0.85) translateZ(-80px) rotateY(${-dir * 12}deg)`,
+        zIndex: 15,
+        opacity: 0.85,
+        filter: 'brightness(0.88)',
+        visibility: 'visible',
+      };
+    }
+
+    if (Math.abs(diff) === 2) {
+      const dir = diff > 0 ? 1 : -1;
+      return {
+        transform: `translate(calc(-50% + ${dir * (stepX * 1.8)}%), -50%) scale(0.72) translateZ(-160px) rotateY(${-dir * 18}deg)`,
+        zIndex: 10,
+        opacity: 0.55,
+        filter: 'brightness(0.75)',
+        visibility: 'visible',
+      };
+    }
+
+    if (Math.abs(diff) === 3) {
+      const dir = diff > 0 ? 1 : -1;
+      return {
+        transform: `translate(calc(-50% + ${dir * (stepX * 2.4)}%), -50%) scale(0.6) translateZ(-220px) rotateY(${-dir * 22}deg)`,
+        zIndex: 5,
+        opacity: 0.25,
+        filter: 'brightness(0.65)',
+        visibility: 'visible',
+      };
+    }
+
+    // Fully hidden
+    const dir = diff > 0 ? 1 : -1;
+    return {
+      transform: `translate(calc(-50% + ${dir * (stepX * 2.8)}%), -50%) scale(0.4)`,
+      zIndex: 1,
+      opacity: 0,
+      pointerEvents: 'none',
+      visibility: 'hidden',
+    };
+  };
+
   return (
     <section id="campus" className="fade-in-section campus-section">
       <h2>Our campus</h2>
@@ -126,8 +204,6 @@ export default function Campus() {
       {/* 3D Coverflow Container */}
       <div
         className="coverflow-container"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         aria-roledescription="carousel"
@@ -136,11 +212,8 @@ export default function Campus() {
         <div className="coverflow-stage">
           {campusItems.map((item, index) => {
             const diff = getDiff(index);
-            const isVisible = Math.abs(diff) <= 3;
-
-            if (!isVisible) return null;
-
             const isActive = diff === 0;
+            const style = getCardStyle(diff);
 
             return (
               <div
@@ -148,15 +221,27 @@ export default function Campus() {
                 className={`coverflow-card ${isActive ? 'active' : ''} ${
                   diff < 0 ? 'prev-card' : diff > 0 ? 'next-card' : ''
                 }`}
-                style={{
-                  '--diff': diff,
-                  '--abs-diff': Math.abs(diff),
-                }}
-                onClick={() => handleCardClick(diff, index)}
+                style={style}
+                onClick={() => handleCardClick(index)}
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`${index + 1} of ${total}: ${item.title}`}
+                title={isActive ? item.title : `Click to bring "${item.title}" to the front`}
               >
+                {/* Transparent overlay on non-active cards ensures 100% reliable click-to-front */}
+                {!isActive && (
+                  <button
+                    type="button"
+                    className="coverflow-click-overlay"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCardClick(index);
+                    }}
+                    aria-label={`View ${item.title}`}
+                    title={`Click to bring ${item.title} to the front`}
+                  />
+                )}
+
                 <div className="coverflow-img-wrapper">
                   <img
                     src={item.image}

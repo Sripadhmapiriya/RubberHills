@@ -5,7 +5,6 @@ import HillsDivider from './components/HillsDivider';
 import About from './components/About';
 import Campus from './components/Campus';
 import Staff from './components/Staff';
-import Students from './components/Students';
 import Learning from './components/Learning';
 import Creche from './components/Creche';
 import Classes from './components/Classes';
@@ -49,7 +48,6 @@ export default function App() {
         <About />
         <Campus />
         <Staff />
-        <Students />
         <Learning />
         <Creche />
         <Classes />

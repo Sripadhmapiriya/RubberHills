@@ -11,7 +11,6 @@ export default function Header() {
         <a href="#campus">Campus</a>
         <a href="#about">About</a>
         <a href="#staff">Staff</a>
-        <a href="#students">Students</a>
         <a href="#learn">Learning</a>
         <a href="#creche">Creche</a>
         <a href="#classes">Classes</a>

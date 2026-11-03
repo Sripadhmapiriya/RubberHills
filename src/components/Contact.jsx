@@ -1,4 +1,5 @@
 import React from 'react';
+import SocialLinks from './SocialLinks';
 
 export default function Contact() {
   return (
@@ -18,7 +19,9 @@ export default function Contact() {
           </p>
         </div>
       </div>
+      <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+        <SocialLinks />
+      </div>
     </section>
   );
 }
-

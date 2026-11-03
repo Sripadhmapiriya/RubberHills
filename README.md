@@ -10,7 +10,7 @@ A clean, responsive, and component-based React conversion of the official **Rubb
 rubber-hills-react/
 ├── public/
 │   ├── assets/
-│   │   ├── logo.jpg               # School crest logo (used in header & footer)
+│   │   ├── logo.jpg               # Official school crest logo (Header, Footer & Email)
 │   │   ├── hero-bg.jpg            # Desktop hero background
 │   │   ├── hero-bg-mobile.jpg     # Mobile responsive hero background
 │   │   ├── hero-building.jpg      # Hero school building feature photo
@@ -18,10 +18,11 @@ rubber-hills-react/
 │   │   ├── campus-court.jpg       # Play court photo
 │   │   ├── campus-entrance.jpg    # Main entrance photo
 │   │   └── campus-ramp.jpg        # Campus ramp photo
-│   └── favicon.ico
+│   ├── favicon.ico                # Official school logo favicon
+│   └── favicon.png                # PNG favicon
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx             # Navigation and logo
+│   │   ├── Header.jsx             # Navigation and official logo
 │   │   ├── Hero.jsx               # Hero title, description, and school photo
 │   │   ├── HillsDivider.jsx       # SVG hills transition divider
 │   │   ├── About.jsx              # About us narrative and founder profiles
@@ -33,19 +34,25 @@ rubber-hills-react/
 │   │   ├── Classes.jsx            # Class age groups
 │   │   ├── DayAtSchool.jsx        # Monday–Friday timetable and "No Book Day" note
 │   │   ├── QuickFacts.jsx         # Teacher ratio, age groups, timings, experience
-│   │   ├── VisitUs.jsx            # Interactive "Request a call" form with validation
-│   │   ├── Contact.jsx            # Address and email contact cards
+│   │   ├── VisitUs.jsx            # Enquiry form with validation (Parent, Contact, Child)
+│   │   ├── Contact.jsx            # Address, email cards & social links
+│   │   ├── SocialLinks.jsx        # Official Instagram and Facebook icons
 │   │   ├── TreesDivider.jsx       # Decorative rubber trees SVG pattern
-│   │   └── Footer.jsx             # School group info and operating hours
+│   │   └── Footer.jsx             # School logo, social links & operating hours
+│   ├── config/
+│   │   └── social.js              # Social media URLs (Instagram & Facebook)
 │   ├── styles/
-│   │   ├── variables.css          # Color palette, light/dark mode variables
-│   │   ├── animations.css         # Subtle transitions, gentle hover & scroll reveals
+│   │   ├── variables.css          # Color palette, light/dark mode CSS variables
+│   │   ├── animations.css         # Subtle transitions, hover & scroll reveals
 │   │   └── main.css               # Core styling, typography, and responsive layout
 │   ├── App.jsx                    # Root application component with scroll observer
 │   └── main.jsx                   # React DOM entry point
-├── index.html                     # HTML shell with Google Fonts (Fredoka & Nunito)
+├── api/
+│   └── send-email.js              # Nodemailer serverless email handler with HTML template
+├── .env.example                   # Environment variable template
+├── index.html                     # HTML shell with Google Fonts & official favicons
 ├── package.json                   # Dependencies and scripts
-└── vite.config.js                 # Vite React plugin configuration
+└── vite.config.js                 # Vite configuration with local API server middleware
 ```
 
 ---
@@ -55,45 +62,48 @@ rubber-hills-react/
 ### Prerequisites
 Make sure you have [Node.js](https://nodejs.org/) (v18 or higher) and `npm` installed.
 
-### 1. Install Dependencies
-Navigate into the project directory and install the packages:
+### 1. Configure Environment Variables
+Create a `.env` file in `rubber-hills-react/` (or copy `.env.example`):
 
+```env
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=rubberhillskindergarten@gmail.com
+SMTP_PASS=your-16-digit-app-password
+CONTACT_RECEIVER_EMAIL=rubberhillskindergarten@gmail.com
+```
+
+### 2. Install Dependencies
 ```bash
-cd rubber-hills-react
 npm install
 ```
 
-### 2. Run the Development Server
-Start the local Vite development server:
-
+### 3. Run the Development Server
 ```bash
 npm run dev
 ```
+Open your browser at `http://localhost:5173`. When testing the enquiry form locally, real emails will be sent directly via your configured Gmail SMTP!
 
-Open your browser and visit the local server address (usually `http://localhost:5173`).
-
-### 3. Build for Production
-To create an optimized production build:
-
+### 4. Build for Production
 ```bash
 npm run build
-```
-
-The output will be created in the `dist/` directory.
-
-### 4. Preview the Production Build
-To preview the production build locally:
-
-```bash
 npm run preview
 ```
 
 ---
 
-## ✨ Features & Verification
+## 📱 Social Media Links
+Configured in `src/config/social.js`:
+- **Instagram**: [https://www.instagram.com/rubberhillsgroup/](https://www.instagram.com/rubberhillsgroup/)
+- **Facebook**: Ready to connect your official Facebook URL.
 
-- **100% Content Preserved**: All text, headings, numbers, names, descriptions, and contact info from the original website are preserved verbatim without additions or omissions.
-- **Original Visual Design**: Colors (`--bg`, `--sky`, `--sun`, `--leaf`, `--berry`, `--bark`), fonts (`Fredoka` & `Nunito`), card borders, hero gradients, and responsive layouts are faithfully reproduced.
-- **Subtle, Professional Animations**: Smooth scrolling, gentle card and button hover transitions, and an `IntersectionObserver` scroll-reveal animation that respects `prefers-reduced-motion`.
-- **Working Interactivity**: The "Request a call" form features state-driven validation and feedback matching original behavior.
+---
 
+## 📩 Enquiry Form & Email Template
+- **Form Fields**:
+  1. `Parent / Visitor Name` (Required)
+  2. `Contact Number` (Required, validated for 10+ digits)
+  3. `Child’s Name` (Required)
+- **Email Delivery**: Uses `nodemailer` via Gmail SMTP with complete server-side validation.
+- **Branded Email Template**: Features the official circular Rubber Hills logo (CID embedded), clear `New Admission Enquiry` heading, formatted submission date & time (IST), clean table layout, and a direct `Call Parent Now` action button.

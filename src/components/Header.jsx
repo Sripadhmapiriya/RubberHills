@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header>
       <a className="logo" href="#top">
-        <img src="/assets/logo.jpg" alt="" />
+        <img src="/assets/logo.jpg" alt="Rubber Hills Kindergarten logo" />
         Rubber Hills
       </a>
       <nav aria-label="Main">
@@ -22,4 +22,3 @@ export default function Header() {
     </header>
   );
 }
-

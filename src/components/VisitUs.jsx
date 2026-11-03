@@ -1,23 +1,52 @@
 import React, { useState } from 'react';
 
 export default function VisitUs() {
-  const [parentName, setParentName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [childAge, setChildAge] = useState('3 years');
-  const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [parentVisitorName, setParentVisitorName] = useState('');
+  const [contactNumber, setContactNumber] = useState('');
+  const [childName, setChildName] = useState('');
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [statusMessage, setStatusMessage] = useState('');
+
+  // Validate contact number (allows domestic 10-digit numbers or international formats with optional +)
+  const isValidContactNumber = (phone) => {
+    const cleaned = phone.trim();
+    const digitsOnly = cleaned.replace(/\D/g, '');
+    const validCharacters = /^[+]?[\d\s\-()]{10,16}$/.test(cleaned);
+    return validCharacters && digitsOnly.length >= 10 && digitsOnly.length <= 15;
+  };
 
   const handleRequestCall = async () => {
-    const trimmedName = parentName.trim();
-    const trimmedPhone = phoneNumber.trim();
+    const trimmedParent = parentVisitorName.trim();
+    const trimmedContact = contactNumber.trim();
+    const trimmedChild = childName.trim();
 
-    if (!trimmedName || !trimmedPhone) {
-      setMessage('Please add your name and phone number.');
+    // Field-level validations
+    if (!trimmedParent) {
+      setStatus('error');
+      setStatusMessage('Please enter Parent / Visitor Name.');
       return;
     }
 
-    setLoading(true);
-    setMessage('Sending request...');
+    if (!trimmedContact) {
+      setStatus('error');
+      setStatusMessage('Please enter your Contact Number.');
+      return;
+    }
+
+    if (!isValidContactNumber(trimmedContact)) {
+      setStatus('error');
+      setStatusMessage('Please enter a valid Contact Number (at least 10 digits).');
+      return;
+    }
+
+    if (!trimmedChild) {
+      setStatus('error');
+      setStatusMessage('Please enter Child’s Name.');
+      return;
+    }
+
+    setStatus('loading');
+    setStatusMessage('Sending your enquiry...');
 
     try {
       const response = await fetch('/api/send-email', {
@@ -26,26 +55,37 @@ export default function VisitUs() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: trimmedName,
-          phone: trimmedPhone,
-          age: childAge,
+          parentVisitorName: trimmedParent,
+          contactNumber: trimmedContact,
+          childName: trimmedChild,
+          // Aliases for compatibility
+          name: trimmedParent,
+          phone: trimmedContact,
         }),
       });
 
       const data = await response.json().catch(() => ({}));
 
       if (response.ok) {
-        setMessage(`Thank you, ${trimmedName}. We will call you soon with more details.`);
-        setParentName('');
-        setPhoneNumber('');
+        setStatus('success');
+        setStatusMessage(
+          `Thank you, ${trimmedParent}. Your enquiry for ${trimmedChild} has been submitted successfully. We will call you soon at ${trimmedContact}.`
+        );
+        // Clear fields on successful submission
+        setParentVisitorName('');
+        setContactNumber('');
+        setChildName('');
       } else {
-        setMessage(data.message || data.error || 'Failed to send request. Please try again.');
+        setStatus('error');
+        setStatusMessage(
+          data.message || data.error || 'Failed to send your enquiry. Please try again later.'
+        );
       }
     } catch (err) {
-      // If offline or local static preview without dev server, still display the polite feedback
-      setMessage(`Thank you, ${trimmedName}. We will call you soon with more details.`);
-    } finally {
-      setLoading(false);
+      setStatus('error');
+      setStatusMessage(
+        'Unable to send enquiry. Please check your connection or contact us at rubberhillskindergarten@gmail.com.'
+      );
     }
   };
 
@@ -59,53 +99,75 @@ export default function VisitUs() {
           </p>
         </div>
         <div>
-          <label>
-            Parent name
+          <label htmlFor="pvn">
+            Parent / Visitor Name <span className="req">*</span>
             <input
-              id="pn"
+              id="pvn"
+              type="text"
               autoComplete="name"
-              value={parentName}
-              disabled={loading}
-              onChange={(e) => setParentName(e.target.value)}
+              placeholder="e.g. John Doe"
+              value={parentVisitorName}
+              disabled={status === 'loading'}
+              onChange={(e) => {
+                setParentVisitorName(e.target.value);
+                if (status === 'error') setStatus('idle');
+              }}
             />
           </label>
-          <label>
-            Phone number
+          <label htmlFor="cn">
+            Contact Number <span className="req">*</span>
             <input
-              id="ph"
+              id="cn"
               type="tel"
               autoComplete="tel"
-              value={phoneNumber}
-              disabled={loading}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="e.g. 9876543210"
+              value={contactNumber}
+              disabled={status === 'loading'}
+              onChange={(e) => {
+                setContactNumber(e.target.value);
+                if (status === 'error') setStatus('idle');
+              }}
             />
           </label>
-          <label>
-            Child’s age
-            <select
-              id="ag"
-              value={childAge}
-              disabled={loading}
-              onChange={(e) => setChildAge(e.target.value)}
-            >
-              <option>3 years</option>
-              <option>4 years</option>
-              <option>5 years</option>
-              <option>6 years</option>
-            </select>
+          <label htmlFor="chn">
+            Child’s Name <span className="req">*</span>
+            <input
+              id="chn"
+              type="text"
+              autoComplete="off"
+              placeholder="e.g. Emma"
+              value={childName}
+              disabled={status === 'loading'}
+              onChange={(e) => {
+                setChildName(e.target.value);
+                if (status === 'error') setStatus('idle');
+              }}
+            />
           </label>
           <button
             className="btn"
             id="go"
             type="button"
-            disabled={loading}
+            disabled={status === 'loading'}
             onClick={handleRequestCall}
           >
-            {loading ? 'Sending...' : 'Request a call'}
+            {status === 'loading' ? 'Sending enquiry...' : 'Request a call'}
           </button>
-          <div id="msg" role="status">
-            {message}
-          </div>
+          {statusMessage && (
+            <div
+              id="msg"
+              role="status"
+              className={
+                status === 'success'
+                  ? 'form-msg-success'
+                  : status === 'error'
+                  ? 'form-msg-error'
+                  : ''
+              }
+            >
+              {statusMessage}
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,0 +1,225 @@
+.page-timetable {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+
+.timetable-hero {
+  padding: 50px 0 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.timetable-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.timetable-pill {
+  margin-bottom: 18px;
+}
+
+.timetable-heading {
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.timetable-underline {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+}
+
+.timetable-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+/* Curved Timeline Container */
+.timeline-curved-wrapper {
+  position: relative;
+  padding: 40px 10px 60px;
+  margin: 20px 0 40px;
+  background: radial-gradient(ellipse 90% 60% at 50% 50%, rgba(223, 240, 201, 0.45) 0%, transparent 100%);
+}
+
+.timeline-items-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.timeline-time-badge {
+  background-color: var(--color-yellow);
+  color: var(--color-charcoal);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(245, 184, 0, 0.35);
+  white-space: nowrap;
+}
+
+.timeline-bubble {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid #DDF0C5;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+.timeline-node:hover .timeline-bubble {
+  transform: scale(1.1);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-lg);
+}
+
+.bubble-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.timeline-card-info {
+  background: #FFFFFF;
+  border: 1.5px solid #EBF3E3;
+  padding: 12px 10px;
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.node-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+.node-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Bottom Scene */
+.timetable-bottom-scene {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px dashed rgba(118, 184, 42, 0.3);
+}
+
+.scene-kids {
+  max-width: 240px;
+}
+
+.scene-kids-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.scene-quote-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.quote-heart {
+  color: var(--color-yellow);
+  fill: var(--color-yellow);
+}
+
+.scene-books {
+  max-width: 180px;
+}
+
+.scene-books-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .timeline-items-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-items-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .timeline-node {
+    flex-direction: row;
+    gap: 16px;
+    text-align: left;
+    background: #FFFFFF;
+    padding: 16px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .timeline-time-badge {
+    margin-bottom: 0;
+    align-self: center;
+  }
+  .timeline-bubble {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .timeline-card-info {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .timetable-bottom-scene {
+    flex-direction: column;
+    text-align: center;
+  }
+}

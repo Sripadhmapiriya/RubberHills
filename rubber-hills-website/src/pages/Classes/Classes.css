@@ -1,0 +1,261 @@
+.page-classes {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.classes-hero {
+  padding: 50px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.classes-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.classes-heading {
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.classes-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 14px;
+}
+
+/* 3 Main Classes Cards Grid */
+.classes-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.class-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 2px solid #EBF3E3;
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-light-green);
+}
+
+.class-corner-fold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--color-yellow) 50%, transparent 50%);
+  border-top-left-radius: 30px;
+  z-index: 3;
+}
+
+.class-star-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.class-image-container {
+  width: 100%;
+  height: 230px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.class-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.class-card-body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.class-card-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.class-card-tagline {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.btn-class-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 10px 12px 10px 22px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(6, 75, 37, 0.2);
+  transition: all 0.25s ease;
+}
+
+.btn-class-cta:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(6, 75, 37, 0.3);
+}
+
+/* Wide Creche Banner Card */
+.creche-banner-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 36px;
+  border: 2px solid #EBF3E3;
+  box-shadow: var(--shadow-md);
+  padding: 24px 36px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  overflow: hidden;
+}
+
+.creche-left-visual {
+  position: relative;
+  width: 200px;
+  height: 140px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.creche-yellow-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  background-color: var(--color-yellow);
+  z-index: 1;
+  clip-path: ellipse(100% 100% at 0% 50%);
+}
+
+.creche-toddler-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.creche-center-info {
+  flex: 1;
+}
+
+.creche-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.creche-heart-icon {
+  color: var(--color-yellow);
+}
+
+.creche-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.creche-age-pill {
+  display: inline-block;
+  background-color: var(--color-light-green);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 0.88rem;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+}
+
+.creche-desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.creche-right-action {
+  flex-shrink: 0;
+}
+
+.btn-creche {
+  padding: 12px 14px 12px 24px;
+}
+
+.creche-train-illustration {
+  flex-shrink: 0;
+  max-width: 120px;
+}
+
+.train-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 992px) {
+  .classes-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .creche-banner-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .creche-title-row {
+    justify-content: center;
+  }
+  .creche-left-visual {
+    width: 100%;
+    max-width: 260px;
+    height: 180px;
+  }
+}

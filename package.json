@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:new": "vite --root rubber-hills-website",
+    "dev:old": "vite --root existing-website",
+    "build:new": "vite build rubber-hills-website",
+    "build:old": "vite build existing-website"
   },
   "dependencies": {
     "dotenv": "^18.0.9",
+    "lucide-react": "^1.72.0",
     "nodemailer": "^10.3.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",

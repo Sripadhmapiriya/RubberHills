@@ -1,70 +1,69 @@
 # Rubber Hills Kindergarten — React Application
 
-A clean, responsive, and component-based React conversion of the official **Rubber Hills Kindergarten** website built with **Vite** and **React**.
+A clean, responsive, multi-page React website for **Rubber Hills Kindergarten** built with **Vite**, **React Router**, and **React 18**, converted directly from official high-fidelity visual templates.
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Architecture
+
+The project is structured with clean separation between the newly implemented 7-page website and the preserved legacy version:
 
 ```text
 rubber-hills-react/
+├── rubber-hills-website/       # 🌟 NEW 7-Page Multi-Page Application
+│   ├── public/                 # Static assets & favicons
+│   └── src/
+│       ├── assets/             # Photography, logo, illustrations & badges
+│       ├── components/
+│       │   ├── Navbar/         # Top navigation bar with active route indicators
+│       │   ├── Footer/         # Complete footer with social links & legacy archive link
+│       │   └── Shared/         # Reusable badges, headings, cards, and dividers
+│       ├── pages/
+│       │   ├── Home/           # Hero, statistics, programs, and CTA
+│       │   ├── About/          # Mission, leadership, values & story
+│       │   ├── Campus/         # 3D interactive coverflow carousel & campus tour
+│       │   ├── Learning/       # 9 learning pillars & pedagogical approach
+│       │   ├── Classes/        # Class age groups (Creche, Nursery, LKG, UKG)
+│       │   ├── TimeTable/      # Weekly schedule, timings, and daily activities
+│       │   ├── Contact/        # Working admission enquiry form & location details
+│       │   └── PreviousWebsite/# Direct link & redirect to preserved legacy design
+│       ├── App.jsx             # React Router routing table
+│       ├── main.jsx            # React root
+│       └── index.css           # Global typography, color tokens, and utility styles
+│
+├── existing-website/           # 📦 Preserved Legacy Single-Page React Website
+│   ├── src/                    # Original single-page components and styles
+│   ├── public/                 # Original assets
+│   └── vite.config.js          # Independent Vite config for legacy site
+│
 ├── public/
-│   ├── assets/
-│   │   ├── logo.jpg               # Official school crest logo (Header, Footer & Email)
-│   │   ├── hero-bg.jpg            # Desktop hero background
-│   │   ├── hero-bg-mobile.jpg     # Mobile responsive hero background
-│   │   ├── hero-building.jpg      # Hero school building feature photo
-│   │   ├── campus-walkway.jpg     # Campus walkway photo
-│   │   ├── campus-court.jpg       # Play court photo
-│   │   ├── campus-entrance.jpg    # Main entrance photo
-│   │   └── campus-ramp.jpg        # Campus ramp photo
-│   ├── favicon.ico                # Official school logo favicon
-│   └── favicon.png                # PNG favicon
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx             # Navigation and official logo
-│   │   ├── Hero.jsx               # Hero title, description, and school photo
-│   │   ├── HillsDivider.jsx       # SVG hills transition divider
-│   │   ├── About.jsx              # About us narrative and founder profiles
-│   │   ├── Campus.jsx             # Photo gallery with captions
-│   │   ├── Staff.jsx              # Teaching & leadership team
-│   │   ├── Students.jsx           # Age groups (Creche, Nursery, LKG, UKG)
-│   │   ├── Learning.jsx           # 9 learning pillars (Linguistic, Numeracy, etc.)
-│   │   ├── Creche.jsx             # Creche details and key facts
-│   │   ├── Classes.jsx            # Class age groups
-│   │   ├── DayAtSchool.jsx        # Monday–Friday timetable and "No Book Day" note
-│   │   ├── QuickFacts.jsx         # Teacher ratio, age groups, timings, experience
-│   │   ├── VisitUs.jsx            # Enquiry form with validation (Parent, Contact, Child)
-│   │   ├── Contact.jsx            # Address, email cards & social links
-│   │   ├── SocialLinks.jsx        # Official Instagram and Facebook icons
-│   │   ├── TreesDivider.jsx       # Decorative rubber trees SVG pattern
-│   │   └── Footer.jsx             # School logo, social links & operating hours
-│   ├── config/
-│   │   └── social.js              # Social media URLs (Instagram & Facebook)
-│   ├── styles/
-│   │   ├── variables.css          # Color palette, light/dark mode CSS variables
-│   │   ├── animations.css         # Subtle transitions, hover & scroll reveals
-│   │   └── main.css               # Core styling, typography, and responsive layout
-│   ├── App.jsx                    # Root application component with scroll observer
-│   └── main.jsx                   # React DOM entry point
+│   ├── previous-website.html   # Standalone preserved HTML archive with return banner
+│   ├── assets/                 # Shared images, official logos, and campus photos
+│   ├── favicon.ico             # Official school crest favicon
+│   └── favicon.png             # Official school crest PNG favicon
+│
 ├── api/
-│   └── send-email.js              # Nodemailer serverless email handler with HTML template
-├── .env.example                   # Environment variable template
-├── index.html                     # HTML shell with Google Fonts & official favicons
-├── package.json                   # Dependencies and scripts
-└── vite.config.js                 # Vite configuration with local API server middleware
+│   └── send-email.js           # Nodemailer SMTP serverless endpoint with branded HTML template
+│
+├── .env.example                # Environment variable configuration template
+├── package.json                # Dependencies, routing, and build scripts
+└── vite.config.js              # Vite config with API dev server middleware
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Running the Project
 
 ### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) (v18 or higher) and `npm` installed.
+Make sure [Node.js](https://nodejs.org/) (v18+) and `npm` are installed.
 
-### 1. Configure Environment Variables
-Create a `.env` file in `rubber-hills-react/` (or copy `.env.example`):
+### 1. Install Dependencies
+```bash
+npm install
+```
 
+### 2. Configure Environment Variables
+Copy `.env.example` to `.env` to configure admission email notifications:
 ```env
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
@@ -74,16 +73,11 @@ SMTP_PASS=your-16-digit-app-password
 CONTACT_RECEIVER_EMAIL=rubberhillskindergarten@gmail.com
 ```
 
-### 2. Install Dependencies
-```bash
-npm install
-```
-
-### 3. Run the Development Server
+### 3. Start Development Server
 ```bash
 npm run dev
 ```
-Open your browser at `http://localhost:5173`. When testing the enquiry form locally, real emails will be sent directly via your configured Gmail SMTP!
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### 4. Build for Production
 ```bash
@@ -93,17 +87,30 @@ npm run preview
 
 ---
 
-## 📱 Social Media Links
-Configured in `src/config/social.js`:
-- **Instagram**: [https://www.instagram.com/rubberhillsgroup/](https://www.instagram.com/rubberhillsgroup/)
-- **Facebook**: Ready to connect your official Facebook URL.
+## 🧭 Pages & Routes
+
+Each navigation link opens its own dedicated route (not a stacked single-page anchor):
+
+| Route | Page | Purpose |
+|---|---|---|
+| `/` | **Home** | Welcome hero, badge highlights, programs overview, philosophy |
+| `/about` | **About** | School legacy, mission, teaching leadership, and values |
+| `/campus` | **Campus** | 3D interactive coverflow carousel auto-advancing every 3s & facility cards |
+| `/learning` | **Learning** | 9 developmental learning pillars and interactive curriculum cards |
+| `/classes` | **Classes** | Creche (2.5–3 yrs), Nursery (3–4 yrs), Lower KG (4–5 yrs), Upper KG (5–6 yrs) |
+| `/time-table` | **Time Table** | Morning arrival, circle time, snacks, learning blocks, and departure |
+| `/contact` | **Contact** | Official address, map, contact info, and working admission enquiry form |
+| `/previous-website.html` | **Archive** | Full preserved legacy single-page design with floating "← Back to New Website" button |
 
 ---
 
-## 📩 Enquiry Form & Email Template
-- **Form Fields**:
-  1. `Parent / Visitor Name` (Required)
-  2. `Contact Number` (Required, validated for 10+ digits)
-  3. `Child’s Name` (Required)
-- **Email Delivery**: Uses `nodemailer` via Gmail SMTP with complete server-side validation.
-- **Branded Email Template**: Features the official circular Rubber Hills logo (CID embedded), clear `New Admission Enquiry` heading, formatted submission date & time (IST), clean table layout, and a direct `Call Parent Now` action button.
+## ✉️ Admission Enquiry Email Integration
+- **Server-Side Validation**: Sanitizes and validates Parent Name, Contact Number (10+ digits), and Child's Name.
+- **SMTP Transport**: Sends real emails via Gmail SMTP using Nodemailer.
+- **Branded Email Template**: Features the official circular school logo, structured table formatting, submission timestamp (IST), and a one-click phone action button.
+
+---
+
+## 🌐 Social Media
+- **Instagram**: [https://www.instagram.com/rubberhillsgroup/](https://www.instagram.com/rubberhillsgroup/)
+- **Facebook**: Ready to connect official profile.

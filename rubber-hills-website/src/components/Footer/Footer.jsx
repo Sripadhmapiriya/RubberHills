@@ -157,9 +157,9 @@ export default function Footer() {
               </li>
               {/* Preserved Previous Website Link */}
               <li className="previous-website-item">
-                <Link to="/previous-website" className="previous-website-link">
+                <a href="/previous-website.html" className="previous-website-link">
                   <History size={15} /> Previous Website
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

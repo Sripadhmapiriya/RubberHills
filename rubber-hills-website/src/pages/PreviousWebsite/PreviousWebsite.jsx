@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { History, ArrowLeft } from 'lucide-react';
 import { History } from 'lucide-react';
 import './PreviousWebsite.css';
 

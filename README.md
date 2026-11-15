@@ -4,50 +4,40 @@ A clean, responsive, multi-page React website for **Rubber Hills Kindergarten** 
 
 ---
 
-## 📁 Repository Architecture
-
-The project is structured with clean separation between the newly implemented 7-page website and the preserved legacy version:
+## 📁 Project Architecture
 
 ```text
 rubber-hills-react/
-├── rubber-hills-website/       # 🌟 NEW 7-Page Multi-Page Application
-│   ├── public/                 # Static assets & favicons
-│   └── src/
-│       ├── assets/             # Photography, logo, illustrations & badges
-│       ├── components/
-│       │   ├── Navbar/         # Top navigation bar with active route indicators
-│       │   ├── Footer/         # Complete footer with social links & legacy archive link
-│       │   └── Shared/         # Reusable badges, headings, cards, and dividers
-│       ├── pages/
-│       │   ├── Home/           # Hero, statistics, programs, and CTA
-│       │   ├── About/          # Mission, leadership, values & story
-│       │   ├── Campus/         # 3D interactive coverflow carousel & campus tour
-│       │   ├── Learning/       # 9 learning pillars & pedagogical approach
-│       │   ├── Classes/        # Class age groups (Creche, Nursery, LKG, UKG)
-│       │   ├── TimeTable/      # Weekly schedule, timings, and daily activities
-│       │   ├── Contact/        # Working admission enquiry form & location details
-│       │   └── PreviousWebsite/# Direct link & redirect to preserved legacy design
-│       ├── App.jsx             # React Router routing table
-│       ├── main.jsx            # React root
-│       └── index.css           # Global typography, color tokens, and utility styles
-│
-├── existing-website/           # 📦 Preserved Legacy Single-Page React Website
-│   ├── src/                    # Original single-page components and styles
-│   ├── public/                 # Original assets
-│   └── vite.config.js          # Independent Vite config for legacy site
-│
 ├── public/
-│   ├── previous-website.html   # Standalone preserved HTML archive with return banner
-│   ├── assets/                 # Shared images, official logos, and campus photos
+│   ├── assets/                 # Photography, logos, illustrations & icons
 │   ├── favicon.ico             # Official school crest favicon
 │   └── favicon.png             # Official school crest PNG favicon
+│
+├── src/
+│   ├── assets/                 # Project assets and illustrations
+│   ├── components/
+│   │   ├── Navbar/             # Responsive top navbar with active route indicators
+│   │   ├── Footer/             # Full footer with social media links & contact details
+│   │   └── Shared/             # Reusable badges, headings, cards, and scroll utils
+│   ├── pages/
+│   │   ├── Home/               # Hero, highlights, curriculum teaser, and CTA
+│   │   ├── About/              # School legacy, mission, teaching leadership, and values
+│   │   ├── Campus/             # 3D interactive coverflow carousel & campus tour
+│   │   ├── Learning/           # 9 developmental learning pillars and curriculum cards
+│   │   ├── Classes/            # Class age groups (Creche, Nursery, LKG, UKG)
+│   │   ├── TimeTable/          # Weekly schedule, daily timings, and activities
+│   │   └── Contact/            # Working admission enquiry form & location details
+│   ├── App.jsx                 # React Router routing table (7 core pages)
+│   ├── main.jsx                # React root entry point
+│   └── index.css               # Global typography, color tokens, and utility styles
 │
 ├── api/
 │   └── send-email.js           # Nodemailer SMTP serverless endpoint with branded HTML template
 │
 ├── .env.example                # Environment variable configuration template
-├── package.json                # Dependencies, routing, and build scripts
-└── vite.config.js              # Vite config with API dev server middleware
+├── package.json                # Dependencies and scripts
+├── vite.config.js              # Vite config with API dev server middleware
+└── jsconfig.json               # Path resolution configuration
 ```
 
 ---
@@ -89,7 +79,7 @@ npm run preview
 
 ## 🧭 Pages & Routes
 
-Each navigation link opens its own dedicated route (not a stacked single-page anchor):
+Each navigation link opens its own dedicated route:
 
 | Route | Page | Purpose |
 |---|---|---|
@@ -100,7 +90,6 @@ Each navigation link opens its own dedicated route (not a stacked single-page an
 | `/classes` | **Classes** | Creche (2.5–3 yrs), Nursery (3–4 yrs), Lower KG (4–5 yrs), Upper KG (5–6 yrs) |
 | `/time-table` | **Time Table** | Morning arrival, circle time, snacks, learning blocks, and departure |
 | `/contact` | **Contact** | Official address, map, contact info, and working admission enquiry form |
-| `/previous-website.html` | **Archive** | Full preserved legacy single-page design with floating "← Back to New Website" button |
 
 ---
 

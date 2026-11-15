@@ -8,7 +8,6 @@ import {
   GraduationCap,
   Sparkles,
   ChevronRight,
-  History,
 } from 'lucide-react';
 import './Footer.css';
 
@@ -154,12 +153,6 @@ export default function Footer() {
                 <Link to="/contact">
                   <ChevronRight size={14} /> Contact
                 </Link>
-              </li>
-              {/* Preserved Previous Website Link */}
-              <li className="previous-website-item">
-                <a href="/previous-website.html" className="previous-website-link">
-                  <History size={15} /> Previous Website
-                </a>
               </li>
             </ul>
           </div>

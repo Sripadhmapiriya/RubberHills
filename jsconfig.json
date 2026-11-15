@@ -8,6 +8,5 @@
     "checkJs": false,
     "baseUrl": "."
   },
-  "include": ["src/**/*", "rubber-hills-website/src/**/*", "public/**/*"]
+  "include": ["src/**/*", "public/**/*"]
 }
-

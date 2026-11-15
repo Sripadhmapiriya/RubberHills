@@ -157,27 +157,6 @@
   padding-left: 5px;
 }
 
-/* Previous Website Highlight */
-.previous-website-item {
-  margin-top: 8px;
-  padding-top: 10px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.15);
-}
-
-.previous-website-link {
-  color: #FFD21C !important;
-  font-weight: 700;
-  background: rgba(255, 210, 28, 0.1);
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 210, 28, 0.3);
-}
-
-.previous-website-link:hover {
-  background: rgba(255, 210, 28, 0.2);
-  transform: translateX(4px);
-}
-
 /* Contact Column */
 .footer-contact-items {
   display: flex;

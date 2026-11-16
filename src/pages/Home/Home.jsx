@@ -97,6 +97,92 @@ export default function Home() {
               <span className="heading-highlight">
                 Big discoveries.
                 <DoodleUnderline className="hero-underline" />
+
+                {/* 🌿 Botanical Leaf Pattern 1: Upper Sprig with Ambient Pastel Glow */}
+                <div className="heading-leaf-accent" aria-hidden="true">
+                  <svg viewBox="0 0 140 140" className="heading-leaf-svg">
+                    <defs>
+                      <radialGradient id="upper-glow-grad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="#DEF3C8" stopOpacity="0.95" />
+                        <stop offset="60%" stopColor="#E6F6D2" stopOpacity="0.75" />
+                        <stop offset="85%" stopColor="#EFF9E2" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="#FAF7EE" stopOpacity="0" />
+                      </radialGradient>
+
+                      <linearGradient id="up-leaf-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#8CCB3A" />
+                        <stop offset="50%" stopColor="#A8DC56" />
+                        <stop offset="100%" stopColor="#C4E87C" />
+                      </linearGradient>
+
+                      <linearGradient id="up-leaf-2" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#9BD544" />
+                        <stop offset="55%" stopColor="#BCE26E" />
+                        <stop offset="100%" stopColor="#D4EE8C" />
+                      </linearGradient>
+
+                      <linearGradient id="up-leaf-3" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#7EBF30" />
+                        <stop offset="50%" stopColor="#9CD748" />
+                        <stop offset="100%" stopColor="#BEE470" />
+                      </linearGradient>
+                    </defs>
+
+                    {/* Ambient Glow */}
+                    <circle cx="68" cy="62" r="50" fill="url(#upper-glow-grad)" />
+
+                    {/* Natural Curved Stem */}
+                    <path
+                      d="M 50 105 C 51 86 56 68 64 52"
+                      stroke="#80BF2E"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+
+                    {/* Top-Left Leaf */}
+                    <path
+                      d="M 64 52 C 55 34 36 22 14 18 C 21 35 38 48 64 52 Z"
+                      fill="url(#up-leaf-1)"
+                    />
+                    <path
+                      d="M 62 50 C 48 38 34 29 17 21"
+                      stroke="#70AB24"
+                      strokeWidth="1.1"
+                      strokeLinecap="round"
+                      fill="none"
+                      opacity="0.45"
+                    />
+
+                    {/* Top-Right Leaf */}
+                    <path
+                      d="M 64 52 C 78 36 96 26 112 24 C 108 42 94 54 64 52 Z"
+                      fill="url(#up-leaf-2)"
+                    />
+                    <path
+                      d="M 66 51 C 80 40 94 33 109 26"
+                      stroke="#86BE32"
+                      strokeWidth="1.1"
+                      strokeLinecap="round"
+                      fill="none"
+                      opacity="0.45"
+                    />
+
+                    {/* Lower-Left Leaf */}
+                    <path
+                      d="M 56 74 C 38 72 22 79 16 88 C 26 97 44 92 56 74 Z"
+                      fill="url(#up-leaf-3)"
+                    />
+                    <path
+                      d="M 54 75 C 41 78 30 83 20 87"
+                      stroke="#6EA622"
+                      strokeWidth="1"
+                      strokeLinecap="round"
+                      fill="none"
+                      opacity="0.45"
+                    />
+                  </svg>
+                </div>
               </span>
             </h1>
 
@@ -116,81 +202,115 @@ export default function Home() {
                 Plan a visit
               </Link>
             </div>
-          </div>
 
-          {/* 🌿 Botanical Leaf Pattern 1: Upper Sprig with Pastel Glow Blob */}
-          <div className="hero-leaf-sprig-upper" aria-hidden="true">
-            <svg viewBox="0 0 120 120" className="hero-leaf-svg">
-              {/* Soft Pastel Green Organic Blob Glow */}
-              <path
-                d="M 58 14 C 84 10 108 26 104 58 C 100 88 76 102 48 98 C 20 94 10 70 14 44 C 18 20 32 16 58 14 Z"
-                fill="#DEF2CA"
-                opacity="0.88"
-              />
-              {/* Delicate Branch Stem */}
-              <path
-                d="M 46 88 C 47 72 52 58 58 44"
-                stroke="#A2D758"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-                fill="none"
-              />
-              {/* Top-Left Leaf (Pointing Up-Left) */}
-              <path
-                d="M 58 44 C 52 26 34 18 18 18 C 22 34 38 44 58 44 Z"
-                fill="#B2DE68"
-              />
-              {/* Top-Right Leaf (Pointing Up-Right) */}
-              <path
-                d="M 58 44 C 70 30 84 24 88 24 C 88 36 76 46 58 44 Z"
-                fill="#C2E57C"
-              />
-              {/* Bottom-Left Leaf */}
-              <path
-                d="M 50 64 C 36 64 22 70 20 78 C 28 84 42 78 50 64 Z"
-                fill="#A4D958"
-              />
-            </svg>
-          </div>
+            {/* 🌿 Botanical Leaf Pattern 2: Lower Sprig with Soft Hill Backdrop */}
+            <div className="hero-leaf-sprig-lower" aria-hidden="true">
+              <svg viewBox="0 0 240 200" className="hero-leaf-svg">
+                <defs>
+                  <radialGradient id="low-hill-grad" cx="62%" cy="85%" r="75%">
+                    <stop offset="0%" stopColor="#DEF3C8" stopOpacity="0.95" />
+                    <stop offset="60%" stopColor="#E5F6D0" stopOpacity="0.82" />
+                    <stop offset="85%" stopColor="#EEF9DC" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#FAF7EE" stopOpacity="0" />
+                  </radialGradient>
 
-          {/* 🌿 Botanical Leaf Pattern 2: Lower Sprig with Pastel Hill Blob */}
-          <div className="hero-leaf-sprig-lower" aria-hidden="true">
-            <svg viewBox="0 0 170 150" className="hero-leaf-svg">
-              {/* Soft Pastel Green Organic Hill Wave Blob */}
-              <path
-                d="M 35 150 C 30 110 50 62 88 40 C 122 20 155 45 170 90 L 170 150 Z"
-                fill="#DEF2CA"
-                opacity="0.92"
-              />
-              {/* Delicate Branch Stem */}
-              <path
-                d="M 44 130 C 42 104 36 78 30 50"
-                stroke="#589B2B"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                fill="none"
-              />
-              {/* Top-Left Leaf (Pointing Up-Left) */}
-              <path
-                d="M 30 50 C 24 32 12 24 4 22 C 6 36 18 48 30 50 Z"
-                fill="#68B432"
-              />
-              {/* Top-Right Leaf (Pointing Up-Right) */}
-              <path
-                d="M 31 58 C 45 42 60 34 66 34 C 66 46 55 58 31 58 Z"
-                fill="#7ECB46"
-              />
-              {/* Middle-Left Leaf (Pointing Left) */}
-              <path
-                d="M 35 80 C 18 72 8 74 4 80 C 10 90 24 90 35 80 Z"
-                fill="#4E9928"
-              />
-              {/* Bottom Accent Leaf Near Base */}
-              <path
-                d="M 40 104 C 28 96 18 100 16 106 C 22 112 32 112 40 104 Z"
-                fill="#62A52F"
-              />
-            </svg>
+                  <linearGradient id="low-leaf-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3C781E" />
+                    <stop offset="55%" stopColor="#58A02A" />
+                    <stop offset="100%" stopColor="#78C43E" />
+                  </linearGradient>
+
+                  <linearGradient id="low-leaf-2" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#4A8C24" />
+                    <stop offset="55%" stopColor="#6EBA35" />
+                    <stop offset="100%" stopColor="#92DC4E" />
+                  </linearGradient>
+
+                  <linearGradient id="low-leaf-3" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#326718" />
+                    <stop offset="55%" stopColor="#488C22" />
+                    <stop offset="100%" stopColor="#64AD30" />
+                  </linearGradient>
+
+                  <linearGradient id="low-leaf-4" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#3A721C" />
+                    <stop offset="60%" stopColor="#559B28" />
+                    <stop offset="100%" stopColor="#76BE3B" />
+                  </linearGradient>
+                </defs>
+
+                {/* Hill Backdrop */}
+                <path
+                  d="M 15 200 C 15 125 55 60 115 32 C 168 8 215 34 235 98 C 242 128 242 168 240 200 Z"
+                  fill="url(#low-hill-grad)"
+                />
+
+                {/* Main Botanical Stem */}
+                <path
+                  d="M 56 182 C 54 142 46 104 36 62"
+                  stroke="#3B761D"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+
+                {/* Leaf 1: Top-Left */}
+                <path
+                  d="M 36 62 C 26 40 14 28 2 24 C 5 42 20 58 36 62 Z"
+                  fill="url(#low-leaf-1)"
+                />
+                <path
+                  d="M 34 60 C 22 46 14 38 5 27"
+                  stroke="#2F6016"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  fill="none"
+                  opacity="0.5"
+                />
+
+                {/* Leaf 2: Top-Right */}
+                <path
+                  d="M 38 72 C 58 52 78 42 90 42 C 88 58 74 74 38 72 Z"
+                  fill="url(#low-leaf-2)"
+                />
+                <path
+                  d="M 40 71 C 56 58 72 50 85 44"
+                  stroke="#3E7C1F"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  fill="none"
+                  opacity="0.5"
+                />
+
+                {/* Leaf 3: Middle-Left */}
+                <path
+                  d="M 46 105 C 22 95 8 98 2 106 C 12 120 30 118 46 105 Z"
+                  fill="url(#low-leaf-3)"
+                />
+                <path
+                  d="M 43 106 C 28 103 16 103 5 106"
+                  stroke="#255012"
+                  strokeWidth="1.1"
+                  strokeLinecap="round"
+                  fill="none"
+                  opacity="0.5"
+                />
+
+                {/* Leaf 4: Lower-Left Accent */}
+                <path
+                  d="M 52 140 C 34 131 20 137 15 146 C 24 156 38 153 52 140 Z"
+                  fill="url(#low-leaf-4)"
+                />
+                <path
+                  d="M 50 141 C 38 139 28 142 19 146"
+                  stroke="#2C5B14"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  fill="none"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </section>

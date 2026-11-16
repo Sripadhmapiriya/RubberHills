@@ -8,30 +8,38 @@
 /* ============================================================== */
 /* BOTANICAL LEAF PATTERNS (Exact Reference Mockup Design)        */
 /* ============================================================== */
-.hero-leaf-sprig-upper {
+.heading-leaf-accent {
   position: absolute;
-  top: 90px;
-  left: 485px;
-  width: 110px;
-  height: 110px;
+  top: -46px;
+  right: -85px;
+  width: 125px;
+  height: 125px;
   pointer-events: none;
-  z-index: 4;
+  z-index: 2;
+}
+
+.heading-leaf-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
 }
 
 .hero-leaf-sprig-lower {
   position: absolute;
-  bottom: -22px;
-  left: 430px;
-  width: 165px;
-  height: 145px;
+  bottom: -25px;
+  right: -55px;
+  width: 215px;
+  height: 180px;
   pointer-events: none;
-  z-index: 4;
+  z-index: 3;
 }
 
 .hero-leaf-svg {
   width: 100%;
   height: 100%;
   display: block;
+  overflow: visible;
 }
 
 /* ============================================================== */
@@ -620,7 +628,7 @@
 /* RESPONSIVE BREAKPOINTS                                         */
 /* ============================================================== */
 @media (max-width: 1080px) {
-  .hero-leaf-sprig-upper,
+  .heading-leaf-accent,
   .hero-leaf-sprig-lower {
     display: none;
   }

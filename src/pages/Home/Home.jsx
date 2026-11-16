@@ -18,64 +18,6 @@ export default function Home() {
 
   return (
     <div className="page-home">
-      {/* 🌿 Botanical Leaves - Top Left Hanging Cluster */}
-      <div className="corner-leaves-top-left" aria-hidden="true">
-        <svg viewBox="0 0 240 220" className="leaves-svg">
-          <path
-            d="M 0 0 C 40 40 70 90 90 150 C 60 140 20 110 0 60 Z"
-            fill="#064B25"
-            opacity="0.9"
-          />
-          <path
-            d="M 0 0 C 40 60 70 110 90 150"
-            stroke="#76B82A"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 10 0 C 70 30 130 65 170 120 C 130 125 70 100 20 40 Z"
-            fill="#76B82A"
-            opacity="0.85"
-          />
-          <path
-            d="M 10 0 C 80 40 130 80 170 120"
-            stroke="#064B25"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 0 40 C 50 70 100 120 120 190 C 80 170 40 140 0 100 Z"
-            fill="#4A8A2A"
-            opacity="0.8"
-          />
-          <path
-            d="M 50 10 C 90 35 120 60 150 90 C 120 95 90 80 60 50 Z"
-            fill="#DFF0C9"
-            opacity="0.95"
-          />
-        </svg>
-      </div>
-
-      {/* 🌿 Top Center Soft Leaf Pair */}
-      <div className="floating-top-accent" aria-hidden="true">
-        <svg viewBox="0 0 100 80" className="leaf-pair-svg">
-          <path
-            d="M 10 60 C 20 30 50 15 80 10 C 75 40 55 60 25 70 Z"
-            fill="#DDF0C7"
-          />
-          <path
-            d="M 10 60 C 35 40 55 30 80 10"
-            stroke="#76B82A"
-            strokeWidth="2"
-          />
-          <path
-            d="M 35 65 C 50 45 75 35 95 30 C 90 55 75 70 50 75 Z"
-            fill="#A3D668"
-            opacity="0.8"
-          />
-        </svg>
-      </div>
-
       {/* ============================================================== */}
       {/* 1. HERO SECTION (User's Exact Wave Path & Clip-Path)           */}
       {/* ============================================================== */}
@@ -174,6 +116,81 @@ export default function Home() {
                 Plan a visit
               </Link>
             </div>
+          </div>
+
+          {/* 🌿 Botanical Leaf Pattern 1: Upper Sprig with Pastel Glow Blob */}
+          <div className="hero-leaf-sprig-upper" aria-hidden="true">
+            <svg viewBox="0 0 120 120" className="hero-leaf-svg">
+              {/* Soft Pastel Green Organic Blob Glow */}
+              <path
+                d="M 58 14 C 84 10 108 26 104 58 C 100 88 76 102 48 98 C 20 94 10 70 14 44 C 18 20 32 16 58 14 Z"
+                fill="#DEF2CA"
+                opacity="0.88"
+              />
+              {/* Delicate Branch Stem */}
+              <path
+                d="M 46 88 C 47 72 52 58 58 44"
+                stroke="#A2D758"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                fill="none"
+              />
+              {/* Top-Left Leaf (Pointing Up-Left) */}
+              <path
+                d="M 58 44 C 52 26 34 18 18 18 C 22 34 38 44 58 44 Z"
+                fill="#B2DE68"
+              />
+              {/* Top-Right Leaf (Pointing Up-Right) */}
+              <path
+                d="M 58 44 C 70 30 84 24 88 24 C 88 36 76 46 58 44 Z"
+                fill="#C2E57C"
+              />
+              {/* Bottom-Left Leaf */}
+              <path
+                d="M 50 64 C 36 64 22 70 20 78 C 28 84 42 78 50 64 Z"
+                fill="#A4D958"
+              />
+            </svg>
+          </div>
+
+          {/* 🌿 Botanical Leaf Pattern 2: Lower Sprig with Pastel Hill Blob */}
+          <div className="hero-leaf-sprig-lower" aria-hidden="true">
+            <svg viewBox="0 0 170 150" className="hero-leaf-svg">
+              {/* Soft Pastel Green Organic Hill Wave Blob */}
+              <path
+                d="M 35 150 C 30 110 50 62 88 40 C 122 20 155 45 170 90 L 170 150 Z"
+                fill="#DEF2CA"
+                opacity="0.92"
+              />
+              {/* Delicate Branch Stem */}
+              <path
+                d="M 44 130 C 42 104 36 78 30 50"
+                stroke="#589B2B"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                fill="none"
+              />
+              {/* Top-Left Leaf (Pointing Up-Left) */}
+              <path
+                d="M 30 50 C 24 32 12 24 4 22 C 6 36 18 48 30 50 Z"
+                fill="#68B432"
+              />
+              {/* Top-Right Leaf (Pointing Up-Right) */}
+              <path
+                d="M 31 58 C 45 42 60 34 66 34 C 66 46 55 58 31 58 Z"
+                fill="#7ECB46"
+              />
+              {/* Middle-Left Leaf (Pointing Left) */}
+              <path
+                d="M 35 80 C 18 72 8 74 4 80 C 10 90 24 90 35 80 Z"
+                fill="#4E9928"
+              />
+              {/* Bottom Accent Leaf Near Base */}
+              <path
+                d="M 40 104 C 28 96 18 100 16 106 C 22 112 32 112 40 104 Z"
+                fill="#62A52F"
+              />
+            </svg>
           </div>
         </div>
       </section>

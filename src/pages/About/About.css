@@ -1,19 +1,29 @@
+/* ============================================================== */
+/* RUBBER HILLS KINDERGARTEN - ABOUT PAGE STYLING                 */
+/* Approved Theme: Cream, Forest Green, Fresh Botanical & Yellow   */
+/* ============================================================== */
+
 .page-about {
   position: relative;
   overflow: hidden;
+  background-color: var(--color-cream);
+  min-height: 100vh;
 }
 
+/* ============================================================== */
+/* 1. ABOUT HERO SECTION                                          */
+/* ============================================================== */
 .about-hero {
-  padding: 50px 0 70px;
+  padding: 60px 0 60px;
   position: relative;
   z-index: 2;
 }
 
 .about-container {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.25fr;
   align-items: center;
-  gap: 50px;
+  gap: 52px;
 }
 
 .about-text-col {
@@ -23,7 +33,7 @@
 }
 
 .about-pill {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .about-title-wrapper {
@@ -33,8 +43,8 @@
 
 .about-rays {
   position: absolute;
-  top: -15px;
-  right: 40px;
+  top: -14px;
+  right: 50px;
 }
 
 .about-heading {
@@ -43,6 +53,11 @@
   color: var(--color-primary);
   line-height: 1.1;
   letter-spacing: -0.02em;
+}
+
+.heading-highlight {
+  position: relative;
+  display: inline-block;
 }
 
 .about-underline {
@@ -58,7 +73,48 @@
   font-weight: 600;
   line-height: 1.6;
   margin-bottom: 34px;
-  max-width: 480px;
+  max-width: 490px;
+}
+
+/* Primary Green Button */
+.btn-primary-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #064B25;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.02rem;
+  padding: 12px 14px 12px 26px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(6, 75, 37, 0.25);
+  transition: all 0.25s ease;
+}
+
+.btn-primary-green:hover {
+  background-color: #073D20;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 75, 37, 0.35);
+  color: #FFFFFF;
+}
+
+.btn-arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary-green:hover .btn-arrow-circle {
+  transform: translateX(4px);
+  background-color: rgba(255, 255, 255, 0.32);
 }
 
 /* Collage */
@@ -118,29 +174,469 @@
   display: block;
 }
 
-/* Values Section */
+/* Wave Transition Divider */
+.section-wave-divider {
+  width: 100%;
+  line-height: 0;
+  margin-top: 10px;
+  margin-bottom: -1px;
+}
+
+.section-wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 48px;
+}
+
+/* ============================================================== */
+/* 2. OUR STORY SECTION                                           */
+/* ============================================================== */
+.about-story-section {
+  padding: 70px 0 80px;
+  background-color: #FFFDF5;
+  border-radius: 48px;
+  margin: 10px 0 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(6, 75, 37, 0.03);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.story-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-pill {
+  align-self: flex-start;
+  margin-bottom: 18px;
+}
+
+.story-title-wrapper {
+  margin-bottom: 24px;
+}
+
+.story-heading {
+  font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.story-paragraphs-wrapper {
+  margin-bottom: 28px;
+}
+
+.story-paragraph {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #385343;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.story-paragraph.lead-paragraph {
+  font-size: clamp(1.15rem, 2vw, 1.28rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.65;
+  padding-left: 18px;
+  border-left: 4px solid var(--color-yellow);
+  background: linear-gradient(90deg, rgba(255, 247, 209, 0.5) 0%, transparent 100%);
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 0 12px 12px 0;
+}
+
+.story-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.story-callouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.story-callout-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-pale-green);
+  border: 1.5px solid var(--color-light-green);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.callout-bullet {
+  font-size: 1.05rem;
+}
+
+/* Right Visual Showcase in Our Story */
+.story-visual-col {
+  display: flex;
+  justify-content: center;
+}
+
+.story-visual-card {
+  width: 100%;
+  background: #FFFFFF;
+  border: 2px solid #E4EED7;
+  border-radius: 32px;
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-visual-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.story-image-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 3px solid #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+}
+
+.story-campus-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.story-visual-card:hover .story-campus-img {
+  transform: scale(1.03);
+}
+
+.story-image-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  background: rgba(6, 75, 37, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 14px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.story-image-badge .badge-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-yellow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.story-image-badge .badge-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.story-highlights-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 6px 8px;
+}
+
+.story-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.highlight-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.highlight-icon.green {
+  background-color: var(--color-light-green);
+  color: var(--color-primary);
+}
+
+.highlight-icon.yellow {
+  background-color: var(--color-yellow-pale);
+  color: #B58400;
+}
+
+.highlight-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 3px;
+}
+
+.highlight-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================================== */
+/* 3. MEET OUR FOUNDERS SECTION                                   */
+/* ============================================================== */
+.about-founders-section {
+  padding: 60px 0 90px;
+  position: relative;
+  z-index: 2;
+}
+
+.founders-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.founders-pill {
+  margin-bottom: 16px;
+}
+
+.founders-heading {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.founders-subtitle {
+  font-size: 1.12rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+/* Founder Card */
+.founder-card {
+  background: #FFFFFF;
+  border: 2px solid #EBF3E3;
+  border-radius: 32px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-card.card-ajin {
+  border-left: 6px solid var(--color-yellow);
+}
+
+.founder-card.card-luie {
+  border-left: 6px solid var(--color-primary-light);
+}
+
+.founder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-light-green);
+}
+
+.founder-card.card-ajin:hover {
+  border-left-color: var(--color-yellow-dark);
+}
+
+.founder-card.card-luie:hover {
+  border-left-color: var(--color-primary);
+}
+
+.founder-card-inner {
+  padding: 38px 34px 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.founder-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+/* Tasteful Initial Avatar */
+.founder-avatar-wrap {
+  position: relative;
+}
+
+.founder-avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3.5px solid #FFFFFF;
+  box-shadow: 0 6px 18px rgba(6, 75, 37, 0.16);
+}
+
+.founder-avatar.avatar-navy {
+  background: linear-gradient(135deg, #073D20 0%, #0E5E33 100%);
+}
+
+.founder-avatar.avatar-educator {
+  background: linear-gradient(135deg, #0A4E27 0%, #177C46 100%);
+}
+
+.founder-initials {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--color-yellow);
+  letter-spacing: 0.04em;
+}
+
+.founder-sub-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-yellow);
+  color: var(--color-primary-dark);
+  border: 2.5px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.founder-role-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+}
+
+.tag-navy {
+  background-color: var(--color-pale-green);
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-light-green);
+}
+
+.tag-educator {
+  background-color: var(--color-yellow-pale);
+  color: #8C6600;
+  border: 1.5px solid #FFE785;
+}
+
+.founder-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-name {
+  font-size: clamp(1.45rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.founder-divider-navy {
+  width: 44px;
+  height: 3.5px;
+  background-color: var(--color-yellow);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.founder-divider-educator {
+  width: 44px;
+  height: 3.5px;
+  background-color: var(--color-primary-light);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.founder-description {
+  font-size: 1.05rem;
+  color: #435E4E;
+  font-weight: 600;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================== */
+/* 4. VALUES & PHILOSOPHY SECTION (Why Families Choose Us)        */
+/* ============================================================== */
 .about-values-section {
-  padding: 60px 0 80px;
+  padding: 70px 0 85px;
   background-color: var(--color-cream-light);
   border-radius: 48px;
-  margin: 20px 0;
+  margin: 20px 0 60px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(6, 75, 37, 0.03);
 }
 
 .values-header {
   text-align: center;
-  max-width: 640px;
-  margin: 0 auto 50px;
+  max-width: 660px;
+  margin: 0 auto 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.values-pill {
+  margin-bottom: 16px;
 }
 
 .values-title {
   font-size: clamp(2rem, 3.8vw, 2.8rem);
   color: var(--color-primary);
   margin-bottom: 12px;
+  font-weight: 800;
 }
 
 .values-subtitle {
   font-size: 1.1rem;
   color: var(--color-text-muted);
+  line-height: 1.6;
+  font-weight: 600;
 }
 
 .values-grid {
@@ -151,11 +647,13 @@
 
 .value-card {
   background: #FFFFFF;
-  padding: 32px 24px;
-  border-radius: 24px;
+  padding: 34px 26px;
+  border-radius: 28px;
   border: 2px solid #EBF3E3;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .value-card:hover {
@@ -173,31 +671,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 12px rgba(6, 75, 37, 0.08);
 }
 
 .value-card h3 {
   font-size: 1.25rem;
   color: var(--color-primary);
   margin-bottom: 10px;
+  font-weight: 800;
 }
 
 .value-card p {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: var(--color-text-muted);
-  line-height: 1.55;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 600;
 }
 
-@media (max-width: 992px) {
+/* ============================================================== */
+/* RESPONSIVE DESIGN                                              */
+/* ============================================================== */
+@media (max-width: 1024px) {
   .about-container {
     grid-template-columns: 1fr;
+    gap: 40px;
     text-align: center;
   }
   .about-text-col {
     align-items: center;
   }
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .story-content-col {
+    align-items: center;
+    text-align: center;
+  }
+  .story-paragraph.lead-paragraph {
+    border-left: none;
+    border-bottom: 4px solid var(--color-yellow);
+    padding-left: 0;
+    padding-bottom: 12px;
+    border-radius: 0;
+  }
+  .story-callouts {
+    justify-content: center;
+  }
   .values-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .about-scalloped-badge {
+    right: 0px;
+    top: -15px;
+    transform: scale(0.85);
   }
 }
 
@@ -208,8 +744,26 @@
   .collage-bottom-row {
     grid-template-columns: 1fr;
   }
-  .about-scalloped-badge {
-    right: 5px;
-    top: 5px;
+  .about-hero {
+    padding: 30px 0 40px;
+  }
+  .about-story-section {
+    padding: 50px 0 60px;
+    border-radius: 32px;
+  }
+  .about-founders-section {
+    padding: 40px 0 60px;
+  }
+  .about-values-section {
+    padding: 50px 0 60px;
+    border-radius: 32px;
+  }
+  .founder-card-inner {
+    padding: 28px 22px;
+  }
+  .founder-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
 }

@@ -47,12 +47,7 @@ export default function Navbar() {
     {
       name: 'Campus',
       path: '/campus',
-      hasDropdown: true,
-      subItems: [
-        { name: 'Campus Tour', path: '/campus' },
-        { name: 'Facilities & Safety', path: '/campus#facilities' },
-        { name: 'Outdoor Play Court', path: '/campus#playground' },
-      ],
+      hasDropdown: false,
     },
     {
       name: 'Learning',

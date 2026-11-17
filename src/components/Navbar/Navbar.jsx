@@ -38,9 +38,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`navbar-header ${isHomePage ? 'home-transparent' : ''} ${
-        scrolled ? 'scrolled' : ''
-      }`}
+      className={`navbar-header ${isHomePage ? 'home-transparent' : ''} ${scrolled ? 'scrolled' : ''
+        }`}
     >
       {/* Falling Curvy Island Container */}
       <div className="navbar-falling-island">

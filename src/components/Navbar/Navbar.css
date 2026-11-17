@@ -42,6 +42,7 @@
     transform: translateY(-100%);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -334,12 +335,15 @@
   .navbar-header {
     padding: 12px 0 0;
   }
+
   .navbar-header.scrolled {
     padding: 0;
   }
+
   .navbar-falling-island {
     width: 100%;
   }
+
   .navbar-header.scrolled .navbar-falling-island {
     width: calc(100% - 24px);
     border-bottom-left-radius: 20px;
@@ -363,6 +367,7 @@
     height: 64px;
     padding: 0 20px;
   }
+
   .navbar-header.scrolled .navbar-container {
     height: 60px;
     padding: 0 16px;

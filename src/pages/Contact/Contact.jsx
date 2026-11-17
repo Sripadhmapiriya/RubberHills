@@ -16,6 +16,7 @@ import ScallopedBadge from '../../components/Shared/ScallopedBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import { CONTACT_IMAGES } from '../../config/images';
 import './Contact.css';
 
 export default function Contact() {
@@ -111,8 +112,8 @@ export default function Contact() {
           <div className="contact-left-col">
             <div className="contact-brand-row" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <img
-                src="/assets/logo.jpg"
-                alt="Rubber Hills Kindergarten Logo"
+                src={CONTACT_IMAGES.brandLogo.src}
+                alt={CONTACT_IMAGES.brandLogo.alt}
                 className="contact-brand-logo"
                 style={{ width: '54px', height: '54px', borderRadius: '50%', objectFit: 'contain', background: '#FFFFFF', padding: '2px', boxShadow: '0 2px 10px rgba(6,75,37,0.12)' }}
               />
@@ -184,9 +185,10 @@ export default function Contact() {
             {/* Top Campus Photo with Admissions Open Badge */}
             <div className="contact-campus-card">
               <img
-                src="/assets/contact_campus.jpg"
-                alt="Rubber Hills Kindergarten Main Campus"
+                src={CONTACT_IMAGES.campusCard.src}
+                alt={CONTACT_IMAGES.campusCard.alt}
                 className="contact-campus-img"
+                loading="eager"
               />
             </div>
 

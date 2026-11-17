@@ -5,6 +5,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import { CAMPUS_IMAGES } from '../../config/images';
 import './Campus.css';
 
 export default function Campus() {
@@ -50,9 +51,10 @@ export default function Campus() {
               {/* Top Main Campus Card */}
               <div className="campus-top-card">
                 <img
-                  src="/assets/campus_main.jpg"
-                  alt="Rubber Hills Main Campus Grounds"
+                  src={CAMPUS_IMAGES.topMain.src}
+                  alt={CAMPUS_IMAGES.topMain.alt}
                   className="campus-top-img"
+                  loading="eager"
                 />
               </div>
 
@@ -60,25 +62,28 @@ export default function Campus() {
               <div className="campus-bottom-cards">
                 <div className="sub-card">
                   <img
-                    src="/assets/campus_walkway.jpg"
-                    alt="Garden walkway"
+                    src={CAMPUS_IMAGES.walkway.src}
+                    alt={CAMPUS_IMAGES.walkway.alt}
                     className="sub-card-img"
+                    loading="lazy"
                   />
                   <div className="sub-card-caption">Garden Walkway</div>
                 </div>
                 <div className="sub-card">
                   <img
-                    src="/assets/classroom_interior.jpg"
-                    alt="Spacious airy classroom"
+                    src={CAMPUS_IMAGES.classroom.src}
+                    alt={CAMPUS_IMAGES.classroom.alt}
                     className="sub-card-img"
+                    loading="lazy"
                   />
                   <div className="sub-card-caption">Bright Classrooms</div>
                 </div>
                 <div className="sub-card">
                   <img
-                    src="/assets/outdoor_playground.jpg"
-                    alt="Outdoor play court"
-                    className="sub-card-img"
+                    src={CAMPUS_IMAGES.court.src}
+                    alt={CAMPUS_IMAGES.court.alt}
+                    className="sub-card-img sub-card-court-img"
+                    loading="lazy"
                   />
                   <div className="sub-card-caption">Playground</div>
                 </div>

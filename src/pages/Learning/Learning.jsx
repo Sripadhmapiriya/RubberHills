@@ -12,6 +12,7 @@ import {
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import { LEARNING_PAGE_IMAGES } from '../../config/images';
 import './Learning.css';
 
 export default function Learning() {
@@ -19,42 +20,48 @@ export default function Learning() {
     {
       title: 'Language & Communication',
       desc: 'storytelling, speaking and vocabulary.',
-      image: '/assets/learn_language.jpg',
+      image: LEARNING_PAGE_IMAGES.language.src,
+      alt: LEARNING_PAGE_IMAGES.language.alt,
       icon: <BookOpen size={24} />,
       link: '/contact',
     },
     {
       title: 'Early Numeracy',
       desc: 'numbers, counting and logical thinking.',
-      image: '/assets/learn_numeracy.jpg',
+      image: LEARNING_PAGE_IMAGES.numeracy.src,
+      alt: LEARNING_PAGE_IMAGES.numeracy.alt,
       icon: <Calculator size={24} />,
       link: '/contact',
     },
     {
       title: 'Creative Arts',
       desc: 'drawing, painting and crafts.',
-      image: '/assets/learn_creative.jpg',
+      image: LEARNING_PAGE_IMAGES.creative.src,
+      alt: LEARNING_PAGE_IMAGES.creative.alt,
       icon: <Palette size={24} />,
       link: '/contact',
     },
     {
       title: 'Social Development',
       desc: 'friendships, sharing and teamwork.',
-      image: '/assets/learn_social.jpg',
+      image: LEARNING_PAGE_IMAGES.social.src,
+      alt: LEARNING_PAGE_IMAGES.social.alt,
       icon: <Users size={24} />,
       link: '/contact',
     },
     {
       title: 'Games & Physical Play',
       desc: 'active play and coordination.',
-      image: '/assets/learn_physical.jpg',
+      image: LEARNING_PAGE_IMAGES.physical.src,
+      alt: LEARNING_PAGE_IMAGES.physical.alt,
       icon: <Activity size={24} />,
       link: '/contact',
     },
     {
       title: 'Discovery & Exploration',
       desc: 'puzzles, library and hands-on activities.',
-      image: '/assets/learn_discovery.jpg',
+      image: LEARNING_PAGE_IMAGES.discovery.src,
+      alt: LEARNING_PAGE_IMAGES.discovery.alt,
       icon: <Search size={24} />,
       link: '/contact',
     },
@@ -92,8 +99,9 @@ export default function Learning() {
                 <div className="card-image-box">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={item.alt || item.title}
                     className="learning-card-img"
+                    loading="lazy"
                   />
                 </div>
 

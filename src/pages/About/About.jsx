@@ -14,6 +14,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import { ABOUT_IMAGES } from '../../config/images';
 import './About.css';
 
 export default function About() {
@@ -59,9 +60,10 @@ export default function About() {
               {/* Top Main Campus Photo */}
               <div className="collage-top-img-box">
                 <img
-                  src="/assets/about_main.jpg"
-                  alt="Rubber Hills Campus Building"
+                  src={ABOUT_IMAGES.heroMain.src}
+                  alt={ABOUT_IMAGES.heroMain.alt}
                   className="collage-main-img"
+                  loading="eager"
                 />
               </div>
 
@@ -69,16 +71,18 @@ export default function About() {
               <div className="collage-bottom-row">
                 <div className="collage-sub-card card-girl">
                   <img
-                    src="/assets/about_girl_blocks.jpg"
-                    alt="Child playing with blocks"
+                    src={ABOUT_IMAGES.heroStudent.src}
+                    alt={ABOUT_IMAGES.heroStudent.alt}
                     className="collage-sub-img"
+                    loading="lazy"
                   />
                 </div>
                 <div className="collage-sub-card card-play">
                   <img
-                    src="/assets/about_playground.jpg"
-                    alt="Children playing outdoor"
+                    src={ABOUT_IMAGES.heroPlayground.src}
+                    alt={ABOUT_IMAGES.heroPlayground.alt}
                     className="collage-sub-img"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -129,9 +133,10 @@ export default function About() {
               <div className="story-visual-card">
                 <div className="story-image-wrap">
                   <img
-                    src="/assets/campus-entrance.jpg"
-                    alt="Rubber Hills Campus Entrance and Garden Grounds"
+                    src={ABOUT_IMAGES.storyVisual.src}
+                    alt={ABOUT_IMAGES.storyVisual.alt}
                     className="story-campus-img"
+                    loading="lazy"
                   />
                   <div className="story-image-badge">
                     <span className="badge-tag">SINCE RETIREMENT</span>

@@ -163,7 +163,7 @@ export default function Footer() {
           <div className="footer-col footer-col-brand">
             <Link to="/" className="footer-brand-lockup">
               <img
-                src="/assets/footer_logo_badge.png"
+                src="/original/school-logo.jpg"
                 alt="Rubber Hills Kindergarten Logo"
                 className="footer-logo-badge"
               />

@@ -4,6 +4,7 @@ import { ArrowRight, Star, Heart } from 'lucide-react';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import { CLASSES_PAGE_IMAGES } from '../../config/images';
 import './Classes.css';
 
 export default function Classes() {
@@ -11,7 +12,8 @@ export default function Classes() {
     {
       name: 'NURSERY',
       tagline: 'A gentle start to a lifetime of learning.',
-      image: '/assets/class_nursery.jpg',
+      image: CLASSES_PAGE_IMAGES.nursery.src,
+      alt: CLASSES_PAGE_IMAGES.nursery.alt,
       badgeType: 'corner',
       link: '/contact',
       btnText: 'Explore Nursery',
@@ -19,7 +21,8 @@ export default function Classes() {
     {
       name: 'LKG',
       tagline: 'Build skills through play and discovery.',
-      image: '/assets/class_lkg.jpg',
+      image: CLASSES_PAGE_IMAGES.lkg.src,
+      alt: CLASSES_PAGE_IMAGES.lkg.alt,
       badgeType: 'star',
       link: '/contact',
       btnText: 'Explore LKG',
@@ -27,7 +30,8 @@ export default function Classes() {
     {
       name: 'UKG',
       tagline: 'Get ready for a brighter tomorrow.',
-      image: '/assets/class_ukg.jpg',
+      image: CLASSES_PAGE_IMAGES.ukg.src,
+      alt: CLASSES_PAGE_IMAGES.ukg.alt,
       badgeType: 'star',
       link: '/contact',
       btnText: 'Explore UKG',
@@ -72,7 +76,12 @@ export default function Classes() {
                 )}
 
                 <div className="class-image-container">
-                  <img src={cls.image} alt={`${cls.name} classroom learning`} className="class-img" />
+                  <img
+                    src={cls.image}
+                    alt={cls.alt || `${cls.name} classroom learning`}
+                    className="class-img"
+                    loading="lazy"
+                  />
                 </div>
 
                 <div className="class-card-body">
@@ -95,9 +104,10 @@ export default function Classes() {
             <div className="creche-left-visual">
               <div className="creche-yellow-accent" aria-hidden="true"></div>
               <img
-                src="/assets/class_creche.jpg"
-                alt="Toddler in Creche at Rubber Hills"
+                src={CLASSES_PAGE_IMAGES.creche.src}
+                alt={CLASSES_PAGE_IMAGES.creche.alt}
                 className="creche-toddler-img"
+                loading="lazy"
               />
             </div>
 

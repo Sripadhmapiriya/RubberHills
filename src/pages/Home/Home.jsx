@@ -4,7 +4,6 @@ import { ArrowRight, BookOpen, Sprout, Heart } from 'lucide-react';
 import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
-import ImageSlot from '../../components/Shared/ImageSlot';
 import { HERO_IMAGE_CONFIG } from '../../config/images';
 import './Home.css';
 
@@ -36,9 +35,10 @@ export default function Home() {
         {/* User's .hero-image Container - Authentic Campus Photograph */}
         <div className="hero-image">
           <img
-            src="/assets/campus_building_highres.jpg"
-            alt="Rubber Hills Kindergarten Main Campus Building"
+            src={slots.heroCampus.src}
+            alt={slots.heroCampus.alt}
             className="hero-campus-photo"
+            loading="eager"
           />
 
           {/* Exact Curve Border Line */}
@@ -237,42 +237,33 @@ export default function Home() {
         </svg>
 
         <div className="panorama-curved-band">
-          {/* Photo 1: Left - Walkway */}
+          {/* Photo 1: Left - Authentic Garden Walkway */}
           <div className="panorama-item item-left">
-            <ImageSlot
+            <img
               src={slots.galleryWalkway.src}
               alt={slots.galleryWalkway.alt}
-              title={slots.galleryWalkway.title}
-              recommendedSize={slots.galleryWalkway.recommendedSize}
-              isPlaceholder={false}
-              className="panorama-slot"
-              imgClassName="panorama-img"
+              className="panorama-img panorama-walkway-img"
+              loading="lazy"
             />
           </div>
 
-          {/* Photo 2: Center - Classroom Interior */}
+          {/* Photo 2: Center - Authentic Active Classroom */}
           <div className="panorama-item item-center">
-            <ImageSlot
+            <img
               src={slots.galleryClassroom.src}
               alt={slots.galleryClassroom.alt}
-              title={slots.galleryClassroom.title}
-              recommendedSize={slots.galleryClassroom.recommendedSize}
-              isPlaceholder={false}
-              className="panorama-slot"
-              imgClassName="panorama-img"
+              className="panorama-img panorama-classroom-img"
+              loading="lazy"
             />
           </div>
 
-          {/* Photo 3: Right - Outdoor Playground */}
+          {/* Photo 3: Right - Authentic Outdoor Playground */}
           <div className="panorama-item item-right">
-            <ImageSlot
+            <img
               src={slots.galleryPlayground.src}
               alt={slots.galleryPlayground.alt}
-              title={slots.galleryPlayground.title}
-              recommendedSize={slots.galleryPlayground.recommendedSize}
-              isPlaceholder={false}
-              className="panorama-slot"
-              imgClassName="panorama-img"
+              className="panorama-img panorama-playground-img"
+              loading="lazy"
             />
           </div>
         </div>

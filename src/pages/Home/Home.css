@@ -361,7 +361,6 @@
   position: relative;
   z-index: 8;
   width: 100%;
-  max-width: 100vw;
   margin-top: -38px;
   margin-bottom: 25px;
   padding: 0;
@@ -385,7 +384,7 @@
   overflow: hidden;
   clip-path: url(#gallery-bottom-arch);
   -webkit-clip-path: url(#gallery-bottom-arch);
-  background-color: #FAF7EE;
+  background-color: transparent;
 }
 
 .panorama-item {
@@ -428,6 +427,18 @@
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
+}
+
+.panorama-item.item-left .panorama-img {
+  object-position: left center;
+}
+
+.panorama-item.item-center .panorama-img {
+  object-position: center center;
+}
+
+.panorama-item.item-right .panorama-img {
+  object-position: right center;
 }
 
 .panorama-item:hover .panorama-img {

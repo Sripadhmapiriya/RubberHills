@@ -13,6 +13,13 @@ import Classes from './pages/Classes/Classes';
 import TimeTable from './pages/TimeTable/TimeTable';
 import Contact from './pages/Contact/Contact';
 
+function LegacyRedirect() {
+  React.useEffect(() => {
+    window.location.replace('/previous-website.html');
+  }, []);
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -28,6 +35,8 @@ export default function App() {
             <Route path="/classes" element={<Classes />} />
             <Route path="/time-table" element={<TimeTable />} />
             <Route path="/contact" element={<Contact />} />
+            {/* Preserved Previous Website Direct Access */}
+            <Route path="/previous-website" element={<LegacyRedirect />} />
             {/* Fallback to Home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

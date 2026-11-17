@@ -8,6 +8,7 @@ import {
   GraduationCap,
   Sparkles,
   ChevronRight,
+  History,
 } from 'lucide-react';
 import './Footer.css';
 
@@ -65,13 +66,14 @@ export default function Footer() {
           <div className="footer-col footer-col-brand">
             <Link to="/" className="footer-logo-link">
               <img
-                src="/assets/footer_logo.png"
+                src="/assets/logo.jpg"
                 alt="Rubber Hills Kindergarten Logo"
                 className="footer-logo-img"
-                onError={(e) => {
-                  e.currentTarget.src = '/assets/nav_logo.png';
-                }}
               />
+              <div className="footer-brand-text">
+                <span className="footer-brand-title">RUBBER HILLS</span>
+                <span className="footer-brand-sub">KINDERGARTEN</span>
+              </div>
             </Link>
             <p className="footer-tagline">
               A nurturing kindergarten where every child learns, plays and grows among green hills
@@ -117,7 +119,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Quick Links */}
+          {/* Col 2: Quick Links - All 7 Pages */}
           <div className="footer-col">
             <h3 className="footer-col-title">
               <Sparkles size={18} className="col-icon" />
@@ -135,24 +137,35 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/campus">
+                  <ChevronRight size={14} /> Campus Tour
+                </Link>
+              </li>
+              <li>
                 <Link to="/learning">
-                  <ChevronRight size={14} /> Learning
+                  <ChevronRight size={14} /> Learning Pillars
                 </Link>
               </li>
               <li>
                 <Link to="/classes">
-                  <ChevronRight size={14} /> Classes
+                  <ChevronRight size={14} /> Classes & Creche
                 </Link>
               </li>
               <li>
-                <Link to="/campus">
-                  <ChevronRight size={14} /> Gallery
+                <Link to="/time-table">
+                  <ChevronRight size={14} /> Time Table
                 </Link>
               </li>
               <li>
                 <Link to="/contact">
-                  <ChevronRight size={14} /> Contact
+                  <ChevronRight size={14} /> Contact Us
                 </Link>
+              </li>
+              {/* Preserved Previous Website Link */}
+              <li className="previous-website-item">
+                <a href="/previous-website.html" className="previous-website-link">
+                  <History size={14} /> Previous Website
+                </a>
               </li>
             </ul>
           </div>

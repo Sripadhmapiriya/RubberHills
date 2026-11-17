@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Sprout, Heart, Eye, ImagePlus } from 'lucide-react';
+import { ArrowRight, BookOpen, Sprout, Heart } from 'lucide-react';
 import PillBadge from '../../components/Shared/PillBadge';
 import ScallopedBadge from '../../components/Shared/ScallopedBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
@@ -10,10 +10,6 @@ import { HERO_IMAGE_CONFIG } from '../../config/images';
 import './Home.css';
 
 export default function Home() {
-  const [showPlaceholders, setShowPlaceholders] = useState(
-    HERO_IMAGE_CONFIG.showPlaceholders
-  );
-
   const { slots } = HERO_IMAGE_CONFIG;
 
   return (
@@ -38,33 +34,15 @@ export default function Home() {
           </defs>
         </svg>
 
-        {/* User's .hero-image Container */}
+        {/* User's .hero-image Container - Authentic Campus Photograph */}
         <div className="hero-image">
-          {showPlaceholders ? (
-            <div className="hero-placeholder-canvas">
-              <div className="hero-placeholder-dots" />
-              <div className="hero-placeholder-overlay">
-                <div className="placeholder-icon-circle">
-                  <ImagePlus size={32} />
-                </div>
-                <span className="placeholder-pill-badge">Image Placeholder</span>
-                <h3 className="placeholder-slot-title">{slots.heroCampus.title}</h3>
-                <span className="placeholder-size-hint">
-                  Recommended: {slots.heroCampus.recommendedSize}
-                </span>
-                <span className="placeholder-instruction">
-                  Upload or insert your image file here
-                </span>
-              </div>
-            </div>
-          ) : (
-            <img
-              src={slots.heroCampus.src}
-              alt="Rubber Hills Kindergarten Main Campus"
-            />
-          )}
+          <img
+            src="/assets/campus_building_highres.jpg"
+            alt="Rubber Hills Kindergarten Main Campus Building"
+            className="hero-campus-photo"
+          />
 
-          {/* Exact Curve Dashed Border Line */}
+          {/* Exact Curve Border Line */}
           <svg
             viewBox="0 0 1 1"
             preserveAspectRatio="none"
@@ -77,7 +55,6 @@ export default function Home() {
               stroke="#76B82A"
               vectorEffect="non-scaling-stroke"
               strokeWidth="3.5"
-              strokeDasharray={showPlaceholders ? '8 8' : 'none'}
             />
           </svg>
         </div>
@@ -381,7 +358,7 @@ export default function Home() {
               alt={slots.galleryWalkway.alt}
               title={slots.galleryWalkway.title}
               recommendedSize={slots.galleryWalkway.recommendedSize}
-              isPlaceholder={showPlaceholders}
+              isPlaceholder={false}
               className="panorama-slot"
               imgClassName="panorama-img"
             />
@@ -394,7 +371,7 @@ export default function Home() {
               alt={slots.galleryClassroom.alt}
               title={slots.galleryClassroom.title}
               recommendedSize={slots.galleryClassroom.recommendedSize}
-              isPlaceholder={showPlaceholders}
+              isPlaceholder={false}
               className="panorama-slot"
               imgClassName="panorama-img"
             />
@@ -407,7 +384,7 @@ export default function Home() {
               alt={slots.galleryPlayground.alt}
               title={slots.galleryPlayground.title}
               recommendedSize={slots.galleryPlayground.recommendedSize}
-              isPlaceholder={showPlaceholders}
+              isPlaceholder={false}
               className="panorama-slot"
               imgClassName="panorama-img"
             />
@@ -523,21 +500,6 @@ export default function Home() {
           </svg>
         </div>
       </section>
-
-      {/* ============================================================== */}
-      {/* 5. PLACEHOLDER TOGGLE (Bottom Right Helper Pill)               */}
-      {/* ============================================================== */}
-      <aside className="placeholder-toggle-bar">
-        <button
-          type="button"
-          onClick={() => setShowPlaceholders(!showPlaceholders)}
-          className="btn-toggle-placeholders"
-          title="Switch between Image Placeholders and Photos"
-        >
-          <Eye size={15} />
-          <span>{showPlaceholders ? 'Show Photos' : 'Show Image Placeholders'}</span>
-        </button>
-      </aside>
     </div>
   );
 }

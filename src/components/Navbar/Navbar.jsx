@@ -26,16 +26,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Exactly 7 core navigation items in requested order:
+  // 1. Home, 2. About, 3. Campus, 4. Learning, 5. Classes, 6. Time Table, 7. Contact
   const navLinks = [
     {
-      name: 'Campus',
-      path: '/campus',
-      hasDropdown: true,
-      subItems: [
-        { name: 'Campus Tour', path: '/campus' },
-        { name: 'Facilities & Safety', path: '/campus#facilities' },
-        { name: 'Outdoor Play Court', path: '/campus#playground' },
-      ],
+      name: 'Home',
+      path: '/',
+      hasDropdown: false,
     },
     {
       name: 'About',
@@ -45,6 +42,16 @@ export default function Navbar() {
         { name: 'Our Story', path: '/about' },
         { name: 'Founders & Leadership', path: '/about#founders' },
         { name: 'Why Families Choose Us', path: '/about#values' },
+      ],
+    },
+    {
+      name: 'Campus',
+      path: '/campus',
+      hasDropdown: true,
+      subItems: [
+        { name: 'Campus Tour', path: '/campus' },
+        { name: 'Facilities & Safety', path: '/campus#facilities' },
+        { name: 'Outdoor Play Court', path: '/campus#playground' },
       ],
     },
     {
@@ -66,6 +73,16 @@ export default function Navbar() {
         { name: 'Nursery (3–4 yrs)', path: '/classes#nursery' },
         { name: 'Lower KG (4–5 yrs)', path: '/classes#lkg' },
         { name: 'Upper KG (5–6 yrs)', path: '/classes#ukg' },
+      ],
+    },
+    {
+      name: 'Time Table',
+      path: '/time-table',
+      hasDropdown: true,
+      subItems: [
+        { name: 'Daily Schedule', path: '/time-table' },
+        { name: 'Weekly Timings', path: '/time-table#timings' },
+        { name: 'Activity Rhythm', path: '/time-table#activities' },
       ],
     },
     {
@@ -108,23 +125,14 @@ export default function Navbar() {
         </svg>
 
         <div className="navbar-container">
-          {/* Brand Logo on the Left */}
+          {/* Brand Logo on the Left - Exact Original Circular Logo */}
           <Link to="/" className="navbar-brand" aria-label="Rubber Hills Kindergarten Home">
             <div className="brand-crest-wrapper">
-              <svg viewBox="0 0 100 100" className="brand-crest-svg">
-                <circle cx="50" cy="50" r="46" fill="#064B25" />
-                <circle cx="50" cy="50" r="42" fill="#FFFDF5" />
-                {/* Sun */}
-                <circle cx="50" cy="38" r="14" fill="#FFD21C" />
-                {/* Green Rolling Hills */}
-                <path d="M 10 70 Q 32 52 52 68 Q 72 82 90 70 L 90 90 L 10 90 Z" fill="#76B82A" />
-                <path d="M 20 76 Q 48 64 74 76 Q 84 80 90 84 L 90 90 L 20 90 Z" fill="#064B25" />
-                {/* Tree */}
-                <path d="M 47 48 L 53 48 L 52 64 L 48 64 Z" fill="#064B25" />
-                <circle cx="50" cy="44" r="11" fill="#064B25" />
-                <circle cx="44" cy="47" r="7" fill="#76B82A" />
-                <circle cx="56" cy="47" r="7" fill="#76B82A" />
-              </svg>
+              <img
+                src="/assets/logo.jpg"
+                alt="Rubber Hills Kindergarten Logo"
+                className="brand-crest-img"
+              />
             </div>
             <div className="brand-text-col">
               <span className="brand-name">RUBBER HILLS</span>
@@ -132,7 +140,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Centered Navigation Links (Campus, About, Learning, Classes, Contact) */}
+          {/* Centered Navigation Links - Exactly 7 Pages */}
           <nav className="navbar-nav" aria-label="Main Navigation">
             {navLinks.map((item) => (
               <div
@@ -143,6 +151,7 @@ export default function Navbar() {
               >
                 <NavLink
                   to={item.path}
+                  end={item.path === '/'}
                   className={({ isActive }) =>
                     `nav-link ${isActive ? 'active' : ''}`
                   }
@@ -195,7 +204,17 @@ export default function Navbar() {
         <div className="mobile-drawer-content">
           <div className="mobile-drawer-header">
             <Link to="/" className="navbar-brand" onClick={() => setMobileMenuOpen(false)}>
-              <span className="brand-name">RUBBER HILLS</span>
+              <div className="brand-crest-wrapper" style={{ width: '40px', height: '40px' }}>
+                <img
+                  src="/assets/logo.jpg"
+                  alt="Rubber Hills Kindergarten Logo"
+                  className="brand-crest-img"
+                />
+              </div>
+              <div className="brand-text-col">
+                <span className="brand-name">RUBBER HILLS</span>
+                <span className="brand-sub">KINDERGARTEN</span>
+              </div>
             </Link>
             <button
               type="button"
@@ -207,27 +226,27 @@ export default function Navbar() {
           </div>
 
           <nav className="mobile-drawer-nav">
-            <Link to="/" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
+            <NavLink to="/" end className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
               Home
-            </Link>
-            <Link to="/campus" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
+            </NavLink>
+            <NavLink to="/about" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
+              About
+            </NavLink>
+            <NavLink to="/campus" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
               Campus
-            </Link>
-            <Link to="/about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
-              About Us
-            </Link>
-            <Link to="/learning" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
+            </NavLink>
+            <NavLink to="/learning" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
               Learning
-            </Link>
-            <Link to="/classes" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
+            </NavLink>
+            <NavLink to="/classes" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
               Classes
-            </Link>
-            <Link to="/time-table" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
+            </NavLink>
+            <NavLink to="/time-table" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
               Time Table
-            </Link>
-            <Link to="/contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
-              Contact & Admissions
-            </Link>
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
+              Contact
+            </NavLink>
           </nav>
 
           <div className="mobile-drawer-footer">

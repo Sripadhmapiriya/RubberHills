@@ -109,12 +109,17 @@ export default function Contact() {
         <div className="container contact-container">
           {/* Left Column: Heading, Badges & Kids */}
           <div className="contact-left-col">
-            <div className="contact-brand-row">
+            <div className="contact-brand-row" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <img
-                src="/assets/nav_logo.png"
-                alt="Rubber Hills Kindergarten"
+                src="/assets/logo.jpg"
+                alt="Rubber Hills Kindergarten Logo"
                 className="contact-brand-logo"
+                style={{ width: '54px', height: '54px', borderRadius: '50%', objectFit: 'contain', background: '#FFFFFF', padding: '2px', boxShadow: '0 2px 10px rgba(6,75,37,0.12)' }}
               />
+              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+                <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.25rem', color: '#064B25', letterSpacing: '0.04em' }}>RUBBER HILLS</span>
+                <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.72rem', color: '#76B82A', letterSpacing: '0.14em' }}>KINDERGARTEN</span>
+              </div>
             </div>
 
             <h1 className="contact-heading">

@@ -1,20 +1,15 @@
 /**
  * Image Configuration for Rubber Hills Kindergarten
- * 
- * NOTE: Set `showPlaceholders: true` to display image placeholder wireframes,
- * or `false` once you provide your own photos!
  */
 
 export const HERO_IMAGE_CONFIG = {
-  // Set to false to show the real photos directly:
   showPlaceholders: false,
 
-  // When you get your photos, place them in `/public/assets/` and update these paths:
   slots: {
     heroCampus: {
-      src: '/assets/campus_hero.jpg',
+      src: '/assets/campus_building_highres.jpg',
       title: 'Main Campus Building Photo',
-      recommendedSize: '1200 × 800 px (Landscape)',
+      recommendedSize: '1200 × 800 px',
       alt: 'Rubber Hills Kindergarten Campus Building',
     },
     galleryWalkway: {

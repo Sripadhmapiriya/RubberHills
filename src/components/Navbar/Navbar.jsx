@@ -150,6 +150,11 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     `nav-link ${isActive ? 'active' : ''}`
                   }
+                  onClick={() => {
+                    if (item.path === '/') {
+                      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                    }
+                  }}
                 >
                   <span>{item.name}</span>
                   {item.hasDropdown && (
@@ -221,7 +226,7 @@ export default function Navbar() {
           </div>
 
           <nav className="mobile-drawer-nav">
-            <NavLink to="/" end className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
+            <NavLink to="/" end className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); }}>
               Home
             </NavLink>
             <NavLink to="/about" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>

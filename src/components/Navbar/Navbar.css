@@ -188,86 +188,28 @@
   white-space: nowrap;
 }
 
-.nav-item-dropdown {
-  position: relative;
-}
 
 .nav-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  font-size: clamp(0.92rem, 1.05vw, 1.02rem);
   color: #064B25;
   text-decoration: none;
-  padding: 6px 4px;
-  transition: color 0.2s ease;
+  padding: 6px 6px;
+  transition: color 0.22s ease, transform 0.22s ease;
   white-space: nowrap;
 }
 
-.dropdown-chevron {
-  transition: transform 0.2s ease;
-  color: #064B25;
-  opacity: 0.75;
+.nav-link:hover {
+  color: #76B82A;
+  transform: translateY(-1px);
 }
 
-.dropdown-chevron.open,
-.nav-item-dropdown:hover .dropdown-chevron {
-  transform: rotate(180deg);
-  opacity: 1;
-}
-
-.nav-link:hover,
 .nav-link.active {
   color: #76B82A;
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #FAF7EE;
-  border-radius: 16px;
-  padding: 10px 8px;
-  min-width: 190px;
-  box-shadow: 0 12px 32px rgba(6, 75, 37, 0.12);
-  border: 1px solid #E4E0D2;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  z-index: 110;
-  animation: fadeInDown 0.2s ease forwards;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-.dropdown-link {
-  padding: 8px 14px;
-  font-family: var(--font-heading);
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #064B25;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.dropdown-link:hover {
-  background-color: #F4F9ED;
-  color: #76B82A;
+  font-weight: 700;
 }
 
 /* "Visit Us ->" Button on the Far Right */

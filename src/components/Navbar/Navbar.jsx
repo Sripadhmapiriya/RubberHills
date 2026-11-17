@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
 
   const isHomePage = location.pathname === '/';
@@ -14,7 +13,6 @@ export default function Navbar() {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setActiveDropdown(null);
   }, [location.pathname]);
 
   // Track scroll for sticky falling island navbar
@@ -29,62 +27,13 @@ export default function Navbar() {
   // Exactly 7 core navigation items in requested order:
   // 1. Home, 2. About, 3. Campus, 4. Learning, 5. Classes, 6. Time Table, 7. Contact
   const navLinks = [
-    {
-      name: 'Home',
-      path: '/',
-      hasDropdown: false,
-    },
-    {
-      name: 'About',
-      path: '/about',
-      hasDropdown: true,
-      subItems: [
-        { name: 'Our Story', path: '/about#story' },
-        { name: 'Founders & Leadership', path: '/about#founders' },
-        { name: 'Why Families Choose Us', path: '/about#values' },
-      ],
-    },
-    {
-      name: 'Campus',
-      path: '/campus',
-      hasDropdown: false,
-    },
-    {
-      name: 'Learning',
-      path: '/learning',
-      hasDropdown: true,
-      subItems: [
-        { name: '6 Learning Pillars', path: '/learning' },
-        { name: 'Play-Based Curriculum', path: '/learning#curriculum' },
-        { name: 'Creative Development', path: '/learning#creative' },
-      ],
-    },
-    {
-      name: 'Classes',
-      path: '/classes',
-      hasDropdown: true,
-      subItems: [
-        { name: 'Creche (2.5–3 yrs)', path: '/classes#creche' },
-        { name: 'Nursery (3–4 yrs)', path: '/classes#nursery' },
-        { name: 'Lower KG (4–5 yrs)', path: '/classes#lkg' },
-        { name: 'Upper KG (5–6 yrs)', path: '/classes#ukg' },
-      ],
-    },
-    {
-      name: 'Time Table',
-      path: '/time-table',
-      hasDropdown: true,
-      subItems: [
-        { name: 'Daily Schedule', path: '/time-table' },
-        { name: 'Weekly Timings', path: '/time-table#timings' },
-        { name: 'Activity Rhythm', path: '/time-table#activities' },
-      ],
-    },
-    {
-      name: 'Contact',
-      path: '/contact',
-      hasDropdown: false,
-    },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Campus', path: '/campus' },
+    { name: 'Learning', path: '/learning' },
+    { name: 'Classes', path: '/classes' },
+    { name: 'Time Table', path: '/time-table' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -135,46 +84,24 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Centered Navigation Links - Exactly 7 Pages */}
+          {/* Centered Navigation Links - Exactly 7 Direct Pages */}
           <nav className="navbar-nav" aria-label="Main Navigation">
             {navLinks.map((item) => (
-              <div
+              <NavLink
                 key={item.name}
-                className="nav-item-dropdown"
-                onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <NavLink
-                  to={item.path}
-                  end={item.path === '/'}
-                  className={({ isActive }) =>
-                    `nav-link ${isActive ? 'active' : ''}`
+                to={item.path}
+                end={item.path === '/'}
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                onClick={() => {
+                  if (item.path === '/') {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
                   }
-                  onClick={() => {
-                    if (item.path === '/') {
-                      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  <span>{item.name}</span>
-                  {item.hasDropdown && (
-                    <ChevronDown
-                      size={14}
-                      className={`dropdown-chevron ${activeDropdown === item.name ? 'open' : ''}`}
-                    />
-                  )}
-                </NavLink>
-
-                {item.hasDropdown && activeDropdown === item.name && (
-                  <div className="dropdown-menu">
-                    {item.subItems.map((sub) => (
-                      <Link key={sub.name} to={sub.path} className="dropdown-link">
-                        {sub.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+                }}
+              >
+                <span>{item.name}</span>
+              </NavLink>
             ))}
           </nav>
 
@@ -226,31 +153,33 @@ export default function Navbar() {
           </div>
 
           <nav className="mobile-drawer-nav">
-            <NavLink to="/" end className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); }}>
-              Home
-            </NavLink>
-            <NavLink to="/about" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
-              About
-            </NavLink>
-            <NavLink to="/campus" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
-              Campus
-            </NavLink>
-            <NavLink to="/learning" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
-              Learning
-            </NavLink>
-            <NavLink to="/classes" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
-              Classes
-            </NavLink>
-            <NavLink to="/time-table" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
-              Time Table
-            </NavLink>
-            <NavLink to="/contact" className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
-              Contact
-            </NavLink>
+            {navLinks.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                end={item.path === '/'}
+                className={({ isActive }) =>
+                  `mobile-nav-link ${isActive ? 'active' : ''}`
+                }
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (item.path === '/') {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                  }
+                }}
+              >
+                {item.name}
+              </NavLink>
+            ))}
           </nav>
 
           <div className="mobile-drawer-footer">
-            <Link to="/contact" className="btn-visit-us-yellow" style={{ width: '100%', justifyContent: 'center' }}>
+            <Link
+              to="/contact"
+              className="btn-visit-us-yellow"
+              style={{ width: '100%', justifyContent: 'center' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
               <span>Visit Us</span>
               <ArrowRight size={17} />
             </Link>

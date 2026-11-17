@@ -39,7 +39,7 @@ export default function Navbar() {
       path: '/about',
       hasDropdown: true,
       subItems: [
-        { name: 'Our Story', path: '/about' },
+        { name: 'Our Story', path: '/about#story' },
         { name: 'Founders & Leadership', path: '/about#founders' },
         { name: 'Why Families Choose Us', path: '/about#values' },
       ],

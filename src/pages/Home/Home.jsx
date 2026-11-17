@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Sprout, Heart } from 'lucide-react';
 import PillBadge from '../../components/Shared/PillBadge';
-import ScallopedBadge from '../../components/Shared/ScallopedBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import ImageSlot from '../../components/Shared/ImageSlot';
@@ -59,10 +58,6 @@ export default function Home() {
           </svg>
         </div>
 
-        {/* Yellow Sunflower "AGES 2.5–6 🌱" Scalloped Badge on bottom right */}
-        <div className="hero-floating-badge-container">
-          <ScallopedBadge topText="AGES" mainText="2.5–6" />
-        </div>
 
         {/* Left Hero Content inside Container */}
         <div className="hero-content-container">

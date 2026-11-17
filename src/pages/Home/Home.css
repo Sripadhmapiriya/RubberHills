@@ -171,18 +171,6 @@
   font-weight: 600;
 }
 
-/* Scalloped Yellow Rosette "AGES 2.5–6 🌱" Badge on bottom right */
-.hero-floating-badge-container {
-  position: absolute;
-  bottom: 25px;
-  right: 7%;
-  z-index: 12;
-  transition: transform 0.25s ease;
-}
-
-.hero-floating-badge-container:hover {
-  transform: scale(1.08) rotate(2deg);
-}
 
 /* Left Hero Content inside Container */
 .hero-content-container {
@@ -654,10 +642,6 @@
   .hero-text-col {
     align-items: center;
     max-width: 100%;
-  }
-  .hero-floating-badge-container {
-    bottom: 20px;
-    right: 20px;
   }
   .features-pill-grid {
     grid-template-columns: 1fr;

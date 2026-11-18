@@ -1,225 +1,1081 @@
+/* ============================================================== */
+/* RUBBER HILLS KINDERGARTEN - TIME TABLE PAGE REDESIGN           */
+/* "A Day Full of Little Moments" - Visual Timeline Journey       */
+/* ============================================================== */
+
 .page-timetable {
   position: relative;
   overflow: hidden;
-  padding-bottom: 60px;
+  background-color: #FFF9ED;
+  color: #174B35;
+  min-height: 100vh;
 }
 
+/* ============================================================== */
+/* 1. HERO SECTION (Our Daily Rhythm)                             */
+/* ============================================================== */
 .timetable-hero {
-  padding: 50px 0 30px;
   position: relative;
+  padding: clamp(105px, 12vw, 130px) 0 45px;
   z-index: 2;
 }
 
-.timetable-header {
-  text-align: center;
-  max-width: 780px;
-  margin: 0 auto 50px;
+.timetable-hero-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(30px, 5vw, 60px);
 }
 
-.timetable-pill {
-  margin-bottom: 18px;
+.timetable-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.timetable-heading {
-  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+.timetable-eyebrow {
+  margin-bottom: 20px;
+}
+
+.timetable-heading-wrap {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.timetable-hero-rays {
+  position: absolute;
+  top: -18px;
+  right: -25px;
+  width: 44px;
+  height: 38px;
+}
+
+.timetable-hero-title {
+  font-family: var(--font-heading, 'Outfit', 'Fredoka', sans-serif);
+  font-size: clamp(2.6rem, 5.2vw, 4rem);
   font-weight: 800;
-  color: var(--color-primary);
+  color: #174B35;
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  margin: 0;
 }
 
-.timetable-underline {
+.timetable-hero-title .heading-highlight {
+  position: relative;
+  display: inline-block;
+  color: #174B35;
+}
+
+.timetable-hero-underline {
   position: absolute;
   left: 0;
-  bottom: -8px;
+  bottom: -10px;
   width: 100%;
 }
 
-.timetable-subtitle {
+.timetable-hero-desc {
+  font-family: var(--font-body, 'Nunito', sans-serif);
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  color: var(--color-text-muted);
+  color: #385E4B;
+  line-height: 1.65;
   font-weight: 600;
-  line-height: 1.5;
-  margin-top: 20px;
+  max-width: 580px;
+  margin: 0 0 28px;
 }
 
-/* Curved Timeline Container */
-.timeline-curved-wrapper {
-  position: relative;
-  padding: 40px 10px 60px;
-  margin: 20px 0 40px;
-  background: radial-gradient(ellipse 90% 60% at 50% 50%, rgba(223, 240, 201, 0.45) 0%, transparent 100%);
+/* Highlights Row: Learn • Play • Grow */
+.hero-highlights-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
-.timeline-items-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+.highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: 1.5px solid;
+  box-shadow: 0 3px 10px rgba(23, 75, 53, 0.05);
+  transition: transform 0.25s ease;
+}
+
+.highlight-pill:hover {
+  transform: translateY(-2px);
+}
+
+.highlight-learn {
+  background-color: #E4F1DF;
+  border-color: #72B95A;
+  color: #174B35;
+}
+
+.highlight-play {
+  background-color: #FEF3C7;
+  border-color: #F6D65B;
+  color: #B45309;
+}
+
+.highlight-grow {
+  background-color: #F8DED0;
+  border-color: #F87171;
+  color: #C2410C;
+}
+
+.pill-icon {
+  flex-shrink: 0;
+}
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
   gap: 16px;
+}
+
+/* Right Clock Stage */
+.timetable-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-clock-stage {
+  position: relative;
+  width: clamp(280px, 32vw, 360px);
+  height: clamp(280px, 32vw, 360px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-outer-glow {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 214, 91, 0.3) 0%, rgba(228, 241, 223, 0.4) 50%, rgba(255, 249, 237, 0) 75%);
+  pointer-events: none;
+}
+
+.clock-card-box {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.clock-card-box:hover {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.hero-clock-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 12px 24px rgba(23, 75, 53, 0.12));
+}
+
+.floating-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #E2EED7;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #174B35;
+  box-shadow: 0 6px 18px rgba(23, 75, 53, 0.08);
+  white-space: nowrap;
+  z-index: 3;
+  animation: floatClock 5s ease-in-out infinite;
+}
+
+.floating-badge .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot-sun { background-color: #F6D65B; }
+.dot-leaf { background-color: #72B95A; }
+
+.badge-morning {
+  top: 18px;
+  left: -8px;
+  animation-delay: 0s;
+}
+
+.badge-afternoon {
+  bottom: 22px;
+  right: -10px;
+  animation-delay: 2.2s;
+}
+
+/* ============================================================== */
+/* 2. MAIN SECTION – LITTLE MOMENTS, BIG MEMORIES (Timeline)      */
+/* ============================================================== */
+#timeline-moments {
+  scroll-margin-top: 90px;
+}
+
+.timeline-section {
+  padding: 60px 0 80px;
   position: relative;
   z-index: 2;
 }
 
-.timeline-node {
+.timeline-section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
 
-.timeline-time-badge {
-  background-color: var(--color-yellow);
-  color: var(--color-charcoal);
-  font-family: var(--font-heading);
+.timeline-pill {
+  margin-bottom: 12px;
+}
+
+.timeline-section-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(2.3rem, 4.4vw, 3.2rem);
   font-weight: 800;
-  font-size: 0.85rem;
-  padding: 5px 14px;
-  border-radius: var(--radius-full);
-  margin-bottom: 16px;
-  box-shadow: 0 4px 10px rgba(245, 184, 0, 0.35);
-  white-space: nowrap;
+  color: #174B35;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
 }
 
-.timeline-bubble {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 3px solid #DDF0C5;
-  box-shadow: var(--shadow-md);
+.timeline-section-subtitle {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 1.1rem;
+  color: #385E4B;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================== */
+/* DESKTOP TIMELINE (Serpentine Alternating Journey)              */
+/* ============================================================== */
+.timeline-desktop-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 20px 0 50px;
+  padding: 20px 0;
+}
+
+/* Wavy Central Path SVG */
+.desktop-track-svg-wrap {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.desktop-track-svg {
+  width: 100%;
+  height: 100px;
+  overflow: visible;
+}
+
+/* 6-Column Alternating Grid */
+.desktop-timeline-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  z-index: 2;
+}
+
+.timeline-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+}
+
+.col-slot {
+  flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  margin-bottom: 16px;
+}
+
+.col-slot.slot-top {
+  align-items: flex-end;
+  padding-bottom: 24px;
+}
+
+.col-slot.slot-bottom {
+  align-items: flex-start;
+  padding-top: 24px;
+}
+
+/* Center Milestone Marker on the Track */
+.milestone-center-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.milestone-node {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 3.5px solid #F6D65B;
+  box-shadow: 0 4px 12px rgba(23, 75, 53, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.milestone-inner-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #174B35;
   transition: transform 0.3s ease;
 }
 
-.timeline-node:hover .timeline-bubble {
-  transform: scale(1.1);
-  border-color: var(--color-primary-light);
-  box-shadow: var(--shadow-lg);
+.timeline-col:hover .milestone-node {
+  transform: scale(1.2);
+  box-shadow: 0 6px 18px rgba(246, 214, 91, 0.4);
 }
 
-.bubble-img {
+.timeline-col:hover .milestone-inner-dot {
+  transform: scale(1.2);
+}
+
+/* Moment Card (Desktop) */
+.moment-card {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  border-radius: 26px;
+  padding: 22px 18px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px solid rgba(23, 75, 53, 0.08);
+  box-shadow: 0 8px 24px rgba(23, 75, 53, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.32s cubic-bezier(0.2, 1, 0.3, 1);
+  min-height: 230px;
 }
 
-.timeline-card-info {
-  background: #FFFFFF;
-  border: 1.5px solid #EBF3E3;
-  padding: 12px 10px;
-  border-radius: 18px;
-  box-shadow: var(--shadow-sm);
-  width: 100%;
+.col-top .moment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(23, 75, 53, 0.12);
+  border-color: #72B95A;
 }
 
-.node-title {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 4px;
-  line-height: 1.25;
+.col-bottom .moment-card:hover {
+  transform: translateY(8px);
+  box-shadow: 0 18px 36px rgba(23, 75, 53, 0.12);
+  border-color: #72B95A;
 }
 
-.node-desc {
-  font-size: 0.82rem;
-  color: var(--color-text-muted);
-  line-height: 1.35;
-  margin: 0;
-}
-
-/* Bottom Scene */
-.timetable-bottom-scene {
+/* Card Header: Time Badge & Moment Number */
+.moment-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 2px dashed rgba(118, 184, 42, 0.3);
-}
-
-.scene-kids {
-  max-width: 240px;
-}
-
-.scene-kids-img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  margin-bottom: 12px;
 }
 
-.scene-quote-center {
+.moment-time-badge {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.moment-number {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #72B95A;
+  letter-spacing: 0.06em;
+}
+
+/* Icon Bubble */
+.moment-icon-bubble {
+  width: 66px;
+  height: 66px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  border: 2px solid rgba(23, 75, 53, 0.06);
+  box-shadow: 0 6px 14px rgba(23, 75, 53, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  text-align: center;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
 }
 
-.quote-text {
-  font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+.moment-card:hover .moment-icon-bubble {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.moment-svg {
+  width: 46px;
+  height: 46px;
+}
+
+/* Content */
+.moment-card-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.15rem;
   font-weight: 800;
-  color: var(--color-primary);
+  color: #174B35;
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+.moment-card-desc {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 0.92rem;
+  color: #3B5B49;
+  line-height: 1.5;
+  font-weight: 600;
   margin: 0;
 }
 
-.quote-heart {
-  color: var(--color-yellow);
-  fill: var(--color-yellow);
+/* Card Pastel Background Themes */
+.card-bg-mint {
+  background-color: #E4F1DF;
 }
 
-.scene-books {
-  max-width: 180px;
+.card-bg-yellow {
+  background-color: #FEF3C7;
 }
 
-.scene-books-img {
+.card-bg-peach {
+  background-color: #F8DED0;
+}
+
+.card-bg-green {
+  background-color: #EBF5E6;
+}
+
+.card-bg-lavender {
+  background-color: #E9E3F5;
+}
+
+/* ============================================================== */
+/* MOBILE TIMELINE (Vertical Connecting Journey)                  */
+/* ============================================================== */
+.timeline-mobile-wrapper {
+  display: none;
+  position: relative;
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  margin: 20px 0;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
-@media (max-width: 1024px) {
-  .timeline-items-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+.mobile-timeline-track-line {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 36px;
+  width: 3.5px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #72B95A,
+    #72B95A 10px,
+    transparent 10px,
+    transparent 16px
+  );
+  z-index: 1;
+}
+
+.mobile-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+}
+
+.mobile-milestone-node {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 3.5px solid #F6D65B;
+  box-shadow: 0 4px 10px rgba(23, 75, 53, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 18px;
+  z-index: 3;
+}
+
+.mobile-milestone-node .node-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #174B35;
+}
+
+.mobile-moment-card {
+  flex: 1;
+  border-radius: 24px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 2px solid rgba(23, 75, 53, 0.08);
+  box-shadow: 0 6px 18px rgba(23, 75, 53, 0.05);
+}
+
+.mobile-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.mobile-moment-tag {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #72B95A;
+}
+
+.mobile-card-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-icon-box .moment-svg {
+  width: 44px;
+  height: 44px;
+}
+
+.mobile-text-box {
+  flex: 1;
+}
+
+.mobile-moment-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #174B35;
+  margin: 0 0 6px;
+}
+
+.mobile-moment-desc {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 0.95rem;
+  color: #385E4B;
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ============================================================== */
+/* 3. SPECIAL FEATURE – WEDNESDAY NO BOOK DAY                     */
+/* ============================================================== */
+.wednesday-feature-section {
+  padding: 40px 0 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.wednesday-card {
+  position: relative;
+  background: linear-gradient(135deg, #FEF3C7 0%, #E4F1DF 100%);
+  border: 3px solid #72B95A;
+  border-radius: 36px;
+  padding: clamp(36px, 5vw, 55px) clamp(24px, 5vw, 60px);
+  overflow: hidden;
+  box-shadow: 0 16px 38px rgba(23, 75, 53, 0.08);
+  text-align: center;
+}
+
+/* Decorative SVGs / Doodles in Background */
+.wednesday-decor-accents {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wed-star,
+.wed-note {
+  position: absolute;
+  user-select: none;
+  font-size: 1.6rem;
+  animation: floatClock 6s ease-in-out infinite;
+}
+
+.star-1 {
+  top: 20px;
+  left: 30px;
+  color: #F6D65B;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  bottom: 20px;
+  right: 35px;
+  color: #72B95A;
+  animation-delay: 1.8s;
+}
+
+.note-1 {
+  bottom: 25px;
+  left: 45px;
+  animation-delay: 3s;
+}
+
+.note-2 {
+  top: 25px;
+  right: 50px;
+  animation-delay: 1s;
+}
+
+.wed-sunshine-ring {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px dashed rgba(114, 185, 90, 0.4);
+  top: -60px;
+  right: -60px;
+  pointer-events: none;
+}
+
+.wednesday-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wednesday-pill {
+  margin-bottom: 14px;
+  background-color: #FFFFFF !important;
+  border-color: #72B95A !important;
+}
+
+.wednesday-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 800;
+  color: #174B35;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.wednesday-description {
+  font-family: var(--font-heading, 'Outfit', 'Fredoka', sans-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 600;
+  color: #2D583F;
+  line-height: 1.55;
+  margin: 0 0 32px;
+  max-width: 680px;
+}
+
+/* 3 Pillars Grid: Arts, Music, Sports */
+.wednesday-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.wed-pillar-pill {
+  background: #FFFFFF;
+  border: 2px solid rgba(23, 75, 53, 0.08);
+  border-radius: 22px;
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(23, 75, 53, 0.05);
+  transition: transform 0.25s ease;
+}
+
+.wed-pillar-pill:hover {
+  transform: translateY(-4px);
+  border-color: #72B95A;
+}
+
+.pillar-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #E4F1DF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-palette { color: #C2410C; }
+.icon-music { color: #6D28D9; }
+.icon-sports { color: #15803D; }
+
+.pillar-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #174B35;
+  margin: 0 0 3px;
+}
+
+.pillar-desc {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 0.86rem;
+  color: #4A6B58;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* ============================================================== */
+/* 4. CLOSING SECTION (Every Day is a New Adventure)              */
+/* ============================================================== */
+.timetable-closing-section {
+  padding: 30px 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.closing-panel {
+  position: relative;
+  background: linear-gradient(135deg, #174B35 0%, #073D20 100%);
+  border-radius: 40px;
+  padding: clamp(48px, 6vw, 75px) clamp(24px, 5vw, 64px);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(7, 61, 32, 0.2);
+  text-align: center;
+}
+
+.closing-bg-accents {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.closing-star,
+.closing-leaf {
+  position: absolute;
+  user-select: none;
+  font-size: 1.8rem;
+  opacity: 0.35;
+  animation: floatClock 7s ease-in-out infinite;
+}
+
+.star-left {
+  top: 25px;
+  left: 35px;
+  color: #F6D65B;
+  animation-delay: 0s;
+}
+
+.star-right {
+  bottom: 25px;
+  right: 40px;
+  color: #F6D65B;
+  animation-delay: 2s;
+}
+
+.leaf-left {
+  bottom: 25px;
+  left: 45px;
+  font-size: 2.2rem;
+  animation-delay: 3.5s;
+}
+
+.leaf-right {
+  top: 20px;
+  right: 50px;
+  font-size: 2.2rem;
+  animation-delay: 1.2s;
+}
+
+.closing-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closing-pill {
+  margin-bottom: 20px;
+  background-color: rgba(228, 241, 223, 0.15) !important;
+  color: #F6D65B !important;
+  border-color: rgba(246, 214, 91, 0.5) !important;
+}
+
+.closing-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(2.3rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  color: #FFFDF5;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+.closing-subtitle {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: #D6ECD1;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 34px;
+}
+
+.closing-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn-primary-yellow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #F6D65B;
+  color: #174B35;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 15px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(246, 214, 91, 0.35);
+  transition: all 0.28s ease;
+}
+
+.btn-primary-yellow:hover {
+  background-color: #FFDE6B;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(246, 214, 91, 0.45);
+}
+
+.btn-primary-yellow .btn-arrow-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #174B35;
+  color: #F6D65B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.btn-primary-yellow:hover .btn-arrow-circle {
+  transform: translateX(4px);
+}
+
+.btn-secondary-cream {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 30px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 253, 245, 0.4);
+  background-color: transparent;
+  color: #FFFDF5;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary-cream:hover {
+  background-color: rgba(255, 253, 245, 0.15);
+  border-color: #FFFDF5;
+  transform: translateY(-2px);
+}
+
+/* ============================================================== */
+/* 5. ANIMATIONS & ACCESSIBILITY                                  */
+/* ============================================================== */
+@keyframes floatClock {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(1.5deg);
   }
 }
 
-@media (max-width: 768px) {
-  .timeline-items-grid {
+/* ============================================================== */
+/* 6. RESPONSIVE BREAKPOINTS                                      */
+/* ============================================================== */
+@media (max-width: 1100px) {
+  .desktop-timeline-grid {
+    gap: 12px;
+  }
+  .moment-card {
+    padding: 18px 12px 16px;
+  }
+  .moment-card-title {
+    font-size: 1.05rem;
+  }
+  .moment-card-desc {
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .timetable-hero-container {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .timeline-node {
-    flex-direction: row;
-    gap: 16px;
-    text-align: left;
-    background: #FFFFFF;
-    padding: 16px;
-    border-radius: 24px;
-    box-shadow: var(--shadow-sm);
-  }
-  .timeline-time-badge {
-    margin-bottom: 0;
-    align-self: center;
-  }
-  .timeline-bubble {
-    width: 65px;
-    height: 65px;
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
-  .timeline-card-info {
-    border: none;
-    box-shadow: none;
-    padding: 0;
-  }
-  .timetable-bottom-scene {
-    flex-direction: column;
     text-align: center;
+    gap: 40px;
+  }
+
+  .timetable-hero-text {
+    align-items: center;
+  }
+
+  .hero-highlights-row {
+    justify-content: center;
+  }
+
+  /* Switch from Desktop Horizontal to Mobile Vertical Timeline */
+  .timeline-desktop-wrapper {
+    display: none;
+  }
+
+  .timeline-mobile-wrapper {
+    display: block;
+  }
+
+  .wednesday-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 680px) {
+  .timetable-hero {
+    padding-top: 105px;
+  }
+
+  .timetable-hero-rays {
+    display: none;
+  }
+
+  .timeline-mobile-wrapper {
+    padding-left: 8px;
+  }
+
+  .mobile-timeline-track-line {
+    left: 24px;
+  }
+
+  .mobile-milestone-node {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mobile-card-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .wednesday-card {
+    padding: 30px 18px;
+    border-radius: 26px;
+  }
+
+  .closing-panel {
+    border-radius: 28px;
+    padding: 38px 20px;
+  }
+
+  .closing-star,
+  .closing-leaf {
+    display: none;
+  }
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .floating-badge,
+  .closing-star,
+  .closing-leaf,
+  .wed-star,
+  .wed-note {
+    animation: none !important;
+  }
+
+  .moment-card,
+  .btn-primary-yellow,
+  .highlight-pill,
+  .clock-card-box {
+    transition: none !important;
+    transform: none !important;
   }
 }

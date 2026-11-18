@@ -72,7 +72,7 @@ export default function Navbar() {
           <Link to="/" className="navbar-brand" aria-label="Rubber Hills Kindergarten Home">
             <div className="brand-crest-wrapper">
               <img
-                src="/assets/logo.jpg"
+                src="/original/school-logo.jpg"
                 alt="Rubber Hills Kindergarten Logo"
                 className="brand-crest-img"
               />
@@ -132,7 +132,7 @@ export default function Navbar() {
             <Link to="/" className="navbar-brand" onClick={() => setMobileMenuOpen(false)}>
               <div className="brand-crest-wrapper" style={{ width: '40px', height: '40px' }}>
                 <img
-                  src="/assets/logo.jpg"
+                  src="/original/school-logo.jpg"
                   alt="Rubber Hills Kindergarten Logo"
                   className="brand-crest-img"
                 />

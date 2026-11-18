@@ -14,6 +14,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import { ABOUT_IMAGES } from '../../config/images';
 import './About.css';
 
 export default function About() {
@@ -59,9 +60,10 @@ export default function About() {
               {/* Top Main Campus Photo */}
               <div className="collage-top-img-box">
                 <img
-                  src="/assets/about_main.jpg"
-                  alt="Rubber Hills Campus Building"
+                  src={ABOUT_IMAGES.heroMain.src}
+                  alt={ABOUT_IMAGES.heroMain.alt}
                   className="collage-main-img"
+                  loading="eager"
                 />
               </div>
 
@@ -69,16 +71,18 @@ export default function About() {
               <div className="collage-bottom-row">
                 <div className="collage-sub-card card-girl">
                   <img
-                    src="/assets/about_girl_blocks.jpg"
-                    alt="Child playing with blocks"
+                    src={ABOUT_IMAGES.heroStudent.src}
+                    alt={ABOUT_IMAGES.heroStudent.alt}
                     className="collage-sub-img"
+                    loading="lazy"
                   />
                 </div>
                 <div className="collage-sub-card card-play">
                   <img
-                    src="/assets/about_playground.jpg"
-                    alt="Children playing outdoor"
+                    src={ABOUT_IMAGES.heroPlayground.src}
+                    alt={ABOUT_IMAGES.heroPlayground.alt}
                     className="collage-sub-img"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -129,9 +133,10 @@ export default function About() {
               <div className="story-visual-card">
                 <div className="story-image-wrap">
                   <img
-                    src="/assets/campus-entrance.jpg"
-                    alt="Rubber Hills Campus Entrance and Garden Grounds"
+                    src={ABOUT_IMAGES.storyVisual.src}
+                    alt={ABOUT_IMAGES.storyVisual.alt}
                     className="story-campus-img"
+                    loading="lazy"
                   />
                   <div className="story-image-badge">
                     <span className="badge-tag">SINCE RETIREMENT</span>
@@ -166,7 +171,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. Meet Our Founders Section */}
+      {/* 3. Meet Our Founders Section (Compact Redesign) */}
       <section id="founders" className="about-founders-section" aria-label="Meet Our Founders">
         <div className="container">
           <div className="founders-header">
@@ -180,30 +185,29 @@ export default function About() {
           <div className="founders-grid">
             {/* Founder 1: Ajin George */}
             <div className="founder-card card-ajin">
-              <div className="founder-card-inner">
-                <div>
-                  <div className="founder-top-row">
-                    <div className="founder-avatar-wrap">
-                      <div className="founder-avatar avatar-navy">
-                        <span className="founder-initials">AG</span>
-                      </div>
-                      <div className="founder-sub-badge" title="Retired Navy Veteran">
-                        <Anchor size={14} />
-                      </div>
-                    </div>
-                    <div className="founder-role-tag tag-navy">
-                      <span>Founder</span>
-                    </div>
+              <div className="founder-avatar-col">
+                <div className="founder-avatar-wrap">
+                  <div className="founder-avatar avatar-navy">
+                    <span className="founder-initials">AG</span>
                   </div>
-
-                  <div className="founder-info">
-                    <h3 className="founder-name">Ajin George</h3>
-                    <div className="founder-divider-navy" />
-                    <p className="founder-description">
-                      Founder. Retired Navy veteran.
-                    </p>
+                  <div className="founder-sub-badge" title="Retired Navy Veteran">
+                    <Anchor size={13} />
                   </div>
                 </div>
+              </div>
+
+              <div className="founder-content-col">
+                <div className="founder-header-row">
+                  <div>
+                    <h3 className="founder-name">Ajin George</h3>
+                    <div className="founder-divider-navy" />
+                  </div>
+                  <span className="founder-role-tag tag-navy">Founder</span>
+                </div>
+
+                <p className="founder-description">
+                  Founder. Retired Navy veteran.
+                </p>
 
                 <div className="founder-card-footer">
                   <span className="founder-card-badge">
@@ -216,30 +220,29 @@ export default function About() {
 
             {/* Founder 2: Luie Femila */}
             <div className="founder-card card-luie">
-              <div className="founder-card-inner">
-                <div>
-                  <div className="founder-top-row">
-                    <div className="founder-avatar-wrap">
-                      <div className="founder-avatar avatar-educator">
-                        <span className="founder-initials">LF</span>
-                      </div>
-                      <div className="founder-sub-badge" title="Seasoned Educator">
-                        <GraduationCap size={14} />
-                      </div>
-                    </div>
-                    <div className="founder-role-tag tag-educator">
-                      <span>Founder & Educator</span>
-                    </div>
+              <div className="founder-avatar-col">
+                <div className="founder-avatar-wrap">
+                  <div className="founder-avatar avatar-educator">
+                    <span className="founder-initials">LF</span>
                   </div>
-
-                  <div className="founder-info">
-                    <h3 className="founder-name">Luie Femila</h3>
-                    <div className="founder-divider-educator" />
-                    <p className="founder-description">
-                      Founder and educator. Experience in Navy kindergarten schools and Kendriya Vidyalayas, and as a business analyst with Barclays.
-                    </p>
+                  <div className="founder-sub-badge" title="Seasoned Educator">
+                    <GraduationCap size={13} />
                   </div>
                 </div>
+              </div>
+
+              <div className="founder-content-col">
+                <div className="founder-header-row">
+                  <div>
+                    <h3 className="founder-name">Luie Femila</h3>
+                    <div className="founder-divider-educator" />
+                  </div>
+                  <span className="founder-role-tag tag-educator">Founder & Educator</span>
+                </div>
+
+                <p className="founder-description">
+                  Founder and educator. Experience in Navy kindergarten schools and Kendriya Vidyalayas, and as a business analyst with Barclays.
+                </p>
 
                 <div className="founder-card-footer">
                   <span className="founder-card-badge">

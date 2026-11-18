@@ -43,10 +43,12 @@
 /* User's Exact .hero-image Container & Clip-Path */
 .hero-image {
   position: absolute;
-  top: 0;            /* runs behind the nav */
+  top: 0;
+  /* runs behind the nav */
   right: 0;
   bottom: 0;
-  width: 56%;        /* moved curve to the right, perfectly matching mockup */
+  width: 56%;
+  /* moved curve to the right, perfectly matching mockup */
   clip-path: url(#hero-wave);
   -webkit-clip-path: url(#hero-wave);
   z-index: 1;
@@ -57,7 +59,8 @@
 .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; object-position: center 12%; transform: scale(0.95);
+  object-fit: cover;
+  object-position: center 14%;
   display: block;
 }
 
@@ -361,6 +364,7 @@
   position: relative;
   z-index: 8;
   width: 100%;
+  max-width: 100vw;
   margin-top: -38px;
   margin-bottom: 25px;
   padding: 0;
@@ -384,7 +388,7 @@
   overflow: hidden;
   clip-path: url(#gallery-bottom-arch);
   -webkit-clip-path: url(#gallery-bottom-arch);
-  background-color: transparent;
+  background-color: #FAF7EE;
 }
 
 .panorama-item {
@@ -429,16 +433,16 @@
   transition: transform 0.4s ease;
 }
 
-.panorama-item.item-left .panorama-img {
-  object-position: left center;
+.panorama-walkway-img {
+  object-position: center 30%;
 }
 
-.panorama-item.item-center .panorama-img {
-  object-position: center center;
+.panorama-classroom-img {
+  object-position: center 40%;
 }
 
-.panorama-item.item-right .panorama-img {
-  object-position: right center;
+.panorama-playground-img {
+  object-position: center 35%;
 }
 
 .panorama-item:hover .panorama-img {
@@ -531,49 +535,6 @@
   margin: 0;
 }
 
-/* Corner Decorations */
-.corner-decor-bottom-left {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 240px;
-  height: 140px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.corner-decor-bottom-right {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 240px;
-  height: 140px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.corner-waves-svg {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.corner-leaves-svg {
-  position: absolute;
-  bottom: 0;
-  width: 150px;
-  height: 150px;
-}
-
-.corner-decor-bottom-left .corner-leaves-svg {
-  left: 0;
-}
-
-.corner-decor-bottom-right .corner-leaves-svg {
-  right: 0;
-}
-
 /* ============================================================== */
 /* 5. PLACEHOLDER TOGGLE FLOATING HELPER                          */
 /* ============================================================== */
@@ -614,12 +575,15 @@
   .heading-leaf-accent {
     display: none;
   }
+
   .hero-vector-canvas-wrap {
     display: none;
   }
+
   .home-hero {
     padding-top: 100px;
   }
+
   .hero-placeholder-overlay {
     position: relative;
     top: auto;
@@ -627,26 +591,38 @@
     transform: none;
     margin: 30px auto;
   }
+
   .hero-content-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
   .hero-text-col {
     align-items: center;
     max-width: 100%;
   }
+
   .features-pill-grid {
     grid-template-columns: 1fr;
     gap: 18px;
   }
+
+  .hero-image img {
+    object-position: center 12%;
+  }
 }
 
 @media (max-width: 768px) {
+  .hero-image img {
+    object-position: 65% 10%;
+  }
+
   .home-gallery-section {
     margin-top: -20px;
     margin-bottom: 20px;
   }
+
   .panorama-curved-band {
     flex-direction: column;
     height: auto;
@@ -656,6 +632,7 @@
     padding: 0 16px;
     background-color: transparent;
   }
+
   .panorama-item.item-left,
   .panorama-item.item-center,
   .panorama-item.item-right {
@@ -668,10 +645,12 @@
     border-radius: 18px;
     box-shadow: 0 6px 20px rgba(6, 75, 37, 0.08);
   }
+
   .band-text {
     gap: 0.8rem;
     letter-spacing: 0.18em;
   }
+
   .hero-heading {
     font-size: 2.7rem;
   }

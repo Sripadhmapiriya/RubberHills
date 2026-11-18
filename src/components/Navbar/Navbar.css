@@ -181,10 +181,9 @@
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1.4vw, 18px);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  gap: clamp(8px, 1.3vw, 18px);
+  margin: 0 auto;
+  padding: 0 16px;
   z-index: 2;
   white-space: nowrap;
 }
@@ -215,7 +214,8 @@
 
 /* "Visit Us ->" Button on the Far Right */
 .navbar-action {
-  margin-left: auto;
+  margin-left: 0;
+  flex-shrink: 0;
   z-index: 2;
 }
 

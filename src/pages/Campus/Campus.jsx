@@ -5,6 +5,8 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import CampusCarousel from '../../components/Campus/CampusCarousel';
+import { CAMPUS_IMAGES } from '../../config/images';
 import './Campus.css';
 
 export default function Campus() {
@@ -36,12 +38,12 @@ export default function Campus() {
               Thoughtfully designed spaces where little learners can play, discover and grow.
             </p>
 
-            <Link to="/contact" className="btn-primary-green">
-              <span>Explore Our Campus</span>
+            <a href="#campus-gallery" className="btn-primary-green">
+              <span>Explore Campus Gallery</span>
               <span className="btn-arrow-circle">
                 <ArrowRight size={17} />
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Right Collage matching reference */}
@@ -50,9 +52,10 @@ export default function Campus() {
               {/* Top Main Campus Card */}
               <div className="campus-top-card">
                 <img
-                  src="/assets/campus_main.jpg"
-                  alt="Rubber Hills Main Campus Grounds"
+                  src={CAMPUS_IMAGES.topMain.src}
+                  alt={CAMPUS_IMAGES.topMain.alt}
                   className="campus-top-img"
+                  loading="eager"
                 />
               </div>
 
@@ -60,31 +63,49 @@ export default function Campus() {
               <div className="campus-bottom-cards">
                 <div className="sub-card">
                   <img
-                    src="/assets/campus_walkway.jpg"
-                    alt="Garden walkway"
+                    src={CAMPUS_IMAGES.walkway.src}
+                    alt={CAMPUS_IMAGES.walkway.alt}
                     className="sub-card-img"
+                    loading="lazy"
                   />
                   <div className="sub-card-caption">Garden Walkway</div>
                 </div>
                 <div className="sub-card">
                   <img
-                    src="/assets/classroom_interior.jpg"
-                    alt="Spacious airy classroom"
+                    src={CAMPUS_IMAGES.classroom.src}
+                    alt={CAMPUS_IMAGES.classroom.alt}
                     className="sub-card-img"
+                    loading="lazy"
                   />
                   <div className="sub-card-caption">Bright Classrooms</div>
                 </div>
                 <div className="sub-card">
                   <img
-                    src="/assets/outdoor_playground.jpg"
-                    alt="Outdoor play court"
-                    className="sub-card-img"
+                    src={CAMPUS_IMAGES.court.src}
+                    alt={CAMPUS_IMAGES.court.alt}
+                    className="sub-card-img sub-card-court-img"
+                    loading="lazy"
                   />
                   <div className="sub-card-caption">Playground</div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 2. Interactive Campus Photo Showcase (3D Rotating Coverflow) */}
+      <section id="campus-gallery" className="campus-showcase-section">
+        <div className="container">
+          <div className="showcase-header">
+            <PillBadge text="Photo Showcase" className="showcase-pill" />
+            <h2 className="showcase-title">A World of Wonder & Play</h2>
+            <p className="showcase-subtitle">
+              Authentic glimpses of our sun-filled classrooms, green outdoor arena, and child-safe campus.
+            </p>
+          </div>
+
+          <CampusCarousel intervalMs={3000} />
         </div>
       </section>
 
@@ -125,7 +146,7 @@ export default function Campus() {
               </div>
               <div className="facility-info">
                 <h3>Secure Outdoor Play Zone</h3>
-                <p>Colorful slides, swings, and grass courts designed with child-safe rubberized flooring and barriers.</p>
+                <p>Colorful slides, swings, and open grass courts designed with child-safe equipment and protective barriers.</p>
               </div>
             </div>
 

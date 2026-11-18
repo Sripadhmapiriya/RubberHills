@@ -4,7 +4,6 @@ import { ArrowRight, BookOpen, Sprout, Heart } from 'lucide-react';
 import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
-import ImageSlot from '../../components/Shared/ImageSlot';
 import { HERO_IMAGE_CONFIG } from '../../config/images';
 import './Home.css';
 
@@ -36,9 +35,10 @@ export default function Home() {
         {/* User's .hero-image Container - Authentic Campus Photograph */}
         <div className="hero-image">
           <img
-            src="/assets/campus_building_highres.jpg"
-            alt="Rubber Hills Kindergarten Main Campus Building"
+            src={slots.heroCampus.src}
+            alt={slots.heroCampus.alt}
             className="hero-campus-photo"
+            loading="eager"
           />
 
           {/* Exact Curve Border Line */}
@@ -163,8 +163,8 @@ export default function Home() {
             </p>
 
             <div className="hero-cta-group">
-              <Link to="/about" className="btn-primary-green">
-                <span>Explore our school</span>
+              <Link to="/campus#campus-gallery" className="btn-primary-green">
+                <span>Explore Campus</span>
                 <span className="btn-arrow-circle">
                   <ArrowRight size={17} />
                 </span>
@@ -237,42 +237,33 @@ export default function Home() {
         </svg>
 
         <div className="panorama-curved-band">
-          {/* Photo 1: Left - Walkway */}
+          {/* Photo 1: Left - Authentic Garden Walkway */}
           <div className="panorama-item item-left">
-            <ImageSlot
+            <img
               src={slots.galleryWalkway.src}
               alt={slots.galleryWalkway.alt}
-              title={slots.galleryWalkway.title}
-              recommendedSize={slots.galleryWalkway.recommendedSize}
-              isPlaceholder={false}
-              className="panorama-slot"
-              imgClassName="panorama-img"
+              className="panorama-img panorama-walkway-img"
+              loading="lazy"
             />
           </div>
 
-          {/* Photo 2: Center - Classroom Interior */}
+          {/* Photo 2: Center - Authentic Active Classroom */}
           <div className="panorama-item item-center">
-            <ImageSlot
+            <img
               src={slots.galleryClassroom.src}
               alt={slots.galleryClassroom.alt}
-              title={slots.galleryClassroom.title}
-              recommendedSize={slots.galleryClassroom.recommendedSize}
-              isPlaceholder={false}
-              className="panorama-slot"
-              imgClassName="panorama-img"
+              className="panorama-img panorama-classroom-img"
+              loading="lazy"
             />
           </div>
 
-          {/* Photo 3: Right - Outdoor Playground */}
+          {/* Photo 3: Right - Authentic Outdoor Playground */}
           <div className="panorama-item item-right">
-            <ImageSlot
+            <img
               src={slots.galleryPlayground.src}
               alt={slots.galleryPlayground.alt}
-              title={slots.galleryPlayground.title}
-              recommendedSize={slots.galleryPlayground.recommendedSize}
-              isPlaceholder={false}
-              className="panorama-slot"
-              imgClassName="panorama-img"
+              className="panorama-img panorama-playground-img"
+              loading="lazy"
             />
           </div>
         </div>
@@ -331,59 +322,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* 🌿 Botanical & Wave Decorations - Bottom Corners */}
-        <div className="corner-decor-bottom-left" aria-hidden="true">
-          <svg viewBox="0 0 260 160" className="corner-waves-svg">
-            <path
-              d="M 0 160 Q 60 110 140 120 Q 200 130 260 90 L 260 160 Z"
-              fill="#FFD21C"
-              opacity="0.95"
-            />
-            <path
-              d="M 0 160 Q 50 80 130 90 Q 210 100 260 50 L 260 160 Z"
-              fill="#064B25"
-            />
-          </svg>
-          <svg viewBox="0 0 160 160" className="corner-leaves-svg">
-            <path
-              d="M 0 160 C 20 110 60 60 120 40 C 100 90 70 130 0 160 Z"
-              fill="#76B82A"
-              opacity="0.9"
-            />
-            <path
-              d="M 0 160 C 50 130 90 80 140 70 C 110 120 60 150 0 160 Z"
-              fill="#DFF0C9"
-              opacity="0.85"
-            />
-          </svg>
-        </div>
-
-        <div className="corner-decor-bottom-right" aria-hidden="true">
-          <svg viewBox="0 0 260 160" className="corner-waves-svg">
-            <path
-              d="M 260 160 Q 200 110 120 120 Q 60 130 0 90 L 0 160 Z"
-              fill="#FFD21C"
-              opacity="0.95"
-            />
-            <path
-              d="M 260 160 Q 210 80 130 90 Q 50 100 0 50 L 0 160 Z"
-              fill="#064B25"
-            />
-          </svg>
-          <svg viewBox="0 0 160 160" className="corner-leaves-svg">
-            <path
-              d="M 160 160 C 140 110 100 60 40 40 C 60 90 90 130 160 160 Z"
-              fill="#76B82A"
-              opacity="0.9"
-            />
-            <path
-              d="M 160 160 C 110 130 70 80 20 70 C 50 120 100 150 160 160 Z"
-              fill="#DFF0C9"
-              opacity="0.85"
-            />
-          </svg>
         </div>
       </section>
     </div>

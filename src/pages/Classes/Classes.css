@@ -1,261 +1,1274 @@
+/* ============================================================== */
+/* RUBBER HILLS KINDERGARTEN - MODERN CLASSES PAGE STYLES         */
+/* ============================================================== */
+
+:root {
+  --classes-warm-cream: #FFF9ED;
+  --classes-forest-green: #174B35;
+  --classes-fresh-green: #72B95A;
+  --classes-sunshine-yellow: #F6D65B;
+  --classes-soft-mint: #E4F1DF;
+  --classes-soft-peach: #F8DED0;
+  --classes-light-lavender: #E9E3F5;
+}
+
 .page-classes {
   position: relative;
   overflow: hidden;
-  padding-bottom: 80px;
+  background-color: var(--color-cream, #FAF7EE);
+  color: #2D3A31;
+  padding-bottom: 30px;
 }
 
+/* ============================================================== */
+/* 1. HERO SECTION – OUR LITTLE LEARNERS                           */
+/* ============================================================== */
 .classes-hero {
-  padding: 50px 0;
   position: relative;
+  padding: 50px 0 60px;
   z-index: 2;
 }
 
-.classes-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 50px;
-}
-
-.classes-heading {
-  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
-  font-weight: 800;
-  color: var(--color-primary);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.classes-subtitle {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  color: var(--color-text-muted);
-  font-weight: 600;
-  line-height: 1.5;
-  margin-top: 14px;
-}
-
-/* 3 Main Classes Cards Grid */
-.classes-cards-grid {
+.classes-hero-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-bottom: 50px;
-}
-
-.class-card {
-  position: relative;
-  background: #FFFFFF;
-  border-radius: 32px;
-  overflow: hidden;
-  border: 2px solid #EBF3E3;
-  box-shadow: var(--shadow-md);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-
-.class-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-light-green);
-}
-
-.class-corner-fold {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, var(--color-yellow) 50%, transparent 50%);
-  border-top-left-radius: 30px;
-  z-index: 3;
-}
-
-.class-star-badge {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 3;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
-}
-
-.class-image-container {
-  width: 100%;
-  height: 230px;
-  border-radius: 24px;
-  overflow: hidden;
-  margin-bottom: 24px;
-  box-shadow: var(--shadow-sm);
-}
-
-.class-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.class-card-body {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  flex: 1;
+  gap: 40px;
 }
 
-.class-card-title {
-  font-size: 1.85rem;
+.classes-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.classes-eyebrow {
+  margin-bottom: 20px;
+}
+
+.classes-hero-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.classes-rays-left,
+.classes-rays-right {
+  width: 34px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.classes-hero-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 4.2vw, 3.5rem);
   font-weight: 800;
-  color: var(--color-primary);
-  margin-bottom: 8px;
-  letter-spacing: 0.04em;
+  color: var(--classes-forest-green);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  margin: 0;
 }
 
-.class-card-tagline {
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  margin-bottom: 24px;
-  flex: 1;
+.classes-hero-underline {
+  max-width: 320px;
+  height: 18px;
+  margin: 0 0 22px 0;
 }
 
-.btn-class-cta {
+.classes-hero-lead {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: #4B6354;
+  font-weight: 600;
+  line-height: 1.55;
+  max-width: 580px;
+  margin: 0 0 32px 0;
+}
+
+/* Three Decorative Highlights */
+.classes-hero-highlights {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-highlight-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background-color: var(--color-primary);
-  color: #FFFFFF;
+  padding: 9px 18px;
+  border-radius: var(--radius-full, 9999px);
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 12px rgba(23, 75, 53, 0.06);
+  border: 1.5px solid transparent;
   font-family: var(--font-heading);
+  font-size: 0.92rem;
   font-weight: 700;
-  font-size: 0.98rem;
-  padding: 10px 12px 10px 22px;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(6, 75, 37, 0.2);
   transition: all 0.25s ease;
 }
 
-.btn-class-cta:hover {
-  background-color: var(--color-primary-dark);
+.hero-highlight-pill:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(6, 75, 37, 0.3);
+  box-shadow: 0 6px 18px rgba(23, 75, 53, 0.1);
 }
 
-/* Wide Creche Banner Card */
-.creche-banner-card {
-  position: relative;
-  background: #FFFFFF;
-  border-radius: 36px;
-  border: 2px solid #EBF3E3;
-  box-shadow: var(--shadow-md);
-  padding: 24px 36px;
+.highlight-joy {
+  border-color: #FCE89B;
+  color: #7A5700;
+}
+.highlight-joy .highlight-icon-circle {
+  background-color: #FEF6D8;
+  color: #D49D04;
+}
+
+.highlight-grow {
+  border-color: #CFE8C9;
+  color: #174B35;
+}
+.highlight-grow .highlight-icon-circle {
+  background-color: #E6F4E2;
+  color: #47932D;
+}
+
+.highlight-discover {
+  border-color: #DFD3F4;
+  color: #55338E;
+}
+.highlight-discover .highlight-icon-circle {
+  background-color: #F0EAF9;
+  color: #794DC0;
+}
+
+.highlight-icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 36px;
-  overflow: hidden;
-}
-
-.creche-left-visual {
-  position: relative;
-  width: 200px;
-  height: 140px;
+  justify-content: center;
   flex-shrink: 0;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
 }
 
-.creche-yellow-accent {
+.highlight-text {
+  letter-spacing: 0.01em;
+}
+
+/* Hero Vector Illustration */
+.classes-hero-art {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.hero-art-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(23, 75, 53, 0.08));
+}
+
+.art-plane-float {
+  animation: floatPlane 4s ease-in-out infinite alternate;
+}
+
+.art-sun-group {
+  animation: pulseSun 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatPlane {
+  0% {
+    transform: translate(180px, 55px) rotate(-10deg);
+  }
+  100% {
+    transform: translate(188px, 47px) rotate(-6deg);
+  }
+}
+
+@keyframes pulseSun {
+  0% {
+    transform: scale(1);
+    transform-origin: 360px 80px;
+  }
+  100% {
+    transform: scale(1.04);
+    transform-origin: 360px 80px;
+  }
+}
+
+/* ============================================================== */
+/* 2. CRECHE PROGRAMME – A GENTLE BEGINNING                        */
+/* ============================================================== */
+.creche-showcase-section {
+  position: relative;
+  padding: 30px 0 60px;
+  z-index: 2;
+}
+
+.creche-card-master {
+  background: #FFFFFF;
+  border-radius: 36px;
+  border: 2px solid #F5E2D7;
+  box-shadow: 0 12px 38px rgba(23, 75, 53, 0.08);
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.creche-card-master::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #F8A882 0%, #F6D65B 50%, #72B95A 100%);
+}
+
+.creche-main-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.creche-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FFF2EB;
+  border: 1.5px solid #F8C3AA;
+  color: #B25828;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 16px;
+  border-radius: var(--radius-full, 9999px);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.creche-badge-icon {
+  color: #B25828;
+}
+
+.creche-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.creche-name {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  margin: 0;
+  line-height: 1;
+}
+
+.creche-highlight-age {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #E4F1DF;
+  border: 1.5px solid #A8DC7C;
+  color: #174B35;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.creche-highlight-age strong {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0E5E2F;
+}
+
+.creche-story-p {
+  font-size: 1.12rem;
+  color: #375240;
+  line-height: 1.65;
+  margin: 0 0 24px 0;
+  font-weight: 500;
+}
+
+.creche-features-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.creche-mini-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #F8FAF5;
+  border: 1px solid #E1EBDC;
+  color: #2D4E37;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 12px;
+}
+
+.creche-mini-pill svg {
+  color: #72B95A;
+}
+
+.btn-creche-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--classes-forest-green);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 14px 12px 26px;
+  border-radius: var(--radius-full, 9999px);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(23, 75, 53, 0.25);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-creche-cta:hover {
+  background-color: #0E3524;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(23, 75, 53, 0.35);
+}
+
+.btn-arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  transition: transform 0.2s ease;
+}
+
+.btn-creche-cta:hover .btn-arrow-circle {
+  transform: translateX(3px);
+  background-color: rgba(255, 255, 255, 0.32);
+}
+
+/* Creche 5 Details Grid */
+.creche-details-col {
+  background-color: #FFFDF9;
+  border: 1.5px solid #F4E7DF;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.creche-details-heading {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+}
+
+.creche-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.creche-detail-box {
+  background-color: #FFFFFF;
+  border: 1.5px solid #EFEAE3;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 12px rgba(23, 75, 53, 0.04);
+  transition: all 0.25s ease;
+}
+
+.creche-detail-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(23, 75, 53, 0.08);
+  border-color: #D8EAD0;
+}
+
+.detail-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.age-icon {
+  background-color: #E4F1DF;
+  color: #38861E;
+}
+.time-icon {
+  background-color: #FEF5D6;
+  color: #C08D00;
+}
+.day-icon {
+  background-color: #FFF0E6;
+  color: #C85F24;
+}
+.group-icon {
+  background-color: #ECE7F8;
+  color: #6C42B8;
+}
+.fee-icon {
+  background-color: #E2F5E2;
+  color: #174B35;
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  color: #6A8072;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
+
+.detail-value {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #174B35;
+}
+
+.detail-sub {
+  font-size: 0.76rem;
+  color: #7D9484;
+  font-weight: 600;
+}
+
+.highlight-box-age {
+  grid-column: span 1;
+  border-color: #C2E4B8;
+  background: #FBFCFA;
+}
+
+.highlight-box-time {
+  grid-column: span 1;
+  border-color: #F8DF8F;
+  background: #FFFEFB;
+}
+
+.highlight-box-fee {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #F0F8EC 0%, #FFFFFF 100%);
+  border-color: #B5DFAB;
+}
+
+.highlight-box-fee .detail-value {
+  font-size: 1.35rem;
+  color: #0E5E2F;
+}
+
+/* ============================================================== */
+/* 3. KINDERGARTEN CLASSES – OUR LEARNING STAGES                   */
+/* ============================================================== */
+.kg-classes-section {
+  position: relative;
+  padding: 40px 0 70px;
+  z-index: 2;
+}
+
+.kg-header-wrap {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 46px;
+}
+
+.kg-pill {
+  margin-bottom: 16px;
+}
+
+.kg-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.1rem);
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+}
+
+.kg-lead {
+  font-size: 1.25rem;
+  color: #4B6354;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 3 Equal-Width Individual Class Cards Grid */
+.kg-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.kg-class-card {
+  background: #FFFFFF;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 2px solid #EBF3E5;
+  box-shadow: 0 8px 30px rgba(23, 75, 53, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+}
+
+.kg-class-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 42px rgba(23, 75, 53, 0.12);
+}
+
+.card-top-accent {
+  height: 8px;
+  width: 100%;
+}
+
+.nursery-accent {
+  background-color: var(--classes-sunshine-yellow);
+}
+
+.lkg-accent {
+  background-color: var(--classes-fresh-green);
+}
+
+.ukg-accent {
+  background: linear-gradient(90deg, #BFA5E8 0%, #F8A882 100%);
+}
+
+.kg-card-inner {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+/* Prominent Age Badge */
+.kg-age-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 18px;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.kg-age-badge strong {
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.nursery-age {
+  background-color: #FEF7DA;
+  border: 1.5px solid #F6D65B;
+  color: #7A5700;
+}
+
+.lkg-age {
+  background-color: #E4F1DF;
+  border: 1.5px solid #A8DC7C;
+  color: #174B35;
+}
+
+.ukg-age {
+  background-color: #EDE7F8;
+  border: 1.5px solid #CDBDEF;
+  color: #55338E;
+}
+
+/* Card SVG Illustration Container */
+.card-illustration-wrap {
+  width: 130px;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.kg-class-card:hover .card-illustration-wrap {
+  transform: scale(1.08);
+}
+
+.card-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.kg-card-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  letter-spacing: 0.02em;
+  margin: 0 0 10px 0;
+}
+
+.kg-card-milestone {
+  font-size: 0.98rem;
+  color: #50695B;
+  line-height: 1.5;
+  margin: 0 0 26px 0;
+  max-width: 260px;
+  flex: 1;
+}
+
+.kg-card-footer {
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn-card-enquire {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-full, 9999px);
+  border: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-nursery {
+  background-color: #FEF4CC;
+  color: #7A5700;
+  border: 1.5px solid #F6D65B;
+}
+.btn-nursery:hover {
+  background-color: #F6D65B;
+  color: #174B35;
+  box-shadow: 0 4px 14px rgba(246, 214, 91, 0.4);
+}
+
+.btn-lkg {
+  background-color: #E4F1DF;
+  color: #174B35;
+  border: 1.5px solid #9FD974;
+}
+.btn-lkg:hover {
+  background-color: #72B95A;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(114, 185, 90, 0.4);
+}
+
+.btn-ukg {
+  background-color: #ECE5F8;
+  color: #55338E;
+  border: 1.5px solid #C7B5EC;
+}
+.btn-ukg:hover {
+  background-color: #8C66CC;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(140, 102, 204, 0.4);
+}
+
+/* ============================================================== */
+/* 4. AGE GROUP OVERVIEW – CONNECTED PROGRESSION                   */
+/* ============================================================== */
+.age-progression-section {
+  position: relative;
+  padding: 20px 0 60px;
+  z-index: 2;
+}
+
+.progression-container-box {
+  background: #FFFFFF;
+  border-radius: 36px;
+  border: 2px solid #EBF3E5;
+  box-shadow: 0 10px 32px rgba(23, 75, 53, 0.06);
+  padding: 44px 40px 36px;
+  text-align: center;
+}
+
+.progression-header {
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.progression-pill {
+  margin-bottom: 14px;
+}
+
+.progression-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+
+.progression-subtitle {
+  font-size: 1.05rem;
+  color: #50695B;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.progression-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 28px;
+  max-width: 1040px;
+}
+
+.progression-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #FFFDF9;
+  border: 1.5px solid #EFEAE2;
+  border-radius: 24px;
+  padding: 20px 18px;
+  min-width: 170px;
+  box-shadow: 0 4px 16px rgba(23, 75, 53, 0.04);
+  transition: all 0.25s ease;
+}
+
+.progression-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(23, 75, 53, 0.08);
+  border-color: #DCE8D6;
+}
+
+.step-circle-node {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.node-peach {
+  background-color: #FFF0E6;
+  border: 2px solid #F8A882;
+  color: #B25828;
+}
+
+.node-yellow {
+  background-color: #FEF7DA;
+  border: 2px solid #F6D65B;
+  color: #8C6500;
+}
+
+.node-mint {
+  background-color: #E4F1DF;
+  border: 2px solid #72B95A;
+  color: #174B35;
+}
+
+.node-lavender {
+  background-color: #EDE7F8;
+  border: 2px solid #BFA5E8;
+  color: #55338E;
+}
+
+.step-num {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--classes-forest-green);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.step-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  margin: 0;
+}
+
+.step-age-tag {
+  display: inline-block;
+  background-color: #F0F6EC;
+  color: #2F593E;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.progression-connector {
+  display: flex;
+  align-items: center;
+  color: #A3C999;
+}
+
+.connector-line {
+  width: 24px;
+  height: 3px;
+  background-color: #D3E7CB;
+  border-radius: 2px;
+}
+
+.connector-arrow {
+  color: #72B95A;
+  margin-left: -4px;
+}
+
+.progression-foot-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #F4FBF1;
+  border: 1.5px solid #D5ECD0;
+  color: #1E5037;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 8px 22px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.note-star-icon {
+  color: #F6D65B;
+  flex-shrink: 0;
+}
+
+/* ============================================================== */
+/* 5. ENQUIRY / VISIT US SECTION                                  */
+/* ============================================================== */
+.classes-enquiry-section {
+  position: relative;
+  padding: 30px 0 60px;
+  z-index: 2;
+}
+
+.classes-enquiry-card {
+  background: #FFFFFF;
+  border-radius: 36px;
+  border: 2px solid #EBF3E5;
+  box-shadow: 0 14px 44px rgba(23, 75, 53, 0.09);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.classes-enquiry-card::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 40px;
-  background-color: var(--color-yellow);
-  z-index: 1;
-  clip-path: ellipse(100% 100% at 0% 50%);
+  width: 8px;
+  background: linear-gradient(180deg, #72B95A 0%, #F6D65B 100%);
 }
 
-.creche-toddler-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.enquiry-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.creche-center-info {
-  flex: 1;
+.enquiry-pill {
+  margin-bottom: 18px;
 }
 
-.creche-title-row {
+.enquiry-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px 0;
+}
+
+.enquiry-lead {
+  font-size: 1.15rem;
+  color: #3C5446;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+  font-weight: 500;
+}
+
+.enquiry-perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.enquiry-perk-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 12px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #2F4D3A;
 }
 
-.creche-heart-icon {
-  color: var(--color-yellow);
-}
-
-.creche-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  letter-spacing: 0.04em;
-  margin: 0;
-}
-
-.creche-age-pill {
-  display: inline-block;
-  background-color: var(--color-light-green);
-  color: var(--color-primary);
-  font-weight: 800;
-  font-size: 0.88rem;
-  padding: 4px 14px;
-  border-radius: var(--radius-full);
-  margin-bottom: 10px;
-}
-
-.creche-desc {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.creche-right-action {
+.perk-bullet-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--classes-fresh-green);
   flex-shrink: 0;
 }
 
-.btn-creche {
-  padding: 12px 14px 12px 24px;
+.enquiry-direct-call {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #F8FAF5;
+  border: 1.5px solid #E6EFE2;
+  border-radius: 18px;
+  padding: 12px 20px;
 }
 
-.creche-train-illustration {
+.direct-call-label {
+  font-size: 0.82rem;
+  color: #6C8274;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.direct-call-link {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0E5E2F;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.direct-call-link:hover {
+  color: #72B95A;
+  text-decoration: underline;
+}
+
+/* Enquiry Form Styling */
+.enquiry-form-wrapper {
+  background-color: #FFFDF9;
+  border: 1.5px solid #F0EAE1;
+  border-radius: 28px;
+  padding: 34px 32px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+}
+
+.form-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--classes-forest-green);
+  margin: 0 0 6px 0;
+}
+
+.form-card-subtitle {
+  font-size: 0.92rem;
+  color: #687E71;
+  margin: 0 0 22px 0;
+}
+
+/* Form Feedback Banners */
+.form-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 18px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.form-feedback p {
+  margin: 2px 0 0 0;
+}
+
+.success-banner {
+  background-color: #E8F7E4;
+  border: 1.5px solid #9BD78A;
+  color: #174B35;
+}
+
+.success-banner .feedback-icon {
+  color: #2F7D4F;
   flex-shrink: 0;
-  max-width: 120px;
+  margin-top: 2px;
 }
 
-.train-img {
+.error-banner {
+  background-color: #FDF0EE;
+  border: 1.5px solid #F5B0A4;
+  color: #8C2415;
+}
+
+.error-banner .feedback-icon {
+  color: #C53018;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.classes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #2D4336;
+}
+
+.required-star {
+  color: #D32F2F;
+}
+
+.form-input,
+.form-select {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  padding: 13px 18px;
+  border-radius: 16px;
+  border: 1.5px solid #DCE6D7;
+  background-color: #FFFFFF;
+  color: #174B35;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-@media (max-width: 992px) {
-  .classes-cards-grid {
-    grid-template-columns: 1fr;
+.form-input:focus,
+.form-select:focus {
+  border-color: #72B95A;
+  box-shadow: 0 0 0 3px rgba(114, 185, 90, 0.2);
+}
+
+.form-input::placeholder {
+  color: #A3B8AC;
+  font-weight: 500;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.btn-submit-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #FFD21C;
+  color: #174B35;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 15px 30px;
+  border-radius: var(--radius-full, 9999px);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 210, 28, 0.4);
+  transition: all 0.25s ease;
+  margin-top: 6px;
+}
+
+.btn-submit-call:hover:not(:disabled) {
+  background-color: #FFE052;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 210, 28, 0.55);
+}
+
+.btn-submit-call:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.spinner-rotate {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
   }
-  .creche-banner-card {
-    flex-direction: column;
+}
+
+/* ============================================================== */
+/* RESPONSIVE BREAKPOINTS                                         */
+/* ============================================================== */
+@media (max-width: 1080px) {
+  .classes-hero-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
     text-align: center;
   }
-  .creche-title-row {
+  .classes-hero-content {
+    align-items: center;
+  }
+  .classes-hero-underline {
+    margin: 0 auto 22px auto;
+  }
+  .classes-hero-highlights {
     justify-content: center;
   }
-  .creche-left-visual {
+  .creche-card-master {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 36px 32px;
+  }
+  .creche-main-col {
+    align-items: center;
+    text-align: center;
+  }
+  .creche-features-row {
+    justify-content: center;
+  }
+  .classes-enquiry-card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 36px 30px;
+  }
+  .enquiry-text-col {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .kg-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .progression-track {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .progression-connector {
+    transform: rotate(90deg);
+    margin: -4px 0;
+  }
+  .progression-step {
     width: 100%;
-    max-width: 260px;
-    height: 180px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .kg-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .creche-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .highlight-box-fee {
+    grid-column: span 1;
+  }
+  .creche-card-master {
+    padding: 28px 20px;
+    border-radius: 28px;
+  }
+  .classes-enquiry-card {
+    padding: 28px 18px;
+    border-radius: 28px;
+  }
+  .enquiry-form-wrapper {
+    padding: 24px 18px;
+  }
+  .progression-container-box {
+    padding: 30px 18px 24px;
+    border-radius: 28px;
+  }
+  .classes-hero {
+    padding: 36px 0 40px;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .art-plane-float,
+  .art-sun-group,
+  .spinner-rotate {
+    animation: none;
+  }
+  .kg-class-card,
+  .creche-detail-box,
+  .progression-step,
+  .btn-submit-call,
+  .btn-creche-cta {
+    transition: none;
   }
 }

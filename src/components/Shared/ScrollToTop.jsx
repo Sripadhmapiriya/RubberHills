@@ -6,14 +6,23 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      // Allow DOM to settle before scrolling to hash element
-      setTimeout(() => {
+      const scrollToHash = () => {
         const element = document.querySelector(hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
-          return;
+          return true;
         }
-      }, 50);
+        return false;
+      };
+
+      if (!scrollToHash()) {
+        const timer1 = setTimeout(scrollToHash, 60);
+        const timer2 = setTimeout(scrollToHash, 200);
+        return () => {
+          clearTimeout(timer1);
+          clearTimeout(timer2);
+        };
+      }
     } else {
       window.scrollTo({
         top: 0,

@@ -19,6 +19,7 @@ export default function Home() {
         {/* User's Exact Wave ClipPath */}
         <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
           <defs>
+            {/* Desktop Side S-Curve */}
             <clipPath id="hero-wave" clipPathUnits="objectBoundingBox">
               <path d="
                 M0.50,0
@@ -28,6 +29,11 @@ export default function Home() {
                 C0.02,0.66 0.06,0.72 0.06,0.80
                 C0.06,0.88 0.04,0.94 0.02,1
                 L1,1 L1,0 Z" />
+            </clipPath>
+
+            {/* Mobile / Tablet Organic Top Wave */}
+            <clipPath id="hero-wave-mobile-top" clipPathUnits="objectBoundingBox">
+              <path d="M 0,0.08 C 0.25,0.16 0.50,0.01 0.75,0.09 C 0.88,0.13 0.95,0.07 1,0.04 L 1,1 L 0,1 Z" />
             </clipPath>
           </defs>
         </svg>
@@ -41,15 +47,31 @@ export default function Home() {
             loading="eager"
           />
 
-          {/* Exact Curve Border Line */}
+          {/* Exact Desktop Curve Border Line */}
           <svg
             viewBox="0 0 1 1"
             preserveAspectRatio="none"
-            className="hero-wave-border-svg"
+            className="hero-wave-border-svg hero-wave-border-desktop"
             aria-hidden="true"
           >
             <path
               d="M0.50,0 C0.50,0.09 0.46,0.17 0.40,0.18 C0.30,0.20 0.16,0.24 0.08,0.30 C0.02,0.36 0.00,0.46 0.01,0.56 C0.02,0.66 0.06,0.72 0.06,0.80 C0.06,0.88 0.04,0.94 0.02,1"
+              fill="none"
+              stroke="#76B82A"
+              vectorEffect="non-scaling-stroke"
+              strokeWidth="3.5"
+            />
+          </svg>
+
+          {/* Exact Mobile / Tablet Curve Border Line */}
+          <svg
+            viewBox="0 0 1 1"
+            preserveAspectRatio="none"
+            className="hero-wave-border-svg hero-wave-border-mobile"
+            aria-hidden="true"
+          >
+            <path
+              d="M 0,0.08 C 0.25,0.16 0.50,0.01 0.75,0.09 C 0.88,0.13 0.95,0.07 1,0.04"
               fill="none"
               stroke="#76B82A"
               vectorEffect="non-scaling-stroke"

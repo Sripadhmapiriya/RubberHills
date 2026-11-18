@@ -92,6 +92,14 @@
   z-index: 2;
 }
 
+.hero-wave-border-desktop {
+  display: block;
+}
+
+.hero-wave-border-mobile {
+  display: none;
+}
+
 /* High-Fidelity Placeholder Text Overlay inside the Curved Right Area */
 .hero-placeholder-overlay {
   position: absolute;
@@ -652,7 +660,7 @@
     justify-content: flex-start;
   }
 
-  /* Campus photograph placed cleanly below the text */
+  /* Campus photograph with authentic organic S-curve top wave and lime stroke */
   .hero-image {
     order: 2;
     position: relative;
@@ -661,26 +669,41 @@
     bottom: auto;
     left: auto;
     width: 100%;
-    height: clamp(250px, 64vw, 380px);
+    height: clamp(290px, 75vw, 420px);
     clip-path: none;
     -webkit-clip-path: none;
-    border-top-left-radius: 28px;
-    border-top-right-radius: 28px;
-    margin-top: 14px;
-    overflow: hidden;
+    border-radius: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    overflow: visible;
     z-index: 1;
+    background-color: transparent;
   }
 
-  .hero-wave-border-svg {
+  .hero-wave-border-desktop {
     display: none;
+  }
+
+  .hero-wave-border-mobile {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
   }
 
   .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%;
+    object-position: center 22%;
     display: block;
+    clip-path: url(#hero-wave-mobile-top);
+    -webkit-clip-path: url(#hero-wave-mobile-top);
+    border-radius: 0;
   }
 }
 

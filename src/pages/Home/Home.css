@@ -311,6 +311,14 @@
   filter: drop-shadow(0 6px 16px rgba(6, 75, 37, 0.2));
 }
 
+.band-bg-desktop {
+  display: block;
+}
+
+.band-bg-mobile {
+  display: none;
+}
+
 .band-fill {
   fill: #064B25;
 }
@@ -685,17 +693,57 @@
     font-size: clamp(2.1rem, 8vw, 2.6rem);
   }
 
+  /* Values Banner: Proportional Smooth Ribbon on Mobile */
+  .band-bg-desktop {
+    display: none;
+  }
+
+  .band-bg-mobile {
+    display: block;
+  }
+
+  .tagline-band {
+    height: clamp(58px, 14vw, 68px);
+    margin-top: -20px;
+    margin-bottom: -20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  .band-text {
+    font-size: clamp(0.72rem, 2.9vw, 0.85rem);
+    gap: clamp(0.38rem, 1.8vw, 0.65rem);
+    letter-spacing: 0.13em;
+    padding-top: 2px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .band-text span {
+    letter-spacing: 0.13em;
+  }
+
+  .band-text i {
+    color: #FFD21C;
+    font-size: 0.95rem;
+    line-height: 1;
+    margin: 0 -1px;
+  }
+
   /* 3-Photo Panorama Gallery: EXACTLY matching desktop continuous curved ribbon */
   .home-gallery-section {
     --gallery-slant: clamp(20px, 5.5vw, 42px);
     --gallery-gap: 5px;
     --gallery-overlap: calc(var(--gallery-slant) - var(--gallery-gap));
-    margin-top: -30px;
+    margin-top: 0;
     margin-bottom: 25px;
     width: 100%;
     max-width: 100vw;
     padding: 0;
     overflow: hidden;
+    position: relative;
+    z-index: 2;
   }
 
   .panorama-curved-band {
@@ -747,10 +795,6 @@
     z-index: 1;
   }
 
-  .band-text {
-    gap: 0.8rem;
-    letter-spacing: 0.18em;
-  }
 }
 
 @media (max-width: 480px) {
@@ -769,5 +813,19 @@
   .btn-primary-green {
     padding: 11px 22px;
     font-size: 0.95rem;
+  }
+
+  .band-text {
+    font-size: clamp(0.66rem, 2.7vw, 0.76rem);
+    gap: clamp(0.28rem, 1.4vw, 0.46rem);
+    letter-spacing: 0.10em;
+  }
+
+  .band-text span {
+    letter-spacing: 0.10em;
+  }
+
+  .band-text i {
+    font-size: 0.88rem;
   }
 }

@@ -182,8 +182,9 @@ export default function Home() {
       {/* 2. TAGLINE BAND (Curved Wave Ribbon Banner)                   */}
       {/* ============================================================== */}
       <section className="tagline-band" aria-label="Values Banner: Play, Learn, Grow, Belong">
+        {/* Desktop Wave Ribbon Banner */}
         <svg
-          className="band-bg"
+          className="band-bg band-bg-desktop"
           viewBox="0 0 1440 85"
           preserveAspectRatio="none"
           aria-hidden="true"
@@ -212,6 +213,36 @@ export default function Home() {
 
           {/* 5. Botanical Leaf Sprig on Left */}
           <g className="band-leaf-sprig" transform="translate(48, 20) rotate(-12) scale(0.36)">
+            <path d="M 0 45 C 15 15 50 5 80 15 C 70 45 40 60 5 55 Z" fill="#76B82A" />
+            <path d="M 0 45 C 25 30 50 20 80 15" stroke="#064B25" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+            <path d="M 12 50 C 25 32 45 22 65 28 C 55 48 35 60 12 55 Z" fill="#DDF0C7" opacity="0.85" />
+          </g>
+        </svg>
+
+        {/* Mobile / Tablet Dedicated Proportional Wave Ribbon Banner */}
+        <svg
+          className="band-bg band-bg-mobile"
+          viewBox="0 0 420 66"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          {/* Gentle, Uniform-Thickness Curved Ribbon Body */}
+          <path
+            className="band-fill"
+            d="M 0,14 C 70,22 140,8 210,10 C 280,12 350,22 420,14 L 420,56 C 350,64 280,54 210,52 C 140,50 70,64 0,56 Z"
+          />
+          <path
+            className="band-line-top"
+            d="M 0,14 C 70,22 140,8 210,10 C 280,12 350,22 420,14"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            className="band-line"
+            d="M 0,56 C 70,64 140,50 210,52 C 280,54 350,64 420,56"
+            vectorEffect="non-scaling-stroke"
+          />
+          {/* Botanical Leaf Sprig (Scaled and placed safely in left margin without text overlap) */}
+          <g className="band-leaf-sprig" transform="translate(12, 17) rotate(-10) scale(0.22)">
             <path d="M 0 45 C 15 15 50 5 80 15 C 70 45 40 60 5 55 Z" fill="#76B82A" />
             <path d="M 0 45 C 25 30 50 20 80 15" stroke="#064B25" strokeWidth="2.5" fill="none" strokeLinecap="round" />
             <path d="M 12 50 C 25 32 45 22 65 28 C 55 48 35 60 12 55 Z" fill="#DDF0C7" opacity="0.85" />

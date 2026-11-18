@@ -1,120 +1,45 @@
 /* ============================================================== */
 /* RUBBER HILLS KINDERGARTEN - MASTER FOOTER STYLES              */
-/* Engineered Responsive SVG & Pure Typography Footer Component  */
-/* Matches the design in media_1794892975205_24e2ba89.jpg        */
+/* Authentic Background Graphic with Responsive Content Overlay   */
+/* Uses the user-provided footer_bg.png as the footer background  */
 /* ============================================================== */
 
 .site-footer {
   position: relative;
   width: 100%;
-  margin-top: 40px;
-  background-color: #064B25;
+  margin-top: 0;
+  background-color: #075724;
+  background-image: url('/assets/footer_bg.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
   color: #FFFFFF;
   overflow: hidden;
 }
 
-/* ============================================================== */
-/* 1. TOP ILLUSTRATED HILL HERO BANNER                           */
-/* ============================================================== */
-.footer-hill-hero {
-  position: relative;
-  width: 100%;
-  min-height: clamp(230px, 23vw, 340px);
-  background-color: var(--color-cream, #FAF7EE);
+/* Screen reader utility for accessible headline */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-.footer-hill-svg {
-  position: absolute;
-  inset: 0;
+/* ============================================================== */
+/* 1. TOP HERO SPACER                                             */
+/* Provides vertical clearance for the illustrated hill, text,    */
+/* children, and leaves built into the background graphic         */
+/* ============================================================== */
+.footer-hero-spacer {
+  position: relative;
   width: 100%;
-  height: 100%;
-  display: block;
+  height: clamp(170px, 26.5vw, 440px);
   pointer-events: none;
-}
-
-.footer-hill-container {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 40px 10px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.footer-headline-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 22px;
-  margin-left: 10px;
-}
-
-.doodle-ray {
-  width: clamp(22px, 2.2vw, 32px);
-  height: clamp(22px, 2.2vw, 32px);
-  flex-shrink: 0;
-}
-
-.footer-headline-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.12;
-}
-
-.title-white {
-  font-family: var(--font-heading);
-  font-size: clamp(2.1rem, 3.6vw, 3.5rem);
-  font-weight: 800;
-  color: #FFFFFF;
-  margin: 0;
-  letter-spacing: -0.025em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.title-yellow {
-  font-family: var(--font-heading);
-  font-size: clamp(2.3rem, 3.9vw, 3.8rem);
-  font-weight: 800;
-  color: #FFD21C;
-  margin: 2px 0 0;
-  letter-spacing: -0.015em;
-  position: relative;
-  display: inline-block;
-  width: fit-content;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-}
-
-.headline-underline {
-  position: absolute;
-  left: 0;
-  bottom: -12px;
-  width: 100%;
-  height: 20px;
-  pointer-events: none;
-}
-
-.footer-kids-actor-wrapper {
-  flex-shrink: 0;
-  width: clamp(270px, 30vw, 440px);
-  margin-bottom: -10px;
-  margin-right: -10px;
-  position: relative;
-  z-index: 4;
-}
-
-.footer-kids-actor {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.22));
 }
 
 /* ============================================================== */
@@ -122,19 +47,8 @@
 /* ============================================================== */
 .footer-main-section {
   position: relative;
-  background-color: #064B25;
-  padding: 10px 0 35px;
-}
-
-.footer-right-leaves-decor {
-  position: absolute;
-  right: 0;
-  top: -10px;
-  width: clamp(80px, 9vw, 150px);
-  height: auto;
-  pointer-events: none;
-  opacity: 0.95;
-  z-index: 1;
+  padding: 0 0 35px;
+  z-index: 2;
 }
 
 .footer-main-container {
@@ -354,7 +268,6 @@
 /* 3. BOTTOM SUB-FOOTER BAR                                      */
 /* ============================================================== */
 .footer-sub-bar {
-  background-color: #064B25;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   padding: 18px 0;
   color: #D2E4D6;
@@ -434,7 +347,6 @@
 .footer-meadow-floor {
   width: 100%;
   line-height: 0;
-  background-color: #064B25;
   overflow: hidden;
 }
 
@@ -457,29 +369,14 @@
     border-right: none;
     padding-right: 0;
   }
-  .footer-kids-actor-wrapper {
-    width: clamp(220px, 32vw, 340px);
+  .footer-hero-spacer {
+    height: clamp(140px, 26.5vw, 280px);
   }
 }
 
 @media (max-width: 768px) {
-  .footer-hill-hero {
-    min-height: auto;
-    padding-top: 30px;
-  }
-  .footer-hill-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-  }
-  .footer-headline-wrapper {
-    margin: 20px 0 0;
-    justify-content: center;
-  }
-  .footer-kids-actor-wrapper {
-    width: 240px;
-    margin: 15px auto 0;
+  .footer-hero-spacer {
+    height: clamp(110px, 28vw, 190px);
   }
   .footer-main-container {
     grid-template-columns: 1fr;
@@ -503,8 +400,5 @@
   }
   .sub-bar-follow {
     justify-content: center;
-  }
-  .footer-right-leaves-decor {
-    display: none;
   }
 }

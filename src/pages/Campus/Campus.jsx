@@ -130,7 +130,7 @@ export default function Campus() {
               </div>
               <div className="facility-info">
                 <h3>Secure Outdoor Play Zone</h3>
-                <p>Colorful slides, swings, and grass courts designed with child-safe rubberized flooring and barriers.</p>
+                <p>Colorful slides, swings, and open grass courts designed with child-safe equipment and protective barriers.</p>
               </div>
             </div>
 

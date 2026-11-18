@@ -535,49 +535,6 @@
   margin: 0;
 }
 
-/* Corner Decorations */
-.corner-decor-bottom-left {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 240px;
-  height: 140px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.corner-decor-bottom-right {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 240px;
-  height: 140px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.corner-waves-svg {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.corner-leaves-svg {
-  position: absolute;
-  bottom: 0;
-  width: 150px;
-  height: 150px;
-}
-
-.corner-decor-bottom-left .corner-leaves-svg {
-  left: 0;
-}
-
-.corner-decor-bottom-right .corner-leaves-svg {
-  right: 0;
-}
-
 /* ============================================================== */
 /* 5. PLACEHOLDER TOGGLE FLOATING HELPER                          */
 /* ============================================================== */

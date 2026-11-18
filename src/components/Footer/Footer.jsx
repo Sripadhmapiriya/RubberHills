@@ -41,123 +41,20 @@ export default function Footer() {
   return (
     <footer className="site-footer" role="contentinfo">
       {/* ============================================================== */}
-      {/* 1. TOP ILLUSTRATED HILL BANNER WITH VECTOR MOUND & TYPOGRAPHY  */}
+      {/* 1. TOP ILLUSTRATED HILL BANNER WITH TAGLINE & KIDS             */}
       {/* ============================================================== */}
-      <div className="footer-hill-hero">
-        {/* Responsive Background SVG Hill Mound & Yellow Wave Ribbon */}
-        <svg
-          className="footer-hill-svg"
-          viewBox="0 0 1440 280"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <defs>
-            {/* Multi-stop gradients for botanical corner leaf clusters */}
-            <linearGradient id="footer-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#9BD43A" />
-              <stop offset="60%" stopColor="#6DAF28" />
-              <stop offset="100%" stopColor="#438018" />
-            </linearGradient>
-            <linearGradient id="footer-leaf-dark" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#76B82A" />
-              <stop offset="100%" stopColor="#256214" />
-            </linearGradient>
-          </defs>
-
-          {/* Top-Left Botanical Leaf Cluster */}
-          <g className="footer-leaf-top-left" transform="translate(18, 14) scale(0.95)">
-            <path d="M 0 55 C 30 20 75 10 110 22 C 90 60 50 80 0 55 Z" fill="url(#footer-leaf-grad)" />
-            <path d="M 0 55 C 40 38 75 28 110 22" stroke="#256214" strokeWidth="2" fill="none" opacity="0.6" />
-            <path d="M 25 65 C 50 35 90 28 120 40 C 100 70 65 85 25 65 Z" fill="url(#footer-leaf-dark)" opacity="0.9" />
-            <path d="M 60 90 C 85 70 125 65 145 80 C 130 105 95 115 60 90 Z" fill="url(#footer-leaf-grad)" opacity="0.85" />
-          </g>
-
-          {/* Top-Right Botanical Leaf Cluster */}
-          <g className="footer-leaf-top-right" transform="translate(1420, 14) scale(-0.95, 0.95)">
-            <path d="M 0 55 C 30 20 75 10 110 22 C 90 60 50 80 0 55 Z" fill="url(#footer-leaf-grad)" />
-            <path d="M 0 55 C 40 38 75 28 110 22" stroke="#256214" strokeWidth="2" fill="none" opacity="0.6" />
-            <path d="M 25 65 C 50 35 90 28 120 40 C 100 70 65 85 25 65 Z" fill="url(#footer-leaf-dark)" opacity="0.9" />
-            <path d="M 60 90 C 85 70 125 65 145 80 C 130 105 95 115 60 90 Z" fill="url(#footer-leaf-grad)" opacity="0.85" />
-          </g>
-
-          {/* Main Dark Green Hill Mound */}
-          <path
-            className="footer-hill-fill"
-            d="M 0,140 C 140,148 240,118 420,74 C 550,42 720,44 880,95 C 1020,142 1130,205 1270,195 C 1345,185 1395,165 1440,152 L 1440,280 L 0,280 Z"
-            fill="#064B25"
-          />
-
-          {/* Lime Green Hill Crest Contour Line */}
-          <path
-            className="footer-hill-stroke"
-            d="M 0,140 C 140,148 240,118 420,74 C 550,42 720,44 880,95 C 1020,142 1130,205 1270,195 C 1345,185 1395,165 1440,152"
-            stroke="#67A829"
-            strokeWidth="3.5"
-            fill="none"
-            vectorEffect="non-scaling-stroke"
-          />
-
-          {/* Golden Yellow Swooping Wave Ribbon Under Kids */}
-          <path
-            className="footer-yellow-wave"
-            d="M 860,208 C 990,190 1130,212 1280,188 C 1345,176 1395,158 1440,148"
-            stroke="#FFD21C"
-            strokeWidth="6"
-            strokeLinecap="round"
-            fill="none"
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
-
-        {/* Foreground Content Container (Headline + Doodle + Children Character) */}
-        <div className="footer-hill-container">
-          {/* Headline Typography with Doodle Sparks & Curve Underline */}
-          <div className="footer-headline-wrapper">
-            {/* Left Sunbeam Doodle Rays */}
-            <svg className="doodle-ray doodle-ray-left" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M 4 20 L 12 12 M 2 12 L 12 12 M 4 4 L 12 12" stroke="#FFD21C" strokeWidth="2.8" strokeLinecap="round" />
-            </svg>
-
-            <div className="footer-headline-text">
-              <h2 className="title-white">Little steps today.</h2>
-              <h2 className="title-yellow">
-                <span>Brighter tomorrows.</span>
-                {/* Golden Underline Arch */}
-                <svg className="headline-underline" viewBox="0 0 320 22" fill="none" aria-hidden="true">
-                  <path d="M 6 8 Q 160 24 314 6" stroke="#FFD21C" strokeWidth="4" strokeLinecap="round" />
-                </svg>
-              </h2>
-            </div>
-
-            {/* Right Sunbeam Doodle Rays */}
-            <svg className="doodle-ray doodle-ray-right" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M 20 20 L 12 12 M 22 12 L 12 12 M 20 4 L 12 12" stroke="#FFD21C" strokeWidth="2.8" strokeLinecap="round" />
-            </svg>
-          </div>
-
-          {/* Transparent Kindergarten Children Character Actor */}
-          <div className="footer-kids-actor-wrapper">
-            <img
-              src="/assets/footer_kids.png"
-              alt="Joyful children learning and playing at Rubber Hills Kindergarten"
-              className="footer-kids-actor"
-            />
-          </div>
-        </div>
+      <div className="footer-hill-banner">
+        <img
+          src="/assets/footer_banner_hill.png"
+          alt="Little steps today. Brighter tomorrows. - Rubber Hills Kindergarten"
+          className="footer-hill-banner-img"
+        />
       </div>
 
       {/* ============================================================== */}
       {/* 2. MAIN 4-COLUMN CONTENT SECTION                               */}
       {/* ============================================================== */}
       <div className="footer-main-section">
-        {/* Subtle Botanical Leaf Sprig on Right Side */}
-        <img
-          src="/assets/footer_right_leaves.png"
-          alt=""
-          className="footer-right-leaves-decor"
-          aria-hidden="true"
-        />
-
         <div className="footer-main-container">
           {/* Column 1: Brand & Identity */}
           <div className="footer-col footer-col-brand">

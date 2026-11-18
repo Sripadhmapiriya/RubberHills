@@ -323,59 +323,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* 🌿 Botanical & Wave Decorations - Bottom Corners */}
-        <div className="corner-decor-bottom-left" aria-hidden="true">
-          <svg viewBox="0 0 260 160" className="corner-waves-svg">
-            <path
-              d="M 0 160 Q 60 110 140 120 Q 200 130 260 90 L 260 160 Z"
-              fill="#FFD21C"
-              opacity="0.95"
-            />
-            <path
-              d="M 0 160 Q 50 80 130 90 Q 210 100 260 50 L 260 160 Z"
-              fill="#064B25"
-            />
-          </svg>
-          <svg viewBox="0 0 160 160" className="corner-leaves-svg">
-            <path
-              d="M 0 160 C 20 110 60 60 120 40 C 100 90 70 130 0 160 Z"
-              fill="#76B82A"
-              opacity="0.9"
-            />
-            <path
-              d="M 0 160 C 50 130 90 80 140 70 C 110 120 60 150 0 160 Z"
-              fill="#DFF0C9"
-              opacity="0.85"
-            />
-          </svg>
-        </div>
-
-        <div className="corner-decor-bottom-right" aria-hidden="true">
-          <svg viewBox="0 0 260 160" className="corner-waves-svg">
-            <path
-              d="M 260 160 Q 200 110 120 120 Q 60 130 0 90 L 0 160 Z"
-              fill="#FFD21C"
-              opacity="0.95"
-            />
-            <path
-              d="M 260 160 Q 210 80 130 90 Q 50 100 0 50 L 0 160 Z"
-              fill="#064B25"
-            />
-          </svg>
-          <svg viewBox="0 0 160 160" className="corner-leaves-svg">
-            <path
-              d="M 160 160 C 140 110 100 60 40 40 C 60 90 90 130 160 160 Z"
-              fill="#76B82A"
-              opacity="0.9"
-            />
-            <path
-              d="M 160 160 C 110 130 70 80 20 70 C 50 120 100 150 160 160 Z"
-              fill="#DFF0C9"
-              opacity="0.85"
-            />
-          </svg>
-        </div>
       </section>
     </div>
   );

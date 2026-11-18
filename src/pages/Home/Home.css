@@ -685,32 +685,66 @@
     font-size: clamp(2.1rem, 8vw, 2.6rem);
   }
 
+  /* 3-Photo Panorama Gallery: EXACTLY matching desktop continuous curved ribbon */
   .home-gallery-section {
-    margin-top: -20px;
-    margin-bottom: 20px;
+    --gallery-slant: clamp(20px, 5.5vw, 42px);
+    --gallery-gap: 5px;
+    --gallery-overlap: calc(var(--gallery-slant) - var(--gallery-gap));
+    margin-top: -30px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0;
+    overflow: hidden;
   }
 
   .panorama-curved-band {
-    flex-direction: column;
-    height: auto;
-    clip-path: none;
-    -webkit-clip-path: none;
-    gap: 12px;
-    padding: 0 16px;
-    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: clamp(160px, 36vw, 240px);
+    position: relative;
+    overflow: hidden;
+    clip-path: url(#gallery-bottom-arch);
+    -webkit-clip-path: url(#gallery-bottom-arch);
+    background-color: #FAF7EE;
+    gap: 0;
+    padding: 0;
   }
 
-  .panorama-item.item-left,
-  .panorama-item.item-center,
+  .panorama-item {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .panorama-item.item-left {
+    flex: 1.08;
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    margin-right: calc(-1 * var(--gallery-overlap));
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 1;
+  }
+
+  .panorama-item.item-center {
+    flex: 1.25;
+    clip-path: polygon(var(--gallery-slant) 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    -webkit-clip-path: polygon(var(--gallery-slant) 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    margin-right: calc(-1 * var(--gallery-overlap));
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 2;
+  }
+
   .panorama-item.item-right {
-    flex: none;
-    width: 100%;
-    height: 190px;
-    clip-path: none;
-    -webkit-clip-path: none;
-    margin-right: 0;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(6, 75, 37, 0.08);
+    flex: 1.08;
+    clip-path: polygon(var(--gallery-slant) 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(var(--gallery-slant) 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 1;
   }
 
   .band-text {

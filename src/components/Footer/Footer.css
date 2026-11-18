@@ -32,13 +32,19 @@
 
 /* ============================================================== */
 /* 1. TOP HERO SPACER                                             */
-/* Provides vertical clearance for the illustrated hill, text,    */
-/* children, and leaves built into the public/footer image        */
+/* Scaled 1:1 with the background image aspect ratio (1672x941).  */
+/* The illustrated hill, headline text, golden underline arch,    */
+/* and children end at y = 465px (465/1672 = 27.8vw).             */
+/* Using 30.5vw without an artificial max-height cap guarantees    */
+/* that at ANY zoom level (100%, 80%, 75%, etc.) the spacer      */
+/* scales proportionally with background-size: 100% auto,        */
+/* preventing ANY text overlap onto 'Brighter tomorrows.'         */
 /* ============================================================== */
 .footer-hero-spacer {
   position: relative;
   width: 100%;
-  height: clamp(170px, 27.5vw, 480px);
+  height: 30.5vw;
+  min-height: 140px;
   pointer-events: none;
 }
 
@@ -48,7 +54,7 @@
 /* ============================================================== */
 .footer-main-section {
   position: relative;
-  padding: 10px 0 25px;
+  padding: 16px 0 25px;
   z-index: 2;
 }
 
@@ -359,13 +365,15 @@
     padding-right: 0;
   }
   .footer-hero-spacer {
-    height: clamp(140px, 27.5vw, 290px);
+    height: 31vw;
+    min-height: 130px;
   }
 }
 
 @media (max-width: 768px) {
   .footer-hero-spacer {
-    height: clamp(110px, 28vw, 200px);
+    height: 32vw;
+    min-height: 120px;
   }
   .footer-main-container {
     grid-template-columns: 1fr;

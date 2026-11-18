@@ -1,172 +1,972 @@
+/* ============================================================== */
+/* RUBBER HILLS KINDERGARTEN - LEARNING PAGE REDESIGN             */
+/* Premium, playful international kindergarten educational design */
+/* ============================================================== */
+
 .page-learning {
   position: relative;
   overflow: hidden;
-  padding-bottom: 80px;
+  background-color: #FFF9ED;
+  color: #174B35;
+  min-height: 100vh;
 }
 
+/* ============================================================== */
+/* 1. LEARNING HERO SECTION                                       */
+/* ============================================================== */
 .learning-hero {
-  padding: 50px 0;
   position: relative;
+  padding: clamp(105px, 12vw, 130px) 0 45px;
   z-index: 2;
 }
 
-.learning-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 50px;
-}
-
-.header-rays-wrap {
-  display: flex;
+.learning-hero-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: clamp(30px, 5vw, 60px);
 }
 
-.learning-heading {
-  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+.learning-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.learning-eyebrow {
+  margin-bottom: 20px;
+}
+
+.learning-heading-wrap {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.learning-hero-rays {
+  position: absolute;
+  top: -18px;
+  right: -25px;
+  width: 44px;
+  height: 38px;
+}
+
+.learning-hero-title {
+  font-family: var(--font-heading, 'Outfit', 'Fredoka', sans-serif);
+  font-size: clamp(2.6rem, 5.2vw, 4rem);
   font-weight: 800;
-  color: var(--color-primary);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  color: #174B35;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0;
 }
 
-.learning-underline {
+.learning-hero-title .heading-highlight {
+  position: relative;
+  display: inline-block;
+  color: #174B35;
+}
+
+.learning-hero-underline {
   position: absolute;
   left: 0;
   bottom: -10px;
   width: 100%;
 }
 
-.learning-subtitle {
+.learning-hero-desc {
+  font-family: var(--font-body, 'Nunito', sans-serif);
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  color: var(--color-text-muted);
+  color: #385E4B;
+  line-height: 1.65;
   font-weight: 600;
-  line-height: 1.5;
-  margin-top: 20px;
+  max-width: 580px;
+  margin: 0 0 32px;
 }
 
-/* 6 Activity Cards Grid */
-.learning-cards-grid {
+.learning-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-outline-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 2px solid #72B95A;
+  background-color: transparent;
+  color: #174B35;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-green:hover {
+  background-color: #E4F1DF;
+  border-color: #174B35;
+  transform: translateY(-2px);
+}
+
+/* Hero Decorative Illustration Stage */
+.learning-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-illustration-stage {
+  position: relative;
+  width: clamp(280px, 32vw, 380px);
+  height: clamp(280px, 32vw, 380px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Concentric Glow Rings */
+.decor-glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.circle-outer {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(114, 185, 90, 0.35);
+  animation: rotateSlow 40s linear infinite;
+}
+
+.circle-mid {
+  width: 82%;
+  height: 82%;
+  background: radial-gradient(circle, rgba(228, 241, 223, 0.7) 0%, rgba(255, 249, 237, 0) 70%);
+}
+
+.circle-inner {
+  width: 65%;
+  height: 65%;
+  border: 2px solid rgba(246, 214, 91, 0.4);
+}
+
+/* Central Sunny Badge */
+.hero-badge-central {
+  position: relative;
+  width: 58%;
+  height: 58%;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 16px 36px rgba(23, 75, 53, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.hero-badge-central:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.hero-central-svg {
+  width: 85%;
+  height: 85%;
+}
+
+/* Floating Educational Tags */
+.floating-tag {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #E2EED7;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #174B35;
+  box-shadow: 0 6px 18px rgba(23, 75, 53, 0.08);
+  white-space: nowrap;
+  z-index: 3;
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.tag-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-mint { background-color: #72B95A; }
+.dot-yellow { background-color: #F6D65B; }
+.dot-peach { background-color: #F87171; }
+
+.tag-phonics {
+  top: 12px;
+  left: -12px;
+  animation-delay: 0s;
+}
+
+.tag-numeracy {
+  bottom: 22px;
+  left: -8px;
+  animation-delay: 1.8s;
+}
+
+.tag-creative {
+  top: 36px;
+  right: -15px;
+  animation-delay: 3.2s;
+}
+
+/* Floating Doodles */
+.floating-doodle {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  font-size: 1.4rem;
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.doodle-star-1 {
+  top: -8px;
+  right: 60px;
+  color: #F6D65B;
+  animation-delay: 1s;
+}
+
+.doodle-star-2 {
+  bottom: 12px;
+  right: 25px;
+  color: #72B95A;
+  animation-delay: 2.4s;
+}
+
+.doodle-leaf-1 {
+  top: 60%;
+  left: -24px;
+  font-size: 1.6rem;
+  animation-delay: 3.8s;
+}
+
+/* Hero Scroll Indicator */
+.hero-scroll-wrapper {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #385E4B;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: rgba(228, 241, 223, 0.6);
+  border: 1px solid #D5E4C4;
+  transition: all 0.25s ease;
+}
+
+.hero-scroll-link:hover {
+  background-color: #E4F1DF;
+  color: #174B35;
+  transform: translateY(2px);
+}
+
+.mouse-capsule {
+  width: 18px;
+  height: 28px;
+  border: 2px solid #174B35;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.mouse-dot {
+  width: 3.5px;
+  height: 7px;
+  background-color: #174B35;
+  border-radius: 2px;
+  position: absolute;
+  top: 4px;
+  animation: wheelBounce 1.6s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  color: #72B95A;
+  animation: arrowBounce 1.6s ease-in-out infinite;
+}
+
+/* ============================================================== */
+/* 2. LEARNING APPROACH INTRODUCTION                              */
+/* ============================================================== */
+#learning-approach {
+  scroll-margin-top: 90px;
+}
+
+.learning-approach-section {
+  padding: 55px 0 65px;
+  position: relative;
+  z-index: 2;
+}
+
+.approach-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.approach-pill {
+  margin-bottom: 12px;
+}
+
+.approach-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #174B35;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Philosophy Highlight Panel */
+.philosophy-highlight-panel {
+  position: relative;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FBFDEE 100%);
+  border: 2px solid #E2EED7;
+  border-radius: 36px;
+  padding: 44px 48px;
+  max-width: 960px;
+  margin: 0 auto 48px;
+  text-align: center;
+  box-shadow: 0 14px 34px rgba(23, 75, 53, 0.06);
+}
+
+.quote-mark-icon {
+  font-family: 'Fredoka', cursive, serif;
+  font-size: 4.8rem;
+  line-height: 1;
+  color: #F6D65B;
+  position: absolute;
+  top: 12px;
+  left: 28px;
+  opacity: 0.6;
+  user-select: none;
+}
+
+.philosophy-text {
+  font-family: var(--font-heading, 'Outfit', 'Fredoka', sans-serif);
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+  font-weight: 600;
+  color: #174B35;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.philosophy-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #72B95A;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.signature-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #F6D65B;
+}
+
+/* Three Visual Principles Grid */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.principle-card {
+  background: #FFFFFF;
+  border: 2px solid #EBF3E3;
+  border-radius: 26px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(23, 75, 53, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.principle-card:hover {
+  transform: translateY(-6px);
+  border-color: #72B95A;
+  box-shadow: 0 16px 32px rgba(23, 75, 53, 0.09);
+}
+
+.principle-icon-wrapper {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease;
+}
+
+.principle-card:hover .principle-icon-wrapper {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.principle-svg {
+  width: 48px;
+  height: 48px;
+}
+
+.principle-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin: 0 0 10px;
+  letter-spacing: -0.015em;
+}
+
+.principle-desc {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 0.98rem;
+  color: #4A6B58;
+  line-height: 1.55;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ============================================================== */
+/* 3. NINE LEARNING CATEGORIES GRID                               */
+/* ============================================================== */
+#learning-categories {
+  scroll-margin-top: 90px;
+}
+
+.categories-section {
+  padding: 60px 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.categories-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categories-pill {
+  margin-bottom: 12px;
+}
+
+.categories-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(2.3rem, 4.4vw, 3.2rem);
+  font-weight: 800;
+  color: #174B35;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+
+.categories-subtitle {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 1.1rem;
+  color: #385E4B;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive 3-Column Grid */
+.categories-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 
-.learning-card {
-  background: #FFFFFF;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 2px solid #EBF3E3;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  transition: all 0.3s ease;
-  min-height: 200px;
-}
-
-.learning-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-light-green);
-}
-
-.card-image-box {
-  width: 44%;
+/* Individual Category Card */
+.category-card {
   position: relative;
-  overflow: hidden;
-  background-color: var(--color-light-green);
-  border-top-right-radius: 28px;
-  border-bottom-right-radius: 28px;
-}
-
-.learning-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.card-content-box {
-  width: 56%;
-  padding: 24px 20px 20px 22px;
+  border-radius: 28px;
+  padding: 30px 26px 32px;
+  border: 2px solid rgba(23, 75, 53, 0.08);
+  box-shadow: 0 8px 22px rgba(23, 75, 53, 0.05);
   display: flex;
   flex-direction: column;
-  position: relative;
+  overflow: hidden;
+  transition: all 0.32s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.card-header-row {
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(23, 75, 53, 0.12);
+  border-color: var(--cat-accent, #72B95A);
+}
+
+/* Alternating Pastel Background Themes */
+.bg-soft-mint {
+  background-color: #E4F1DF;
+}
+
+.bg-soft-yellow {
+  background-color: #FEF3C7;
+}
+
+.bg-soft-peach {
+  background-color: #F8DED0;
+}
+
+.bg-soft-lavender {
+  background-color: #E9E3F5;
+}
+
+.bg-soft-green {
+  background-color: #EBF5E6;
+}
+
+.bg-soft-cream {
+  background-color: #FFFDF5;
+}
+
+/* Card Top Row: Number Badge and Dot Accents */
+.card-top-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
-.card-icon-circle {
-  width: 44px;
-  height: 44px;
+.category-number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-decor-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-decor-dots .dot {
   border-radius: 50%;
-  background-color: var(--color-light-green);
-  color: var(--color-primary);
+  background-color: var(--cat-accent, #174B35);
+  opacity: 0.25;
+}
+
+.card-decor-dots .dot-sm {
+  width: 5px;
+  height: 5px;
+}
+
+.card-decor-dots .dot-lg {
+  width: 8px;
+  height: 8px;
+}
+
+/* Central Icon Stage */
+.category-icon-stage {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.card-activity-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  line-height: 1.25;
-  margin-bottom: 8px;
-}
-
-.card-activity-desc {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-  line-height: 1.45;
-  margin-bottom: 24px;
-}
-
-.card-action-circle {
+.icon-shadow-ring {
   position: absolute;
-  bottom: 18px;
-  right: 18px;
-  width: 38px;
-  height: 38px;
+  inset: 4px;
+  border-radius: 22px;
+  background-color: #FFFFFF;
+  box-shadow: 0 8px 18px rgba(23, 75, 53, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .icon-shadow-ring {
+  transform: scale(1.08) rotate(3deg);
+}
+
+.category-svg {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  z-index: 1;
+  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.category-card:hover .category-svg {
+  transform: scale(1.1) translateY(-2px);
+}
+
+/* Card Content: Title & Exact Description */
+.category-content {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.category-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(1.3rem, 1.9vw, 1.5rem);
+  font-weight: 800;
+  color: #174B35;
+  margin: 0 0 10px;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.category-desc {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: 1.02rem;
+  color: #2F4D3C;
+  line-height: 1.6;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Bottom Corner Organic Wave Accent */
+.card-corner-shape {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 70px;
+  height: 70px;
+  pointer-events: none;
+  color: var(--cat-accent, #174B35);
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover .card-corner-shape {
+  transform: scale(1.25);
+}
+
+.corner-shape-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================== */
+/* 4. CLOSING SECTION (Forest Green Panel with Classes CTA)       */
+/* ============================================================== */
+.learning-closing-section {
+  padding: 40px 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.closing-panel {
+  position: relative;
+  background: linear-gradient(135deg, #174B35 0%, #073D20 100%);
+  border-radius: 40px;
+  padding: clamp(48px, 6vw, 75px) clamp(24px, 5vw, 64px);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(7, 61, 32, 0.2);
+  text-align: center;
+}
+
+/* Background Botanical Stars & Leaves */
+.closing-bg-accents {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.closing-star,
+.closing-leaf {
+  position: absolute;
+  user-select: none;
+  font-size: 1.8rem;
+  opacity: 0.35;
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.star-left {
+  top: 25px;
+  left: 35px;
+  color: #F6D65B;
+  animation-delay: 0s;
+}
+
+.star-right {
+  bottom: 25px;
+  right: 40px;
+  color: #F6D65B;
+  animation-delay: 2s;
+}
+
+.leaf-left {
+  bottom: 25px;
+  left: 45px;
+  font-size: 2.2rem;
+  animation-delay: 3.5s;
+}
+
+.leaf-right {
+  top: 20px;
+  right: 50px;
+  font-size: 2.2rem;
+  animation-delay: 1.2s;
+}
+
+.closing-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closing-pill {
+  margin-bottom: 20px;
+  background-color: rgba(228, 241, 223, 0.15) !important;
+  color: #F6D65B !important;
+  border-color: rgba(246, 214, 91, 0.5) !important;
+}
+
+.closing-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(2.3rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  color: #FFFDF5;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+.closing-subtitle {
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: #D6ECD1;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 34px;
+}
+
+.btn-classes-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #F6D65B;
+  color: #174B35;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 15px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(246, 214, 91, 0.35);
+  transition: all 0.28s ease;
+}
+
+.btn-classes-cta:hover {
+  background-color: #FFDE6B;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(246, 214, 91, 0.45);
+}
+
+.btn-classes-cta .btn-arrow-circle {
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background-color: var(--color-primary);
-  color: #FFFFFF;
+  background-color: #174B35;
+  color: #F6D65B;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
-.learning-card:hover .card-action-circle {
-  background-color: var(--color-primary-light);
-  transform: scale(1.08) translateX(2px);
+.btn-classes-cta:hover .btn-arrow-circle {
+  transform: translateX(4px);
 }
 
-@media (max-width: 1100px) {
-  .learning-cards-grid {
+/* ============================================================== */
+/* 5. ANIMATIONS & ACCESSIBILITY                                  */
+/* ============================================================== */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wheelBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* ============================================================== */
+/* 6. RESPONSIVE BREAKPOINTS                                      */
+/* ============================================================== */
+@media (max-width: 992px) {
+  .learning-hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .learning-hero-text {
+    align-items: center;
+  }
+
+  .learning-hero-desc {
+    max-width: 620px;
+  }
+
+  .learning-hero-actions {
+    justify-content: center;
+  }
+
+  .categories-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .philosophy-highlight-panel {
+    padding: 36px 32px;
+  }
+
+  .quote-mark-icon {
+    top: 6px;
+    left: 14px;
   }
 }
 
 @media (max-width: 680px) {
-  .learning-cards-grid {
+  .learning-hero {
+    padding-top: 105px;
+  }
+
+  .learning-hero-rays {
+    display: none;
+  }
+
+  .principles-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
-  .learning-card {
-    flex-direction: column;
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .card-image-box {
-    width: 100%;
-    height: 180px;
-    border-radius: 28px 28px 0 0;
+
+  .philosophy-highlight-panel {
+    padding: 30px 20px;
+    border-radius: 26px;
   }
-  .card-content-box {
-    width: 100%;
+
+  .philosophy-text {
+    font-size: 1.15rem;
+  }
+
+  .closing-panel {
+    border-radius: 28px;
+    padding: 38px 20px;
+  }
+
+  .closing-star,
+  .closing-leaf {
+    display: none;
+  }
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .circle-outer,
+  .floating-tag,
+  .floating-doodle,
+  .mouse-dot,
+  .scroll-arrow,
+  .closing-star,
+  .closing-leaf {
+    animation: none !important;
+  }
+
+  .category-card,
+  .principle-card,
+  .btn-classes-cta,
+  .category-card:hover,
+  .principle-card:hover {
+    transition: none !important;
+    transform: none !important;
   }
 }

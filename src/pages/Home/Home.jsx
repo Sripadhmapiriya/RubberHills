@@ -163,8 +163,8 @@ export default function Home() {
             </p>
 
             <div className="hero-cta-group">
-              <Link to="/about" className="btn-primary-green">
-                <span>Explore our school</span>
+              <Link to="/campus#campus-gallery" className="btn-primary-green">
+                <span>Explore Campus</span>
                 <span className="btn-arrow-circle">
                   <ArrowRight size={17} />
                 </span>

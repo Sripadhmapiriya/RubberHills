@@ -4,7 +4,7 @@
 }
 
 .campus-hero {
-  padding: 50px 0 70px;
+  padding: 115px 0 70px;
   position: relative;
   z-index: 2;
 }
@@ -128,6 +128,54 @@
   font-weight: 700;
   font-size: 0.88rem;
   text-align: center;
+}
+
+/* ============================================================== */
+/* 2. CAMPUS PHOTO SHOWCASE SECTION                               */
+/* ============================================================== */
+#campus-gallery {
+  scroll-margin-top: 90px;
+}
+
+.campus-showcase-section {
+  padding: 60px 0 75px;
+  background-color: #FFFDF5;
+  border-radius: 48px;
+  margin: 20px 0 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(6, 75, 37, 0.03);
+}
+
+.showcase-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showcase-pill {
+  margin-bottom: 14px;
+}
+
+.showcase-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.showcase-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-weight: 600;
+  margin: 0;
 }
 
 /* Facilities Section */

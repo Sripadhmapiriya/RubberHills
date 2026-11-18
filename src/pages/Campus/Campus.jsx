@@ -5,6 +5,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import CampusCarousel from '../../components/Campus/CampusCarousel';
 import { CAMPUS_IMAGES } from '../../config/images';
 import './Campus.css';
 
@@ -37,12 +38,12 @@ export default function Campus() {
               Thoughtfully designed spaces where little learners can play, discover and grow.
             </p>
 
-            <Link to="/contact" className="btn-primary-green">
-              <span>Explore Our Campus</span>
+            <a href="#campus-gallery" className="btn-primary-green">
+              <span>Explore Campus Gallery</span>
               <span className="btn-arrow-circle">
                 <ArrowRight size={17} />
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Right Collage matching reference */}
@@ -90,6 +91,21 @@ export default function Campus() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 2. Interactive Campus Photo Showcase (3D Rotating Coverflow) */}
+      <section id="campus-gallery" className="campus-showcase-section">
+        <div className="container">
+          <div className="showcase-header">
+            <PillBadge text="Photo Showcase" className="showcase-pill" />
+            <h2 className="showcase-title">A World of Wonder & Play</h2>
+            <p className="showcase-subtitle">
+              Authentic glimpses of our sun-filled classrooms, green outdoor arena, and child-safe campus.
+            </p>
+          </div>
+
+          <CampusCarousel intervalMs={3000} />
         </div>
       </section>
 

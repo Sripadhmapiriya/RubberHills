@@ -177,13 +177,15 @@
   opacity: 0.88;
 }
 
-/* Centered Navigation Links */
+/* Navigation Links - Shifted to the left so 'Contact' has ample clearance from the hero image */
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1.3vw, 18px);
-  margin: 0 auto;
-  padding: 0 16px;
+  gap: clamp(8px, 1.2vw, 18px);
+  margin: 0;
+  margin-left: clamp(24px, 3.5vw, 54px);
+  margin-right: auto;
+  padding: 0;
   z-index: 2;
   white-space: nowrap;
 }

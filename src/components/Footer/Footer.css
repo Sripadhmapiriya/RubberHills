@@ -375,26 +375,78 @@
     height: 32vw;
     min-height: 120px;
   }
+
+  /* 2-column grid on mobile so Quick Links & Campus Admissions sit side-by-side */
   .footer-main-container {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 0 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 18px;
+    padding: 0 20px;
   }
-  .footer-col:not(:last-child) {
+
+  /* Brand spans full width at the top */
+  .footer-col-brand {
+    grid-column: 1 / -1;
     border-right: none;
-    padding-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    padding-bottom: 24px;
+    padding-right: 0;
+    padding-bottom: 22px;
   }
+
+  /* Quick Links on the left */
+  .footer-col-quicklinks {
+    grid-column: 1;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: none;
+    padding-right: 12px;
+    padding-bottom: 0;
+  }
+
+  /* Campus & Admissions on the right, side by side with Quick Links */
+  .footer-col-campus {
+    grid-column: 2;
+    border-right: none;
+    border-bottom: none;
+    padding-left: 6px;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .footer-col-links .footer-col-header {
+    font-size: 1.02rem;
+    margin-bottom: 12px;
+    gap: 7px;
+  }
+
+  .footer-col-links .footer-nav-list {
+    gap: 9px;
+  }
+
+  .footer-col-links .footer-nav-list li a {
+    font-size: 0.88rem;
+  }
+
+  /* Contact Us spans full width below the side-by-side links */
+  .footer-col-contact {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: none;
+    padding-right: 0;
+    padding-top: 22px;
+    padding-bottom: 0;
+  }
+
   .footer-sub-container {
     flex-direction: column;
     text-align: center;
     gap: 12px;
     padding: 0 20px;
   }
+
   .sub-bar-motto {
     justify-content: center;
   }
+
   .sub-bar-follow {
     justify-content: center;
   }

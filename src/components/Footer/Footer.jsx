@@ -116,7 +116,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="footer-col footer-col-links">
+          <div className="footer-col footer-col-links footer-col-quicklinks">
             <h3 className="footer-col-header">
               <Leaf size={18} className="col-header-icon" />
               <span>Quick Links</span>
@@ -156,7 +156,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Campus & Admissions */}
-          <div className="footer-col footer-col-links">
+          <div className="footer-col footer-col-links footer-col-campus">
             <h3 className="footer-col-header">
               <GraduationCap size={19} className="col-header-icon" />
               <span>Campus & Admissions</span>

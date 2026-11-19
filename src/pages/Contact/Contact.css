@@ -1,11 +1,13 @@
 .page-contact {
   position: relative;
   overflow: hidden;
-  padding-bottom: 70px;
+  padding-bottom: 0;
+  margin-bottom: -75px;
+  z-index: 2;
 }
 
 .contact-hero {
-  padding: clamp(120px, 9.5vw, 145px) 0 60px;
+  padding: clamp(120px, 9.5vw, 145px) 0 0;
   position: relative;
   z-index: 2;
 }
@@ -300,6 +302,10 @@
 }
 
 @media (max-width: 992px) {
+  .page-contact {
+    margin-bottom: 0;
+    padding-bottom: 15px;
+  }
   .contact-container {
     grid-template-columns: 1fr;
   }

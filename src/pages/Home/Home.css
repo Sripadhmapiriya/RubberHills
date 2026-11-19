@@ -35,8 +35,8 @@
   min-height: 590px;
   background-color: #FAF7EE;
   padding-top: 100px;
-  padding-bottom: 25px;
-  overflow: hidden;
+  padding-bottom: 0;
+  overflow: visible;
   z-index: 2;
 }
 
@@ -46,7 +46,7 @@
   top: 0;
   /* runs behind the nav */
   right: 0;
-  bottom: 0;
+  bottom: -50px;
   width: 56%;
   /* moved curve to the right, perfectly matching mockup */
   clip-path: url(#hero-wave);
@@ -282,7 +282,7 @@
   z-index: 10;
   width: 100%;
   height: clamp(75px, 6.2vw, 95px);
-  margin-top: -16px;
+  margin-top: -36px;
   margin-bottom: -16px;
   display: flex;
   align-items: center;
@@ -656,7 +656,7 @@
     -webkit-clip-path: none;
     border-radius: 0;
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-bottom: -32px;
     overflow: visible;
     z-index: 1;
     background-color: transparent;
@@ -696,7 +696,7 @@
 
   .tagline-band {
     height: clamp(58px, 14vw, 68px);
-    margin-top: -20px;
+    margin-top: -12px;
     margin-bottom: -20px;
     padding: 0 10px;
     box-sizing: border-box;

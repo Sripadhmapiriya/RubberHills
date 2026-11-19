@@ -181,7 +181,7 @@ export default function Home() {
           {/* Dark Green Curved Wave Ribbon Body */}
           <path
             className="band-fill"
-            d="M0,20 C280,24 540,22 780,18 C980,16 1050,47 1170,47 C1270,47 1350,26 1440,16
+            d="M0,18 C280,22 540,20 780,16 C980,14 1120,18 1260,20 C1350,22 1400,18 1440,16
                L1440,76
                C1260,74 1120,60 980,60 C840,60 700,76 540,76 C440,76 340,52 220,46 C140,42 90,48 0,62 Z"
           />
@@ -189,7 +189,7 @@ export default function Home() {
           {/* 3. Top Lime Outline Line */}
           <path
             className="band-line-top"
-            d="M0,20 C280,24 540,22 780,18 C980,16 1050,47 1170,47 C1270,47 1350,26 1440,16"
+            d="M0,18 C280,22 540,20 780,16 C980,14 1120,18 1260,20 C1350,22 1400,18 1440,16"
             vectorEffect="non-scaling-stroke"
           />
 

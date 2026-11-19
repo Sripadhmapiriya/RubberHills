@@ -5,7 +5,7 @@
 }
 
 .contact-hero {
-  padding: clamp(185px, 15vw, 235px) 0 80px;
+  padding: clamp(120px, 9.5vw, 145px) 0 60px;
   position: relative;
   z-index: 2;
 }
@@ -22,15 +22,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.contact-brand-row {
-  margin-bottom: 24px;
-}
-
-.contact-brand-logo {
-  height: 54px;
-  width: auto;
 }
 
 .contact-heading {
@@ -125,7 +116,7 @@
   box-shadow: var(--shadow-lg);
   padding: 44px 36px 36px;
   position: relative;
-  margin-top: 115px;
+  margin-top: 105px;
 }
 
 /* Peeking Mascots (Girl on Left, Boy on Right) */

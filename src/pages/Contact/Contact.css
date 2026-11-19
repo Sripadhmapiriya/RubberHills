@@ -125,7 +125,24 @@
   box-shadow: var(--shadow-lg);
   padding: 44px 36px 36px;
   position: relative;
-  margin-top: 20px;
+  margin-top: 85px;
+}
+
+/* Peeking Boy Mascot */
+.form-peeking-boy {
+  position: absolute;
+  bottom: calc(100% - 13px);
+  right: 38px;
+  width: clamp(140px, 15vw, 195px);
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(23, 75, 53, 0.12));
+}
+
+.peeking-boy-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .form-header-badge {
@@ -145,6 +162,7 @@
   gap: 10px;
   box-shadow: 0 4px 16px rgba(6, 75, 37, 0.3);
   white-space: nowrap;
+  z-index: 5;
 }
 
 .alert-box {
@@ -289,5 +307,13 @@
   }
   .form-grid-2col {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .form-peeking-boy {
+    width: 125px;
+    right: 12px;
+    bottom: calc(100% - 9px);
   }
 }

@@ -205,6 +205,15 @@ export default function Contact() {
           <div className="contact-right-col" id="admission-form">
             {/* Form Container */}
             <div className="admission-form-wrapper">
+              {/* Peeking Boy Mascot */}
+              <div className="form-peeking-boy" aria-hidden="true">
+                <img
+                  src="/svgs/boy-transparent.png"
+                  alt="Cheerful student peeking over admission form"
+                  className="peeking-boy-img"
+                />
+              </div>
+
               {/* Green Floating Header Pill */}
               <div className="form-header-badge">
                 <DoodleRays flip style={{ width: '22px', height: '18px' }} />

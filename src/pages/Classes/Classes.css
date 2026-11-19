@@ -223,7 +223,7 @@
   position: relative;
   width: 100%;
   max-width: 670px;
-  margin: 0 auto;
+  margin: -45px auto 0;
 }
 
 /* ============================================================== */
@@ -1310,6 +1310,9 @@
     grid-template-columns: 1fr;
     gap: 36px;
     text-align: center;
+  }
+  .classes-hero-art {
+    margin-top: 15px;
   }
   .classes-hero-content {
     align-items: center;

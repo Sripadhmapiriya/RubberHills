@@ -19,6 +19,24 @@
   z-index: 2;
 }
 
+/* Organic Light-Green Rolling Hills Backdrop */
+.hero-bg-hills-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg-hills-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* User's Exact .hero-image Container & Clip-Path */
 .hero-image {
   position: absolute;
@@ -30,7 +48,7 @@
   /* moved curve to the right, perfectly matching mockup */
   clip-path: url(#hero-wave);
   -webkit-clip-path: url(#hero-wave);
-  z-index: 1;
+  z-index: 2;
   background-color: #F3F8ED;
   overflow: hidden;
 }

@@ -1,15 +1,19 @@
 .page-campus {
   position: relative;
   overflow: hidden;
+  background: linear-gradient(180deg, #FAF7EE 0%, #F5F9EC 30%, #FAF7EE 60%, #F3F8EA 100%);
 }
 
 .campus-hero {
   padding: 115px 0 70px;
   position: relative;
+  overflow: hidden;
   z-index: 2;
 }
 
 .campus-container {
+  position: relative;
+  z-index: 5;
   display: grid;
   grid-template-columns: 1fr 1.25fr;
   align-items: center;

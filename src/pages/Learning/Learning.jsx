@@ -5,6 +5,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import HeroBackgroundHills from '../../components/Shared/HeroBackgroundHills';
 import LearningHeroGallery from './LearningHeroGallery';
 import './Learning.css';
 
@@ -356,6 +357,7 @@ export default function Learning() {
       {/* 1. LEARNING HERO SECTION (Large Expressive Typography)         */}
       {/* ============================================================== */}
       <section className="learning-hero" aria-label="Learning Overview">
+        <HeroBackgroundHills variant="learning" />
         <div className="container learning-hero-container">
           {/* Left Text Column */}
           <div className="learning-hero-text">

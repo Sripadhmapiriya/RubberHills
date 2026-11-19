@@ -16,6 +16,7 @@ import {
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import HeroBackgroundHills from '../../components/Shared/HeroBackgroundHills';
 import './Contact.css';
 
 function resolveClassParam(raw) {
@@ -136,6 +137,7 @@ export default function Contact() {
       <FloatingLeaves />
 
       <section className="contact-hero">
+        <HeroBackgroundHills variant="contact" />
         <div className="container contact-container">
           {/* Left Column: Heading & Badges */}
           <div className="contact-left-col">

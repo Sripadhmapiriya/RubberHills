@@ -16,6 +16,7 @@ import {
 import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import HeroBackgroundHills from '../../components/Shared/HeroBackgroundHills';
 import ClassesHeroGallery from './ClassesHeroGallery';
 import './Classes.css';
 
@@ -28,6 +29,7 @@ export default function Classes() {
       {/* 1. HERO SECTION – OUR LITTLE LEARNERS                           */}
       {/* ============================================================== */}
       <section className="classes-hero" aria-label="Our Learning Journey">
+        <HeroBackgroundHills variant="classes" />
         <div className="container classes-hero-container">
           <div className="classes-hero-content">
             <PillBadge text="OUR LEARNING JOURNEY" className="classes-eyebrow" />

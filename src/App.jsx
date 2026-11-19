@@ -34,6 +34,7 @@ export default function App() {
             <Route path="/learning" element={<Learning />} />
             <Route path="/classes" element={<Classes />} />
             <Route path="/time-table" element={<TimeTable />} />
+            <Route path="/timetable" element={<Navigate to="/time-table" replace />} />
             <Route path="/contact" element={<Contact />} />
             {/* Preserved Previous Website Direct Access */}
             <Route path="/previous-website" element={<LegacyRedirect />} />

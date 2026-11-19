@@ -4,15 +4,19 @@
   padding-bottom: 0;
   margin-bottom: 0;
   z-index: 2;
+  background: linear-gradient(180deg, #FAF7EE 0%, #F5F9EC 45%, #FAF7EE 100%);
 }
 
 .contact-hero {
   padding: clamp(120px, 9.5vw, 145px) 0 0;
   position: relative;
+  overflow: hidden;
   z-index: 2;
 }
 
 .contact-container {
+  position: relative;
+  z-index: 5;
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   align-items: flex-start;

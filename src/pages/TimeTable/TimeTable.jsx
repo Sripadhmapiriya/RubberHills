@@ -15,6 +15,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import HeroBackgroundHills from '../../components/Shared/HeroBackgroundHills';
 import TimelineCar from './TimelineCar';
 import './TimeTable.css';
 
@@ -205,6 +206,7 @@ export default function TimeTable() {
       {/* 1. HERO SECTION (Our Daily Rhythm)                             */}
       {/* ============================================================== */}
       <section className="timetable-hero" aria-label="Daily Schedule Overview">
+        <HeroBackgroundHills variant="timetable" />
         <div className="container timetable-hero-container">
           {/* Left Text */}
           <div className="timetable-hero-text">

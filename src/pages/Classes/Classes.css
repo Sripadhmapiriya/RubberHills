@@ -15,7 +15,7 @@
 .page-classes {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-cream, #FAF7EE);
+  background: linear-gradient(180deg, #FAF7EE 0%, #F5F9EC 30%, #FAF7EE 65%, #F4F8EB 100%);
   color: #2D3A31;
   padding-bottom: 30px;
 }
@@ -25,12 +25,15 @@
 /* ============================================================== */
 .classes-hero {
   position: relative;
+  overflow: hidden;
   /* Clear the overlaid navbar (~88px tall) with breathing room */
   padding: clamp(120px, 11vw, 150px) 0 70px;
   z-index: 2;
 }
 
 .classes-hero-container {
+  position: relative;
+  z-index: 5;
   display: grid;
   grid-template-columns: 0.94fr 1.06fr;
   align-items: center;

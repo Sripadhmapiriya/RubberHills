@@ -195,11 +195,12 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: clamp(0.92rem, 1.05vw, 1.02rem);
+  font-weight: 700;
+  font-size: clamp(1.04rem, 1.18vw, 1.16rem);
+  letter-spacing: 0.015em;
   color: #064B25;
   text-decoration: none;
-  padding: 6px 6px;
+  padding: 6px 8px;
   transition: color 0.22s ease, transform 0.22s ease;
   white-space: nowrap;
 }
@@ -211,7 +212,7 @@
 
 .nav-link.active {
   color: #76B82A;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 /* "Visit Us ->" Button on the Far Right */
@@ -325,11 +326,11 @@
 
 .mobile-nav-link {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
   color: #064B25;
   text-decoration: none;
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #EAF4DC;
 }
 

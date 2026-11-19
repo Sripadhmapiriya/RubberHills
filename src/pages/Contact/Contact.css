@@ -128,18 +128,25 @@
   margin-top: 115px;
 }
 
-/* Peeking Boy Mascot */
-.form-peeking-boy {
+/* Peeking Mascots (Girl on Left, Boy on Right) */
+.form-peeking-mascot {
   position: absolute;
   bottom: calc(100% - 13px);
-  right: 38px;
-  width: clamp(140px, 15vw, 195px);
+  width: clamp(130px, 13.5vw, 175px);
   z-index: 4;
   pointer-events: none;
   filter: drop-shadow(0 6px 14px rgba(23, 75, 53, 0.12));
 }
 
-.peeking-boy-img {
+.mascot-boy {
+  right: 32px;
+}
+
+.mascot-girl {
+  left: 32px;
+}
+
+.peeking-mascot-img {
   width: 100%;
   height: auto;
   display: block;
@@ -310,10 +317,15 @@
   }
 }
 
-@media (max-width: 540px) {
-  .form-peeking-boy {
-    width: 125px;
-    right: 12px;
+@media (max-width: 580px) {
+  .form-peeking-mascot {
+    width: clamp(95px, 24vw, 125px);
     bottom: calc(100% - 9px);
+  }
+  .mascot-boy {
+    right: 12px;
+  }
+  .mascot-girl {
+    left: 12px;
   }
 }

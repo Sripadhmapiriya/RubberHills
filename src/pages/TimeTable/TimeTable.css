@@ -278,30 +278,13 @@
   padding: 20px 0;
 }
 
-/* Wavy Central Path SVG */
-.desktop-track-svg-wrap {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.desktop-track-svg {
-  width: 100%;
-  height: 100px;
-  overflow: visible;
-}
-
 /* 6-Column Alternating Grid */
 .desktop-timeline-grid {
   position: relative;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 18px;
-  z-index: 2;
+  /* no z-index here, so the toy car can slide between the dots and the cards */
 }
 
 .timeline-col {
@@ -338,7 +321,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  z-index: 5;
+  z-index: 3;
 }
 
 .milestone-node {
@@ -374,6 +357,7 @@
 /* Moment Card (Desktop) */
 .moment-card {
   position: relative;
+  z-index: 6;
   width: 100%;
   border-radius: 26px;
   padding: 22px 18px 20px;
@@ -794,7 +778,7 @@
 /* 4. CLOSING SECTION (Every Day is a New Adventure)              */
 /* ============================================================== */
 .timetable-closing-section {
-  padding: 30px 0 80px;
+  padding: 24px 0 60px;
   position: relative;
   z-index: 2;
 }
@@ -802,10 +786,12 @@
 .closing-panel {
   position: relative;
   background: linear-gradient(135deg, #174B35 0%, #073D20 100%);
-  border-radius: 40px;
-  padding: clamp(48px, 6vw, 75px) clamp(24px, 5vw, 64px);
+  border-radius: 28px;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: clamp(30px, 3.5vw, 42px) clamp(24px, 4vw, 48px);
   overflow: hidden;
-  box-shadow: 0 20px 48px rgba(7, 61, 32, 0.2);
+  box-shadow: 0 16px 36px rgba(7, 61, 32, 0.18);
   text-align: center;
 }
 
@@ -820,43 +806,44 @@
 .closing-leaf {
   position: absolute;
   user-select: none;
-  font-size: 1.8rem;
-  opacity: 0.35;
+  opacity: 0.3;
   animation: floatClock 7s ease-in-out infinite;
 }
 
 .star-left {
-  top: 25px;
-  left: 35px;
+  top: 18px;
+  left: 24px;
+  font-size: 1.3rem;
   color: #F6D65B;
   animation-delay: 0s;
 }
 
 .star-right {
-  bottom: 25px;
-  right: 40px;
+  bottom: 18px;
+  right: 26px;
+  font-size: 1.3rem;
   color: #F6D65B;
   animation-delay: 2s;
 }
 
 .leaf-left {
-  bottom: 25px;
-  left: 45px;
-  font-size: 2.2rem;
+  bottom: 16px;
+  left: 28px;
+  font-size: 1.5rem;
   animation-delay: 3.5s;
 }
 
 .leaf-right {
-  top: 20px;
-  right: 50px;
-  font-size: 2.2rem;
+  top: 16px;
+  right: 30px;
+  font-size: 1.5rem;
   animation-delay: 1.2s;
 }
 
 .closing-content {
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  max-width: 580px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -864,7 +851,9 @@
 }
 
 .closing-pill {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  font-size: 0.78rem !important;
+  padding: 4px 14px !important;
   background-color: rgba(228, 241, 223, 0.15) !important;
   color: #F6D65B !important;
   border-color: rgba(246, 214, 91, 0.5) !important;
@@ -872,56 +861,57 @@
 
 .closing-title {
   font-family: var(--font-heading, 'Outfit', sans-serif);
-  font-size: clamp(2.3rem, 4.6vw, 3.4rem);
+  font-size: clamp(1.65rem, 2.8vw, 2.25rem);
   font-weight: 800;
   color: #FFFDF5;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.02em;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
 }
 
 .closing-subtitle {
   font-family: var(--font-body, 'Nunito', sans-serif);
-  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-size: clamp(0.92rem, 1.3vw, 1.02rem);
   color: #D6ECD1;
   font-weight: 600;
-  line-height: 1.6;
-  margin: 0 0 34px;
+  line-height: 1.55;
+  margin: 0 0 20px;
+  max-width: 520px;
 }
 
 .closing-cta-group {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .btn-primary-yellow {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   background-color: #F6D65B;
   color: #174B35;
   font-family: var(--font-heading, 'Outfit', sans-serif);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  padding: 15px 32px;
+  padding: 11px 26px;
   border-radius: 999px;
   text-decoration: none;
-  box-shadow: 0 8px 24px rgba(246, 214, 91, 0.35);
+  box-shadow: 0 6px 20px rgba(246, 214, 91, 0.32);
   transition: all 0.28s ease;
 }
 
 .btn-primary-yellow:hover {
   background-color: #FFDE6B;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(246, 214, 91, 0.45);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(246, 214, 91, 0.4);
 }
 
 .btn-primary-yellow .btn-arrow-circle {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background-color: #174B35;
   color: #F6D65B;
@@ -932,7 +922,7 @@
 }
 
 .btn-primary-yellow:hover .btn-arrow-circle {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 .btn-secondary-cream {
@@ -1050,8 +1040,8 @@
   }
 
   .closing-panel {
-    border-radius: 28px;
-    padding: 38px 20px;
+    border-radius: 22px;
+    padding: 26px 16px;
   }
 
   .closing-star,

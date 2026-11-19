@@ -124,7 +124,7 @@ export default function Contact() {
     } catch (err) {
       console.error('Submission Error:', err);
       setErrorMessage(
-        'Unable to connect to the email service. Please call us at +91 98765 43210 or email info@rubberhills.in.'
+        'Unable to connect to the email service. Please call us at +91 98765 43210 or email rubberhillskindergarten@gmail.com.'
       );
     } finally {
       setLoading(false);

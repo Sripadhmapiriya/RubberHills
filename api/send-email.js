@@ -67,11 +67,21 @@ export default async function handler(req, res) {
       });
     }
 
-    const { parentVisitorName, contactNumber, childName, name, phone } = body || {};
+    const {
+      parentVisitorName,
+      contactNumber,
+      childName,
+      interestedClass,
+      message,
+      name,
+      phone,
+    } = body || {};
 
     const parent = (parentVisitorName || name || '').trim();
     const contact = (contactNumber || phone || '').trim();
     const child = (childName || '').trim();
+    const selectedClass = (interestedClass || 'Not specified').trim();
+    const notes = (message || '').trim();
 
     // Server-side validation
     if (!parent) {
@@ -99,8 +109,8 @@ export default async function handler(req, res) {
     const host = process.env.SMTP_HOST || 'smtp.gmail.com';
     const port = Number(process.env.SMTP_PORT) || 465;
     const secure = process.env.SMTP_SECURE === 'true' || port === 465;
-    const user = process.env.SMTP_USER;
-    const pass = process.env.SMTP_PASS;
+    const user = process.env.SMTP_USER || 'rubberhillskindergarten@gmail.com';
+    const pass = (process.env.SMTP_PASS || 'yhwfpdtrgzfafwgv').replace(/\s+/g, '');
     const receiver = process.env.CONTACT_RECEIVER_EMAIL || user;
 
     if (!user || !pass) {
@@ -130,8 +140,8 @@ export default async function handler(req, res) {
       from: `"Rubber Hills Kindergarten" <${user}>`,
       to: receiver,
       replyTo: user,
-      subject: `New Admission Enquiry: ${parent} (Child: ${child})`,
-      text: `New Admission Enquiry\nRubber Hills Kindergarten\n\nParent / Visitor Name: ${parent}\nContact Number: ${contact}\nChild's Name: ${child}\nSubmission Date & Time: ${submissionDateTime}\n\nSent from the Rubber Hills Kindergarten official website enquiry form.`,
+      subject: `New Admission Enquiry: ${parent} (Child: ${child} - ${selectedClass})`,
+      text: `New Admission Enquiry\nRubber Hills Kindergarten\n\nParent / Visitor Name: ${parent}\nContact Number: ${contact}\nChild's Name: ${child}\nInterested Class: ${selectedClass}\n${notes ? `Message / Notes: ${notes}\n` : ''}Submission Date & Time: ${submissionDateTime}\n\nSent from the Rubber Hills Kindergarten official website enquiry form.`,
       html: `
 <!DOCTYPE html>
 <html lang="en">
@@ -179,6 +189,20 @@ export default async function handler(req, res) {
             <td style="padding: 14px 18px; font-weight: 600; font-size: 14px; color: #4F6656;">Child’s Name</td>
             <td style="padding: 14px 18px; font-weight: 700; font-size: 15px; color: #1E3A2B;">${child}</td>
           </tr>
+          <tr style="background-color: #FFFFFF; border-bottom: 1px solid #D0E0BE;">
+            <td style="padding: 14px 18px; font-weight: 600; font-size: 14px; color: #4F6656;">Interested Program / Class</td>
+            <td style="padding: 14px 18px; font-weight: 700; font-size: 15px; color: #2F7D4F;">${selectedClass}</td>
+          </tr>
+          ${
+            notes
+              ? `
+          <tr style="background-color: #FBFDF6; border-bottom: 1px solid #D0E0BE;">
+            <td style="padding: 14px 18px; font-weight: 600; font-size: 14px; color: #4F6656; vertical-align: top;">Message / Notes</td>
+            <td style="padding: 14px 18px; font-size: 14px; color: #1E3A2B; line-height: 1.5;">${notes}</td>
+          </tr>
+          `
+              : ''
+          }
           <tr style="background-color: #FFFFFF;">
             <td style="padding: 14px 18px; font-weight: 600; font-size: 14px; color: #4F6656;">Submission Date & Time</td>
             <td style="padding: 14px 18px; font-size: 13px; color: #4F6656;">${submissionDateTime}</td>

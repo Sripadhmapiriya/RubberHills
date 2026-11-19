@@ -174,7 +174,7 @@ export default function Footer() {
               </div>
               <div className="footer-contact-entry">
                 <Mail size={17} className="contact-entry-icon" />
-                <a href="mailto:info@rubberhills.in">info@rubberhills.in</a>
+                <a href="mailto:rubberhillskindergarten@gmail.com">rubberhillskindergarten@gmail.com</a>
               </div>
             </div>
 

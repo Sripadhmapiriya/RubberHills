@@ -205,19 +205,19 @@ export default function Contact() {
           <div className="contact-right-col" id="admission-form">
             {/* Form Container */}
             <div className="admission-form-wrapper">
-              {/* Peeking Girl Mascot (Left) */}
-              <div className="form-peeking-mascot mascot-girl" aria-hidden="true">
+              {/* Peeking Boy Mascot (Left) */}
+              <div className="form-peeking-mascot mascot-boy" aria-hidden="true">
                 <img
-                  src="/svgs/girl-transparent.png"
+                  src="/svgs/boy-transparent.png"
                   alt="Cheerful student peeking over admission form left"
                   className="peeking-mascot-img"
                 />
               </div>
 
-              {/* Peeking Boy Mascot (Right) */}
-              <div className="form-peeking-mascot mascot-boy" aria-hidden="true">
+              {/* Peeking Girl Mascot (Right) */}
+              <div className="form-peeking-mascot mascot-girl" aria-hidden="true">
                 <img
-                  src="/svgs/boy-transparent.png"
+                  src="/svgs/girl-transparent.png"
                   alt="Cheerful student peeking over admission form right"
                   className="peeking-mascot-img"
                 />

@@ -139,11 +139,11 @@
 }
 
 .mascot-boy {
-  right: 32px;
+  left: 32px;
 }
 
 .mascot-girl {
-  left: 32px;
+  right: 32px;
 }
 
 .peeking-mascot-img {
@@ -323,9 +323,9 @@
     bottom: calc(100% - 9px);
   }
   .mascot-boy {
-    right: 12px;
+    left: 12px;
   }
   .mascot-girl {
-    left: 12px;
+    right: 12px;
   }
 }

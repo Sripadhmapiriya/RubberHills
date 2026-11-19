@@ -105,7 +105,7 @@ export default function Campus() {
             </p>
           </div>
 
-          <CampusCarousel intervalMs={3000} />
+          <CampusCarousel intervalMs={2000} />
         </div>
       </section>
 

@@ -174,6 +174,18 @@ export const CLASSES_PAGE_IMAGES = {
   creche: ORIGINAL_IMAGES.crecheSwing,
 };
 
+// Classes Page – Hero photo collage (top-right of the Classes page).
+// To use your own photos: drop them in /public/original/ (or /public/assets/)
+// and change the `src` paths below. Any size works – photos are cropped to fit.
+export const CLASSES_HERO_IMAGES = {
+  // Biggest photo in the collage (landscape works best)
+  main: ORIGINAL_IMAGES.classroomActivity,
+  // Second photo (portrait or square works best)
+  second: ORIGINAL_IMAGES.crecheSwing,
+  // Third photo (portrait or square works best)
+  third: ORIGINAL_IMAGES.studentPortrait,
+};
+
 // Contact Page
 export const CONTACT_IMAGES = {
   campusCard: ORIGINAL_IMAGES.campusBuilding,

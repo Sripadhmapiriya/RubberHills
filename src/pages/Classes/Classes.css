@@ -1120,7 +1120,8 @@
 /* ============================================================== */
 .age-progression-section {
   position: relative;
-  padding: 20px 0 60px;
+  padding: 20px 0 20px;
+  margin-bottom: 0;
   z-index: 2;
 }
 
@@ -1382,6 +1383,10 @@
   }
   .classes-heading-highlight {
     white-space: normal;
+  }
+  .age-progression-section {
+    padding: 15px 0 10px;
+    margin-bottom: 0;
   }
 }
 

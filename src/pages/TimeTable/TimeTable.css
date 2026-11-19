@@ -5,7 +5,7 @@
 
 .page-timetable {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #FFF9ED;
   color: #174B35;
 }
@@ -778,7 +778,8 @@
 /* 4. CLOSING SECTION (Every Day is a New Adventure)              */
 /* ============================================================== */
 .timetable-closing-section {
-  padding: 24px 0 60px;
+  padding: 20px 0 20px;
+  margin-bottom: 0;
   position: relative;
   z-index: 2;
 }
@@ -1042,6 +1043,11 @@
   .closing-panel {
     border-radius: 22px;
     padding: 26px 16px;
+  }
+
+  .timetable-closing-section {
+    padding: 15px 0 10px;
+    margin-bottom: 0;
   }
 
   .closing-star,

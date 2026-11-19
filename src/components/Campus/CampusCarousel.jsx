@@ -80,22 +80,17 @@ export default function CampusCarousel({ intervalMs = 3000 }) {
     setActiveIndex(idx);
   };
 
-  // 1. Automatic Rotation every 3 seconds (configurable)
+  // 1. Automatic Rotation (always on; only pauses while the browser tab is hidden).
+  // Re-runs whenever activeIndex changes so a manual click/swipe restarts the countdown.
   useEffect(() => {
-    // Respect prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-    if (prefersReducedMotion) return;
-
     if (isPaused) return;
 
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       nextSlide();
     }, intervalMs);
 
-    return () => clearInterval(timer);
-  }, [isPaused, nextSlide, intervalMs]);
+    return () => clearTimeout(timer);
+  }, [isPaused, nextSlide, intervalMs, activeIndex]);
 
   // 2. Pause when browser tab is inactive
   useEffect(() => {
@@ -134,8 +129,6 @@ export default function CampusCarousel({ intervalMs = 3000 }) {
   return (
     <div
       className="campus-carousel-wrapper"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       aria-roledescription="carousel"

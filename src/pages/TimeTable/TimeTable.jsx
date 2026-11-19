@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -15,6 +15,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import TimelineCar from './TimelineCar';
 import './TimeTable.css';
 
 // ==============================================================
@@ -194,6 +195,8 @@ const TIMELINE_MOMENTS = [
 ];
 
 export default function TimeTable() {
+  const timelineRef = useRef(null);
+
   return (
     <div className="page-timetable">
       <FloatingLeaves />
@@ -326,20 +329,9 @@ export default function TimeTable() {
           {/* ============================================================ */}
           {/* DESKTOP TIMELINE (Alternating Serpentine Journey)            */}
           {/* ============================================================ */}
-          <div className="timeline-desktop-wrapper" aria-hidden="false">
-            {/* Organic Curved Central Connecting Path */}
-            <div className="desktop-track-svg-wrap">
-              <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="desktop-track-svg">
-                {/* Smooth Wavy Connecting Track */}
-                <path
-                  d="M 20 60 Q 200 25 380 60 T 780 60 T 1180 60"
-                  fill="none"
-                  stroke="#72B95A"
-                  strokeWidth="3.5"
-                  strokeDasharray="7 5"
-                />
-              </svg>
-            </div>
+          <div className="timeline-desktop-wrapper" ref={timelineRef}>
+            {/* Toy car road: drives from moment 1 to 6 through the cards and dots */}
+            <TimelineCar wrapperRef={timelineRef} />
 
             {/* 6 Alternating Timeline Columns */}
             <div className="desktop-timeline-grid">

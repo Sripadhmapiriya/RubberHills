@@ -180,10 +180,12 @@
 
 /* Facilities Section */
 .campus-facilities {
-  padding: 60px 0 80px;
+  padding: 60px 0 35px;
   background-color: var(--color-cream-light);
   border-radius: 48px;
-  margin: 20px 0;
+  margin: 20px 0 0;
+  position: relative;
+  z-index: 2;
 }
 
 .facilities-header {
@@ -261,6 +263,10 @@
   }
   .facilities-grid {
     grid-template-columns: 1fr;
+  }
+  .campus-facilities {
+    padding: 40px 0 25px;
+    margin-bottom: 0;
   }
 }
 

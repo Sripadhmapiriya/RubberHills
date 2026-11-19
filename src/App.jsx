@@ -26,7 +26,7 @@ export default function App() {
       <ScrollToTop />
       <div className="site-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Navbar />
-        <main style={{ flex: '1 0 auto' }}>
+        <main style={{ flex: '1 0 auto', position: 'relative', zIndex: 2 }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

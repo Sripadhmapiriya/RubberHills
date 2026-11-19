@@ -13,7 +13,7 @@
 /* 1. ABOUT HERO SECTION                                          */
 /* ============================================================== */
 .about-hero {
-  padding: 40px 0 50px;
+  padding: clamp(115px, 10vw, 135px) 0 50px;
   position: relative;
   z-index: 2;
 }
@@ -632,10 +632,10 @@
 /* 4. VALUES & PHILOSOPHY SECTION (Why Families Choose Us)        */
 /* ============================================================== */
 .about-values-section {
-  padding: 60px 0 75px;
+  padding: 60px 0 35px;
   background-color: var(--color-cream-light);
   border-radius: 48px;
-  margin: 15px 0 50px;
+  margin: 15px 0 0;
   position: relative;
   z-index: 2;
   box-shadow: 0 4px 20px rgba(6, 75, 37, 0.03);
@@ -766,7 +766,7 @@
     grid-template-columns: 1fr;
   }
   .about-hero {
-    padding: 24px 0 36px;
+    padding: 100px 0 36px;
   }
   .about-story-section {
     padding: 44px 0 52px;
@@ -776,7 +776,8 @@
     padding: 36px 0 52px;
   }
   .about-values-section {
-    padding: 44px 0 52px;
+    padding: 44px 0 25px;
+    margin-bottom: 0;
     border-radius: 32px;
   }
   .founder-card {

@@ -337,3 +337,11 @@
     font-size: 0.85rem;
   }
 }
+
+/* Keep the smooth slide animation even when the device has "reduce motion" on
+   (the global rule in index.css would otherwise make slides jump instantly). */
+@media (prefers-reduced-motion: reduce) {
+  .campus-carousel-wrapper .showcase-card {
+    transition-duration: 0.65s !important;
+  }
+}

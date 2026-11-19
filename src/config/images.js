@@ -166,6 +166,13 @@ export const LEARNING_PAGE_IMAGES = {
   discovery: ORIGINAL_IMAGES.campusWalkway,
 };
 
+// Learning Page – Hero Discovery Showcase (top-right of the Learning page)
+export const LEARNING_HERO_IMAGES = {
+  main: ORIGINAL_IMAGES.classroomReading,      // Alphabet & Phonics
+  creative: ORIGINAL_IMAGES.studentPortrait,   // Art & Expression
+  activity: ORIGINAL_IMAGES.classroomActivity, // Shapes & Numbers
+};
+
 // Classes Page
 export const CLASSES_PAGE_IMAGES = {
   nursery: ORIGINAL_IMAGES.studentPortrait,

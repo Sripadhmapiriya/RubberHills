@@ -5,6 +5,7 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import LearningHeroGallery from './LearningHeroGallery';
 import './Learning.css';
 
 // ==============================================================
@@ -388,67 +389,9 @@ export default function Learning() {
             </div>
           </div>
 
-          {/* Right Pure CSS/SVG Educational Decorative Illustration */}
-          <div className="learning-hero-visual" aria-hidden="true">
-            <div className="hero-illustration-stage">
-              {/* Concentric Glow Rings */}
-              <div className="decor-glow-circle circle-outer" />
-              <div className="decor-glow-circle circle-mid" />
-              <div className="decor-glow-circle circle-inner" />
-
-              {/* Central Cheerful Educational Badge */}
-              <div className="hero-badge-central">
-                <svg viewBox="0 0 200 200" className="hero-central-svg">
-                  {/* Sunny Background Blob */}
-                  <circle cx="100" cy="100" r="75" fill="#FFFDF5" stroke="#E2EED7" strokeWidth="4" />
-                  <circle cx="100" cy="100" r="60" fill="#FEF3C7" />
-
-                  {/* Golden Rays */}
-                  <path d="M100 22 V34 M100 166 V178 M22 100 H34 M166 100 H178" stroke="#F6D65B" strokeWidth="4" strokeLinecap="round" />
-                  <path d="M45 45 L54 54 M146 146 L155 155 M45 155 L54 146 M146 54 L155 45" stroke="#F6D65B" strokeWidth="4" strokeLinecap="round" />
-
-                  {/* Open Story Book in the Sun */}
-                  <path
-                    d="M60 115 C75 108 90 110 100 116 C110 110 125 108 140 115 V86 C125 80 110 82 100 88 C90 82 75 80 60 86 Z"
-                    fill="#FFFFFF"
-                    stroke="#174B35"
-                    strokeWidth="3.2"
-                  />
-                  <line x1="100" y1="88" x2="100" y2="116" stroke="#174B35" strokeWidth="2.5" />
-
-                  {/* Sprouting Young Rubber Tree Leaf */}
-                  <path d="M100 84 C92 70 100 60 100 60 C100 60 108 70 100 84 Z" fill="#72B95A" stroke="#174B35" strokeWidth="2" />
-                  <path d="M100 84 V70" stroke="#174B35" strokeWidth="1.8" />
-
-                  {/* Floating Learning Elements */}
-                  <polygon points="135,66 138,72 144,72 139,76 141,82 135,78 129,82 131,76 126,72 132,72" fill="#F6D65B" stroke="#B45309" strokeWidth="1.2" />
-                  <text x="64" y="78" fill="#174B35" fontSize="16" fontWeight="800" fontFamily="Outfit, sans-serif">a</text>
-                  <text x="80" y="68" fill="#72B95A" fontSize="13" fontWeight="800" fontFamily="Outfit, sans-serif">1</text>
-                  <circle cx="138" cy="128" r="5" fill="#E4F1DF" stroke="#174B35" strokeWidth="1.8" />
-                </svg>
-              </div>
-
-              {/* Floating Educational Tags */}
-              <div className="floating-tag tag-phonics">
-                <span className="tag-dot dot-mint" />
-                <span>Alphabet & Phonics</span>
-              </div>
-
-              <div className="floating-tag tag-numeracy">
-                <span className="tag-dot dot-yellow" />
-                <span>Shapes & Numbers</span>
-              </div>
-
-              <div className="floating-tag tag-creative">
-                <span className="tag-dot dot-peach" />
-                <span>Art & Expression</span>
-              </div>
-
-              {/* Decorative Stars & Leaves */}
-              <div className="floating-doodle doodle-star-1">★</div>
-              <div className="floating-doodle doodle-star-2">✦</div>
-              <div className="floating-doodle doodle-leaf-1">🌿</div>
-            </div>
+          {/* Right Hero Showcase – 3-Photo Joyful Discovery Gallery */}
+          <div className="learning-hero-visual">
+            <LearningHeroGallery />
           </div>
         </div>
 

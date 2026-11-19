@@ -1,0 +1,362 @@
+/* ============================================================== */
+/* Learning Hero Gallery – "Joyful Discovery Showcase"           */
+/* ============================================================== */
+
+.lhg-showcase {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+/* Ambient Glow Aura */
+.lhg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 450px;
+  height: 450px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(222, 243, 200, 0.65) 0%, rgba(254, 243, 199, 0.38) 50%, rgba(250, 247, 238, 0) 72%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Orbit Path SVG */
+.lhg-orbit-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Photo Frames (Base) */
+.lhg-frame {
+  position: absolute;
+  margin: 0;
+  background: #FFFFFF;
+  padding: 8px;
+  box-shadow: 0 18px 40px rgba(23, 75, 53, 0.13), 0 4px 12px rgba(23, 75, 53, 0.05);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.lhg-frame:hover {
+  box-shadow: 0 24px 50px rgba(23, 75, 53, 0.18), 0 6px 16px rgba(23, 75, 53, 0.06);
+  z-index: 6;
+}
+
+.lhg-photo-box {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #E4F1DF;
+}
+
+.lhg-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.lhg-frame:hover .lhg-photo {
+  transform: scale(1.03);
+}
+
+/* Card 1: Storybook Arch (Left) */
+.frame-main {
+  top: 35px;
+  left: 10px;
+  width: 255px;
+  height: 355px;
+  border-radius: 42px 42px 24px 24px;
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+
+.frame-main .lhg-photo-box {
+  border-radius: 36px 36px 18px 18px;
+}
+
+.frame-main:hover {
+  transform: rotate(-1deg) translateY(-6px);
+}
+
+/* Card 2: Creative Portrait (Top-Right) */
+.frame-creative {
+  top: 15px;
+  right: 15px;
+  width: 220px;
+  height: 220px;
+  border-radius: 30px;
+  transform: rotate(4deg);
+  z-index: 3;
+}
+
+.frame-creative .lhg-photo-box {
+  border-radius: 24px;
+}
+
+.frame-creative:hover {
+  transform: rotate(2deg) translateY(-6px);
+}
+
+/* Card 3: Active Discovery (Bottom-Right) */
+.frame-activity {
+  bottom: 30px;
+  right: 20px;
+  width: 255px;
+  height: 185px;
+  border-radius: 26px;
+  transform: rotate(-2deg);
+  z-index: 4;
+}
+
+.frame-activity .lhg-photo-box {
+  border-radius: 20px;
+}
+
+.frame-activity:hover {
+  transform: rotate(0deg) translateY(-6px);
+}
+
+/* Washi Tape Accent on Card 2 */
+.lhg-washi-tape {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 70px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255, 210, 28, 0.85);
+  border-radius: 3px;
+  z-index: 2;
+}
+
+/* Learning Area Badge Pills */
+.lhg-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  padding: 6px 14px 6px 9px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 22px rgba(23, 75, 53, 0.14);
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #174B35;
+  white-space: nowrap;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-mint { background: #72B95A; }
+.dot-peach { background: #F87171; }
+.dot-yellow { background: #F59E0B; }
+
+.badge-bottom-center {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.badge-top-right {
+  top: -13px;
+  right: 8px;
+}
+
+.badge-bottom-right {
+  bottom: -14px;
+  right: 14px;
+}
+
+/* Center Harmonizing Discovery Pill */
+.lhg-center-pill {
+  position: absolute;
+  top: 228px;
+  left: 205px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #174B35;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px rgba(23, 75, 53, 0.28);
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  transform: rotate(2deg);
+  transition: transform 0.3s ease;
+}
+
+.lhg-center-pill:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.center-pill-star {
+  color: #FFD21C;
+  font-size: 0.95rem;
+}
+
+/* Whimsical Accents */
+.lhg-doodle-rays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lhg-doodle-sparkle {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 1.3rem;
+  color: #FFD21C;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================== */
+/* Responsive Design                                              */
+/* ============================================================== */
+
+@media (max-width: 1080px) {
+  .lhg-showcase {
+    max-width: 480px;
+    height: 420px;
+  }
+  .lhg-glow {
+    width: 380px;
+    height: 380px;
+  }
+  .frame-main {
+    width: 215px;
+    height: 300px;
+    top: 30px;
+    left: 5px;
+  }
+  .frame-creative {
+    width: 185px;
+    height: 185px;
+    top: 15px;
+    right: 10px;
+  }
+  .frame-activity {
+    width: 215px;
+    height: 160px;
+    bottom: 25px;
+    right: 15px;
+  }
+  .lhg-center-pill {
+    top: 195px;
+    left: 170px;
+    padding: 7px 14px;
+    font-size: 0.78rem;
+  }
+  .lhg-badge {
+    font-size: 0.75rem;
+    padding: 5px 12px 5px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lhg-showcase {
+    margin: 25px auto 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .lhg-showcase {
+    max-width: 360px;
+    height: 360px;
+  }
+  .lhg-glow {
+    width: 320px;
+    height: 320px;
+  }
+  .lhg-frame {
+    padding: 6px;
+    box-shadow: 0 14px 30px rgba(23, 75, 53, 0.12);
+  }
+  .frame-main {
+    top: 20px;
+    left: 5px;
+    width: 165px;
+    height: 240px;
+    border-radius: 30px 30px 18px 18px;
+  }
+  .frame-main .lhg-photo-box {
+    border-radius: 24px 24px 14px 14px;
+  }
+  .frame-creative {
+    top: 10px;
+    right: 5px;
+    width: 145px;
+    height: 150px;
+    border-radius: 22px;
+  }
+  .frame-creative .lhg-photo-box {
+    border-radius: 18px;
+  }
+  .frame-activity {
+    bottom: 15px;
+    right: 10px;
+    width: 165px;
+    height: 130px;
+    border-radius: 20px;
+  }
+  .frame-activity .lhg-photo-box {
+    border-radius: 16px;
+  }
+  .lhg-washi-tape {
+    top: -9px;
+    width: 50px;
+    height: 18px;
+  }
+  .lhg-badge {
+    padding: 4px 10px;
+    font-size: 0.68rem;
+    gap: 6px;
+  }
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+  }
+  .badge-bottom-center {
+    bottom: -11px;
+  }
+  .badge-top-right {
+    top: -10px;
+    right: 4px;
+  }
+  .badge-bottom-right {
+    bottom: -11px;
+    right: 8px;
+  }
+  .lhg-center-pill {
+    top: 160px;
+    left: 125px;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    gap: 5px;
+  }
+}

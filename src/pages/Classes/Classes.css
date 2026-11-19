@@ -582,13 +582,16 @@
   box-shadow: 0 8px 30px rgba(23, 75, 53, 0.06);
   display: flex;
   flex-direction: column;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scale(1);
+  transform-origin: center center;
   backface-visibility: hidden;
-  /* Ultra-smooth 1.2s floating elevation */
-  transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1),
-              box-shadow 1.2s cubic-bezier(0.2, 1, 0.3, 1),
-              border-color 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  /* Ultra-smooth, slow leisurely zoom & pop */
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+              box-shadow 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+              border-color 1s cubic-bezier(0.3, 0, 0.2, 1);
   position: relative;
+  z-index: 1;
 }
 
 /* Subtle ambient radial glow inside card on hover */
@@ -599,7 +602,7 @@
   border-radius: 30px;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: opacity 1.2s cubic-bezier(0.3, 0, 0.2, 1);
   z-index: 0;
 }
 
@@ -617,25 +620,29 @@
 
 .kg-class-card:hover::before {
   opacity: 1;
+  transition-duration: 1.5s;
 }
 
 .kg-class-card:hover {
-  transform: translate3d(0, -12px, 0);
+  /* Slow, graceful zoom-in pop effect */
+  transform: translate3d(0, -10px, 0) scale(1.04);
+  transition-duration: 1.5s;
+  z-index: 5;
 }
 
 .card-nursery:hover {
   border-color: #F6D65B;
-  box-shadow: 0 22px 48px -10px rgba(246, 214, 91, 0.38), 0 12px 24px -6px rgba(23, 75, 53, 0.08);
+  box-shadow: 0 24px 50px -8px rgba(246, 214, 91, 0.42), 0 14px 28px -6px rgba(23, 75, 53, 0.1);
 }
 
 .card-lkg:hover {
   border-color: #72B95A;
-  box-shadow: 0 22px 48px -10px rgba(114, 185, 90, 0.38), 0 12px 24px -6px rgba(23, 75, 53, 0.08);
+  box-shadow: 0 24px 50px -8px rgba(114, 185, 90, 0.42), 0 14px 28px -6px rgba(23, 75, 53, 0.1);
 }
 
 .card-ukg:hover {
   border-color: #BFA5E8;
-  box-shadow: 0 22px 48px -10px rgba(156, 127, 214, 0.38), 0 12px 24px -6px rgba(23, 75, 53, 0.08);
+  box-shadow: 0 24px 50px -8px rgba(156, 127, 214, 0.42), 0 14px 28px -6px rgba(23, 75, 53, 0.1);
 }
 
 /* Top accent bar - GPU scaleY avoids reflow */
@@ -644,13 +651,14 @@
   width: 100%;
   transform-origin: top center;
   transform: scaleY(1);
-  transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.8s ease;
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1), box-shadow 1s ease;
   position: relative;
   z-index: 2;
 }
 
 .kg-class-card:hover .card-top-accent {
   transform: scaleY(1.35);
+  transition-duration: 1.5s;
 }
 
 .card-nursery:hover .nursery-accent {
@@ -700,12 +708,13 @@
   font-weight: 700;
   margin-bottom: 22px;
   transform: translate3d(0, 0, 0);
-  transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.8s ease;
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1), box-shadow 1s ease;
 }
 
 .kg-class-card:hover .kg-age-badge {
   transform: translate3d(0, -3px, 0);
-  transition-delay: 0.1s;
+  transition-duration: 1.5s;
+  transition-delay: 0.08s;
 }
 
 .card-nursery:hover .nursery-age {
@@ -746,12 +755,13 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transform: translate3d(0, 0, 0);
-  transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .kg-class-card:hover .card-illustration-wrap {
-  transform: translate3d(0, -5px, 0) scale(1.06);
+  transform: translate3d(0, -6px, 0) scale(1.08);
+  transition-duration: 1.5s;
   transition-delay: 0.08s;
 }
 
@@ -766,47 +776,47 @@
    ============================================================ */
 .ill-block {
   transform-box: fill-box;
-  transition: transform 1.2s cubic-bezier(0.25, 1.2, 0.4, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .ill-block-1 {
   transform-origin: 39px 93px;
-  transition-delay: 0.08s;
 }
 
 .ill-block-2 {
   transform-origin: 99px 93px;
-  transition-delay: 0.16s;
 }
 
 .ill-block-3 {
   transform-origin: 68px 56px;
-  transition-delay: 0.24s;
 }
 
 .card-nursery:hover .ill-block-1 {
   transform: translate3d(-3px, -5px, 0) rotate(-4deg);
+  transition-duration: 1.5s;
   transition-delay: 0.12s;
 }
 
 .card-nursery:hover .ill-block-2 {
   transform: translate3d(3px, -5px, 0) rotate(4deg);
+  transition-duration: 1.5s;
   transition-delay: 0.24s;
 }
 
 .card-nursery:hover .ill-block-3 {
   transform: translate3d(0, -10px, 0) scale(1.06);
+  transition-duration: 1.5s;
   transition-delay: 0.36s;
 }
 
 .ill-sparkle {
   transform-box: fill-box;
   transform-origin: 120px 26px;
-  transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.8s ease;
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1), opacity 1s ease;
 }
 
 .card-nursery:hover .ill-sparkle {
-  animation: sparkleTwinkle 2s ease-in-out infinite alternate;
+  animation: sparkleTwinkle 2.4s ease-in-out infinite alternate;
   animation-delay: 0.2s;
 }
 
@@ -825,52 +835,56 @@
    CARD 2 (LOWER KG) ICON ANIMATIONS: Rainbow, Book & Sprout
    ============================================================ */
 .ill-rainbow-outer {
-  transition: opacity 1s ease 0.1s, stroke-width 1s ease 0.1s, filter 1s ease 0.1s;
+  transition: opacity 1.2s ease, stroke-width 1.2s ease, filter 1.2s ease;
 }
 
 .ill-rainbow-inner {
-  transition: opacity 1s ease 0.18s, stroke-width 1s ease 0.18s;
+  transition: opacity 1.2s ease, stroke-width 1.2s ease;
 }
 
 .card-lkg:hover .ill-rainbow-outer {
   opacity: 0.95;
   stroke-width: 3.5px;
   filter: drop-shadow(0 2px 5px rgba(246, 214, 91, 0.6));
+  transition-duration: 1.5s;
   transition-delay: 0.15s;
 }
 
 .card-lkg:hover .ill-rainbow-inner {
   opacity: 0.9;
   stroke-width: 3px;
+  transition-duration: 1.5s;
   transition-delay: 0.25s;
 }
 
 .ill-storybook {
   transform-box: fill-box;
   transform-origin: center bottom;
-  transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .card-lkg:hover .ill-storybook {
   transform: translate3d(0, 1px, 0);
+  transition-duration: 1.5s;
   transition-delay: 0.1s;
 }
 
 .ill-sprout {
   transform-box: fill-box;
   transform-origin: 70px 62px;
-  transition: transform 1.3s cubic-bezier(0.22, 1.2, 0.36, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .card-lkg:hover .ill-sprout {
   transform: translate3d(0, -7px, 0) scale(1.08);
+  transition-duration: 1.5s;
   transition-delay: 0.15s;
 }
 
 .sprout-leaf-left,
 .sprout-leaf-right {
   transform-box: fill-box;
-  transition: transform 1.2s cubic-bezier(0.22, 1.2, 0.36, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .sprout-leaf-left {
@@ -883,11 +897,13 @@
 
 .card-lkg:hover .sprout-leaf-left {
   transform: rotate(-14deg) scale(1.08);
+  transition-duration: 1.5s;
   transition-delay: 0.22s;
 }
 
 .card-lkg:hover .sprout-leaf-right {
   transform: rotate(14deg) scale(1.08);
+  transition-duration: 1.5s;
   transition-delay: 0.32s;
 }
 
@@ -896,11 +912,12 @@
    ============================================================ */
 .ill-rocket {
   transform-origin: 70px 65px;
-  transition: transform 1.4s cubic-bezier(0.22, 1.15, 0.36, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .card-ukg:hover .ill-rocket {
-  transform: translate3d(0, -7px, 0) rotate(-8deg);
+  transform: translate3d(0, -8px, 0) rotate(-8deg);
+  transition-duration: 1.5s;
   transition-delay: 0.15s;
 }
 
@@ -911,12 +928,12 @@
 }
 
 .card-ukg:hover .rocket-flame-outer {
-  animation: flamePulseOuter 1.4s ease-in-out infinite alternate;
+  animation: flamePulseOuter 1.6s ease-in-out infinite alternate;
   animation-delay: 0.25s;
 }
 
 .card-ukg:hover .rocket-flame-inner {
-  animation: flamePulseInner 1.4s ease-in-out infinite alternate 0.15s;
+  animation: flamePulseInner 1.6s ease-in-out infinite alternate 0.15s;
   animation-delay: 0.35s;
 }
 
@@ -945,7 +962,7 @@
 
 .ill-star {
   transform-box: fill-box;
-  transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1), filter 1s ease;
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1), filter 1s ease;
 }
 
 .ill-star-left {
@@ -959,12 +976,14 @@
 .card-ukg:hover .ill-star-left {
   transform: scale(1.3) rotate(35deg);
   filter: drop-shadow(0 0 6px rgba(246, 214, 91, 0.75));
+  transition-duration: 1.5s;
   transition-delay: 0.18s;
 }
 
 .card-ukg:hover .ill-star-right {
   transform: scale(1.3) rotate(-35deg);
   filter: drop-shadow(0 0 6px rgba(156, 127, 214, 0.75));
+  transition-duration: 1.5s;
   transition-delay: 0.3s;
 }
 
@@ -975,11 +994,12 @@
   color: var(--classes-forest-green);
   letter-spacing: 0.02em;
   margin: 0 0 10px 0;
-  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .kg-class-card:hover .kg-card-title {
   transform: translateY(-2px);
+  transition-duration: 1.5s;
   transition-delay: 0.05s;
 }
 
@@ -1011,20 +1031,21 @@
   font-size: 0.95rem;
   cursor: pointer;
   transform: translate3d(0, 0, 0);
-  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1),
-              background-color 0.8s cubic-bezier(0.2, 1, 0.3, 1),
-              color 0.8s cubic-bezier(0.2, 1, 0.3, 1),
-              border-color 0.8s cubic-bezier(0.2, 1, 0.3, 1),
-              box-shadow 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+              background-color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+              color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+              border-color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+              box-shadow 1.2s cubic-bezier(0.3, 0, 0.2, 1);
   text-decoration: none;
 }
 
 .btn-card-enquire svg {
-  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 /* Card hover activates the button gracefully with subtle delay */
 .kg-class-card:hover .btn-card-enquire {
+  transition-duration: 1.5s;
   transition-delay: 0.08s;
 }
 
@@ -1048,6 +1069,7 @@
 
 .kg-class-card:hover .btn-card-enquire svg {
   transform: translateX(4px);
+  transition-duration: 1.5s;
   transition-delay: 0.15s;
 }
 

@@ -114,6 +114,7 @@
 .contact-right-col {
   display: flex;
   flex-direction: column;
+  scroll-margin-top: 100px;
 }
 
 /* Admission Form */

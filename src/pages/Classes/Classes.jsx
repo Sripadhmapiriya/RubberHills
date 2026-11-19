@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   Clock,
@@ -10,8 +11,6 @@ import {
   Smile,
   BookOpen,
   CheckCircle2,
-  AlertCircle,
-  Loader2,
   Baby,
 } from 'lucide-react';
 import PillBadge from '../../components/Shared/PillBadge';
@@ -21,96 +20,6 @@ import ClassesHeroGallery from './ClassesHeroGallery';
 import './Classes.css';
 
 export default function Classes() {
-  // Form State
-  const [formData, setFormData] = useState({
-    parentName: '',
-    phoneNumber: '',
-    childAge: '3 years',
-  });
-  const [loading, setLoading] = useState(false);
-  const [successName, setSuccessName] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errorMessage) setErrorMessage('');
-  };
-
-  const handleSelectAgeForEnquiry = (age) => {
-    setFormData((prev) => ({ ...prev, childAge: age }));
-    const formElement = document.getElementById('enquire');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErrorMessage('');
-    setSuccessName('');
-
-    // Validation
-    const trimmedParent = formData.parentName.trim();
-    const digitsOnly = formData.phoneNumber.replace(/\D/g, '');
-
-    if (!trimmedParent) {
-      setErrorMessage('Please add your name.');
-      return;
-    }
-
-    if (!formData.phoneNumber.trim() || digitsOnly.length < 10) {
-      setErrorMessage('Please add a valid phone number (at least 10 digits).');
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const payload = {
-        parentVisitorName: trimmedParent,
-        contactNumber: formData.phoneNumber.trim(),
-        childName: `Child (${formData.childAge})`,
-        interestedClass:
-          formData.childAge.includes('2.5')
-            ? 'Creche'
-            : formData.childAge.includes('3')
-            ? 'Nursery'
-            : formData.childAge.includes('4')
-            ? 'Lower KG'
-            : 'Upper KG',
-        message: `Classes page Call Request: Child Age: ${formData.childAge}`,
-      };
-
-      const res = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (res.ok && data.success) {
-        setSuccessName(trimmedParent);
-        setFormData({
-          parentName: '',
-          phoneNumber: '',
-          childAge: '3 years',
-        });
-      } else {
-        setErrorMessage(
-          data.error || data.message || 'Unable to submit your request. Please try again or contact us directly.'
-        );
-      }
-    } catch (err) {
-      setErrorMessage('Network error occurred. Please check your connection or contact our school office.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="page-classes">
       <FloatingLeaves />
@@ -230,16 +139,16 @@ export default function Classes() {
                 </span>
               </div>
 
-              <button
-                type="button"
-                onClick={() => handleSelectAgeForEnquiry('2.5–3 years')}
+              <Link
+                to="/contact?class=Creche#admission-form"
+                state={{ interestedClass: 'Creche' }}
                 className="btn-creche-cta"
               >
                 <span>Request a Call for Creche</span>
                 <span className="btn-arrow-circle">
                   <ArrowRight size={16} />
                 </span>
-              </button>
+              </Link>
             </div>
 
             {/* Right Column: 5 Exact Programme Details */}
@@ -360,14 +269,14 @@ export default function Classes() {
                 </p>
 
                 <div className="kg-card-footer">
-                  <button
-                    type="button"
-                    onClick={() => handleSelectAgeForEnquiry('3 years')}
+                  <Link
+                    to="/contact?class=Nursery#admission-form"
+                    state={{ interestedClass: 'Nursery' }}
                     className="btn-card-enquire btn-nursery"
                   >
                     <span>Enquire for Nursery</span>
                     <ArrowRight size={15} />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -414,14 +323,14 @@ export default function Classes() {
                 </p>
 
                 <div className="kg-card-footer">
-                  <button
-                    type="button"
-                    onClick={() => handleSelectAgeForEnquiry('4 years')}
+                  <Link
+                    to="/contact?class=LKG#admission-form"
+                    state={{ interestedClass: 'LKG' }}
                     className="btn-card-enquire btn-lkg"
                   >
                     <span>Enquire for Lower KG</span>
                     <ArrowRight size={15} />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -464,14 +373,14 @@ export default function Classes() {
                 </p>
 
                 <div className="kg-card-footer">
-                  <button
-                    type="button"
-                    onClick={() => handleSelectAgeForEnquiry('5 years')}
+                  <Link
+                    to="/contact?class=UKG#admission-form"
+                    state={{ interestedClass: 'UKG' }}
                     className="btn-card-enquire btn-ukg"
                   >
                     <span>Enquire for Upper KG</span>
                     <ArrowRight size={15} />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -567,154 +476,6 @@ export default function Classes() {
               <span>
                 Children are always welcome to join Rubber Hills at any stage of their learning journey.
               </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 5. ENQUIRY / VISIT US SECTION                                  */}
-      {/* ============================================================== */}
-      <section id="enquire" className="classes-enquiry-section" aria-label="Admission Enquiry">
-        <div className="container">
-          <div className="classes-enquiry-card">
-            {/* Left Narrative Column */}
-            <div className="enquiry-text-col">
-              <PillBadge text="GET IN TOUCH" className="enquiry-pill" />
-
-              <h2 className="enquiry-heading">Let's Begin Your Child's Journey</h2>
-
-              {/* Exact Description from old HTML */}
-              <p className="enquiry-lead">
-                Tell us a little about your child and we will call you for more details. Children are always welcome to
-                join.
-              </p>
-
-              <div className="enquiry-perks-list">
-                <div className="enquiry-perk-item">
-                  <div className="perk-bullet-dot" />
-                  <span>Personalised campus tour & teacher interaction</span>
-                </div>
-                <div className="enquiry-perk-item">
-                  <div className="perk-bullet-dot" />
-                  <span>Transparent fee guidance & flexible admissions</span>
-                </div>
-                <div className="enquiry-perk-item">
-                  <div className="perk-bullet-dot" />
-                  <span>Caring support for first-time school parents</span>
-                </div>
-              </div>
-
-              <div className="enquiry-direct-call">
-                <span className="direct-call-label">Prefer to speak directly?</span>
-                <a href="tel:+919876543210" className="direct-call-link">
-                  📞 +91 98765 43210
-                </a>
-              </div>
-            </div>
-
-            {/* Right Form Column */}
-            <div className="enquiry-form-col">
-              <div className="enquiry-form-wrapper">
-                <h3 className="form-card-title">Request a Call Back</h3>
-                <p className="form-card-subtitle">Fill out the quick form below and our team will reach out to you.</p>
-
-                {/* Success Feedback Banner */}
-                {successName && (
-                  <div className="form-feedback success-banner" role="status">
-                    <CheckCircle2 size={22} className="feedback-icon" />
-                    <div>
-                      <strong>Thank you, {successName}!</strong>
-                      <p>We will call you soon with more details.</p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Error Feedback Banner */}
-                {errorMessage && (
-                  <div className="form-feedback error-banner" role="alert">
-                    <AlertCircle size={22} className="feedback-icon" />
-                    <div>
-                      <strong>Please check:</strong>
-                      <p>{errorMessage}</p>
-                    </div>
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmit} className="classes-form" noValidate>
-                  {/* Field 1: Parent Name */}
-                  <div className="form-group">
-                    <label htmlFor="classes-parent-name" className="form-label">
-                      Parent Name <span className="required-star">*</span>
-                    </label>
-                    <input
-                      id="classes-parent-name"
-                      type="text"
-                      name="parentName"
-                      value={formData.parentName}
-                      onChange={handleChange}
-                      placeholder="e.g. Priya Sharma"
-                      className="form-input"
-                      required
-                    />
-                  </div>
-
-                  {/* Field 2: Phone Number */}
-                  <div className="form-group">
-                    <label htmlFor="classes-phone-number" className="form-label">
-                      Phone Number <span className="required-star">*</span>
-                    </label>
-                    <input
-                      id="classes-phone-number"
-                      type="tel"
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
-                      placeholder="e.g. 98765 43210"
-                      className="form-input"
-                      required
-                    />
-                  </div>
-
-                  {/* Field 3: Child's Age */}
-                  <div className="form-group">
-                    <label htmlFor="classes-child-age" className="form-label">
-                      Child's Age <span className="required-star">*</span>
-                    </label>
-                    <div className="select-wrapper">
-                      <select
-                        id="classes-child-age"
-                        name="childAge"
-                        value={formData.childAge}
-                        onChange={handleChange}
-                        className="form-select"
-                        required
-                      >
-                        <option value="2.5–3 years">2.5–3 years (Creche)</option>
-                        <option value="3 years">3 years (Nursery)</option>
-                        <option value="4 years">4 years (Lower KG)</option>
-                        <option value="5 years">5 years (Upper KG)</option>
-                        <option value="6 years">6 years</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Submit Button: Request a Call */}
-                  <button type="submit" disabled={loading} className="btn-submit-call">
-                    {loading ? (
-                      <>
-                        <Loader2 size={18} className="spinner-rotate" />
-                        <span>Sending Request...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Request a Call</span>
-                        <ArrowRight size={18} />
-                      </>
-                    )}
-                  </button>
-                </form>
-              </div>
             </div>
           </div>
         </div>

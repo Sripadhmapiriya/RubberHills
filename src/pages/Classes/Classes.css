@@ -1302,280 +1302,6 @@
 }
 
 /* ============================================================== */
-/* 5. ENQUIRY / VISIT US SECTION                                  */
-/* ============================================================== */
-.classes-enquiry-section {
-  position: relative;
-  padding: 30px 0 60px;
-  z-index: 2;
-}
-
-.classes-enquiry-card {
-  background: #FFFFFF;
-  border-radius: 36px;
-  border: 2px solid #EBF3E5;
-  box-shadow: 0 14px 44px rgba(23, 75, 53, 0.09);
-  padding: 48px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 52px;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.classes-enquiry-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 8px;
-  background: linear-gradient(180deg, #72B95A 0%, #F6D65B 100%);
-}
-
-.enquiry-text-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.enquiry-pill {
-  margin-bottom: 18px;
-}
-
-.enquiry-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 3.8vw, 3rem);
-  font-weight: 800;
-  color: var(--classes-forest-green);
-  line-height: 1.16;
-  letter-spacing: -0.025em;
-  margin: 0 0 16px 0;
-}
-
-.enquiry-lead {
-  font-size: 1.15rem;
-  color: #3C5446;
-  line-height: 1.6;
-  margin: 0 0 28px 0;
-  font-weight: 500;
-}
-
-.enquiry-perks-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-
-.enquiry-perk-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.96rem;
-  font-weight: 600;
-  color: #2F4D3A;
-}
-
-.perk-bullet-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--classes-fresh-green);
-  flex-shrink: 0;
-}
-
-.enquiry-direct-call {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background-color: #F8FAF5;
-  border: 1.5px solid #E6EFE2;
-  border-radius: 18px;
-  padding: 12px 20px;
-}
-
-.direct-call-label {
-  font-size: 0.82rem;
-  color: #6C8274;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.direct-call-link {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #0E5E2F;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.direct-call-link:hover {
-  color: #72B95A;
-  text-decoration: underline;
-}
-
-/* Enquiry Form Styling */
-.enquiry-form-wrapper {
-  background-color: #FFFDF9;
-  border: 1.5px solid #F0EAE1;
-  border-radius: 28px;
-  padding: 34px 32px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-}
-
-.form-card-title {
-  font-family: var(--font-heading);
-  font-size: 1.55rem;
-  font-weight: 800;
-  color: var(--classes-forest-green);
-  margin: 0 0 6px 0;
-}
-
-.form-card-subtitle {
-  font-size: 0.92rem;
-  color: #687E71;
-  margin: 0 0 22px 0;
-}
-
-/* Form Feedback Banners */
-.form-feedback {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  border-radius: 18px;
-  padding: 14px 18px;
-  margin-bottom: 20px;
-  font-size: 0.92rem;
-  line-height: 1.45;
-}
-
-.form-feedback p {
-  margin: 2px 0 0 0;
-}
-
-.success-banner {
-  background-color: #E8F7E4;
-  border: 1.5px solid #9BD78A;
-  color: #174B35;
-}
-
-.success-banner .feedback-icon {
-  color: #2F7D4F;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.error-banner {
-  background-color: #FDF0EE;
-  border: 1.5px solid #F5B0A4;
-  color: #8C2415;
-}
-
-.error-banner .feedback-icon {
-  color: #C53018;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.classes-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.form-label {
-  font-family: var(--font-heading);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #2D4336;
-}
-
-.required-star {
-  color: #D32F2F;
-}
-
-.form-input,
-.form-select {
-  width: 100%;
-  padding: 13px 18px;
-  border-radius: 16px;
-  border: 1.5px solid #DCE6D7;
-  background-color: #FFFFFF;
-  color: #174B35;
-  font-family: inherit;
-  font-size: 0.98rem;
-  font-weight: 600;
-  box-sizing: border-box;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.form-input:focus,
-.form-select:focus {
-  border-color: #72B95A;
-  box-shadow: 0 0 0 3px rgba(114, 185, 90, 0.2);
-}
-
-.form-input::placeholder {
-  color: #A3B8AC;
-  font-weight: 500;
-}
-
-.select-wrapper {
-  position: relative;
-}
-
-.btn-submit-call {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: #FFD21C;
-  color: #174B35;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.05rem;
-  padding: 15px 30px;
-  border-radius: var(--radius-full, 9999px);
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(255, 210, 28, 0.4);
-  transition: all 0.25s ease;
-  margin-top: 6px;
-}
-
-.btn-submit-call:hover:not(:disabled) {
-  background-color: #FFE052;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 210, 28, 0.55);
-}
-
-.btn-submit-call:disabled {
-  opacity: 0.75;
-  cursor: not-allowed;
-}
-
-.spinner-rotate {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* ============================================================== */
 /* RESPONSIVE BREAKPOINTS                                         */
 /* ============================================================== */
 @media (max-width: 1080px) {
@@ -1609,15 +1335,6 @@
   }
   .creche-features-row {
     justify-content: center;
-  }
-  .classes-enquiry-card {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 36px 30px;
-  }
-  .enquiry-text-col {
-    align-items: center;
-    text-align: center;
   }
 }
 
@@ -1653,13 +1370,6 @@
     padding: 28px 20px;
     border-radius: 28px;
   }
-  .classes-enquiry-card {
-    padding: 28px 18px;
-    border-radius: 28px;
-  }
-  .enquiry-form-wrapper {
-    padding: 24px 18px;
-  }
   .progression-container-box {
     padding: 30px 18px 24px;
     border-radius: 28px;
@@ -1683,7 +1393,6 @@
   .kg-class-card,
   .creche-detail-box,
   .progression-step,
-  .btn-submit-call,
   .btn-creche-cta {
     transition: none;
   }
@@ -1691,7 +1400,6 @@
 
 /* Keep in-page anchors clear of the sticky navbar */
 #creche,
-#classes,
-#enquire {
+#classes {
   scroll-margin-top: 90px;
 }

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Heart,
   BookOpen,
@@ -18,14 +19,44 @@ import FloatingLeaves from '../../components/Shared/FloatingLeaves';
 import { CONTACT_IMAGES } from '../../config/images';
 import './Contact.css';
 
+function resolveClassParam(raw) {
+  if (!raw) return null;
+  const lower = String(raw).toLowerCase().trim();
+  if (lower.includes('creche')) return 'Creche';
+  if (lower.includes('lower') || lower === 'lkg') return 'LKG';
+  if (lower.includes('upper') || lower === 'ukg') return 'UKG';
+  if (lower.includes('nursery')) return 'Nursery';
+  return null;
+}
+
 export default function Contact() {
+  const location = useLocation();
+
+  const getInitialClass = () => {
+    const params = new URLSearchParams(location.search);
+    const paramClass = location.state?.interestedClass || params.get('class');
+    return resolveClassParam(paramClass) || 'Nursery';
+  };
+
   const [formData, setFormData] = useState({
     parentVisitorName: '',
     childName: '',
     contactNumber: '',
-    interestedClass: 'Nursery',
+    interestedClass: getInitialClass(),
     message: '',
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const paramClass = location.state?.interestedClass || params.get('class');
+    const resolved = resolveClassParam(paramClass);
+    if (resolved) {
+      setFormData((prev) => ({
+        ...prev,
+        interestedClass: resolved,
+      }));
+    }
+  }, [location.search, location.state]);
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);

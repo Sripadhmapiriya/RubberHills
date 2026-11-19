@@ -16,8 +16,8 @@ import {
 } from 'lucide-react';
 import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
-import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import ClassesHeroGallery from './ClassesHeroGallery';
 import './Classes.css';
 
 export default function Classes() {
@@ -123,15 +123,13 @@ export default function Classes() {
           <div className="classes-hero-content">
             <PillBadge text="OUR LEARNING JOURNEY" className="classes-eyebrow" />
 
-            <div className="classes-hero-title-wrap">
-              <DoodleRays flip className="classes-rays-left" />
-              <h1 className="classes-hero-heading">
-                Every little step begins a big journey.
-              </h1>
-              <DoodleRays className="classes-rays-right" />
-            </div>
-
-            <DoodleUnderline className="classes-hero-underline" />
+            <h1 className="classes-hero-heading">
+              Every little step begins a{' '}
+              <span className="classes-heading-highlight">
+                big journey.
+                <DoodleUnderline className="classes-hero-underline" />
+              </span>
+            </h1>
 
             <p className="classes-hero-lead">
               From their first experiences in Creche to their exciting kindergarten years, we provide a caring
@@ -161,101 +159,34 @@ export default function Classes() {
                 <span className="highlight-text">Discover Every Day</span>
               </div>
             </div>
+
+            {/* Quick jump to each programme */}
+            <div className="classes-hero-programs">
+              <span className="programs-label">Our programmes</span>
+              <div className="programs-chips">
+                <a href="#creche" className="program-chip chip-creche">
+                  <strong>Creche</strong>
+                  <span>2.5–3 yrs</span>
+                </a>
+                <a href="#classes" className="program-chip chip-nursery">
+                  <strong>Nursery</strong>
+                  <span>3–4 yrs</span>
+                </a>
+                <a href="#classes" className="program-chip chip-lkg">
+                  <strong>Lower KG</strong>
+                  <span>4–5 yrs</span>
+                </a>
+                <a href="#classes" className="program-chip chip-ukg">
+                  <strong>Upper KG</strong>
+                  <span>5–6 yrs</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Playful Hero Vector Illustration */}
-          <div className="classes-hero-art" aria-hidden="true">
-            <svg
-              viewBox="0 0 460 340"
-              className="hero-art-svg"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient id="art-sun-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFF280" />
-                  <stop offset="100%" stopColor="#F6D65B" />
-                </linearGradient>
-                <linearGradient id="art-hill-back" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#A8DC7C" />
-                  <stop offset="100%" stopColor="#72B95A" />
-                </linearGradient>
-                <linearGradient id="art-hill-front" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#559F3E" />
-                  <stop offset="100%" stopColor="#174B35" />
-                </linearGradient>
-                <linearGradient id="art-block-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFF59D" />
-                  <stop offset="100%" stopColor="#F6D65B" />
-                </linearGradient>
-                <linearGradient id="art-block-mint" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#DEF0DC" />
-                  <stop offset="100%" stopColor="#A4D89A" />
-                </linearGradient>
-                <linearGradient id="art-block-peach" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFE0D0" />
-                  <stop offset="100%" stopColor="#F8A882" />
-                </linearGradient>
-              </defs>
-
-              {/* Cheerful Smiling Sun */}
-              <g className="art-sun-group">
-                <circle cx="360" cy="80" r="46" fill="url(#art-sun-grad)" />
-                <path d="M 360 22 L 360 10 M 360 138 L 360 150 M 302 80 L 290 80 M 418 80 L 430 80 M 319 39 L 310 30 M 401 121 L 410 130 M 319 121 L 310 130 M 401 39 L 410 30" stroke="#F6D65B" strokeWidth="4" strokeLinecap="round" />
-                {/* Sun Face */}
-                <circle cx="347" cy="74" r="4.5" fill="#174B35" />
-                <circle cx="373" cy="74" r="4.5" fill="#174B35" />
-                <path d="M 348 88 Q 360 99 372 88" stroke="#174B35" strokeWidth="3.2" strokeLinecap="round" fill="none" />
-                <circle cx="340" cy="83" r="4" fill="#F8A882" opacity="0.6" />
-                <circle cx="380" cy="83" r="4" fill="#F8A882" opacity="0.6" />
-              </g>
-
-              {/* Gentle Pastel Rolling Hills in Background */}
-              <path d="M 40 280 Q 150 170 300 210 Q 380 230 460 220 L 460 340 L 40 340 Z" fill="url(#art-hill-back)" opacity="0.45" />
-              <path d="M 0 260 Q 120 200 240 240 Q 340 270 460 250 L 460 340 L 0 340 Z" fill="url(#art-hill-front)" opacity="0.85" />
-
-              {/* Floating Paper Airplane */}
-              <g transform="translate(180, 55) rotate(-10)" className="art-plane-float">
-                <path d="M 0 20 L 45 0 L 25 35 L 18 24 Z" fill="#FFFFFF" stroke="#72B95A" strokeWidth="2.2" strokeLinejoin="round" />
-                <path d="M 18 24 L 45 0" stroke="#72B95A" strokeWidth="1.8" />
-                <path d="M -15 32 Q -5 26 0 20" stroke="#F6D65B" strokeWidth="2" strokeDasharray="3 3" fill="none" />
-              </g>
-
-              {/* Stacking Educational Blocks */}
-              {/* Block 1 (Base Left - Yellow with 'A') */}
-              <g transform="translate(70, 180)">
-                <rect x="0" y="0" width="70" height="70" rx="16" fill="url(#art-block-yellow)" stroke="#E5BD35" strokeWidth="2.5" />
-                <text x="35" y="48" textAnchor="middle" fill="#174B35" fontSize="34" fontWeight="800" fontFamily="sans-serif">A</text>
-              </g>
-
-              {/* Block 2 (Base Right - Mint with 'B') */}
-              <g transform="translate(148, 175)">
-                <rect x="0" y="0" width="70" height="70" rx="16" fill="url(#art-block-mint)" stroke="#67A650" strokeWidth="2.5" />
-                <text x="35" y="48" textAnchor="middle" fill="#174B35" fontSize="34" fontWeight="800" fontFamily="sans-serif">B</text>
-              </g>
-
-              {/* Block 3 (Top Middle - Peach with 'C') */}
-              <g transform="translate(110, 102)">
-                <rect x="0" y="0" width="68" height="68" rx="16" fill="url(#art-block-peach)" stroke="#E08B63" strokeWidth="2.5" />
-                <text x="34" y="47" textAnchor="middle" fill="#FFFFFF" fontSize="34" fontWeight="800" fontFamily="sans-serif">C</text>
-              </g>
-
-              {/* Little Star Topper */}
-              <g transform="translate(132, 68)">
-                <polygon points="12,0 15,8 24,9 17,15 19,24 12,19 5,24 7,15 0,9 9,8" fill="#F6D65B" stroke="#E5BD35" strokeWidth="1.5" />
-              </g>
-
-              {/* Little Book & Sprout on Right Side */}
-              <g transform="translate(260, 200)">
-                {/* Book base */}
-                <path d="M 0 35 C 15 28 35 28 50 35 C 65 28 85 28 100 35 L 100 55 C 85 48 65 48 50 55 C 35 48 15 48 0 55 Z" fill="#FFF9ED" stroke="#174B35" strokeWidth="2.5" />
-                <path d="M 50 35 L 50 55" stroke="#174B35" strokeWidth="2.2" />
-                {/* Sprout growing from book */}
-                <path d="M 50 35 Q 50 15 50 8" stroke="#72B95A" strokeWidth="3" strokeLinecap="round" />
-                <path d="M 50 12 C 40 2 28 10 36 20 C 44 20 50 15 50 12 Z" fill="#72B95A" />
-                <path d="M 50 8 C 60 -2 72 6 64 16 C 56 16 50 11 50 8 Z" fill="#A8DC7C" />
-              </g>
-            </svg>
+          {/* Hero Photo Collage – photos are set in src/config/images.js (CLASSES_HERO_IMAGES) */}
+          <div className="classes-hero-art">
+            <ClassesHeroGallery />
           </div>
         </div>
       </section>
@@ -402,17 +333,23 @@ export default function Classes() {
                 <div className="card-illustration-wrap nursery-ill">
                   <svg viewBox="0 0 140 110" className="card-svg" fill="none">
                     {/* Cheerful Stacking Blocks & Star */}
-                    <rect x="15" y="45" width="48" height="48" rx="12" fill="#FDF3CE" stroke="#F6D65B" strokeWidth="2.5" />
-                    <text x="39" y="78" textAnchor="middle" fill="#174B35" fontSize="24" fontWeight="800">1</text>
+                    <g className="ill-block ill-block-1">
+                      <rect x="15" y="45" width="48" height="48" rx="12" fill="#FDF3CE" stroke="#F6D65B" strokeWidth="2.5" />
+                      <text x="39" y="78" textAnchor="middle" fill="#174B35" fontSize="24" fontWeight="800">1</text>
+                    </g>
 
-                    <rect x="75" y="45" width="48" height="48" rx="12" fill="#FFEFE5" stroke="#F8A882" strokeWidth="2.5" />
-                    <text x="99" y="78" textAnchor="middle" fill="#174B35" fontSize="24" fontWeight="800">2</text>
+                    <g className="ill-block ill-block-2">
+                      <rect x="75" y="45" width="48" height="48" rx="12" fill="#FFEFE5" stroke="#F8A882" strokeWidth="2.5" />
+                      <text x="99" y="78" textAnchor="middle" fill="#174B35" fontSize="24" fontWeight="800">2</text>
+                    </g>
 
-                    <rect x="45" y="10" width="46" height="46" rx="12" fill="#E4F1DF" stroke="#72B95A" strokeWidth="2.5" />
-                    <text x="68" y="42" textAnchor="middle" fill="#174B35" fontSize="24" fontWeight="800">3</text>
+                    <g className="ill-block ill-block-3">
+                      <rect x="45" y="10" width="46" height="46" rx="12" fill="#E4F1DF" stroke="#72B95A" strokeWidth="2.5" />
+                      <text x="68" y="42" textAnchor="middle" fill="#174B35" fontSize="24" fontWeight="800">3</text>
+                    </g>
 
                     {/* Cute sparkle */}
-                    <path d="M 120 18 Q 124 26 132 26 Q 124 26 120 34 Q 116 26 108 26 Q 116 26 120 18 Z" fill="#F6D65B" />
+                    <path className="ill-sparkle" d="M 120 18 Q 124 26 132 26 Q 124 26 120 34 Q 116 26 108 26 Q 116 26 120 18 Z" fill="#F6D65B" />
                   </svg>
                 </div>
 
@@ -446,22 +383,27 @@ export default function Classes() {
 
                 <div className="card-illustration-wrap lkg-ill">
                   <svg viewBox="0 0 140 110" className="card-svg" fill="none">
-                    {/* Open Storybook & Growing Plant */}
-                    <path
-                      d="M 15 65 C 32 55 52 55 70 62 C 88 55 108 55 125 65 L 125 88 C 108 78 88 78 70 85 C 52 78 32 78 15 88 Z"
-                      fill="#FFFFFF"
-                      stroke="#72B95A"
-                      strokeWidth="2.5"
-                    />
-                    <path d="M 70 62 L 70 85" stroke="#72B95A" strokeWidth="2" />
+                    {/* Dual Rainbow Arc in Background */}
+                    <path className="ill-rainbow-outer" d="M 24 45 Q 70 8 116 45" stroke="#F6D65B" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.65" />
+                    <path className="ill-rainbow-inner" d="M 32 48 Q 70 16 108 48" stroke="#F8A882" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.55" />
+
+                    {/* Open Storybook */}
+                    <g className="ill-storybook">
+                      <path
+                        d="M 15 65 C 32 55 52 55 70 62 C 88 55 108 55 125 65 L 125 88 C 108 78 88 78 70 85 C 52 78 32 78 15 88 Z"
+                        fill="#FFFFFF"
+                        stroke="#72B95A"
+                        strokeWidth="2.5"
+                      />
+                      <path d="M 70 62 L 70 85" stroke="#72B95A" strokeWidth="2" />
+                    </g>
                     
                     {/* Growing leaf from book */}
-                    <path d="M 70 62 Q 70 38 70 28" stroke="#174B35" strokeWidth="2.8" strokeLinecap="round" />
-                    <path d="M 70 34 C 58 22 46 30 54 42 C 62 42 70 37 70 34 Z" fill="#72B95A" />
-                    <path d="M 70 28 C 82 16 94 24 86 36 C 78 36 70 31 70 28 Z" fill="#A8DC7C" />
-
-                    {/* Rainbow Arc in Background */}
-                    <path d="M 30 40 Q 70 10 110 40" stroke="#F6D65B" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.6" />
+                    <g className="ill-sprout">
+                      <path className="sprout-stem" d="M 70 62 Q 70 38 70 28" stroke="#174B35" strokeWidth="2.8" strokeLinecap="round" />
+                      <path className="sprout-leaf-left" d="M 70 34 C 58 22 46 30 54 42 C 62 42 70 37 70 34 Z" fill="#72B95A" />
+                      <path className="sprout-leaf-right" d="M 70 28 C 82 16 94 24 86 36 C 78 36 70 31 70 28 Z" fill="#A8DC7C" />
+                    </g>
                   </svg>
                 </div>
 
@@ -495,21 +437,23 @@ export default function Classes() {
 
                 <div className="card-illustration-wrap ukg-ill">
                   <svg viewBox="0 0 140 110" className="card-svg" fill="none">
-                    {/* Graduation / Creative Discovery Pencil Rocket */}
-                    <g transform="translate(48, 15)">
+                    {/* Graduation / Creative Discovery Pencil Rocket (Centered at x=70) */}
+                    <g className="ill-rocket">
+                      {/* Two-layer animated launch flame */}
+                      <path className="rocket-flame-outer" d="M 62 68 Q 70 94 70 94 Q 70 94 78 68 Z" fill="#F8A882" stroke="#174B35" strokeWidth="1.6" />
+                      <path className="rocket-flame-inner" d="M 65 68 Q 70 86 70 86 Q 70 86 75 68 Z" fill="#F6D65B" />
+
                       {/* Rocket / Pencil body */}
-                      <path d="M 22 0 L 36 28 L 8 28 Z" fill="#F8A882" stroke="#174B35" strokeWidth="2" />
-                      <rect x="8" y="28" width="28" height="42" rx="4" fill="#E9E3F5" stroke="#174B35" strokeWidth="2" />
-                      <circle cx="22" cy="46" r="6" fill="#F6D65B" />
+                      <path d="M 70 4 L 84 30 L 56 30 Z" fill="#F8A882" stroke="#174B35" strokeWidth="2" />
+                      <rect x="56" y="30" width="28" height="38" rx="4" fill="#E9E3F5" stroke="#174B35" strokeWidth="2" />
+                      <circle cx="70" cy="46" r="6" fill="#F6D65B" stroke="#174B35" strokeWidth="1.8" />
                       {/* Wings */}
-                      <path d="M 8 50 L -4 68 L 8 68 Z" fill="#72B95A" stroke="#174B35" strokeWidth="1.8" />
-                      <path d="M 36 50 L 48 68 L 36 68 Z" fill="#72B95A" stroke="#174B35" strokeWidth="1.8" />
-                      {/* Flame */}
-                      <path d="M 14 70 Q 22 86 22 86 Q 22 86 30 70 Z" fill="#F6D65B" />
+                      <path d="M 56 48 L 44 68 L 56 68 Z" fill="#72B95A" stroke="#174B35" strokeWidth="1.8" />
+                      <path d="M 84 48 L 96 68 L 84 68 Z" fill="#72B95A" stroke="#174B35" strokeWidth="1.8" />
                     </g>
                     {/* Playful stars */}
-                    <polygon points="20,20 23,26 30,27 25,32 26,38 20,35 14,38 15,32 10,27 17,26" fill="#F6D65B" />
-                    <polygon points="120,35 122,39 127,40 123,44 124,49 120,46 116,49 117,44 113,40 118,39" fill="#BFA5E8" />
+                    <polygon className="ill-star ill-star-left" points="22,18 25,24 32,25 27,30 28,36 22,33 16,36 17,30 12,25 19,24" fill="#F6D65B" stroke="#174B35" strokeWidth="1.2" />
+                    <polygon className="ill-star ill-star-right" points="118,22 121,28 128,29 123,34 124,40 118,37 112,40 113,34 108,29 115,28" fill="#BFA5E8" stroke="#55338E" strokeWidth="1.2" />
                   </svg>
                 </div>
 

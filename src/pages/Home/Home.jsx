@@ -174,34 +174,34 @@ export default function Home() {
         {/* Desktop Wave Ribbon Banner */}
         <svg
           className="band-bg band-bg-desktop"
-          viewBox="0 0 1440 85"
+          viewBox="0 0 1440 68"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
           {/* Dark Green Curved Wave Ribbon Body */}
           <path
             className="band-fill"
-            d="M0,18 C280,22 540,20 780,16 C980,14 1120,18 1260,20 C1350,22 1400,18 1440,16
-               L1440,76
-               C1260,74 1120,60 980,60 C840,60 700,76 540,76 C440,76 340,52 220,46 C140,42 90,48 0,62 Z"
+            d="M0,4 C280,8 540,6 780,2 C980,0 1120,4 1260,6 C1350,8 1400,4 1440,2
+               L1440,62
+               C1260,60 1120,46 980,46 C840,46 700,62 540,62 C440,62 340,38 220,32 C140,28 90,34 0,48 Z"
           />
 
           {/* 3. Top Lime Outline Line */}
           <path
             className="band-line-top"
-            d="M0,18 C280,22 540,20 780,16 C980,14 1120,18 1260,20 C1350,22 1400,18 1440,16"
+            d="M0,4 C280,8 540,6 780,2 C980,0 1120,4 1260,6 C1350,8 1400,4 1440,2"
             vectorEffect="non-scaling-stroke"
           />
 
           {/* 4. Bottom Lime Outline Line */}
           <path
             className="band-line"
-            d="M0,62 C90,48 140,42 220,46 C340,52 440,76 540,76 C700,76 840,60 980,60 C1120,60 1260,74 1440,76"
+            d="M0,48 C90,34 140,28 220,32 C340,38 440,62 540,62 C700,62 840,46 980,46 C1120,46 1260,60 1440,62"
             vectorEffect="non-scaling-stroke"
           />
 
           {/* 5. Botanical Leaf Sprig on Left */}
-          <g className="band-leaf-sprig" transform="translate(48, 20) rotate(-12) scale(0.36)">
+          <g className="band-leaf-sprig" transform="translate(48, 6) rotate(-12) scale(0.36)">
             <path d="M 0 45 C 15 15 50 5 80 15 C 70 45 40 60 5 55 Z" fill="#76B82A" />
             <path d="M 0 45 C 25 30 50 20 80 15" stroke="#064B25" strokeWidth="2.5" fill="none" strokeLinecap="round" />
             <path d="M 12 50 C 25 32 45 22 65 28 C 55 48 35 60 12 55 Z" fill="#DDF0C7" opacity="0.85" />
@@ -247,15 +247,6 @@ export default function Home() {
       {/* 3. 3-PHOTO PANORAMA / CURVED GALLERY (Campus Highlights)       */}
       {/* ============================================================== */}
       <section className="home-gallery-section" aria-label="Campus Highlights">
-        {/* Hidden SVG Definition for Object-Bounding-Box Bottom Arch Curve */}
-        <svg width="0" height="0" style={{ position: 'absolute', pointerEvents: 'none' }} aria-hidden="true">
-          <defs>
-            <clipPath id="gallery-bottom-arch" clipPathUnits="objectBoundingBox">
-              <path d="M 0,0 L 1,0 L 1,1 C 0.90,0.92 0.70,0.88 0.50,0.87 C 0.30,0.85 0.10,0.86 0,1 Z" />
-            </clipPath>
-          </defs>
-        </svg>
-
         <div className="panorama-curved-band">
           {/* Photo 1: Left - Authentic Garden Walkway */}
           <div className="panorama-item item-left">

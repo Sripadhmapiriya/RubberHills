@@ -58,12 +58,14 @@ export default function Footer() {
         <div className="footer-main-container">
           {/* Column 1: Brand & Identity */}
           <div className="footer-col footer-col-brand">
-            <Link to="/" className="footer-brand-lockup">
-              <img
-                src="/assets/footer_logo_badge.png"
-                alt="Rubber Hills Kindergarten Logo"
-                className="footer-logo-badge"
-              />
+            <Link to="/" className="footer-brand-lockup" aria-label="Rubber Hills Kindergarten Home">
+              <div className="brand-crest-wrapper footer-brand-crest">
+                <img
+                  src="/original/school-logo.jpg"
+                  alt="Rubber Hills Kindergarten Logo"
+                  className="brand-crest-img"
+                />
+              </div>
               <div className="footer-brand-text">
                 <span className="brand-name-main">RUBBER HILLS</span>
                 <span className="brand-name-sub">K I N D E R G A R T E N</span>

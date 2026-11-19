@@ -86,7 +86,7 @@ export default function Campus() {
                     className="sub-card-img sub-card-court-img"
                     loading="lazy"
                   />
-                  <div className="sub-card-caption">Playground</div>
+                  <div className="sub-card-caption">Play Area</div>
                 </div>
               </div>
             </div>

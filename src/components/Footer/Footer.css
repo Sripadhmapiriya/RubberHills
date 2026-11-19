@@ -10,7 +10,7 @@
   width: 100%;
   margin-top: -75px;
   background-color: #075724;
-  background-image: url('/footer/Little%20Steps,%20Brighter%20Tomorrows%20(1).png');
+  background-image: url('/footer/footer.png');
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 100% auto;
@@ -374,10 +374,12 @@
     gap: 36px 40px;
     padding: 0 30px;
   }
+
   .footer-col:nth-child(2) {
     border-right: none;
     padding-right: 0;
   }
+
   .footer-hero-spacer {
     height: 31vw;
     min-height: 130px;
@@ -388,6 +390,7 @@
   .site-footer {
     margin-top: -20px;
   }
+
   .footer-hero-spacer {
     height: 32vw;
     min-height: 120px;

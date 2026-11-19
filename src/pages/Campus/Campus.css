@@ -113,7 +113,7 @@
 }
 
 .sub-card-court-img {
-  object-position: center 75%;
+  object-position: center 35%;
 }
 
 .sub-card-caption {
@@ -258,12 +258,15 @@
     grid-template-columns: 1fr;
     text-align: center;
   }
+
   .campus-text-col {
     align-items: center;
   }
+
   .facilities-grid {
     grid-template-columns: 1fr;
   }
+
   .campus-facilities {
     padding: 40px 0 25px;
     margin-bottom: 0;

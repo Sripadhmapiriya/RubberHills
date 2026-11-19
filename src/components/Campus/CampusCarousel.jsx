@@ -1,64 +1,81 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ORIGINAL_IMAGES } from '../../config/images';
 import './CampusCarousel.css';
 
-// 8 Authentic School Photographs from public/original/
+// Authentic School Photographs from central image registry
 export const CAMPUS_SLIDES = [
   {
     id: 'campus-building',
-    src: '/original/campus-building.jpg',
+    src: ORIGINAL_IMAGES.campusBuilding.src,
     title: 'Main Campus Building',
-    subtitle: 'Modern Facade & Canopy',
-    alt: 'Rubber Hills Kindergarten main campus building with glass facade and yellow architectural canopy',
+    subtitle: 'Modern Yellow Facade & Architecture',
+    alt: ORIGINAL_IMAGES.campusBuilding.alt,
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 'campus-entrance',
+    src: ORIGINAL_IMAGES.campusEntrance.src,
+    title: 'Main Campus Entrance',
+    subtitle: 'RH Group & Kindergarten Facade',
+    alt: ORIGINAL_IMAGES.campusEntrance.alt,
+    objectPosition: 'center 28%',
   },
   {
     id: 'campus-walkway',
-    src: '/original/campus-walkway.jpg',
+    src: ORIGINAL_IMAGES.campusWalkway.src,
     title: 'Garden Walkway',
-    subtitle: 'Paved Green Pathway',
-    alt: 'Paved stone walkway with green grass grid set among lush rubber trees',
+    subtitle: 'Paved Pathway & Glass Reflections',
+    alt: ORIGINAL_IMAGES.campusWalkway.alt,
+    objectPosition: 'center 35%',
   },
   {
-    id: 'campus-court',
-    src: '/original/campus-court.jpg',
-    title: 'Outdoor Play Court',
-    subtitle: 'Terraced Natural Arena',
-    alt: 'Open outdoor sports court and amphitheater framed by rubber trees and hilltop greenery',
-  },
-  {
-    id: 'classroom-activity',
-    src: '/original/classroom-activity.jpg',
-    title: 'Active Learning Classroom',
-    subtitle: 'Spacious Child-Centric Environment',
-    alt: 'Bright kindergarten classroom with kidney activity tables, educational toys, and digital screen',
-  },
-  {
-    id: 'outdoor-playground',
-    src: '/original/outdoor-playground.png',
-    title: 'Outdoor Playground',
-    subtitle: 'Nature-Surrounded Play Area',
-    alt: 'Outdoor children playground equipment with slides and swings in natural surroundings',
-  },
-  {
-    id: 'campus-ramp',
-    src: '/original/campus-ramp.jpg',
-    title: 'Accessible Campus Ramp',
-    subtitle: 'Gentle Barrier-Free Pathway',
-    alt: 'Barrier-free paved entrance ramp with safety railings leading to kindergarten entrance',
-  },
-  {
-    id: 'playroom-indoor',
-    src: '/original/playroom-indoor.jpg',
-    title: 'Indoor Play Area',
-    subtitle: 'Creative & Physical Play',
-    alt: 'Indoor play space with toddler slide, mini basketball hoop, swings, and soft toys',
+    id: 'classroom-smart-learning',
+    src: ORIGINAL_IMAGES.classroomSmartLearning.src,
+    title: 'Smart Learning Display',
+    subtitle: 'Interactive Touchscreen Classroom',
+    alt: ORIGINAL_IMAGES.classroomSmartLearning.alt,
+    objectPosition: 'center center',
   },
   {
     id: 'classroom-reading',
-    src: '/original/classroom-reading.jpg',
+    src: ORIGINAL_IMAGES.classroomReading.src,
     title: 'Reading & Literacy Corner',
-    subtitle: 'Early Story & Book Discovery',
-    alt: 'Early childhood picture book reading table and literacy discovery area',
+    subtitle: 'Early Book Discovery & Tables',
+    alt: ORIGINAL_IMAGES.classroomReading.alt,
+    objectPosition: 'center 35%',
+  },
+  {
+    id: 'classroom-activity',
+    src: ORIGINAL_IMAGES.classroomActivity.src,
+    title: 'Active Learning Classroom',
+    subtitle: 'Spacious Child-Centric Environment',
+    alt: ORIGINAL_IMAGES.classroomActivity.alt,
+    objectPosition: 'center center',
+  },
+  {
+    id: 'playroom-indoor',
+    src: ORIGINAL_IMAGES.playroomIndoor.src,
+    title: 'Indoor Play Arena',
+    subtitle: 'Toddler Slide & Basketball Play',
+    alt: ORIGINAL_IMAGES.playroomIndoor.alt,
+    objectPosition: 'center 35%',
+  },
+  {
+    id: 'creche-swing',
+    src: ORIGINAL_IMAGES.crecheSwing.src,
+    title: 'Creche Play Area',
+    subtitle: 'Gentle Baby Swing & Alphabet Wall',
+    alt: ORIGINAL_IMAGES.crecheSwing.alt,
+    objectPosition: 'center 25%',
+  },
+  {
+    id: 'campus-court',
+    src: ORIGINAL_IMAGES.campusCourt.src,
+    title: 'Outdoor Play Court',
+    subtitle: 'Terraced Natural Arena & Trees',
+    alt: ORIGINAL_IMAGES.campusCourt.alt,
+    objectPosition: 'center center',
   },
 ];
 
@@ -222,6 +239,7 @@ export default function CampusCarousel({ intervalMs = 3000 }) {
                   className="card-photo-img"
                   loading={isActive ? 'eager' : 'lazy'}
                   draggable={false}
+                  style={{ objectPosition: slide.objectPosition || 'center center' }}
                 />
               </div>
 

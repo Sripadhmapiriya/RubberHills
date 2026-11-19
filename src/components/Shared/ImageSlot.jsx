@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import { ImagePlus, UploadCloud } from 'lucide-react';
+import { ImagePlus, AlertCircle } from 'lucide-react';
 
 export default function ImageSlot({
   src,
   alt = 'Kindergarten visual',
   title = 'Photo Placeholder',
   recommendedSize = '1200 × 800 px',
-  isPlaceholder = true,
+  isPlaceholder = false,
   className = '',
   imgClassName = '',
   style = {},
+  imgStyle = {},
   children,
 }) {
   const [loadError, setLoadError] = useState(false);
 
-  // If isPlaceholder is true or if image fails to load or no src provided:
-  const showPlaceholder = isPlaceholder || loadError || !src;
+  // Show placeholder ONLY when explicitly requested, when no src exists, or when the image fails to load
+  const hasValidSrc = Boolean(src && typeof src === 'string' && src.trim().length > 0);
+  const showPlaceholder = isPlaceholder || !hasValidSrc || loadError;
 
   return (
     <div
@@ -36,7 +38,7 @@ export default function ImageSlot({
             height: '100%',
             minHeight: '220px',
             backgroundColor: '#F3F8ED',
-            border: '2.5px dashed #76B82A',
+            border: loadError ? '2px dashed #E57373' : '2.5px dashed #76B82A',
             borderRadius: 'inherit',
             display: 'flex',
             flexDirection: 'column',
@@ -68,25 +70,25 @@ export default function ImageSlot({
               width: '56px',
               height: '56px',
               borderRadius: '50%',
-              backgroundColor: '#DFF0C9',
-              border: '2px solid #76B82A',
+              backgroundColor: loadError ? '#FFEBEE' : '#DFF0C9',
+              border: `2px solid ${loadError ? '#E57373' : '#76B82A'}`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: '10px',
-              color: '#064B25',
+              color: loadError ? '#C62828' : '#064B25',
               boxShadow: '0 4px 14px rgba(6, 75, 37, 0.12)',
             }}
           >
-            <ImagePlus size={28} />
+            {loadError ? <AlertCircle size={28} /> : <ImagePlus size={28} />}
           </div>
 
           <span
             style={{
               position: 'relative',
               display: 'inline-block',
-              backgroundColor: '#FFD21C',
-              color: '#073D20',
+              backgroundColor: loadError ? '#FFCDD2' : '#FFD21C',
+              color: loadError ? '#B71C1C' : '#073D20',
               fontSize: '0.74rem',
               fontWeight: '800',
               textTransform: 'uppercase',
@@ -94,10 +96,10 @@ export default function ImageSlot({
               padding: '3px 12px',
               borderRadius: '999px',
               marginBottom: '8px',
-              boxShadow: '0 2px 6px rgba(245, 184, 0, 0.3)',
+              boxShadow: '0 2px 6px rgba(0, 0, 0, 0.08)',
             }}
           >
-            Image Placeholder
+            {loadError ? 'Image Unavailable' : 'Image Placeholder'}
           </span>
 
           <strong
@@ -110,7 +112,7 @@ export default function ImageSlot({
               fontFamily: 'var(--font-heading)',
             }}
           >
-            {title}
+            {loadError ? 'Failed to Load Photograph' : title}
           </strong>
 
           <span
@@ -122,7 +124,7 @@ export default function ImageSlot({
               marginBottom: '6px',
             }}
           >
-            Recommended: {recommendedSize}
+            {loadError ? 'Please check image source path' : `Recommended: ${recommendedSize}`}
           </span>
 
           <span
@@ -133,7 +135,7 @@ export default function ImageSlot({
               fontWeight: '600',
             }}
           >
-            Upload or insert your image file here
+            {loadError ? 'Showing fallback display' : 'Upload or insert your image file here'}
           </span>
         </div>
       ) : (
@@ -147,6 +149,7 @@ export default function ImageSlot({
             height: '100%',
             objectFit: 'cover',
             display: 'block',
+            ...imgStyle,
           }}
         />
       )}

@@ -65,6 +65,18 @@
   transition: transform 0.5s ease;
 }
 
+.frame-main .lhg-photo {
+  object-position: center center;
+}
+
+.frame-creative .lhg-photo {
+  object-position: center 35%;
+}
+
+.frame-activity .lhg-photo {
+  object-position: center 25%;
+}
+
 .lhg-frame:hover .lhg-photo {
   transform: scale(1.03);
 }

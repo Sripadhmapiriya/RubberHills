@@ -14,7 +14,6 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
-import HeroBackgroundHills from '../../components/Shared/HeroBackgroundHills';
 import { ABOUT_IMAGES } from '../../config/images';
 import './About.css';
 
@@ -25,7 +24,6 @@ export default function About() {
 
       {/* 1. About Hero Section */}
       <section className="about-hero" aria-label="About Rubber Hills Hero">
-        <HeroBackgroundHills variant="about" />
         <div className="container about-container">
           {/* Left Text */}
           <div className="about-text-col">

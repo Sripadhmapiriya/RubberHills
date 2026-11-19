@@ -6,7 +6,7 @@
 .page-learning {
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #FFF9ED 0%, #F4F8EB 25%, #FFF9ED 55%, #F2F8EA 85%, #FFF9ED 100%);
+  background-color: #FFF9ED;
   color: #174B35;
 }
 
@@ -15,14 +15,11 @@
 /* ============================================================== */
 .learning-hero {
   position: relative;
-  overflow: hidden;
   padding: clamp(105px, 12vw, 130px) 0 45px;
   z-index: 2;
 }
 
 .learning-hero-container {
-  position: relative;
-  z-index: 5;
   display: grid;
   grid-template-columns: 0.96fr 1.04fr;
   align-items: center;

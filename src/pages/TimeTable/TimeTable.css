@@ -6,7 +6,7 @@
 .page-timetable {
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #FFF9ED 0%, #F5F9EC 25%, #FFF9ED 55%, #F3F8EA 85%, #FFF9ED 100%);
+  background-color: #FFF9ED;
   color: #174B35;
 }
 
@@ -15,14 +15,11 @@
 /* ============================================================== */
 .timetable-hero {
   position: relative;
-  overflow: hidden;
   padding: clamp(105px, 12vw, 130px) 0 45px;
   z-index: 2;
 }
 
 .timetable-hero-container {
-  position: relative;
-  z-index: 5;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;

@@ -4,7 +4,6 @@ import { ArrowRight, BookOpen, Sprout, Heart } from 'lucide-react';
 import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
-import HeroBackgroundHills from '../../components/Shared/HeroBackgroundHills';
 import { HERO_IMAGE_CONFIG } from '../../config/images';
 import './Home.css';
 
@@ -17,9 +16,6 @@ export default function Home() {
       {/* 1. HERO SECTION (User's Exact Wave Path & Clip-Path)           */}
       {/* ============================================================== */}
       <section className="home-hero">
-        {/* Organic Light-Green Rolling Hills Background (Exact Mockup Vector Artwork) */}
-        <HeroBackgroundHills variant="home" />
-
         {/* User's Exact Wave ClipPath */}
         <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
           <defs>

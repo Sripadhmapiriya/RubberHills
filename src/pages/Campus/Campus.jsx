@@ -5,7 +5,6 @@ import PillBadge from '../../components/Shared/PillBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
-import HeroBackgroundHills from '../../components/Shared/HeroBackgroundHills';
 import CampusCarousel from '../../components/Campus/CampusCarousel';
 import { CAMPUS_IMAGES } from '../../config/images';
 import './Campus.css';
@@ -17,7 +16,6 @@ export default function Campus() {
 
       {/* Main Campus Hero Section */}
       <section className="campus-hero">
-        <HeroBackgroundHills variant="campus" />
         <div className="container campus-container">
           {/* Left Text */}
           <div className="campus-text-col">

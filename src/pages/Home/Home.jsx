@@ -59,7 +59,7 @@ export default function Home() {
               fill="none"
               stroke="#76B82A"
               vectorEffect="non-scaling-stroke"
-              strokeWidth="3.5"
+              strokeWidth="5.5"
             />
           </svg>
 
@@ -75,11 +75,10 @@ export default function Home() {
               fill="none"
               stroke="#76B82A"
               vectorEffect="non-scaling-stroke"
-              strokeWidth="3.5"
+              strokeWidth="5"
             />
           </svg>
         </div>
-
 
         {/* Left Hero Content inside Container */}
         <div className="hero-content-container">

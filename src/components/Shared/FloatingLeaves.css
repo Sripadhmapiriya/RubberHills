@@ -1,0 +1,71 @@
+.floating-leaves-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-leaf {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  height: auto;
+  filter: drop-shadow(0 4px 14px rgba(23, 75, 53, 0.08));
+  will-change: transform;
+}
+
+.floating-leaf-top-left {
+  top: 140px;
+  left: -12px;
+  width: 58px;
+  opacity: 0.88;
+  transform: rotate(-18deg);
+}
+
+.floating-leaf-top-right {
+  top: 110px;
+  right: -10px;
+  width: 65px;
+  opacity: 0.88;
+  transform: rotate(36deg);
+}
+
+.floating-leaf-mid-left {
+  top: 52%;
+  left: -15px;
+  width: 68px;
+  opacity: 0.82;
+  transform: rotate(22deg) scaleX(-1);
+}
+
+.floating-leaf-mid-right {
+  top: 58%;
+  right: -12px;
+  width: 62px;
+  opacity: 0.82;
+  transform: rotate(-28deg);
+}
+
+@media (max-width: 768px) {
+  .floating-leaf-top-left {
+    top: 92px;
+    left: 8px;
+    width: 42px;
+    opacity: 0.65;
+  }
+  .floating-leaf-top-right {
+    top: 96px;
+    right: 10px;
+    width: 44px;
+    opacity: 0.65;
+  }
+  .floating-leaf-mid-left {
+    display: none;
+  }
+  .floating-leaf-mid-right {
+    right: 8px;
+    width: 44px;
+    opacity: 0.6;
+  }
+}

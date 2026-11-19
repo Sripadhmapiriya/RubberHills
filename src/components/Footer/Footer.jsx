@@ -87,7 +87,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Quick Links (Exact 7 Pages Matching Navbar) */}
           <div className="footer-col footer-col-links footer-col-quicklinks">
             <h3 className="footer-col-header">
               <Leaf size={18} className="col-header-icon" />
@@ -101,7 +101,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/about">
-                  <span className="link-chevron">&gt;</span> About Us
+                  <span className="link-chevron">&gt;</span> About
+                </Link>
+              </li>
+              <li>
+                <Link to="/campus">
+                  <span className="link-chevron">&gt;</span> Campus
                 </Link>
               </li>
               <li>
@@ -115,8 +120,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/campus">
-                  <span className="link-chevron">&gt;</span> Gallery
+                <Link to="/time-table">
+                  <span className="link-chevron">&gt;</span> Time Table
                 </Link>
               </li>
               <li>
@@ -127,18 +132,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Campus & Admissions */}
+          {/* Column 3: Admissions & Enquiries */}
           <div className="footer-col footer-col-links footer-col-campus">
             <h3 className="footer-col-header">
               <GraduationCap size={19} className="col-header-icon" />
-              <span>Campus & Admissions</span>
+              <span>Admissions & Visits</span>
             </h3>
             <ul className="footer-nav-list">
-              <li>
-                <Link to="/campus">
-                  <span className="link-chevron">&gt;</span> Campus
-                </Link>
-              </li>
               <li>
                 <Link to="/contact">
                   <span className="link-chevron">&gt;</span> Admissions
@@ -152,6 +152,16 @@ export default function Footer() {
               <li>
                 <Link to="/contact">
                   <span className="link-chevron">&gt;</span> Plan a Visit
+                </Link>
+              </li>
+              <li>
+                <Link to="/classes">
+                  <span className="link-chevron">&gt;</span> Our Programmes
+                </Link>
+              </li>
+              <li>
+                <Link to="/time-table">
+                  <span className="link-chevron">&gt;</span> Daily Schedule
                 </Link>
               </li>
             </ul>

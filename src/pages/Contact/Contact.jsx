@@ -12,7 +12,6 @@ import {
   AlertCircle,
   Loader2,
 } from 'lucide-react';
-import ScallopedBadge from '../../components/Shared/ScallopedBadge';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
@@ -169,29 +168,10 @@ export default function Contact() {
                 </span>
               </a>
             </div>
-
-            {/* Illustrated Kids pointing to form */}
-            <div className="contact-kids-illustration">
-              <img
-                src="/assets/contact_kids.png"
-                alt="Happy students pointing to admission form"
-                className="contact-kids-img animate-float"
-              />
-            </div>
           </div>
 
-          {/* Right Column: Campus Photo + Enquiry Form */}
+          {/* Right Column: Enquiry Form */}
           <div className="contact-right-col" id="admission-form">
-            {/* Top Campus Photo with Admissions Open Badge */}
-            <div className="contact-campus-card">
-              <img
-                src={CONTACT_IMAGES.campusCard.src}
-                alt={CONTACT_IMAGES.campusCard.alt}
-                className="contact-campus-img"
-                loading="eager"
-              />
-            </div>
-
             {/* Form Container */}
             <div className="admission-form-wrapper">
               {/* Green Floating Header Pill */}

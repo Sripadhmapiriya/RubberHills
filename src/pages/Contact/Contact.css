@@ -5,7 +5,7 @@
 }
 
 .contact-hero {
-  padding: 40px 0 60px;
+  padding: clamp(115px, 10vw, 135px) 0 60px;
   position: relative;
   z-index: 2;
 }
@@ -69,8 +69,8 @@
 .contact-highlights-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 36px;
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
 .highlight-pill {
@@ -101,49 +101,19 @@
 }
 
 .contact-cta-wrap {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.contact-kids-illustration {
-  max-width: 380px;
-  margin-top: 10px;
+@media (min-width: 993px) {
+  .contact-cta-wrap {
+    display: none;
+  }
 }
 
-.contact-kids-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Right Column: Campus & Form */
+/* Right Column: Admission Form */
 .contact-right-col {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.contact-campus-card {
-  position: relative;
-  border-radius: 36px;
-  overflow: visible;
-  border: 4px solid #FFFFFF;
-  box-shadow: var(--shadow-md);
-  background: #FFFFFF;
-}
-
-.contact-campus-img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  object-position: center 15%;
-  border-radius: 32px;
-  display: block;
-}
-
-.admissions-scalloped-badge {
-  position: absolute;
-  top: -20px;
-  right: -20px;
 }
 
 /* Admission Form */
@@ -152,8 +122,9 @@
   border-radius: 36px;
   border: 2px solid #EBF3E3;
   box-shadow: var(--shadow-lg);
-  padding: 40px 36px 36px;
+  padding: 44px 36px 36px;
   position: relative;
+  margin-top: 20px;
 }
 
 .form-header-badge {
@@ -317,9 +288,5 @@
   }
   .form-grid-2col {
     grid-template-columns: 1fr;
-  }
-  .admissions-scalloped-badge {
-    right: 5px;
-    top: 5px;
   }
 }

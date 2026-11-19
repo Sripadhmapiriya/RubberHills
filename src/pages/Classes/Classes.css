@@ -32,7 +32,7 @@
 
 .classes-hero-container {
   display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
+  grid-template-columns: 0.94fr 1.06fr;
   align-items: center;
   gap: clamp(32px, 4vw, 56px);
 }
@@ -222,7 +222,7 @@
 .classes-hero-art {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 670px;
   margin: 0 auto;
 }
 

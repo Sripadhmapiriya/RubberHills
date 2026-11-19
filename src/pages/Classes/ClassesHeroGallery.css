@@ -1,0 +1,182 @@
+/* ============================================================== */
+/* Classes hero photo collage – Polaroid style                   */
+/* ============================================================== */
+
+.chg {
+  position: relative;
+  width: 100%;
+  max-width: 670px;
+  margin: 0 auto;
+}
+
+.chg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.chg-rays {
+  position: absolute;
+  top: -22px;
+  left: -18px;
+  width: 46px !important;
+  height: 40px !important;
+  z-index: 5;
+}
+
+/* Shared floating badge */
+.chg-badge {
+  position: absolute;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 8px;
+  background: #FFFFFF;
+  border-radius: 9999px;
+  box-shadow: 0 12px 28px rgba(23, 75, 53, 0.16);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #174B35;
+  white-space: nowrap;
+}
+
+.chg-badge strong {
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.15;
+}
+
+.chg-badge small {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6B8574;
+}
+
+.chg-badge-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FFD21C;
+  color: #174B35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------- */
+/* POLAROID STACK                                       */
+/* -------------------------------------------------------------- */
+.chg-polaroid {
+  aspect-ratio: 1 / 0.82;
+}
+
+.pol-card {
+  position: absolute;
+  margin: 0;
+  background: #FFFFFF;
+  padding: 10px 10px 0;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(23, 75, 53, 0.18);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), z-index 0s;
+}
+
+.pol-card:hover {
+  z-index: 4;
+}
+
+.pol-photo {
+  overflow: hidden;
+  border-radius: 8px;
+  background: #E4F1DF;
+}
+
+.pol-card figcaption {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #174B35;
+  text-align: center;
+  padding: 6px 4px 8px;
+  line-height: 1.1;
+}
+
+.pol-back {
+  top: 3%;
+  left: 0%;
+  width: 43%;
+  transform: rotate(-8deg);
+  z-index: 1;
+}
+.pol-back .pol-photo { aspect-ratio: 3 / 4; }
+.pol-back:hover { transform: rotate(-5deg) translateY(-6px); }
+
+.pol-front {
+  top: 27%;
+  left: 18%;
+  width: 64%;
+  transform: rotate(3deg);
+  z-index: 3;
+}
+.pol-front .pol-photo { aspect-ratio: 4 / 3; }
+.pol-front:hover { transform: rotate(1deg) translateY(-6px); }
+
+.pol-side {
+  top: 0;
+  right: 0%;
+  width: 38%;
+  transform: rotate(9deg);
+  z-index: 2;
+}
+.pol-side .pol-photo { aspect-ratio: 3 / 4; }
+.pol-side:hover { transform: rotate(6deg) translateY(-6px); }
+
+.pol-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 90px;
+  height: 26px;
+  transform: translateX(-50%) rotate(-4deg);
+  background: rgba(255, 210, 28, 0.75);
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.pol-badge {
+  right: 0;
+  bottom: 6%;
+}
+
+/* -------------------------------------------------------------- */
+/* Responsive                                                     */
+/* -------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .chg {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chg-rays {
+    top: -14px;
+    left: -6px;
+  }
+  .chg-badge {
+    font-size: 0.8rem;
+    padding: 6px 12px 6px 6px;
+  }
+  .chg-badge-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .pol-card figcaption {
+    font-size: 1.05rem;
+  }
+}

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import './Navbar.css';
 
@@ -7,15 +7,17 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isHomePage = location.pathname === '/';
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change and ensure scroll unlock
   useEffect(() => {
     setMobileMenuOpen(false);
+    document.body.style.overflow = '';
   }, [location.pathname]);
 
-  // Prevent background scrolling when mobile menu is open
+  // Prevent background scrolling only while mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -35,6 +37,24 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Programmatic, instantaneous mobile menu navigation handler
+  const handleMobileNav = useCallback(
+    (e, targetPath) => {
+      e.preventDefault();
+      e.stopPropagation();
+      document.body.style.overflow = '';
+      setMobileMenuOpen(false);
+
+      if (location.pathname === targetPath) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      } else {
+        navigate(targetPath);
+        window.scrollTo(0, 0);
+      }
+    },
+    [location.pathname, navigate]
+  );
 
   // Exactly 7 core navigation items in requested order:
   // 1. Home, 2. About, 3. Campus, 4. Learning, 5. Classes, 6. Time Table, 7. Contact
@@ -128,7 +148,7 @@ export default function Navbar() {
           <button
             type="button"
             className="mobile-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
           >
@@ -140,7 +160,10 @@ export default function Navbar() {
       {/* Mobile Drawer Menu */}
       <div
         className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}
-        onClick={() => setMobileMenuOpen(false)}
+        onClick={() => {
+          document.body.style.overflow = '';
+          setMobileMenuOpen(false);
+        }}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation Menu"
@@ -150,7 +173,11 @@ export default function Navbar() {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="mobile-drawer-header">
-            <Link to="/" className="navbar-brand" onClick={() => setMobileMenuOpen(false)}>
+            <Link
+              to="/"
+              className="navbar-brand"
+              onClick={(e) => handleMobileNav(e, '/')}
+            >
               <div className="brand-crest-wrapper" style={{ width: '40px', height: '40px' }}>
                 <img
                   src="/original/school-logo.jpg"
@@ -166,7 +193,11 @@ export default function Navbar() {
             <button
               type="button"
               className="mobile-drawer-close"
-              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu"
+              onClick={() => {
+                document.body.style.overflow = '';
+                setMobileMenuOpen(false);
+              }}
             >
               <X size={26} />
             </button>
@@ -181,12 +212,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `mobile-nav-link ${isActive ? 'active' : ''}`
                 }
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (item.path === '/') {
-                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-                  }
-                }}
+                onClick={(e) => handleMobileNav(e, item.path)}
               >
                 {item.name}
               </NavLink>
@@ -198,7 +224,7 @@ export default function Navbar() {
               to="/contact"
               className="btn-visit-us-yellow"
               style={{ width: '100%', justifyContent: 'center' }}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => handleMobileNav(e, '/contact')}
             >
               <span>Visit Us</span>
               <ArrowRight size={17} />

@@ -66,10 +66,6 @@
   margin-bottom: 24px;
 }
 
-.pill-extra-text {
-  display: inline;
-}
-
 .highlight-pill {
   display: inline-flex;
   align-items: center;
@@ -331,71 +327,24 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 22px;
-    max-width: 360px;
-  }
-
-  .pill-extra-text {
-    display: none;
-  }
-
-  .contact-highlights-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
+    margin-bottom: 24px;
     max-width: 380px;
-    margin: 0 auto 20px;
   }
 
-  .highlight-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 12px 7px 7px;
-    border-radius: var(--radius-full);
-    box-shadow: 0 3px 12px rgba(23, 75, 53, 0.05);
-    border: 1.5px solid #EBF3E3;
-    font-size: 0.84rem;
-    font-weight: 700;
-    width: auto;
-  }
-
-  .highlight-icon-circle {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-  }
-
-  .highlight-icon-circle svg {
-    width: 15px;
-    height: 15px;
-  }
-
+  /* Hidden on mobile per request: keeps top hero clean & lets the admission form take spotlight */
+  .contact-highlights-list,
   .contact-cta-wrap {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto 20px;
-  }
-
-  .contact-cta-wrap .btn-primary-green {
-    padding: 13px 26px;
-    font-size: 0.95rem;
-    width: auto;
+    display: none !important;
   }
 
   .contact-right-col {
     width: 100%;
     max-width: 580px;
-    margin: 10px auto 0;
+    margin: 0 auto;
   }
 
   .admission-form-wrapper {
-    margin-top: 75px;
+    margin-top: 60px;
   }
 
   .contact-container {
@@ -471,33 +420,8 @@
     right: 8px;
   }
 
-  .highlight-pill {
-    padding: 6px 11px 6px 6px;
-    font-size: 0.82rem;
-    gap: 5px;
-  }
-
-  .highlight-icon-circle {
-    width: 26px;
-    height: 26px;
-  }
-
-  .highlight-icon-circle svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .contact-highlights-list {
-    gap: 6px;
-  }
-
-  .contact-cta-wrap .btn-primary-green {
-    font-size: 0.92rem;
-    padding: 12px 22px;
-  }
-
   .admission-form-wrapper {
-    margin-top: 65px;
+    margin-top: 55px;
     padding: 38px 20px 24px;
     border-radius: 28px;
   }
@@ -507,11 +431,6 @@
   .contact-heading {
     font-size: 1.42rem;
     line-height: 1.18;
-  }
-
-  .highlight-pill {
-    font-size: 0.78rem;
-    padding: 5px 9px 5px 5px;
   }
 
   .form-peeking-mascot {

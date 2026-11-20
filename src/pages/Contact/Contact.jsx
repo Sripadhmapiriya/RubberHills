@@ -190,27 +190,21 @@ export default function Contact() {
                 <div className="highlight-icon-circle">
                   <Heart size={20} />
                 </div>
-                <span>
-                  Caring<span className="pill-extra-text"> Environment</span>
-                </span>
+                <span>Caring Environment</span>
               </div>
 
               <div className="highlight-pill">
                 <div className="highlight-icon-circle">
                   <BookOpen size={20} />
                 </div>
-                <span>
-                  Play-Based<span className="pill-extra-text"> Learning</span>
-                </span>
+                <span>Play-Based Learning</span>
               </div>
 
               <div className="highlight-pill">
                 <div className="highlight-icon-circle">
                   <Sprout size={20} />
                 </div>
-                <span>
-                  Holistic<span className="pill-extra-text"> Development</span>
-                </span>
+                <span>Holistic Development</span>
               </div>
             </div>
 

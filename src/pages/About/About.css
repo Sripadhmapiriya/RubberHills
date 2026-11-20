@@ -130,14 +130,14 @@
   overflow: hidden;
   border: 4px solid #FFFFFF;
   box-shadow: var(--shadow-lg);
-  background: var(--color-cream, #FFF9ED);
+  background: #FFFFFF;
 }
 
 .collage-main-img {
   width: 100%;
   height: 320px;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center 18%;
   border-radius: 32px;
   display: block;
 }
@@ -769,30 +769,85 @@
   }
 
   .collage-bottom-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .collage-main-img {
+    height: clamp(220px, 52vw, 280px);
+  }
+
+  .collage-sub-img {
+    height: clamp(135px, 35vw, 175px);
   }
 
   .about-hero {
-    padding: 100px 0 36px;
+    padding: 95px 0 32px;
   }
 
   .about-story-section {
-    padding: 44px 0 52px;
-    border-radius: 32px;
+    padding: 38px 0 44px;
+    border-radius: 28px;
   }
 
   .about-founders-section {
-    padding: 36px 0 52px;
+    padding: 32px 0 44px;
   }
 
   .about-values-section {
-    padding: 44px 0 25px;
+    padding: 38px 0 25px;
     margin-bottom: 0;
-    border-radius: 32px;
+    border-radius: 28px;
   }
 
   .founder-card {
-    padding: 18px 18px;
+    padding: 18px 16px;
     gap: 14px;
+  }
+
+  .founder-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .founder-role-tag {
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 90px 0 24px;
+  }
+
+  .about-title {
+    font-size: clamp(1.95rem, 7.8vw, 2.45rem);
+  }
+
+  .story-title,
+  .founders-title,
+  .values-title {
+    font-size: clamp(1.75rem, 6.8vw, 2.2rem);
+  }
+
+  .founder-card {
+    padding: 18px 14px;
+    gap: 12px;
+  }
+
+  .founder-avatar-wrap {
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+  }
+
+  .founder-initials {
+    font-size: 1.25rem;
+  }
+
+  .value-card {
+    padding: 20px 16px;
+    border-radius: 22px;
   }
 }

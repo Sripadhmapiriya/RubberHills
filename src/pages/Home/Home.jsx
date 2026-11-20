@@ -82,114 +82,52 @@ export default function Home() {
       </section>
 
       {/* ============================================================== */}
-      {/* 2. TAGLINE BAND (Curved Wave Ribbon Banner)                   */}
+      {/* 2. CURVED GREEN BANNER                                         */}
       {/* ============================================================== */}
-      <section className="tagline-band" aria-label="Values Banner: Play, Learn, Grow, Belong">
-        {/* Desktop Wave Ribbon Banner */}
-        <svg
-          className="band-bg band-bg-desktop"
-          viewBox="0 0 1440 68"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          {/* Dark Green Curved Wave Ribbon Body */}
-          <path
-            className="band-fill"
-            d="M0,4 C280,8 540,6 780,2 C980,0 1120,4 1260,6 C1350,8 1400,4 1440,2
-               L1440,62
-               C1260,60 1120,46 980,46 C840,46 700,62 540,62 C440,62 340,38 220,32 C140,28 90,34 0,48 Z"
-          />
-
-          {/* 3. Top Lime Outline Line */}
-          <path
-            className="band-line-top"
-            d="M0,4 C280,8 540,6 780,2 C980,0 1120,4 1260,6 C1350,8 1400,4 1440,2"
-            vectorEffect="non-scaling-stroke"
-          />
-
-          {/* 4. Bottom Lime Outline Line */}
-          <path
-            className="band-line"
-            d="M0,48 C90,34 140,28 220,32 C340,38 440,62 540,62 C700,62 840,46 980,46 C1120,46 1260,60 1440,62"
-            vectorEffect="non-scaling-stroke"
-          />
-
-          {/* 5. Botanical Leaf Sprig on Left */}
-          <g className="band-leaf-sprig" transform="translate(48, 6) rotate(-12) scale(0.36)">
-            <path d="M 0 45 C 15 15 50 5 80 15 C 70 45 40 60 5 55 Z" fill="#76B82A" />
-            <path d="M 0 45 C 25 30 50 20 80 15" stroke="#064B25" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-            <path d="M 12 50 C 25 32 45 22 65 28 C 55 48 35 60 12 55 Z" fill="#DDF0C7" opacity="0.85" />
-          </g>
-        </svg>
-
-        {/* Mobile / Tablet Dedicated Proportional Wave Ribbon Banner */}
-        <svg
-          className="band-bg band-bg-mobile"
-          viewBox="0 0 420 66"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          {/* Gentle, Uniform-Thickness Curved Ribbon Body */}
-          <path
-            className="band-fill"
-            d="M 0,14 C 70,22 140,8 210,10 C 280,12 350,22 420,14 L 420,56 C 350,64 280,54 210,52 C 140,50 70,64 0,56 Z"
-          />
-          <path
-            className="band-line-top"
-            d="M 0,14 C 70,22 140,8 210,10 C 280,12 350,22 420,14"
-            vectorEffect="non-scaling-stroke"
-          />
-          <path
-            className="band-line"
-            d="M 0,56 C 70,64 140,50 210,52 C 280,54 350,64 420,56"
-            vectorEffect="non-scaling-stroke"
-          />
-          {/* Botanical Leaf Sprig (Scaled and placed safely in left margin without text overlap) */}
-          <g className="band-leaf-sprig" transform="translate(12, 17) rotate(-10) scale(0.22)">
-            <path d="M 0 45 C 15 15 50 5 80 15 C 70 45 40 60 5 55 Z" fill="#76B82A" />
-            <path d="M 0 45 C 25 30 50 20 80 15" stroke="#064B25" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-            <path d="M 12 50 C 25 32 45 22 65 28 C 55 48 35 60 12 55 Z" fill="#DDF0C7" opacity="0.85" />
-          </g>
-        </svg>
-
-        <p className="band-text">
-          <span>Play</span><i>•</i><span>Learn</span><i>•</i><span>Grow</span><i>•</i><span>Belong</span>
-        </p>
+      <section className="wave-banner-section" aria-label="Values Banner: Play, Learn, Grow, Belong">
+        <div className="wave-banner-curved">
+          <div className="wave-banner-content">
+            <span className="banner-word">PLAY</span>
+            <span className="banner-dot">•</span>
+            <span className="banner-word">LEARN</span>
+            <span className="banner-dot">•</span>
+            <span className="banner-word">GROW</span>
+            <span className="banner-dot">•</span>
+            <span className="banner-word">BELONG</span>
+          </div>
+        </div>
       </section>
 
       {/* ============================================================== */}
-      {/* 3. 3-PHOTO PANORAMA / CURVED GALLERY (Campus Highlights)       */}
+      {/* 3. 3-IMAGE GALLERY COLLAGE                                     */}
       {/* ============================================================== */}
       <section className="home-gallery-section" aria-label="Campus Highlights">
-        <div className="panorama-curved-band">
-          {/* Photo 1: Left - Authentic Garden Walkway */}
-          <div className="panorama-item item-left">
-            <img
-              src={slots.galleryWalkway.src}
-              alt={slots.galleryWalkway.alt}
-              className="panorama-img panorama-walkway-img"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Photo 2: Center - Authentic Active Classroom */}
-          <div className="panorama-item item-center">
-            <img
-              src={slots.galleryClassroom.src}
-              alt={slots.galleryClassroom.alt}
-              className="panorama-img panorama-classroom-img"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Photo 3: Right - Authentic Outdoor Playground */}
-          <div className="panorama-item item-right">
-            <img
-              src={slots.galleryPlayground.src}
-              alt={slots.galleryPlayground.alt}
-              className="panorama-img panorama-playground-img"
-              loading="lazy"
-            />
+        <div className="container">
+          <div className="gallery-grid">
+            <div className="gallery-card card-left">
+              <img
+                src={slots.galleryWalkway.src}
+                alt={slots.galleryWalkway.alt}
+                className="gallery-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="gallery-card card-center">
+              <img
+                src={slots.galleryClassroom.src}
+                alt={slots.galleryClassroom.alt}
+                className="gallery-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="gallery-card card-right">
+              <img
+                src={slots.galleryPlayground.src}
+                alt={slots.galleryPlayground.alt}
+                className="gallery-img"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>

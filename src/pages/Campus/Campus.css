@@ -73,14 +73,14 @@
   overflow: hidden;
   border: 4px solid #FFFFFF;
   box-shadow: var(--shadow-lg);
-  background: var(--color-cream, #FFF9ED);
+  background: #FFFFFF;
 }
 
 .campus-top-img {
   width: 100%;
   height: 310px;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center 15%;
   display: block;
 }
 
@@ -274,7 +274,48 @@
 }
 
 @media (max-width: 600px) {
+  .campus-hero {
+    padding: 95px 0 32px;
+  }
+
   .campus-bottom-cards {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .campus-showcase-section {
+    padding: 38px 0 44px;
+    border-radius: 32px;
+    margin: 10px 0 30px;
+  }
+
+  .campus-title {
+    font-size: clamp(2rem, 7.8vw, 2.5rem);
+  }
+
+  .showcase-title {
+    font-size: clamp(1.85rem, 7.2vw, 2.3rem);
+  }
+
+  .facilities-title {
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .campus-hero {
+    padding: 90px 0 24px;
+  }
+
+  .facility-card {
+    padding: 18px 16px;
+    border-radius: 20px;
+    gap: 14px;
+  }
+
+  .facility-icon-wrap {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
   }
 }

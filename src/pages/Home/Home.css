@@ -660,8 +660,24 @@
     font-size: clamp(1.8rem, 6vw, 2.3rem);
     line-height: 1.12;
   }
+
+  .hero-lead {
+    font-size: clamp(0.96rem, 3.2vw, 1.05rem);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
   .section-title-centered {
-    font-size: clamp(1.75rem, 5.5vw, 2.2rem);
+    font-size: clamp(1.65rem, 5.2vw, 2.1rem);
+  }
+
+  .feature-pill-title {
+    font-size: 1.12rem;
+  }
+
+  .feature-pill-desc {
+    font-size: 0.90rem;
+    line-height: 1.45;
   }
 
   /* Values Banner: Proportional Smooth Ribbon on Mobile */
@@ -781,13 +797,46 @@
     line-height: 1.15;
   }
 
+  .hero-lead {
+    font-size: 0.94rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .hero-pill {
+    font-size: 0.78rem !important;
+    padding: 5px 14px !important;
+  }
+
   .hero-cta-group {
     gap: 14px;
   }
 
   .btn-primary-green {
-    padding: 11px 22px;
-    font-size: 0.95rem;
+    padding: 10px 20px;
+    font-size: 0.92rem;
+  }
+
+  .btn-secondary-link {
+    font-size: 0.92rem;
+  }
+
+  .section-title-centered {
+    font-size: clamp(1.5rem, 5vw, 1.85rem);
+  }
+
+  .feature-pill-title {
+    font-size: 1.05rem;
+  }
+
+  .feature-pill-desc {
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  .feature-pill-icon-box {
+    width: 52px;
+    height: 52px;
   }
 
   .band-text {

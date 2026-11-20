@@ -362,11 +362,34 @@
     border-radius: 26px;
   }
 
+  .contact-lead {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
   .input-wrap input,
   .input-wrap select,
   .input-wrap textarea {
-    font-size: 1rem;
+    font-size: 0.90rem;
     padding: 12px 14px 12px 42px;
+  }
+
+  .input-wrap label {
+    font-size: 0.84rem;
+  }
+
+  .btn-submit-enquiry {
+    font-size: 0.98rem;
+    padding: 14px 24px;
+  }
+
+  .consent-text {
+    font-size: 0.80rem;
+    line-height: 1.45;
+  }
+
+  .form-header-badge {
+    font-size: 0.90rem;
   }
 
   .contact-heading {
@@ -391,8 +414,8 @@
   }
 
   .highlight-pill {
-    padding: 8px 16px 8px 10px;
-    font-size: 0.95rem;
+    padding: 8px 14px 8px 10px;
+    font-size: 0.86rem;
   }
 }
 

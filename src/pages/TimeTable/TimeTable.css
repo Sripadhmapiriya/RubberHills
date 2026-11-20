@@ -1131,12 +1131,49 @@
     line-height: 1.18;
   }
 
+  .timetable-hero-desc {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .timetable-highlight-pill {
+    font-size: 0.78rem;
+  }
+
   .timeline-section-title {
     font-size: clamp(1.55rem, 5vw, 2rem);
   }
 
+  .timeline-section-subtitle {
+    font-size: 0.90rem;
+    line-height: 1.5;
+  }
+
+  .mobile-moment-title {
+    font-size: 1.04rem;
+  }
+
+  .mobile-moment-desc {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
   .wednesday-title {
     font-size: clamp(1.55rem, 5vw, 2rem);
+  }
+
+  .wednesday-description {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .wednesday-pillar-box h4 {
+    font-size: 1.02rem;
+  }
+
+  .wednesday-pillar-box p {
+    font-size: 0.86rem;
+    line-height: 1.5;
   }
 
   .timetable-hero-rays {
@@ -1236,6 +1273,11 @@
     padding-top: 95px;
   }
 
+  .timetable-hero-title {
+    font-size: clamp(1.45rem, 5.2vw, 1.75rem);
+    line-height: 1.18;
+  }
+
   .hero-cta-row .btn-primary-green {
     width: 100%;
     justify-content: center;
@@ -1243,7 +1285,7 @@
   }
 
   .timeline-section-title {
-    font-size: clamp(1.8rem, 7vw, 2.3rem);
+    font-size: clamp(1.55rem, 5vw, 2.0rem);
   }
 
   .timeline-mobile-wrapper {
@@ -1261,7 +1303,7 @@
   }
 
   .wednesday-title {
-    font-size: clamp(1.65rem, 6.5vw, 2.05rem);
+    font-size: clamp(1.55rem, 5vw, 2.0rem);
   }
 
   .wednesday-pillar-box {

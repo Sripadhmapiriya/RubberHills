@@ -761,9 +761,21 @@
     font-size: clamp(1.65rem, 5.2vw, 2.2rem);
     line-height: 1.15;
   }
+  .about-description {
+    font-size: clamp(0.96rem, 3.2vw, 1.05rem);
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
   .story-heading {
     font-size: clamp(1.8rem, 5vw, 2.4rem);
     line-height: 1.2;
+  }
+  .story-paragraph {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+  .story-paragraph.lead-paragraph {
+    font-size: 1.05rem;
   }
   .founders-grid {
     grid-template-columns: 1fr;
@@ -776,11 +788,58 @@
     font-size: clamp(1.4rem, 5.2vw, 1.72rem);
     line-height: 1.18;
   }
+  .about-description {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+  .about-pill {
+    font-size: 0.78rem !important;
+    padding: 5px 14px !important;
+  }
   .values-title {
-    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    font-size: clamp(1.5rem, 5vw, 1.9rem);
+  }
+  .values-subtitle {
+    font-size: 0.90rem;
+    line-height: 1.5;
+  }
+  .value-card h3 {
+    font-size: 1.08rem;
+  }
+  .value-card p {
+    font-size: 0.86rem;
+    line-height: 1.5;
   }
   .story-heading {
     font-size: clamp(1.55rem, 5vw, 2rem);
+  }
+  .story-paragraph {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .story-paragraph.lead-paragraph {
+    font-size: 0.98rem;
+  }
+  .highlight-title {
+    font-size: 0.94rem;
+  }
+  .highlight-desc {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+  .founders-heading {
+    font-size: clamp(1.45rem, 5vw, 1.85rem);
+  }
+  .founders-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .founder-name {
+    font-size: 1.10rem;
+  }
+  .founder-description {
+    font-size: 0.86rem;
+    line-height: 1.45;
   }
   .values-grid {
     grid-template-columns: 1fr;

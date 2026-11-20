@@ -344,7 +344,7 @@
 
 .mobile-nav-link {
   font-family: var(--font-heading);
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #064B25;
   text-decoration: none;
@@ -450,10 +450,11 @@
   }
 
   .brand-name {
-    font-size: 1.05rem;
+    font-size: 1.0rem;
   }
 
   .brand-sub {
-    font-size: 0.62rem;
+    font-size: 0.60rem;
+    letter-spacing: 0.14em;
   }
 }

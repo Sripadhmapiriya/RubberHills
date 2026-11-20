@@ -392,8 +392,8 @@
   }
 
   .footer-hero-spacer {
-    height: 24vw;
-    min-height: 95px;
+    height: 31vw;
+    min-height: 125px;
   }
 
   /* 2-column horizontal grid on mobile: Quick Links & Admissions ALWAYS sit side-by-side */
@@ -502,8 +502,12 @@
 /* Mobile Devices (<= 480px and down to 320px) - Keep 2-column horizontal pair */
 @media (max-width: 480px) {
   .footer-hero-spacer {
-    height: 22vw;
-    min-height: 85px;
+    height: 31.5vw;
+    min-height: 125px;
+  }
+
+  .footer-main-section {
+    padding: 18px 0 25px;
   }
 
   /* Maintain 2-column horizontal side-by-side layout: never stack vertically */

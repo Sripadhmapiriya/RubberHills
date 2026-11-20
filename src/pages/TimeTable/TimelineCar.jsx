@@ -52,8 +52,34 @@ function acrossCard(card, y0, exitsDown) {
   ];
 }
 
+function buildMobileRoad(wrapper) {
+  const base = wrapper.getBoundingClientRect();
+  const nodes = [...wrapper.querySelectorAll('.mobile-milestone-node')].map((n) => relRect(n, base));
+  const cards = [...wrapper.querySelectorAll('.mobile-moment-card')].map((c) => relRect(c, base));
+  if (nodes.length < 2) return null;
+
+  // The track line x is aligned with the center of the milestone nodes
+  const trackX = nodes[0].cx;
+  const startY = Math.max(0, nodes[0].top - 20);
+  const lastNode = nodes[nodes.length - 1];
+  const endY = lastNode.bottom + 25;
+
+  return {
+    d: `M ${trackX} ${startY} L ${trackX} ${endY}`,
+    width: base.width,
+    height: base.height,
+    nodes,
+    cards,
+    isMobile: true,
+  };
+}
+
 /** Build the route path (SVG "d" string) through all cards and dots. */
-function buildRoad(wrapper) {
+function buildRoad(wrapper, isMobile = false) {
+  if (isMobile || wrapper.classList.contains('timeline-mobile-wrapper')) {
+    return buildMobileRoad(wrapper);
+  }
+
   const base = wrapper.getBoundingClientRect();
   const cards = [...wrapper.querySelectorAll('.moment-card')].map((c) => relRect(c, base));
   const dots = [...wrapper.querySelectorAll('.milestone-node')].map((d) => relRect(d, base));
@@ -96,6 +122,7 @@ function buildRoad(wrapper) {
     width: base.width,
     height: base.height,
     cards,
+    isMobile: false,
   };
 }
 
@@ -132,7 +159,7 @@ function ToyCar() {
   );
 }
 
-export default function TimelineCar({ wrapperRef }) {
+export default function TimelineCar({ wrapperRef, isMobile = false }) {
   const [road, setRoad] = useState(null);
   const pathRef = useRef(null);
   const carRef = useRef(null);
@@ -146,23 +173,27 @@ export default function TimelineCar({ wrapperRef }) {
     const rebuild = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        if (wrapper.offsetParent === null) return; // hidden (mobile layout)
-        setRoad(buildRoad(wrapper));
+        if (wrapper.offsetParent === null) return; // hidden layout
+        setRoad(buildRoad(wrapper, isMobile));
       });
     };
 
     // Build straight away, then again whenever sizes change
-    if (wrapper.offsetParent !== null) setRoad(buildRoad(wrapper));
+    if (wrapper.offsetParent !== null) setRoad(buildRoad(wrapper, isMobile));
     const ro = new ResizeObserver(rebuild);
     ro.observe(wrapper);
-    wrapper.querySelectorAll('.moment-card').forEach((c) => ro.observe(c));
+    const targetCards = isMobile ? '.mobile-moment-card' : '.moment-card';
+    wrapper.querySelectorAll(targetCards).forEach((c) => ro.observe(c));
+    if (isMobile) {
+      wrapper.querySelectorAll('.mobile-milestone-node').forEach((n) => ro.observe(n));
+    }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(rebuild);
 
     return () => {
       cancelAnimationFrame(frame);
       ro.disconnect();
     };
-  }, [wrapperRef]);
+  }, [wrapperRef, isMobile]);
 
   // Drive the car along the road
   useEffect(() => {
@@ -172,21 +203,36 @@ export default function TimelineCar({ wrapperRef }) {
     if (!road || !path || !car || !wrapper) return undefined;
 
     const total = path.getTotalLength();
-    const cardEls = [...wrapper.querySelectorAll('.moment-card')];
+    const driveSpeed = road.isMobile ? 120 : SPEED_PX_PER_SEC;
+    const carScale = road.isMobile ? 0.95 : CAR_SCALE;
+
     let raf = 0;
     let startTs = null;
     let visiting = -1;
 
     const setVisiting = (idx) => {
       if (idx === visiting) return;
-      if (visiting >= 0 && cardEls[visiting]) cardEls[visiting].classList.remove('is-visiting');
-      if (idx >= 0 && cardEls[idx]) cardEls[idx].classList.add('is-visiting');
+      const cardEls = road.isMobile
+        ? [...wrapper.querySelectorAll('.mobile-moment-card')]
+        : [...wrapper.querySelectorAll('.moment-card')];
+      const nodeEls = road.isMobile
+        ? [...wrapper.querySelectorAll('.mobile-milestone-node')]
+        : [];
+
+      if (visiting >= 0) {
+        if (cardEls[visiting]) cardEls[visiting].classList.remove('is-visiting');
+        if (nodeEls[visiting]) nodeEls[visiting].classList.remove('is-visiting');
+      }
+      if (idx >= 0) {
+        if (cardEls[idx]) cardEls[idx].classList.add('is-visiting');
+        if (nodeEls[idx]) nodeEls[idx].classList.add('is-visiting');
+      }
       visiting = idx;
     };
 
     const tick = (ts) => {
       if (startTs === null) startTs = ts;
-      const driveMs = (total / SPEED_PX_PER_SEC) * 1000;
+      const driveMs = (total / driveSpeed) * 1000;
       const elapsed = (ts - startTs) % (driveMs + PARK_MS);
       const dist = Math.min(total, (elapsed / driveMs) * total);
 
@@ -194,16 +240,18 @@ export default function TimelineCar({ wrapperRef }) {
       const ahead = path.getPointAtLength(Math.min(total, dist + 2));
       const behind = path.getPointAtLength(Math.max(0, dist - 2));
       const angle = (Math.atan2(ahead.y - behind.y, ahead.x - behind.x) * 180) / Math.PI;
-      car.setAttribute('transform', `translate(${p.x} ${p.y}) rotate(${angle}) scale(${CAR_SCALE})`);
+      car.setAttribute('transform', `translate(${p.x} ${p.y}) rotate(${angle}) scale(${carScale})`);
 
       // Fade in at the start and out while parked at the finish
       const parkedFor = elapsed - driveMs;
       car.style.opacity = parkedFor > PARK_MS - 400 ? String(Math.max(0, (PARK_MS - parkedFor) / 400)) : '1';
 
-      // Highlight the card the car is currently inside
-      const inside = road.cards.findIndex(
-        (c) => p.x > c.left + 4 && p.x < c.right - 4 && p.y > c.top + 4 && p.y < c.bottom - 4
-      );
+      // Highlight the card/node the car is currently visiting
+      const inside = road.isMobile
+        ? road.nodes.findIndex((n) => Math.abs(p.y - n.cy) < 55)
+        : road.cards.findIndex(
+            (c) => p.x > c.left + 4 && p.x < c.right - 4 && p.y > c.top + 4 && p.y < c.bottom - 4
+          );
       setVisiting(inside);
 
       raf = requestAnimationFrame(tick);

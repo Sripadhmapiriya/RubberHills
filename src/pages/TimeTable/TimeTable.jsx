@@ -197,6 +197,7 @@ const TIMELINE_MOMENTS = [
 
 export default function TimeTable() {
   const timelineRef = useRef(null);
+  const mobileTimelineRef = useRef(null);
 
   return (
     <div className="page-timetable">
@@ -405,9 +406,16 @@ export default function TimeTable() {
           </div>
 
           {/* ============================================================ */}
-          {/* MOBILE TIMELINE (Clean Vertical Journey with Nodes)          */}
+          {/* MOBILE TIMELINE (Clean Vertical Journey with Nodes & Toy Car)*/}
           {/* ============================================================ */}
-          <div className="timeline-mobile-wrapper" aria-label="Mobile Schedule Timeline">
+          <div
+            ref={mobileTimelineRef}
+            className="timeline-mobile-wrapper"
+            aria-label="Mobile Schedule Timeline"
+          >
+            {/* Toy car road on mobile: drives from moment 1 to 6 through nodes */}
+            <TimelineCar wrapperRef={mobileTimelineRef} isMobile />
+
             <div className="mobile-timeline-track-line" />
 
             <div className="mobile-timeline-list">

@@ -137,91 +137,188 @@
   gap: 16px;
 }
 
-/* Right Clock Stage */
+/* Right Hero Visual Area: Distinctive Editorial Photo Composition */
 .timetable-hero-visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-.hero-clock-stage {
+.timetable-editorial-feature {
   position: relative;
-  width: clamp(280px, 32vw, 360px);
-  height: clamp(280px, 32vw, 360px);
+  width: 100%;
+  max-width: 440px;
+  height: clamp(340px, 36vw, 420px);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
-.clock-outer-glow {
+/* Subtle Sunshine-Yellow Asymmetrical Backdrop Shape */
+.editorial-backdrop-shape {
   position: absolute;
-  width: 90%;
-  height: 90%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(246, 214, 91, 0.3) 0%, rgba(228, 241, 223, 0.4) 50%, rgba(255, 249, 237, 0) 75%);
+  top: -10px;
+  left: -12px;
+  right: -12px;
+  bottom: 12px;
+  background: linear-gradient(135deg, #F6D65B 0%, #FDE68A 100%);
+  border-radius: 145px 145px 44px 44px;
+  transform: rotate(-2.5deg);
+  opacity: 0.92;
+  z-index: 1;
+  box-shadow: 0 16px 36px rgba(246, 214, 91, 0.28);
   pointer-events: none;
 }
 
-.clock-card-box {
+/* Botanical Green Leaf Accent at Top Corner */
+.editorial-leaf-accent {
+  position: absolute;
+  top: -16px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  z-index: 3;
+  transform: rotate(15deg);
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(23, 75, 53, 0.16));
+}
+
+.accent-leaf-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Distinctive Organic/Arched Frame */
+.editorial-arch-frame {
   position: relative;
-  width: 70%;
-  height: 70%;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: #E4F1DF; /* Soft mint background behind image */
+  border-radius: 135px 135px 36px 36px;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 20px 48px rgba(23, 75, 53, 0.14), 0 4px 16px rgba(23, 75, 53, 0.06);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.clock-card-box:hover {
-  transform: scale(1.06) rotate(-2deg);
+.timetable-editorial-feature:hover .editorial-arch-frame {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 54px rgba(23, 75, 53, 0.18), 0 6px 18px rgba(23, 75, 53, 0.08);
 }
 
-.hero-clock-svg {
+/* Complete Photograph - Uncropped and Proportionate */
+.editorial-main-photo {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 12px 24px rgba(23, 75, 53, 0.12));
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
-.floating-badge {
+/* Dark Forest-Green Caption Ribbon */
+.timetable-caption-ribbon {
   position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  background-color: #174B35;
+  color: #FFFFFF;
+  font-family: var(--font-heading, 'Outfit', 'Fredoka', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: 2px solid #F6D65B;
+  box-shadow: 0 8px 24px rgba(23, 75, 53, 0.22);
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.timetable-caption-ribbon .ribbon-leaf,
+.timetable-caption-ribbon .ribbon-star {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* Small Floating Activity Labels */
+.timetable-float-chip {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1.5px solid #E2EED7;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 999px;
   font-family: var(--font-heading, 'Outfit', sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #174B35;
-  box-shadow: 0 6px 18px rgba(23, 75, 53, 0.08);
+  box-shadow: 0 6px 18px rgba(23, 75, 53, 0.09);
   white-space: nowrap;
-  z-index: 3;
-  animation: floatClock 5s ease-in-out infinite;
+  animation: floatTimeChip 4.5s ease-in-out infinite;
 }
 
-.floating-badge .dot {
-  width: 9px;
-  height: 9px;
+.timetable-float-chip .chip-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.dot-sun { background-color: #F6D65B; }
-.dot-leaf { background-color: #72B95A; }
+.timetable-float-chip .dot-sun {
+  background-color: #F6D65B;
+}
 
-.badge-morning {
-  top: 18px;
-  left: -8px;
+.timetable-float-chip .dot-leaf {
+  background-color: #72B95A;
+}
+
+.timetable-float-chip .dot-mint {
+  background-color: #174B35;
+}
+
+/* Position the 3 Floating Labels */
+.chip-assembly {
+  top: 14px;
+  left: -20px;
   animation-delay: 0s;
 }
 
-.badge-afternoon {
-  bottom: 22px;
-  right: -10px;
-  animation-delay: 2.2s;
+.chip-creative {
+  top: 48%;
+  right: -24px;
+  animation-delay: 1.5s;
+}
+
+.chip-learning {
+  bottom: 24px;
+  left: -16px;
+  animation-delay: 2.8s;
+}
+
+@keyframes floatTimeChip {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 /* ============================================================== */
@@ -1012,8 +1109,60 @@
     padding-top: 105px;
   }
 
+  .timetable-hero-title {
+    font-size: clamp(2rem, 8.2vw, 2.5rem);
+  }
+
   .timetable-hero-rays {
     display: none;
+  }
+
+  .timetable-editorial-feature {
+    width: 100%;
+    max-width: 300px;
+    height: 290px;
+    margin: 0 auto;
+  }
+
+  .editorial-backdrop-shape {
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: 8px;
+    border-radius: 120px 120px 32px 32px;
+  }
+
+  .editorial-arch-frame {
+    border-radius: 110px 110px 28px 28px;
+  }
+
+  .chip-assembly {
+    top: 8px;
+    left: 8px;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+
+  .chip-creative {
+    top: auto;
+    bottom: 54px;
+    right: 8px;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+
+  .chip-learning {
+    bottom: 22px;
+    left: 8px;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+
+  .timetable-caption-ribbon {
+    font-size: 0.68rem;
+    padding: 6px 14px;
+    bottom: -14px;
+    letter-spacing: 0.05em;
   }
 
   .timeline-mobile-wrapper {
@@ -1059,6 +1208,7 @@
 /* Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .floating-badge,
+  .timetable-float-chip,
   .closing-star,
   .closing-leaf,
   .wed-star,
@@ -1069,7 +1219,7 @@
   .moment-card,
   .btn-primary-yellow,
   .highlight-pill,
-  .clock-card-box {
+  .editorial-arch-frame {
     transition: none !important;
     transform: none !important;
   }

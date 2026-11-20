@@ -16,6 +16,7 @@ import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
 import TimelineCar from './TimelineCar';
+import { ORIGINAL_IMAGES } from '../../config/images';
 import './TimeTable.css';
 
 // ==============================================================
@@ -252,60 +253,56 @@ export default function TimeTable() {
             </div>
           </div>
 
-          {/* Right Decorative Clock SVG Illustration */}
-          <div className="timetable-hero-visual" aria-hidden="true">
-            <div className="hero-clock-stage">
-              {/* Outer Glow Halo */}
-              <div className="clock-outer-glow" />
+          {/* Right Column: Unique Editorial Photo Composition "A Day at Rubber Hills" */}
+          <div className="timetable-hero-visual" aria-label="A Day at Rubber Hills classroom photo feature">
+            <div className="timetable-editorial-feature">
+              {/* Subtle Asymmetrical Yellow Backdrop Shape */}
+              <div className="editorial-backdrop-shape" aria-hidden="true" />
 
-              {/* Cheerful Kindergarten Clock Illustration */}
-              <div className="clock-card-box">
-                <svg viewBox="0 0 160 160" className="hero-clock-svg">
-                  {/* Twin Bell Ears on Top */}
-                  <path d="M38 36 C34 26 44 18 52 24 Z" fill="#F6D65B" stroke="#174B35" strokeWidth="3" />
-                  <path d="M122 36 C126 26 116 18 108 24 Z" fill="#F6D65B" stroke="#174B35" strokeWidth="3" />
-                  <path d="M68 22 C68 14 92 14 92 22" stroke="#174B35" strokeWidth="3.5" fill="none" strokeLinecap="round" />
-
-                  {/* Supporting Clock Feet */}
-                  <line x1="44" y1="134" x2="36" y2="148" stroke="#174B35" strokeWidth="4.5" strokeLinecap="round" />
-                  <line x1="116" y1="134" x2="124" y2="148" stroke="#174B35" strokeWidth="4.5" strokeLinecap="round" />
-
-                  {/* Clock Main Face */}
-                  <circle cx="80" cy="85" r="54" fill="#FFFFFF" stroke="#174B35" strokeWidth="4" />
-                  <circle cx="80" cy="85" r="44" fill="#FEF3C7" opacity="0.6" />
-
-                  {/* Dial Hour Markers */}
-                  <circle cx="80" cy="45" r="3" fill="#174B35" />
-                  <circle cx="120" cy="85" r="3" fill="#174B35" />
-                  <circle cx="80" cy="125" r="3" fill="#174B35" />
-                  <circle cx="40" cy="85" r="3" fill="#174B35" />
-
-                  {/* Friendly Eyes and Rosy Cheeks */}
-                  <circle cx="68" cy="74" r="2.5" fill="#174B35" />
-                  <circle cx="92" cy="74" r="2.5" fill="#174B35" />
-                  <circle cx="62" cy="82" r="3.5" fill="#F87171" opacity="0.5" />
-                  <circle cx="98" cy="82" r="3.5" fill="#F87171" opacity="0.5" />
-                  <path d="M74 81 Q80 87 86 81" stroke="#174B35" strokeWidth="2" strokeLinecap="round" fill="none" />
-
-                  {/* Hands Pointing to Morning Time (approx 9:05) */}
-                  <line x1="80" y1="85" x2="52" y2="80" stroke="#174B35" strokeWidth="4" strokeLinecap="round" />
-                  <line x1="80" y1="85" x2="94" y2="60" stroke="#72B95A" strokeWidth="3.2" strokeLinecap="round" />
-                  <circle cx="80" cy="85" r="5.5" fill="#F6D65B" stroke="#174B35" strokeWidth="2.5" />
-
-                  {/* Decorative Sunshine Rays & Sparkles */}
-                  <polygon points="135,45 138,51 144,51 139,55 141,61 135,57 129,61 131,55 126,51 132,51" fill="#F6D65B" />
-                  <polygon points="25,95 27,100 32,100 28,103 30,108 25,105 20,108 22,103 18,100 23,100" fill="#72B95A" />
+              {/* Decorative Fresh-Green Botanical Leaf Accent */}
+              <div className="editorial-leaf-accent" aria-hidden="true">
+                <svg viewBox="0 0 36 36" fill="none" className="accent-leaf-svg">
+                  <path
+                    d="M6 30 C6 18 18 6 30 6 C30 18 18 30 6 30 Z"
+                    fill="#72B95A"
+                    stroke="#174B35"
+                    strokeWidth="1.8"
+                  />
+                  <path d="M6 30 Q18 18 30 6" stroke="#174B35" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
 
-              {/* Floating Rhythm Pill Badges */}
-              <div className="floating-badge badge-morning">
-                <span className="dot dot-sun" />
-                <span>9:05 AM Bell</span>
+              {/* Large Central Photo with Distinctive Organic/Arched Frame */}
+              <div className="editorial-arch-frame">
+                <img
+                  src={ORIGINAL_IMAGES.classroomSmartLearning.src}
+                  alt={ORIGINAL_IMAGES.classroomSmartLearning.alt}
+                  className="editorial-main-photo"
+                  loading="eager"
+                />
               </div>
-              <div className="floating-badge badge-afternoon">
-                <span className="dot dot-leaf" />
-                <span>Happy Learning</span>
+
+              {/* Dark Forest-Green Caption Ribbon */}
+              <div className="timetable-caption-ribbon">
+                <span className="ribbon-leaf">🌿</span>
+                <span className="ribbon-text">LITTLE MOMENTS, BIG DISCOVERIES</span>
+                <span className="ribbon-star">✨</span>
+              </div>
+
+              {/* 3 Small Floating Activity Labels */}
+              <div className="timetable-float-chip chip-assembly">
+                <span className="chip-dot dot-sun" />
+                <span className="chip-label">Morning Assembly • 9:10 AM</span>
+              </div>
+
+              <div className="timetable-float-chip chip-creative">
+                <span className="chip-dot dot-leaf" />
+                <span className="chip-label">Creative Play</span>
+              </div>
+
+              <div className="timetable-float-chip chip-learning">
+                <span className="chip-dot dot-mint" />
+                <span className="chip-label">Happy Learning</span>
               </div>
             </div>
           </div>

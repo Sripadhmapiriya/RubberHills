@@ -370,6 +370,7 @@
   position: relative;
   height: 100%;
   overflow: hidden;
+  background-color: var(--color-cream, #FFF9ED);
 }
 
 .panorama-item.item-left {
@@ -403,21 +404,22 @@
 .panorama-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
   transition: transform 0.4s ease;
 }
 
 .panorama-walkway-img {
-  object-position: center 30%;
+  object-position: center;
 }
 
 .panorama-classroom-img {
-  object-position: center 40%;
+  object-position: center;
 }
 
 .panorama-playground-img {
-  object-position: center 35%;
+  object-position: center;
 }
 
 .panorama-item:hover .panorama-img {

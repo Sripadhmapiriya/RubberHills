@@ -42,7 +42,7 @@ export default function ClassesHeroGallery() {
       </figure>
       <div className="chg-badge pol-badge">
         <span className="chg-badge-icon"><Heart size={16} /></span>
-        <span>Ages 2.5–6</span>
+        <span>Ages 2–6</span>
       </div>
     </div>
   );

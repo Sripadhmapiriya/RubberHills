@@ -117,6 +117,7 @@
   border-color: #FCE89B;
   color: #7A5700;
 }
+
 .highlight-joy .highlight-icon-circle {
   background-color: #FEF6D8;
   color: #D49D04;
@@ -126,6 +127,7 @@
   border-color: #CFE8C9;
   color: #174B35;
 }
+
 .highlight-grow .highlight-icon-circle {
   background-color: #E6F4E2;
   color: #47932D;
@@ -135,6 +137,7 @@
   border-color: #DFD3F4;
   color: #55338E;
 }
+
 .highlight-discover .highlight-icon-circle {
   background-color: #F0EAF9;
   color: #794DC0;
@@ -213,10 +216,21 @@
   color: #6B8574;
 }
 
-.chip-creche { border-left-color: #F8A882; }
-.chip-nursery { border-left-color: #F6D65B; }
-.chip-lkg { border-left-color: #72B95A; }
-.chip-ukg { border-left-color: #9C7FD6; }
+.chip-creche {
+  border-left-color: #F8A882;
+}
+
+.chip-nursery {
+  border-left-color: #F6D65B;
+}
+
+.chip-lkg {
+  border-left-color: #72B95A;
+}
+
+.chip-ukg {
+  border-left-color: #9C7FD6;
+}
 
 /* Hero Photo Collage wrapper */
 .classes-hero-art {
@@ -248,8 +262,8 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-              box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-              border-color 0.35s ease;
+    box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.35s ease;
 }
 
 .creche-card-master:hover {
@@ -434,7 +448,8 @@
   background-color: #FFFFFF;
   border: 1.5px solid #EFEAE3;
   border-radius: 20px;
-  padding: 16px;
+  padding: 18px 16px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -462,18 +477,22 @@
   background-color: #E4F1DF;
   color: #38861E;
 }
+
 .time-icon {
   background-color: #FEF5D6;
   color: #C08D00;
 }
+
 .day-icon {
   background-color: #FFF0E6;
   color: #C85F24;
 }
+
 .group-icon {
   background-color: #ECE7F8;
   color: #6C42B8;
 }
+
 .fee-icon {
   background-color: #E2F5E2;
   color: #174B35;
@@ -588,8 +607,8 @@
   will-change: transform, box-shadow;
   /* Ultra-smooth, slow leisurely zoom & pop */
   transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1),
-              box-shadow 1.2s cubic-bezier(0.3, 0, 0.2, 1),
-              border-color 1s cubic-bezier(0.3, 0, 0.2, 1);
+    box-shadow 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+    border-color 1s cubic-bezier(0.3, 0, 0.2, 1);
   position: relative;
   z-index: 1;
 }
@@ -825,6 +844,7 @@
     transform: scale(1) rotate(0deg);
     opacity: 0.85;
   }
+
   100% {
     transform: scale(1.35) rotate(45deg);
     opacity: 1;
@@ -942,6 +962,7 @@
     transform: scaleY(1) scaleX(0.95);
     fill: #F8A882;
   }
+
   100% {
     transform: scaleY(1.35) scaleX(1.15);
     fill: #FF7043;
@@ -954,6 +975,7 @@
     transform: scaleY(1);
     fill: #F6D65B;
   }
+
   100% {
     transform: scaleY(1.4);
     fill: #FFE082;
@@ -1032,10 +1054,10 @@
   cursor: pointer;
   transform: translate3d(0, 0, 0);
   transition: transform 1.2s cubic-bezier(0.3, 0, 0.2, 1),
-              background-color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
-              color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
-              border-color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
-              box-shadow 1.2s cubic-bezier(0.3, 0, 0.2, 1);
+    background-color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+    color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+    border-color 1.2s cubic-bezier(0.3, 0, 0.2, 1),
+    box-shadow 1.2s cubic-bezier(0.3, 0, 0.2, 1);
   text-decoration: none;
 }
 
@@ -1087,6 +1109,7 @@
   color: #7A5700;
   border: 1.5px solid #F6D65B;
 }
+
 .btn-nursery:hover {
   background-color: #F6D65B;
   color: #174B35;
@@ -1098,6 +1121,7 @@
   color: #174B35;
   border: 1.5px solid #9FD974;
 }
+
 .btn-lkg:hover {
   background-color: #72B95A;
   color: #FFFFFF;
@@ -1109,6 +1133,7 @@
   color: #55338E;
   border: 1.5px solid #C7B5EC;
 }
+
 .btn-ukg:hover {
   background-color: #8C66CC;
   color: #FFFFFF;
@@ -1311,32 +1336,40 @@
     gap: 36px;
     text-align: center;
   }
+
   .classes-hero-art {
     margin-top: 15px;
   }
+
   .classes-hero-content {
     align-items: center;
   }
+
   .classes-hero-heading,
   .classes-hero-lead {
     margin-left: auto;
     margin-right: auto;
   }
+
   .classes-hero-highlights {
     justify-content: center;
   }
+
   .classes-hero-programs {
     margin: 0 auto;
   }
+
   .creche-card-master {
     grid-template-columns: 1fr;
     gap: 36px;
     padding: 36px 32px;
   }
+
   .creche-main-col {
     align-items: center;
     text-align: center;
   }
+
   .creche-features-row {
     justify-content: center;
   }
@@ -1346,14 +1379,17 @@
   .kg-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .progression-track {
     flex-direction: column;
     gap: 16px;
   }
+
   .progression-connector {
     transform: rotate(90deg);
     margin: -4px 0;
   }
+
   .progression-step {
     width: 100%;
     max-width: 280px;
@@ -1364,32 +1400,102 @@
   .kg-cards-grid {
     grid-template-columns: 1fr;
   }
+
   .creche-details-grid {
     grid-template-columns: 1fr;
   }
+
   .highlight-box-fee {
     grid-column: span 1;
   }
+
   .creche-card-master {
     padding: 28px 20px;
     border-radius: 28px;
   }
+
   .progression-container-box {
     padding: 30px 18px 24px;
     border-radius: 28px;
   }
+
   .classes-hero {
-    padding: 105px 0 44px;
+    padding: 95px 0 38px;
   }
+
   .programs-chips {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .classes-heading-highlight {
     white-space: normal;
   }
+
   .age-progression-section {
     padding: 15px 0 10px;
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .classes-hero {
+    padding: 90px 0 28px;
+  }
+
+  .classes-hero-heading {
+    font-size: clamp(1.95rem, 7.8vw, 2.45rem);
+  }
+
+  .creche-card-master {
+    padding: 24px 16px;
+    border-radius: 24px;
+  }
+
+  .creche-details-col {
+    padding: 20px 14px;
+    border-radius: 22px;
+  }
+
+  .creche-detail-box {
+    padding: 14px 12px;
+    min-height: 68px;
+    gap: 12px;
+  }
+
+  .detail-icon-wrap {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .btn-creche-cta {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .progression-container-box {
+    padding: 24px 14px;
+    border-radius: 24px;
+  }
+
+  .progression-step {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .kg-header-wrap .kg-title {
+    font-size: clamp(1.85rem, 7.2vw, 2.3rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .program-chip {
+    padding: 8px 10px;
+  }
+
+  .program-chip strong {
+    font-size: 0.88rem;
   }
 }
 
@@ -1398,6 +1504,7 @@
   .spinner-rotate {
     animation: none;
   }
+
   .kg-class-card,
   .creche-detail-box,
   .progression-step,

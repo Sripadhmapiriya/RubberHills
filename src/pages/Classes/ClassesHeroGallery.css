@@ -176,6 +176,9 @@
 }
 
 @media (max-width: 640px) {
+  .chg {
+    max-width: min(340px, 92vw);
+  }
   .chg-rays {
     top: -14px;
     left: -6px;
@@ -190,5 +193,11 @@
   }
   .pol-card figcaption {
     font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .chg {
+    max-width: 285px;
   }
 }

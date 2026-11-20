@@ -471,3 +471,44 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 480px) {
+  .footer-main-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .footer-col-quicklinks {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-right: 0;
+    padding-bottom: 18px;
+  }
+
+  .footer-col-campus {
+    grid-column: 1 / -1;
+    border-right: none;
+    padding-left: 0;
+    padding-bottom: 4px;
+  }
+
+  .btn-enquire-pill {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .footer-brand-lockup {
+    gap: 10px;
+  }
+
+  .brand-name-main {
+    font-size: 1.18rem;
+  }
+
+  .footer-sub-container {
+    padding: 0 16px;
+  }
+}

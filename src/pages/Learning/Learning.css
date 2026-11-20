@@ -1041,6 +1041,16 @@
     display: none;
   }
 
+  .approach-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.2rem);
+    text-align: center;
+  }
+
+  .categories-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.3rem);
+    text-align: center;
+  }
+
   .principles-grid {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -1073,6 +1083,34 @@
   .closing-star,
   .closing-leaf {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .learning-hero {
+    padding-top: 95px;
+  }
+
+  .learning-hero-title {
+    font-size: clamp(1.95rem, 7.8vw, 2.45rem);
+  }
+
+  .learning-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-classes-cta,
+  .btn-approach-scroll {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .category-card {
+    padding: 22px 18px;
+    border-radius: 22px;
   }
 }
 

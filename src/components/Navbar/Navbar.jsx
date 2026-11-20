@@ -15,6 +15,18 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   // Track scroll for sticky falling island navbar
   useEffect(() => {
     const handleScroll = () => {
@@ -126,8 +138,17 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Drawer Menu */}
-      <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
-        <div className="mobile-drawer-content">
+      <div
+        className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation Menu"
+      >
+        <div
+          className="mobile-drawer-content"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="mobile-drawer-header">
             <Link to="/" className="navbar-brand" onClick={() => setMobileMenuOpen(false)}>
               <div className="brand-crest-wrapper" style={{ width: '40px', height: '40px' }}>

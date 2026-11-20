@@ -296,6 +296,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -306,23 +307,98 @@
     margin-bottom: 0;
     padding-bottom: 15px;
   }
+
+  .contact-hero {
+    padding: 95px 0 20px;
+  }
+
+  .contact-left-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-lead {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-highlights-list {
+    align-items: center;
+    width: 100%;
+  }
+
+  .contact-cta-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .form-right-col {
+    width: 100%;
+    max-width: 580px;
+    margin: 30px auto 0;
+  }
+
   .contact-container {
     grid-template-columns: 1fr;
   }
+
   .form-grid-2col {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 580px) {
+  .contact-card-box {
+    padding: 34px 18px 24px;
+    border-radius: 26px;
+  }
+
+  .input-wrap input,
+  .input-wrap select,
+  .input-wrap textarea {
+    font-size: 1rem;
+    padding: 12px 14px 12px 42px;
+  }
+
   .form-peeking-mascot {
-    width: clamp(95px, 24vw, 125px);
+    width: clamp(88px, 23vw, 120px);
     bottom: calc(100% - 9px);
   }
+
   .mascot-boy {
-    left: 12px;
+    left: 8px;
   }
+
   .mascot-girl {
-    right: 12px;
+    right: 8px;
+  }
+
+  .highlight-pill {
+    padding: 8px 16px 8px 10px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-heading {
+    font-size: 2.1rem;
+  }
+
+  .form-peeking-mascot {
+    width: 78px;
+  }
+
+  .mascot-boy {
+    left: 4px;
+  }
+
+  .mascot-girl {
+    right: 4px;
+  }
+
+  .contact-card-box {
+    padding: 30px 14px 20px;
   }
 }

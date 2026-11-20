@@ -5,7 +5,6 @@ import {
   Clock,
   Calendar,
   Users,
-  IndianRupee,
   Sparkles,
   Heart,
   Smile,
@@ -75,7 +74,7 @@ export default function Classes() {
               <div className="programs-chips">
                 <a href="#creche" className="program-chip chip-creche">
                   <strong>Creche</strong>
-                  <span>2.5–3 yrs</span>
+                  <span>2–3 yrs</span>
                 </a>
                 <a href="#classes" className="program-chip chip-nursery">
                   <strong>Nursery</strong>
@@ -116,7 +115,7 @@ export default function Classes() {
               <div className="creche-title-wrap">
                 <h2 className="creche-name">Creche</h2>
                 <div className="creche-highlight-age">
-                  <span>Age Group:</span> <strong>2.5–3 years</strong>
+                  <span>Age Group:</span> <strong>2–3 years</strong>
                 </div>
               </div>
 
@@ -151,7 +150,7 @@ export default function Classes() {
               </Link>
             </div>
 
-            {/* Right Column: 5 Exact Programme Details */}
+            {/* Right Column: Programme Details (4 Key Info Cards) */}
             <div className="creche-details-col">
               <h3 className="creche-details-heading">Programme Overview</h3>
 
@@ -163,7 +162,7 @@ export default function Classes() {
                   </div>
                   <div className="detail-meta">
                     <span className="detail-label">Age Group</span>
-                    <strong className="detail-value">2.5–3 years</strong>
+                    <strong className="detail-value">2–3 years</strong>
                   </div>
                 </div>
 
@@ -197,18 +196,6 @@ export default function Classes() {
                   <div className="detail-meta">
                     <span className="detail-label">Group Size</span>
                     <strong className="detail-value">Maximum 12 children</strong>
-                  </div>
-                </div>
-
-                {/* 5. Monthly Fee */}
-                <div className="creche-detail-box highlight-box-fee">
-                  <div className="detail-icon-wrap fee-icon">
-                    <IndianRupee size={22} />
-                  </div>
-                  <div className="detail-meta">
-                    <span className="detail-label">Monthly Fee</span>
-                    <strong className="detail-value">₹2,000</strong>
-                    <span className="detail-sub">per month</span>
                   </div>
                 </div>
               </div>
@@ -412,7 +399,7 @@ export default function Classes() {
                 </div>
                 <div className="step-content">
                   <h4 className="step-name">Creche</h4>
-                  <span className="step-age-tag">2.5–3 years</span>
+                  <span className="step-age-tag">2–3 years</span>
                 </div>
               </div>
 

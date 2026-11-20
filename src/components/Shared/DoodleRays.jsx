@@ -7,7 +7,6 @@ export default function DoodleRays({ className = '', style = {}, flip = false })
       style={{
         width: '36px',
         height: '32px',
-        display: 'inline-block',
         transform: flip ? 'scaleX(-1)' : 'none',
         verticalAlign: 'middle',
         ...style,

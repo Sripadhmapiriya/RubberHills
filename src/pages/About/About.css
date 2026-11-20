@@ -723,6 +723,10 @@
 /* RESPONSIVE DESIGN                                              */
 /* ============================================================== */
 @media (max-width: 1024px) {
+  .about-rays {
+    display: none !important;
+  }
+
   .about-container {
     grid-template-columns: 1fr;
     gap: 40px;

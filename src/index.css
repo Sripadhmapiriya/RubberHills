@@ -79,6 +79,10 @@ img {
   display: block;
 }
 
+.doodle-rays {
+  display: inline-block;
+}
+
 button {
   font-family: inherit;
   cursor: pointer;

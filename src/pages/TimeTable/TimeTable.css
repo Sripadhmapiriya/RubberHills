@@ -1177,7 +1177,7 @@
   }
 
   .timetable-hero-rays {
-    display: none;
+    display: none !important;
   }
 
   .timetable-editorial-feature {

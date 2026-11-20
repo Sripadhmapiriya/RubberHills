@@ -1102,7 +1102,7 @@
   }
 
   .learning-hero-rays {
-    display: none;
+    display: none !important;
   }
 
   .principles-grid {

@@ -254,6 +254,10 @@
 }
 
 @media (max-width: 992px) {
+  .campus-rays {
+    display: none !important;
+  }
+
   .campus-heading {
     font-size: clamp(2rem, 5vw, 2.8rem);
   }

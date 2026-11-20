@@ -35,6 +35,11 @@
   display: none;
 }
 
+/* Smooth return to rest when icon stops jumping */
+.timeline-mobile-wrapper .mobile-icon-box {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
 /* Pulse milestone node when car visits it on mobile */
 .timeline-mobile-wrapper .mobile-milestone-node.is-visiting {
   transform: scale(1.15);

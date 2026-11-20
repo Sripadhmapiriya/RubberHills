@@ -56,18 +56,18 @@ function buildMobileRoad(wrapper) {
   const base = wrapper.getBoundingClientRect();
   const nodes = [...wrapper.querySelectorAll('.mobile-milestone-node')].map((n) => relRect(n, base));
   const cards = [...wrapper.querySelectorAll('.mobile-moment-card')].map((c) => relRect(c, base));
-  if (nodes.length < 2) return null;
+  if (nodes.length < 2 || cards.length === 0) return null;
 
   // The track line x is aligned with the center of the milestone nodes
   const trackX = nodes[0].cx;
-  const startY = Math.max(0, nodes[0].top - 20);
-  const lastNode = nodes[nodes.length - 1];
-  const endY = lastNode.bottom + 25;
+  const startY = Math.max(0, cards[0].top - 6);
+  const lastCard = cards[cards.length - 1];
+  const endY = lastCard.bottom;
 
   return {
     d: `M ${trackX} ${startY} L ${trackX} ${endY}`,
     width: base.width,
-    height: base.height,
+    height: Math.max(base.height, endY),
     nodes,
     cards,
     isMobile: true,
@@ -219,14 +219,22 @@ export default function TimelineCar({ wrapperRef, isMobile = false }) {
         ? [...wrapper.querySelectorAll('.mobile-milestone-node')]
         : [];
 
-      if (visiting >= 0) {
-        if (cardEls[visiting]) cardEls[visiting].classList.remove('is-visiting');
-        if (nodeEls[visiting]) nodeEls[visiting].classList.remove('is-visiting');
-      }
-      if (idx >= 0) {
-        if (cardEls[idx]) cardEls[idx].classList.add('is-visiting');
-        if (nodeEls[idx]) nodeEls[idx].classList.add('is-visiting');
-      }
+      cardEls.forEach((card, i) => {
+        if (i === idx) {
+          card.classList.add('is-visiting');
+        } else {
+          card.classList.remove('is-visiting');
+        }
+      });
+
+      nodeEls.forEach((node, i) => {
+        if (i === idx) {
+          node.classList.add('is-visiting');
+        } else {
+          node.classList.remove('is-visiting');
+        }
+      });
+
       visiting = idx;
     };
 
@@ -247,8 +255,11 @@ export default function TimelineCar({ wrapperRef, isMobile = false }) {
       car.style.opacity = parkedFor > PARK_MS - 400 ? String(Math.max(0, (PARK_MS - parkedFor) / 400)) : '1';
 
       // Highlight the card/node the car is currently visiting
-      const inside = road.isMobile
-        ? road.nodes.findIndex((n) => Math.abs(p.y - n.cy) < 55)
+      const isParked = elapsed >= driveMs;
+      const inside = isParked
+        ? -1
+        : road.isMobile
+        ? road.cards.findIndex((c) => p.y >= c.top && p.y <= c.bottom)
         : road.cards.findIndex(
             (c) => p.x > c.left + 4 && p.x < c.right - 4 && p.y > c.top + 4 && p.y < c.bottom - 4
           );

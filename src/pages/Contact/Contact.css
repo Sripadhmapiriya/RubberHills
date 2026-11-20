@@ -349,6 +349,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .contact-heading {
+    font-size: clamp(1.65rem, 5.2vw, 2.2rem);
+    line-height: 1.15;
+  }
+}
+
 @media (max-width: 580px) {
   .contact-card-box {
     padding: 34px 18px 24px;
@@ -362,6 +369,14 @@
     padding: 12px 14px 12px 42px;
   }
 
+  .contact-heading {
+    font-size: clamp(1.45rem, 5.2vw, 1.75rem);
+    line-height: 1.18;
+  }
+  .heading-heart-icon {
+    width: 24px;
+    height: 24px;
+  }
   .form-peeking-mascot {
     width: clamp(88px, 23vw, 120px);
     bottom: calc(100% - 9px);

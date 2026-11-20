@@ -757,6 +757,14 @@
 }
 
 @media (max-width: 768px) {
+  .about-heading {
+    font-size: clamp(1.65rem, 5.2vw, 2.2rem);
+    line-height: 1.15;
+  }
+  .story-heading {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    line-height: 1.2;
+  }
   .founders-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -764,6 +772,16 @@
 }
 
 @media (max-width: 600px) {
+  .about-heading {
+    font-size: clamp(1.4rem, 5.2vw, 1.72rem);
+    line-height: 1.18;
+  }
+  .values-title {
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+  }
+  .story-heading {
+    font-size: clamp(1.55rem, 5vw, 2rem);
+  }
   .values-grid {
     grid-template-columns: 1fr;
   }

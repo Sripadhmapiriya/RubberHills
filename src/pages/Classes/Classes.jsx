@@ -32,7 +32,7 @@ export default function Classes() {
             <PillBadge text="OUR LEARNING JOURNEY" className="classes-eyebrow" />
 
             <h1 className="classes-hero-heading">
-              Every little step begins a{' '}
+              Every little step{' '}<br className="br-mobile" />begins a{' '}
               <span className="classes-heading-highlight">
                 big journey.
                 <DoodleUnderline className="classes-hero-underline" />

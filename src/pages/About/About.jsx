@@ -32,8 +32,10 @@ export default function About() {
             <div className="about-title-wrapper">
               <DoodleRays className="about-rays" />
               <h1 className="about-heading">
-                Growing little<br />
-                minds, one happy<br />
+                Growing little<br className="br-desktop" />
+                {" "}minds, <br className="br-mobile" />
+                one happy<br className="br-desktop" />
+                {" "}
                 <span className="heading-highlight">
                   day at a time.
                   <DoodleUnderline className="about-underline" />

@@ -1396,7 +1396,24 @@
   }
 }
 
+@media (max-width: 768px) {
+  .classes-hero-heading {
+    font-size: clamp(1.65rem, 5.2vw, 2.2rem);
+    line-height: 1.15;
+  }
+}
+
 @media (max-width: 640px) {
+  .classes-hero-heading {
+    font-size: clamp(1.45rem, 5.2vw, 1.75rem);
+    line-height: 1.18;
+  }
+  .kg-heading {
+    font-size: clamp(1.65rem, 5vw, 2.2rem);
+  }
+  .creche-name {
+    font-size: clamp(1.75rem, 5vw, 2.3rem);
+  }
   .kg-cards-grid {
     grid-template-columns: 1fr;
   }

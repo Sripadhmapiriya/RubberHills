@@ -171,8 +171,8 @@ export default function Contact() {
           {/* Left Column: Heading & Badges */}
           <div className="contact-left-col">
             <h1 className="contact-heading">
-              Big dreams<br />
-              begin with <Heart size={38} className="heading-heart-icon" /><br />
+              Big dreams<br className="br-desktop" />
+              {" "}begin with <Heart size={34} className="heading-heart-icon" /><br />
               <span className="heading-highlight">
                 little steps.
                 <DoodleUnderline className="contact-underline" />

@@ -24,9 +24,10 @@ export default function Campus() {
             <div className="campus-title-wrapper">
               <DoodleRays className="campus-rays" />
               <h1 className="campus-heading">
-                More than<br />
-                a school.<br />
-                A world to<br />
+                More than<br className="br-desktop" />
+                {" "}a school.<br />
+                A world to<br className="br-desktop" />
+                {" "}
                 <span className="heading-highlight">
                   explore.
                   <DoodleUnderline className="campus-underline" />

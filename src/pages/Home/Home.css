@@ -657,7 +657,11 @@
   }
 
   .hero-heading {
-    font-size: clamp(2.1rem, 8vw, 2.6rem);
+    font-size: clamp(1.8rem, 6vw, 2.3rem);
+    line-height: 1.12;
+  }
+  .section-title-centered {
+    font-size: clamp(1.75rem, 5.5vw, 2.2rem);
   }
 
   /* Values Banner: Proportional Smooth Ribbon on Mobile */
@@ -773,7 +777,8 @@
   }
 
   .hero-heading {
-    font-size: 2.15rem;
+    font-size: clamp(1.5rem, 5.4vw, 1.85rem);
+    line-height: 1.15;
   }
 
   .hero-cta-group {

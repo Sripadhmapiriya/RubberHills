@@ -128,6 +128,23 @@ button {
   animation: floatSlow 7s ease-in-out infinite;
 }
 
+/* Responsive Line Break Utilities */
+.br-mobile {
+  display: none;
+}
+.br-desktop {
+  display: initial;
+}
+
+@media (max-width: 768px) {
+  .br-desktop {
+    display: none !important;
+  }
+  .br-mobile {
+    display: initial !important;
+  }
+}
+
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {

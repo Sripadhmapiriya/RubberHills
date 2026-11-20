@@ -40,13 +40,19 @@ html {
 
 @media (max-width: 768px) {
   html {
-    font-size: 15.2px;
+    font-size: 16.2px;
   }
 }
 
 @media (max-width: 480px) {
   html {
-    font-size: 14.5px;
+    font-size: 15.5px;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 15.0px;
   }
 }
 

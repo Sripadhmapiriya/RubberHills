@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import './Navbar.css';
@@ -157,81 +158,85 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      <div
-        className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}
-        onClick={() => {
-          document.body.style.overflow = '';
-          setMobileMenuOpen(false);
-        }}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation Menu"
-      >
-        <div
-          className="mobile-drawer-content"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="mobile-drawer-header">
-            <Link
-              to="/"
-              className="navbar-brand"
-              onClick={(e) => handleMobileNav(e, '/')}
+      {/* Mobile Drawer Menu rendered via portal onto body so it escapes transformed headers */}
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <div
+            className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}
+            onClick={() => {
+              document.body.style.overflow = '';
+              setMobileMenuOpen(false);
+            }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation Menu"
+          >
+            <div
+              className="mobile-drawer-content"
+              onClick={(e) => e.stopPropagation()}
             >
-              <div className="brand-crest-wrapper" style={{ width: '40px', height: '40px' }}>
-                <img
-                  src="/original/school-logo.jpg"
-                  alt="Rubber Hills Kindergarten Logo"
-                  className="brand-crest-img"
-                />
+              <div className="mobile-drawer-header">
+                <Link
+                  to="/"
+                  className="navbar-brand"
+                  onClick={(e) => handleMobileNav(e, '/')}
+                >
+                  <div className="brand-crest-wrapper" style={{ width: '40px', height: '40px' }}>
+                    <img
+                      src="/original/school-logo.jpg"
+                      alt="Rubber Hills Kindergarten Logo"
+                      className="brand-crest-img"
+                    />
+                  </div>
+                  <div className="brand-text-col">
+                    <span className="brand-name">RUBBER HILLS</span>
+                    <span className="brand-sub">KINDERGARTEN</span>
+                  </div>
+                </Link>
+                <button
+                  type="button"
+                  className="mobile-drawer-close"
+                  aria-label="Close menu"
+                  onClick={() => {
+                    document.body.style.overflow = '';
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  <X size={26} />
+                </button>
               </div>
-              <div className="brand-text-col">
-                <span className="brand-name">RUBBER HILLS</span>
-                <span className="brand-sub">KINDERGARTEN</span>
+
+              <nav className="mobile-drawer-nav">
+                {navLinks.map((item) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.path}
+                    end={item.path === '/'}
+                    className={({ isActive }) =>
+                      `mobile-nav-link ${isActive ? 'active' : ''}`
+                    }
+                    onClick={(e) => handleMobileNav(e, item.path)}
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
+              </nav>
+
+              <div className="mobile-drawer-footer">
+                <Link
+                  to="/contact"
+                  className="btn-visit-us-yellow"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                  onClick={(e) => handleMobileNav(e, '/contact')}
+                >
+                  <span>Visit Us</span>
+                  <ArrowRight size={17} />
+                </Link>
               </div>
-            </Link>
-            <button
-              type="button"
-              className="mobile-drawer-close"
-              aria-label="Close menu"
-              onClick={() => {
-                document.body.style.overflow = '';
-                setMobileMenuOpen(false);
-              }}
-            >
-              <X size={26} />
-            </button>
-          </div>
-
-          <nav className="mobile-drawer-nav">
-            {navLinks.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.path}
-                end={item.path === '/'}
-                className={({ isActive }) =>
-                  `mobile-nav-link ${isActive ? 'active' : ''}`
-                }
-                onClick={(e) => handleMobileNav(e, item.path)}
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </nav>
-
-          <div className="mobile-drawer-footer">
-            <Link
-              to="/contact"
-              className="btn-visit-us-yellow"
-              style={{ width: '100%', justifyContent: 'center' }}
-              onClick={(e) => handleMobileNav(e, '/contact')}
-            >
-              <span>Visit Us</span>
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-        </div>
-      </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </header>
   );
 }

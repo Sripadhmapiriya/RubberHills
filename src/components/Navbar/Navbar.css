@@ -276,7 +276,7 @@
   background-color: rgba(6, 75, 37, 0.45);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  z-index: 999;
+  z-index: 9999;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;

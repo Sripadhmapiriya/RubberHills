@@ -1518,3 +1518,11 @@
 #classes {
   scroll-margin-top: 90px;
 }
+
+/* Smooth anchor target scrolling */
+#creche,
+#nursery,
+#lkg,
+#ukg {
+  scroll-margin-top: 110px;
+}

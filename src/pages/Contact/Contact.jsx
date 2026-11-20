@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import {
   Heart,
   BookOpen,
@@ -12,10 +12,12 @@ import {
   CheckCircle,
   AlertCircle,
   Loader2,
+  ShieldCheck,
 } from 'lucide-react';
 import DoodleUnderline from '../../components/Shared/DoodleUnderline';
 import DoodleRays from '../../components/Shared/DoodleRays';
 import FloatingLeaves from '../../components/Shared/FloatingLeaves';
+import { SCHOOL_INFO } from '../../config/schoolInfo';
 import './Contact.css';
 
 function resolveClassParam(raw) {
@@ -43,7 +45,11 @@ export default function Contact() {
     contactNumber: '',
     interestedClass: getInitialClass(),
     message: '',
+    privacyConsent: false,
+    website: '', // Honeypot field (must stay empty)
   });
+
+  const [mountTime] = useState(() => Date.now());
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -62,10 +68,10 @@ export default function Contact() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
     if (errorMessage) setErrorMessage('');
   };
@@ -76,19 +82,39 @@ export default function Contact() {
     setSuccess(false);
 
     // Client-side validations
-    if (!formData.parentVisitorName.trim()) {
-      setErrorMessage('Please enter Parent / Visitor Name.');
+    const parent = formData.parentVisitorName.trim();
+    if (!parent || parent.length < 2) {
+      setErrorMessage('Please enter Parent / Visitor Name (at least 2 characters).');
+      return;
+    }
+    if (parent.length > 100) {
+      setErrorMessage('Parent / Visitor Name cannot exceed 100 characters.');
       return;
     }
 
-    if (!formData.childName.trim()) {
-      setErrorMessage("Please enter Child's Name.");
+    const child = formData.childName.trim();
+    if (!child || child.length < 2) {
+      setErrorMessage("Please enter Child's Name (at least 2 characters).");
+      return;
+    }
+    if (child.length > 100) {
+      setErrorMessage("Child's Name cannot exceed 100 characters.");
       return;
     }
 
     const digitsOnly = formData.contactNumber.replace(/\D/g, '');
     if (!formData.contactNumber.trim() || digitsOnly.length < 10 || digitsOnly.length > 15) {
-      setErrorMessage('Please enter a valid Phone Number (minimum 10 digits).');
+      setErrorMessage('Please enter a valid Phone Number (10 to 15 digits).');
+      return;
+    }
+
+    if (formData.message && formData.message.length > 1000) {
+      setErrorMessage('Message cannot exceed 1000 characters.');
+      return;
+    }
+
+    if (!formData.privacyConsent) {
+      setErrorMessage('Please confirm your consent to the Privacy Policy to submit an enquiry.');
       return;
     }
 
@@ -100,7 +126,10 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          submitTime: mountTime,
+        }),
       });
 
       const result = await response.json();
@@ -113,18 +142,20 @@ export default function Contact() {
           contactNumber: '',
           interestedClass: 'Nursery',
           message: '',
+          privacyConsent: false,
+          website: '',
         });
       } else {
         setErrorMessage(
           result.error ||
           result.message ||
-          'Failed to deliver enquiry. Please contact school directly at +91 98765 43210.'
+          `Failed to deliver enquiry. Please contact the school directly at ${SCHOOL_INFO.email}.`
         );
       }
     } catch (err) {
       console.error('Submission Error:', err);
       setErrorMessage(
-        'Unable to connect to the email service. Please call us at +91 98765 43210 or email rubberhillskindergarten@gmail.com.'
+        `Unable to connect to the email service. Please contact us directly at ${SCHOOL_INFO.email}.`
       );
     } finally {
       setLoading(false);
@@ -197,6 +228,9 @@ export default function Contact() {
                   src="/svgs/boy-transparent.png"
                   alt="Cheerful student peeking over admission form left"
                   className="peeking-mascot-img"
+                  loading="lazy"
+                  width="175"
+                  height="175"
                 />
               </div>
 
@@ -206,6 +240,9 @@ export default function Contact() {
                   src="/svgs/girl-transparent.png"
                   alt="Cheerful student peeking over admission form right"
                   className="peeking-mascot-img"
+                  loading="lazy"
+                  width="175"
+                  height="175"
                 />
               </div>
 
@@ -235,6 +272,20 @@ export default function Contact() {
               )}
 
               <form onSubmit={handleSubmit} className="admission-form" noValidate>
+                {/* Anti-spam Honeypot Field (Hidden from real users) */}
+                <div className="rh-hp-wrap" aria-hidden="true">
+                  <label htmlFor="website">Leave this field blank</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    value={formData.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="form-grid-2col">
                   {/* Parent Name */}
                   <div className="form-field">
@@ -252,6 +303,7 @@ export default function Contact() {
                         placeholder="Parent Name*"
                         required
                         disabled={loading}
+                        maxLength={100}
                       />
                     </div>
                   </div>
@@ -272,6 +324,7 @@ export default function Contact() {
                         placeholder="Child Name*"
                         required
                         disabled={loading}
+                        maxLength={100}
                       />
                     </div>
                   </div>
@@ -294,11 +347,12 @@ export default function Contact() {
                         placeholder="Phone Number*"
                         required
                         disabled={loading}
+                        maxLength={15}
                       />
                     </div>
                   </div>
 
-                  {/* Interested Class */}
+                  {/* Interested Class (2–3 Years for Creche confirmed) */}
                   <div className="form-field">
                     <label htmlFor="interestedClass" className="field-label">
                       Interested Class
@@ -315,7 +369,7 @@ export default function Contact() {
                         <option value="Nursery">Nursery (3–4 Years)</option>
                         <option value="LKG">LKG (4–5 Years)</option>
                         <option value="UKG">UKG (5–6 Years)</option>
-                        <option value="Creche">Creche (2.5–3 Years)</option>
+                        <option value="Creche">Creche (2–3 Years)</option>
                       </select>
                     </div>
                   </div>
@@ -336,8 +390,32 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Message (optional notes or questions)"
                       disabled={loading}
+                      maxLength={1000}
                     ></textarea>
                   </div>
+                </div>
+
+                {/* Child Data Privacy Consent Checkbox */}
+                <div className="form-consent-row">
+                  <label className="consent-checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="privacyConsent"
+                      name="privacyConsent"
+                      checked={formData.privacyConsent}
+                      onChange={handleChange}
+                      disabled={loading}
+                      className="consent-checkbox-input"
+                      required
+                    />
+                    <span className="consent-text">
+                      I consent to Rubber Hills Kindergarten collecting this information to contact me regarding admission. View our{' '}
+                      <Link to="/privacy" target="_blank" rel="noopener noreferrer" className="consent-link">
+                        Privacy Policy
+                      </Link>
+                      .*
+                    </span>
+                  </label>
                 </div>
 
                 {/* Submit Button */}

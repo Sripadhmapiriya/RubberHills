@@ -12,6 +12,7 @@ import Learning from './pages/Learning/Learning';
 import Classes from './pages/Classes/Classes';
 import TimeTable from './pages/TimeTable/TimeTable';
 import Contact from './pages/Contact/Contact';
+import Privacy from './pages/Privacy/Privacy';
 
 function LegacyRedirect() {
   React.useEffect(() => {
@@ -36,6 +37,9 @@ export default function App() {
             <Route path="/time-table" element={<TimeTable />} />
             <Route path="/timetable" element={<Navigate to="/time-table" replace />} />
             <Route path="/contact" element={<Contact />} />
+            {/* Child Data Protection & Privacy Policy */}
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
             {/* Preserved Previous Website Direct Access */}
             <Route path="/previous-website" element={<LegacyRedirect />} />
             {/* Fallback to Home */}
@@ -47,4 +51,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-

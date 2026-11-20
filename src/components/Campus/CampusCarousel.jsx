@@ -135,6 +135,17 @@ export default function CampusCarousel({ intervalMs = 3000 }) {
     touchStartXRef.current = null;
   };
 
+  // 4. Keyboard Arrow Navigation
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevSlide();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextSlide();
+    }
+  };
+
   // Compute circular offset for 3D positioning
   const getOffset = (idx) => {
     let diff = idx - activeIndex;
@@ -148,6 +159,8 @@ export default function CampusCarousel({ intervalMs = 3000 }) {
       className="campus-carousel-wrapper"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
       aria-roledescription="carousel"
       aria-label="Campus Photographs Carousel"
     >

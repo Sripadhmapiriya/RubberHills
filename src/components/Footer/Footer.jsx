@@ -7,7 +7,9 @@ import {
   ArrowRight,
   GraduationCap,
   Leaf,
+  ShieldCheck,
 } from 'lucide-react';
+import { SCHOOL_INFO } from '../../config/schoolInfo';
 import './Footer.css';
 
 // Crisp inline SVGs for social media icons
@@ -26,13 +28,13 @@ const InstagramIcon = ({ size = 16 }) => (
 );
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="site-footer" role="contentinfo">
       {/* ============================================================== */}
       {/* 1. TOP HERO SPACER                                             */}
-      {/* Displays the background image artwork: the illustrated hill,   */}
-      {/* children, headline "Little steps today. Brighter tomorrows."   */}
-      {/* and framing botanical leaves from public/footer.               */}
+      {/* Displays the background image artwork                          */}
       {/* ============================================================== */}
       <div className="footer-hero-spacer" aria-label="Little steps today. Brighter tomorrows.">
         <h2 className="sr-only">Little steps today. Brighter tomorrows.</h2>
@@ -40,7 +42,6 @@ export default function Footer() {
 
       {/* ============================================================== */}
       {/* 2. MAIN 4-COLUMN CONTENT SECTION                               */}
-      {/* Rendered directly on the dark green canvas of the background   */}
       {/* ============================================================== */}
       <div className="footer-main-section">
         <div className="footer-main-container">
@@ -67,7 +68,7 @@ export default function Footer() {
 
             <div className="footer-social-group" aria-label="Social media links">
               <a
-                href="https://www.facebook.com/share/1J9CG4KVtR/"
+                href={SCHOOL_INFO.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-btn"
@@ -76,7 +77,7 @@ export default function Footer() {
                 <FacebookIcon size={16} />
               </a>
               <a
-                href="https://www.instagram.com/rubberhillsgroup?psln=MTkzMHg2OXJjMzIzeQ=="
+                href={SCHOOL_INFO.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-btn"
@@ -87,7 +88,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links (Exact 7 Pages Matching Navbar) */}
+          {/* Column 2: Quick Links (7 Core Pages + Privacy) */}
           <div className="footer-col footer-col-links footer-col-quicklinks">
             <h3 className="footer-col-header">
               <Leaf size={18} className="col-header-icon" />
@@ -129,6 +130,11 @@ export default function Footer() {
                   <span className="link-chevron">&gt;</span> Contact
                 </Link>
               </li>
+              <li>
+                <Link to="/privacy">
+                  <span className="link-chevron">&gt;</span> Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -164,6 +170,11 @@ export default function Footer() {
                   <span className="link-chevron">&gt;</span> Daily Schedule
                 </Link>
               </li>
+              <li>
+                <Link to="/privacy">
+                  <span className="link-chevron">&gt;</span> Child Data Privacy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -176,15 +187,17 @@ export default function Footer() {
             <div className="footer-contact-list">
               <div className="footer-contact-entry">
                 <MapPin size={18} className="contact-entry-icon" />
-                <span>Rubber Hills Kindergarten, Manjaloomodu</span>
+                <span>{SCHOOL_INFO.address.display}</span>
               </div>
-              <div className="footer-contact-entry">
-                <Phone size={17} className="contact-entry-icon" />
-                <a href="tel:+919876543210">+91 98765 43210</a>
-              </div>
+              {SCHOOL_INFO.phone && (
+                <div className="footer-contact-entry">
+                  <Phone size={17} className="contact-entry-icon" />
+                  <a href={`tel:${SCHOOL_INFO.phone.replace(/\s+/g, '')}`}>{SCHOOL_INFO.phone}</a>
+                </div>
+              )}
               <div className="footer-contact-entry">
                 <Mail size={17} className="contact-entry-icon" />
-                <a href="mailto:rubberhillskindergarten@gmail.com">rubberhillskindergarten@gmail.com</a>
+                <a href={`mailto:${SCHOOL_INFO.email}`}>{SCHOOL_INFO.email}</a>
               </div>
             </div>
 
@@ -202,7 +215,10 @@ export default function Footer() {
       <div className="footer-sub-bar">
         <div className="footer-sub-container">
           <p className="copyright-notice">
-            © 2027 Rubber Hills Kindergarten. All Rights Reserved.
+            © {currentYear} Rubber Hills Kindergarten. All Rights Reserved. &nbsp;|&nbsp;{' '}
+            <Link to="/privacy" style={{ color: 'inherit', textDecoration: 'underline' }}>
+              Privacy Policy
+            </Link>
           </p>
 
           <div className="sub-bar-motto">
@@ -215,7 +231,7 @@ export default function Footer() {
             <span className="follow-text">Follow Us</span>
             <div className="mini-social-icons">
               <a
-                href="https://www.facebook.com/share/1J9CG4KVtR/"
+                href={SCHOOL_INFO.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mini-social-btn"
@@ -224,7 +240,7 @@ export default function Footer() {
                 <FacebookIcon size={13} />
               </a>
               <a
-                href="https://www.instagram.com/rubberhillsgroup?psln=MTkzMHg2OXJjMzIzeQ=="
+                href={SCHOOL_INFO.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mini-social-btn"

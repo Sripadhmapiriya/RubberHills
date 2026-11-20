@@ -76,15 +76,15 @@ export default function Classes() {
                   <strong>Creche</strong>
                   <span>2–3 yrs</span>
                 </a>
-                <a href="#classes" className="program-chip chip-nursery">
+                <a href="#nursery" className="program-chip chip-nursery">
                   <strong>Nursery</strong>
                   <span>3–4 yrs</span>
                 </a>
-                <a href="#classes" className="program-chip chip-lkg">
+                <a href="#lkg" className="program-chip chip-lkg">
                   <strong>Lower KG</strong>
                   <span>4–5 yrs</span>
                 </a>
-                <a href="#classes" className="program-chip chip-ukg">
+                <a href="#ukg" className="program-chip chip-ukg">
                   <strong>Upper KG</strong>
                   <span>5–6 yrs</span>
                 </a>
@@ -218,9 +218,9 @@ export default function Classes() {
           {/* 3 Equal-Width Individual Class Cards */}
           <div className="kg-cards-grid">
             {/* Card 1 – Nursery */}
-            <div className="kg-class-card card-nursery">
+            <div className="kg-class-card card-nursery" id="nursery">
               <div className="card-top-accent nursery-accent" />
-              
+
               <div className="kg-card-inner">
                 <div className="kg-age-badge nursery-age">
                   <span>Age Group:</span> <strong>3–4 years</strong>
@@ -269,7 +269,7 @@ export default function Classes() {
             </div>
 
             {/* Card 2 – Lower KG */}
-            <div className="kg-class-card card-lkg">
+            <div className="kg-class-card card-lkg" id="lkg">
               <div className="card-top-accent lkg-accent" />
 
               <div className="kg-card-inner">
@@ -293,7 +293,7 @@ export default function Classes() {
                       />
                       <path d="M 70 62 L 70 85" stroke="#72B95A" strokeWidth="2" />
                     </g>
-                    
+
                     {/* Growing leaf from book */}
                     <g className="ill-sprout">
                       <path className="sprout-stem" d="M 70 62 Q 70 38 70 28" stroke="#174B35" strokeWidth="2.8" strokeLinecap="round" />
@@ -323,7 +323,7 @@ export default function Classes() {
             </div>
 
             {/* Card 3 – Upper KG */}
-            <div className="kg-class-card card-ukg">
+            <div className="kg-class-card card-ukg" id="ukg">
               <div className="card-top-accent ukg-accent" />
 
               <div className="kg-card-inner">

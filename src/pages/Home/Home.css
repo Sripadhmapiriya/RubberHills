@@ -254,91 +254,99 @@
 }
 
 /* ============================================================== */
-/* 2. CURVED GREEN WAVE BANNER                                   */
+/* 2. TAGLINE BAND (Curved Wave Ribbon Banner)                   */
 /* ============================================================== */
-.wave-banner-section {
-  margin: 40px 0 30px;
-}
-
-.wave-banner-curved {
-  background-color: var(--color-primary);
-  padding: 22px 0;
-  clip-path: ellipse(110% 100% at 50% 50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 25px rgba(6, 75, 37, 0.2);
-}
-
-.wave-banner-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  color: #FFFFFF;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: clamp(1.1rem, 2.8vw, 1.7rem);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  flex-wrap: wrap;
-}
-
-.banner-word {
-  letter-spacing: 0.14em;
-}
-
-.banner-dot {
-  color: var(--color-yellow);
-  font-size: 1.4rem;
-}
-
-/* ============================================================== */
-/* 3. 3-IMAGE GALLERY COLLAGE                                     */
-/* ============================================================== */
-.home-gallery-section {
-  padding: 30px 0 60px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr 1fr;
-  gap: 24px;
-  align-items: center;
-}
-
-.gallery-card {
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  border: 4px solid #FFFFFF;
-  background-color: #FFFFFF;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-}
-
-.gallery-card.card-left {
-  transform: rotate(-1.5deg);
-}
-
-.gallery-card.card-right {
-  transform: rotate(1.5deg);
-}
-
-.gallery-card.card-left:hover,
-.gallery-card.card-right:hover {
-  transform: translateY(-6px) rotate(0deg);
-}
-
-.gallery-img {
+.tagline-band {
+  position: relative;
+  z-index: 10;
   width: 100%;
-  height: 240px;
-  object-fit: cover;
+  height: clamp(68px, 5.2vw, 84px);
+  margin-top: -28px;
+  margin-bottom: -16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  background-color: transparent;
+}
+
+.band-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: block;
+  overflow: visible;
+  filter: drop-shadow(0 6px 16px rgba(6, 75, 37, 0.2));
+}
+
+.band-bg-desktop {
+  display: block;
+}
+
+.band-bg-mobile {
+  display: none;
+}
+
+.band-fill {
+  fill: #064B25;
+}
+
+.band-line,
+.band-line-top {
+  fill: none;
+  stroke: #76B82A;
+  stroke-width: 3.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.band-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.2vw, 2.2rem);
+  margin: 0;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.45vw, 1.3rem);
+  font-family: var(--font-heading);
+  z-index: 2;
+  padding-top: 3px;
+}
+
+.band-text span {
+  letter-spacing: 0.28em;
+}
+
+.band-text i {
+  color: #FFD21C;
+  font-style: normal;
+  letter-spacing: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+/* ============================================================== */
+/* 3. 3-PHOTO PANORAMA / CURVED GALLERY                           */
+/* ============================================================== */
+:root {
+  --gallery-slant: clamp(52px, 5.2vw, 75px);
+  --gallery-gap: 8px;
+  --gallery-overlap: calc(var(--gallery-slant) - var(--gallery-gap));
+}
+
+.home-gallery-section {
+  position: relative;
+  z-index: 8;
+  width: 100%;
+  max-width: 100vw;
+  margin-top: -52px;
+  margin-bottom: 25px;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .features-container-box {
@@ -349,6 +357,72 @@
   box-sizing: border-box;
 }
 
+.panorama-curved-band {
+  display: flex;
+  width: 100%;
+  height: clamp(220px, 18.5vw, 300px);
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.panorama-item {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.panorama-item.item-left {
+  flex: 1.08;
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+  margin-right: calc(-1 * var(--gallery-overlap));
+  z-index: 1;
+}
+
+.panorama-item.item-center {
+  flex: 1.25;
+  clip-path: polygon(var(--gallery-slant) 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+  -webkit-clip-path: polygon(var(--gallery-slant) 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+  margin-right: calc(-1 * var(--gallery-overlap));
+  z-index: 2;
+}
+
+.panorama-item.item-right {
+  flex: 1.08;
+  clip-path: polygon(var(--gallery-slant) 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(var(--gallery-slant) 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+.panorama-slot {
+  width: 100%;
+  height: 100%;
+}
+
+.panorama-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.panorama-walkway-img {
+  object-position: center 30%;
+}
+
+.panorama-classroom-img {
+  object-position: center 40%;
+}
+
+.panorama-playground-img {
+  object-position: center 35%;
+}
+
+.panorama-item:hover .panorama-img {
+  transform: scale(1.04);
+}
 
 /* ============================================================== */
 /* 4. "A WORLD MADE FOR LITTLE MINDS" - 3 HORIZONTAL PILL CARDS   */
@@ -587,84 +661,110 @@
   }
 
   /* Values Banner: Proportional Smooth Ribbon on Mobile */
-    .wave-banner-section {
-    margin: 25px 0 20px;
+  .band-bg-desktop {
+    display: none;
   }
 
-  .wave-banner-curved {
-    padding: 16px 12px;
-    clip-path: none;
-    border-radius: 20px;
+  .band-bg-mobile {
+    display: block;
   }
 
-  .wave-banner-content {
-    gap: 12px;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
+  .tagline-band {
+    height: clamp(58px, 14vw, 68px);
+    margin-top: -12px;
+    margin-bottom: -20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    z-index: 10;
   }
 
+  .band-text {
+    font-size: clamp(0.72rem, 2.9vw, 0.85rem);
+    gap: clamp(0.38rem, 1.8vw, 0.65rem);
+    letter-spacing: 0.13em;
+    padding-top: 2px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .band-text span {
+    letter-spacing: 0.13em;
+  }
+
+  .band-text i {
+    color: #FFD21C;
+    font-size: 0.95rem;
+    line-height: 1;
+    margin: 0 -1px;
+  }
+
+  /* 3-Photo Panorama Gallery: EXACTLY matching desktop continuous curved ribbon */
   .home-gallery-section {
-    padding: 20px 0 35px;
+    --gallery-slant: clamp(20px, 5.5vw, 42px);
+    --gallery-gap: 5px;
+    --gallery-overlap: calc(var(--gallery-slant) - var(--gallery-gap));
+    margin-top: -20px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
   }
 
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .panorama-curved-band {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: clamp(160px, 36vw, 240px);
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    gap: 0;
+    padding: 0;
   }
 
-  .gallery-card.card-left,
-  .gallery-card.card-right {
-    transform: none;
+  .home-features-section {
+    padding: 20px 0 15px;
+    margin-bottom: 0;
   }
 
-  .gallery-card.card-left:hover,
-  .gallery-card.card-right:hover {
-    transform: translateY(-6px);
+  .panorama-item {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
   }
 
-  .gallery-img {
-    height: 220px;
+  .panorama-item.item-left {
+    flex: 1.08;
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    margin-right: calc(-1 * var(--gallery-overlap));
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 1;
   }
 
-  .features-container-box {
-    padding: 0 16px;
+  .panorama-item.item-center {
+    flex: 1.25;
+    clip-path: polygon(var(--gallery-slant) 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    -webkit-clip-path: polygon(var(--gallery-slant) 0, 100% 0, calc(100% - var(--gallery-slant)) 100%, 0 100%);
+    margin-right: calc(-1 * var(--gallery-overlap));
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 2;
   }
 
-  .section-header-centered {
-    gap: 10px;
-    margin-bottom: 24px;
+  .panorama-item.item-right {
+    flex: 1.08;
+    clip-path: polygon(var(--gallery-slant) 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(var(--gallery-slant) 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 1;
   }
 
-  .rays-left,
-  .rays-right {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-  }
-
-  .section-title-centered {
-    font-size: clamp(1.65rem, 6.5vw, 2.05rem);
-  }
-
-  .feature-pill-card {
-    padding: 16px 18px;
-    gap: 14px;
-    border-radius: 22px;
-  }
-
-  .feature-pill-icon-box {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
-  }
-
-  .feature-pill-title {
-    font-size: 1.12rem;
-  }
-
-  .feature-pill-desc {
-    font-size: 0.92rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -684,10 +784,18 @@
     padding: 11px 22px;
     font-size: 0.95rem;
   }
-}
 
-@media (max-width: 360px) {
-  .hero-heading {
-    font-size: 1.95rem;
+  .band-text {
+    font-size: clamp(0.66rem, 2.7vw, 0.76rem);
+    gap: clamp(0.28rem, 1.4vw, 0.46rem);
+    letter-spacing: 0.10em;
+  }
+
+  .band-text span {
+    letter-spacing: 0.10em;
+  }
+
+  .band-text i {
+    font-size: 0.88rem;
   }
 }

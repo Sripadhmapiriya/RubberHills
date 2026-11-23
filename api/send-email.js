@@ -30,9 +30,10 @@ const ALLOWED_CLASSES = ['Creche', 'Nursery', 'LKG', 'UKG'];
 
 function getLogoAttachment() {
   const possiblePaths = [
-    path.join(process.cwd(), 'public', 'assets', 'logo.jpg'),
     path.join(process.cwd(), 'public', 'original', 'school-logo.jpg'),
+    path.join(process.cwd(), 'public', 'assets', 'logo.jpg'),
     path.join(process.cwd(), 'rubber-hills-react', 'public', 'assets', 'logo.jpg'),
+    path.resolve('public/original/school-logo.jpg'),
     path.resolve('public/assets/logo.jpg'),
   ];
 
@@ -42,7 +43,9 @@ function getLogoAttachment() {
         return {
           filename: 'rubber-hills-logo.jpg',
           content: fs.readFileSync(p),
-          cid: 'schoollogo',
+          cid: 'schoollogo@rubberhills.in',
+          contentType: 'image/jpeg',
+          contentDisposition: 'inline',
         };
       } catch (e) {
         // Silently continue if cannot read
@@ -355,6 +358,10 @@ export default async function handler(req, res) {
       timeZone: 'Asia/Kolkata',
     });
 
+    const defaultSiteUrl = 'https://rubber-hills-kindergarden.vercel.app';
+    const siteUrl = process.env.PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : defaultSiteUrl);
+    const logoUrl = `${siteUrl.replace(/\/$/, '')}/original/school-logo.jpg`;
+
     const logoAttachment = getLogoAttachment();
     const attachments = logoAttachment ? [logoAttachment] : [];
 
@@ -391,10 +398,20 @@ export default async function handler(req, res) {
     <!-- School Header Branding -->
     <tr>
       <td style="padding: 32px 24px 20px 24px; text-align: center; background: linear-gradient(180deg, #DCEBCB 0%, #FFFFFF 100%);">
-        ${logoAttachment
-          ? `<img src="cid:schoollogo" alt="Rubber Hills Kindergarten Logo" width="88" height="88" style="display: block; margin: 0 auto 14px auto; width: 88px; height: 88px; border-radius: 50%; border: 3px solid #F2B632; object-fit: cover; background: #FFFFFF;" />`
-          : ''
-        }
+        <!-- Circular School Logo Badge -->
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin: 0 auto 14px auto;">
+          <tr>
+            <td style="width: 88px; height: 88px; border-radius: 50%; border: 3px solid #F2B632; background-color: #FFFFFF; text-align: center; vertical-align: middle; overflow: hidden; padding: 0;">
+              <img
+                src="${logoUrl}"
+                alt="Rubber Hills Kindergarten Logo"
+                width="88"
+                height="88"
+                style="display: block; width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 0; margin: 0 auto; background-color: #FFFFFF;"
+              />
+            </td>
+          </tr>
+        </table>
         <h1 style="margin: 0; font-size: 24px; color: #1E3A2B; font-weight: 700; letter-spacing: -0.3px;">Rubber Hills Kindergarten</h1>
         <div style="display: inline-block; margin-top: 8px; padding: 4px 16px; background-color: #2F7D4F; color: #FFFFFF; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">
           New Admission Enquiry

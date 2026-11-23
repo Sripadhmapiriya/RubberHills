@@ -19,3 +19,11 @@ yarn-error.log*
 .vscode/
 .idea/
 
+# Temporary media & test artifacts
+images.zip
+*.zip
+screenshots/
+extracted_images/
+chrome_temp/
+edge_temp/
+*.tmp
